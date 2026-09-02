@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Home } from "./screens/Home";
 import { Game } from "./screens/Game";
 import { Result } from "./screens/Result";
@@ -8,6 +8,14 @@ type Screen = { name: "home" } | { name: "game"; gameId: string; mode: GameMode 
 
 function App() {
   const [screen, setScreen] = useState<Screen>({ name: "home" });
+
+  useEffect(() => {
+    function handleE2EStart(event: CustomEvent<{ gameId: string; mode: GameMode }>) {
+      setScreen({ name: "game", gameId: event.detail.gameId, mode: event.detail.mode });
+    }
+    window.addEventListener("e2e-start-game", handleE2EStart as EventListener);
+    return () => window.removeEventListener("e2e-start-game", handleE2EStart as EventListener);
+  }, []);
 
   return (
     <main className="min-h-screen bg-background text-textPrimary">

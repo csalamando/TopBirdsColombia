@@ -48,6 +48,7 @@ artifacts:
   - path: spec/reports/sprint-8-review.md  owner: frontend-dev
   - path: spec/reports/sprint-9-review.md  owner: frontend-dev
   - path: spec/reports/sprint-10-review.md  owner: frontend-dev
+  - path: spec/reports/sprint-11-review.md  owner: qa-automation
 
   # Fase 5-7 — Entrega y operación
   - path: spec/qa-report.md                owner: qa-automation

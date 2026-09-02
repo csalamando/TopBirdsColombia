@@ -38,10 +38,12 @@
 | reports/sprint-7-review.md | 4 | backend-dev | Aprobado | SPRINT-7 | SQLite seed y persistencia |
 || reports/sprint-8-review.md | 4 | frontend-dev | Aprobado | SPRINT-8 | Frontend design system |
 || reports/sprint-9-review.md | 4 | frontend-dev | Aprobado | SPRINT-9 | Frontend pantallas y flujo |
-|| reports/sprint-10-review.md | 4 | frontend-dev | Aprobado | SPRINT-10 | Integración frontend-backend y E2E |
+||| reports/sprint-10-review.md | 4 | frontend-dev | Aprobado | SPRINT-10 | Integración frontend-backend y E2E |
+||| reports/sprint-11-review.md | 4 | qa-automation | Aprobado | SPRINT-11 | QA E2E formal y GATE 2 |
+||| qa-report.md | 5 | qa-automation | Completado | GATE 2 | Resumen de pruebas E2E, cobertura y veredicto |
 
 ## Fase actual
-5 (QA / Seguridad) — Sprint 11 en progreso: QA E2E formal y GATE 2
+5 (QA / Seguridad) — Sprint 11 completado: QA E2E formal y GATE 2 aprobado
 
 ## Riesgo y routing
 - Routing orgánico: **Discovery → Full-pipeline** (nueva iniciativa, objetivo demostrar arnés).
@@ -64,4 +66,5 @@
 - **Sprint 9 aprobado por usuario el 2026-09-02T18:25:55Z** — se autoriza Sprint 10.
 - Sprint 10 completado: integración frontend-backend, contract testing con Schemathesis, smoke E2E con Playwright verde, README y guía de API.
 - **Sprint 10 aprobado por usuario el 2026-09-02T18:25:55Z** — se autoriza Sprint 11.
-- Próximo gate: **GATE 2** (QA E2E) tras completar Sprint 11.
+- **GATE 2 aprobado** — Suite E2E formal: 10 escenarios y 60 steps verdes; backend 45 tests con 94.74 % cobertura; frontend 40 tests y build exitoso.
+- Próximo paso: **Sprint 12** (ajustes de UX, accesibilidad y release notes).

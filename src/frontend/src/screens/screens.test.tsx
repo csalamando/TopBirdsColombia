@@ -57,7 +57,7 @@ describe("Game screen", () => {
     expect(await screen.findByText(/Ganaste la ronda/i)).toBeInTheDocument();
   });
 
-  it("shows opponent turn button when turn is opponent", async () => {
+  it("shows attribute selection on opponent turn", async () => {
     server.use(
       http.get("/api/partidas/:id", () => {
         const game: GameType = {
@@ -86,7 +86,8 @@ describe("Game screen", () => {
       })
     );
     render(<Game gameId="game-1" mode="ia" onGameEnd={() => {}} onExit={() => {}} />);
-    expect(await screen.findByRole("button", { name: /Jugar turno de la IA/i })).toBeInTheDocument();
+    expect(await screen.findByText("Elige un atributo")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Tamaño/ })).toBeInTheDocument();
   });
 
   it("shows error state when game is not found", async () => {

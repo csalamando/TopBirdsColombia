@@ -20,7 +20,7 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `architectural-principles.yaml` | 4470fd905987 | 19 | Principios Arquitectónicos — Top Trumps Aves de Colombia |
 | `architecture-proposal.md` | e942faa33dcd | 53 | Propuesta de arquitectura — Top Trumps Aves de Colombia |
 | `architecture.md` | 80521beddd73 | 54 | Arquitectura de software — Top Trumps Aves de Colombia |
-| `authority-matrix.yaml` | 312f417c8462 | 61 | Matriz de autoridad — Top Trumps Aves de Colombia |
+| `authority-matrix.yaml` | 8ef9c76e59d2 | 62 | Matriz de autoridad — Top Trumps Aves de Colombia |
 | `backlog.md` | 54dc670834c0 | 40 | Backlog — Top Trumps Aves de Colombia |
 | `business-rules.md` | 6c4b4bdf8673 | 47 | Reglas de negocio — Top Trumps Aves de Colombia |
 | `cost-assumptions.yaml` | 922985f19fa1 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
@@ -30,8 +30,10 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `design-system.md` | c4f05e8f041f | 60 | Design System — Top Trumps Aves de Colombia |
 | `epics.md` | 2ac87fddfdb1 | 54 | Épicas — Top Trumps Aves de Colombia |
 | `glossary.md` | d2f10ce59bfe | 51 | Glosario — Top Trumps Aves de Colombia |
-| `pipeline-state.md` | dc34d8738ec3 | 68 | Estado del pipeline SDLC — Top Trumps Aves de Colombia |
+| `pipeline-state.md` | c7fb5ce6e450 | 71 | Estado del pipeline SDLC — Top Trumps Aves de Colombia |
+| `qa-report.md` | d845f334af1e | 105 | QA Report — Sprint 11: E2E formal y GATE 2 |
 | `reports/sprint-10-review.md` | bff01bd5e7c8 | 76 | Sprint 10 — Integración frontend-backend y pruebas E2E |
+| `reports/sprint-11-review.md` | 88ee6d05e471 | 86 | Sprint 11 — QA E2E formal y GATE 2 |
 | `reports/sprint-5-review.md` | d9b33fe32023 | 53 | Sprint 5 — Backend base TDD (modelos y /health) |
 | `reports/sprint-6-review.md` | 36436aac002f | 58 | Sprint 6 — Backend TDD: lógica completa del juego y endpoints de partida |
 | `reports/sprint-7-review.md` | 82b32bcafe69 | 55 | Sprint 7 — Backend TDD: SQLite seed y persistencia de datos |
@@ -51,4 +53,4 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `vision.md` | 1886a64466f8 | 40 | Visión de producto — Top Trumps Aves de Colombia |
 
 Memorias: 0 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
-Recibos: 34 en `spec/receipts/` (ver `receipt.py status`).
+Recibos: 36 en `spec/receipts/` (ver `receipt.py status`).
