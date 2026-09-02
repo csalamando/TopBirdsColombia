@@ -1,0 +1,118 @@
+from app.models import Ave
+
+
+def seed_aves() -> list[Ave]:
+    return [
+        Ave(
+            id=1,
+            nombre_comun="Guacamaya Bandera",
+            nombre_cientifico="Ara macao",
+            familia="Psittacidae",
+            habitat="Bosques húmedos tropicales",
+            dieta="Frugívora",
+            atribucion="Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 84.0,
+                "peso_g": 1000.0,
+                "envergadura_cm": 110.0,
+                "velocidad_kmh": 56.0,
+                "esperanza_vida_anos": 50.0,
+                "rareza": 4,
+            },
+        ),
+        Ave(
+            id=2,
+            nombre_comun="Colibrí de Buffon",
+            nombre_cientifico="Chalybura buffonii",
+            familia="Trochilidae",
+            habitat="Bosques húmedos",
+            dieta="Néctar e insectos",
+            atribucion="Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 11.0,
+                "peso_g": 7.0,
+                "envergadura_cm": 13.0,
+                "velocidad_kmh": 50.0,
+                "esperanza_vida_anos": 8.0,
+                "rareza": 6,
+            },
+        ),
+        Ave(
+            id=3,
+            nombre_comun="Águila Pescadora",
+            nombre_cientifico="Pandion haliaetus",
+            familia="Pandionidae",
+            habitat="Cerca de cuerpos de agua",
+            dieta="Piscívora",
+            atribucion="Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 60.0,
+                "peso_g": 1500.0,
+                "envergadura_cm": 170.0,
+                "velocidad_kmh": 130.0,
+                "esperanza_vida_anos": 30.0,
+                "rareza": 5,
+            },
+        ),
+        Ave(
+            id=4,
+            nombre_comun="Tucán Andino",
+            nombre_cientifico="Andigena nigrirostris",
+            familia="Ramphastidae",
+            habitat="Bosques montanos",
+            dieta="Frugívora",
+            atribucion="Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 48.0,
+                "peso_g": 350.0,
+                "envergadura_cm": 60.0,
+                "velocidad_kmh": 40.0,
+                "esperanza_vida_anos": 20.0,
+                "rareza": 6,
+            },
+        ),
+        Ave(
+            id=5,
+            nombre_comun="Búho de Antioquia",
+            nombre_cientifico="Ciccaba albitectus",
+            familia="Strigidae",
+            habitat="Bosques andinos",
+            dieta="Insectívora y pequeños vertebrados",
+            atribucion="eBird/Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 35.0,
+                "peso_g": 250.0,
+                "envergadura_cm": 90.0,
+                "velocidad_kmh": 35.0,
+                "esperanza_vida_anos": 15.0,
+                "rareza": 8,
+            },
+        ),
+        Ave(
+            id=6,
+            nombre_comun="Garza Blanca",
+            nombre_cientifico="Ardea alba",
+            familia="Ardeidae",
+            habitat="Humedales",
+            dieta="Piscívora e insectívora",
+            atribucion="Wikipedia",
+            imagen_url=None,
+            atributos={
+                "tamano_cm": 100.0,
+                "peso_g": 1100.0,
+                "envergadura_cm": 145.0,
+                "velocidad_kmh": 40.0,
+                "esperanza_vida_anos": 23.0,
+                "rareza": 2,
+            },
+        ),
+    ]
+
+
+def seed_cards() -> list[Ave]:
+    return seed_aves()

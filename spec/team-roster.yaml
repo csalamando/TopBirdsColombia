@@ -1,0 +1,5 @@
+# Roster del equipo — Top Trumps Aves de Colombia
+# Mapeo usuario → roles del arnés. Usado por authority_check.py en CI.
+
+members:
+  karlo: [orchestrator, product-owner, solution-architect, software-architect, business-analyst, ux-designer, backend-dev, frontend-dev, qa-automation, security-engineer, devops-engineer, cloud-engineer, cloud-pricing, sre, product-analyst, technical-writer, enterprise-architect, data-engineer]

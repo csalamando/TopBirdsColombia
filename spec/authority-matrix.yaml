@@ -1,0 +1,60 @@
+# Matriz de autoridad — Top Trumps Aves de Colombia
+# Fuente de verdad: un solo owner por artefacto.
+
+artifacts:
+  # Fase -1 — Setup
+  - path: spec/authority-matrix.yaml      owner: orchestrator
+  - path: spec/team-roster.yaml           owner: orchestrator
+  - path: spec/risk-tier.yaml             owner: orchestrator
+  - path: spec/dashboard.html             owner: orchestrator
+  - path: spec/pipeline-state.md          owner: orchestrator
+
+  # Fase 0 — Discovery
+  - path: spec/vision.md                  owner: product-owner
+  - path: spec/epics.md                   owner: product-owner
+  - path: spec/backlog.md                 owner: product-owner
+  - path: spec/architecture-proposal.md   owner: solution-architect
+  - path: spec/technical-stories.md       owner: solution-architect
+  - path: spec/cost-assumptions.yaml      owner: cloud-pricing
+  - path: spec/cost-estimation.md         owner: cloud-pricing
+
+  # Fase 1 — Análisis
+  - path: spec/user-stories.md            owner: business-analyst
+  - path: spec/business-rules.md          owner: business-analyst
+  - path: spec/glossary.md                owner: business-analyst
+  - path: spec/roles.md                    owner: business-analyst
+
+  # Fase 2 — Diseño
+  - path: spec/ux-flows.md                owner: ux-designer
+  - path: spec/design-system.md           owner: ux-designer
+  - path: spec/tokens.json                 owner: ux-designer
+  - path: spec/ux/                        owner: ux-designer
+  - path: spec/architecture.md            owner: software-architect
+  - path: spec/api-contract.yaml          owner: software-architect
+  - path: spec/data-model.md             owner: software-architect
+  - path: spec/adr/                       owner: software-architect
+  - path: spec/test-plan.md               owner: software-architect
+  - path: spec/tech-debt.md               owner: software-architect
+  - path: spec/threat-model.md            owner: security-engineer
+  - path: spec/security-requirements.md   owner: security-engineer
+  - path: spec/tech-radar.yaml            owner: enterprise-architect
+  - path: spec/architectural-principles.yaml owner: enterprise-architect
+  - path: spec/exception-log.md            owner: enterprise-architect
+
+  # Fase 4 — Build / TDD
+  - path: spec/reports/sprint-5-review.md  owner: backend-dev
+  - path: spec/reports/sprint-6-review.md  owner: backend-dev
+  - path: spec/reports/sprint-7-review.md  owner: backend-dev
+  - path: spec/reports/sprint-8-review.md  owner: frontend-dev
+  - path: spec/reports/sprint-9-review.md  owner: frontend-dev
+  - path: spec/reports/sprint-10-review.md  owner: frontend-dev
+
+  # Fase 5-7 — Entrega y operación
+  - path: spec/qa-report.md                owner: qa-automation
+  - path: spec/cloud-costs.md             owner: cloud-engineer
+  - path: spec/slo.md                     owner: sre
+  - path: spec/impact-report.md           owner: product-analyst
+
+  # Diagramas
+  - path: spec/diagrams/despliegue.drawio owner: cloud-engineer
+  - path: spec/diagrams/pipeline-cicd.md  owner: devops-engineer

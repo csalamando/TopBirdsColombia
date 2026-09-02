@@ -1,0 +1,11 @@
+{
+  "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\test-plan.md",
+  "sha256": "423b613283b9c6473e3ab98e51fc9693342029f4aa9ee599d77567ff7e35418a",
+  "gate": "GATE-1",
+  "tipo": "test-plan",
+  "rol": "software-architect",
+  "emitido": "2026-09-02T07:14:44",
+  "estado": "vigente",
+  "tokens_src": "estimado",
+  "tokens_out": 541
+}

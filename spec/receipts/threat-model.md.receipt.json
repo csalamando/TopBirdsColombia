@@ -1,0 +1,11 @@
+{
+  "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\threat-model.md",
+  "sha256": "88bbaa2526eab3df5a179bcd924ae9eb4a387e0a6409d03fb86d02b1ba366141",
+  "gate": "GATE-1",
+  "tipo": "threat-model",
+  "rol": "security-engineer",
+  "emitido": "2026-09-02T07:15:40",
+  "estado": "vigente",
+  "tokens_src": "estimado",
+  "tokens_out": 547
+}

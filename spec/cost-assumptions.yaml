@@ -1,0 +1,44 @@
+# Supuestos de costos — Top Trumps Aves de Colombia
+# Fecha de validez: 2026-09-02
+
+project: Top Trumps Aves de Colombia
+stack: FastAPI + React SPA + SQLite + GitHub Pages
+
+currency: USD
+billing: mensual
+
+assumptions:
+  - El tráfico demo es bajo (<1k usuarios/mes).
+  - Se usa GitHub Pages para frontend estático (gratuito).
+  - Backend demo puede correr en contenedor local o en free tier (Render/Railway).
+  - No hay costos de licencia para el stack (open source).
+  - No se almacenan datos sensibles ni se requiere WAF avanzado.
+  - No se requiere base de datos gestionada (SQLite local/demo).
+
+scenarios:
+  minimo_viable:
+    users_month: 500
+    requests_month: 5000
+    storage_gb: 0.1
+    bandwidth_gb: 1
+    compute_tier: free
+  crecimiento_esperado:
+    users_month: 2000
+    requests_month: 20000
+    storage_gb: 0.5
+    bandwidth_gb: 5
+    compute_tier: hobby
+  pico:
+    users_month: 10000
+    requests_month: 100000
+    storage_gb: 2
+    bandwidth_gb: 25
+    compute_tier: starter
+
+unit_prices:
+  github_actions_minutes: 0.008 # por minuto (free 2000 min/mes)
+  render_web_service_hobby: 7 # USD/mes
+  railway_starter: 5 # USD/mes
+  aws_s3_storage: 0.023 # USD/GB/mes
+  aws_cloudfront_bandwidth: 0.085 # USD/GB
+  domain: 12 # USD/año

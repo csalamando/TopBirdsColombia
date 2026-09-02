@@ -1,0 +1,27 @@
+# Tech Radar — Top Trumps Aves de Colombia
+# Cuadrantes: ADOPT, TRIAL, ASSESS, HOLD
+
+radar:
+  ADOPT:
+    - Python (backend, scripting)
+    - FastAPI (API REST)
+    - SQLite (datos locales/demo)
+    - React (frontend web)
+    - TypeScript (frontend tipado)
+    - TailwindCSS (estilos)
+    - Git (versionado)
+    - GitHub Actions (CI/CD)
+    - pytest (tests Python)
+    - Vitest (tests frontend)
+    - Playwright (E2E)
+  TRIAL:
+    - HTMX (alternativa ligera a React)
+    - Pydantic (modelos/contratos)
+    - Vite (build frontend)
+  ASSESS:
+    - AWS Lambda (serverless)
+    - Docker (contenedores)
+    - Terraform (IaC)
+  HOLD:
+    - jQuery
+    - MongoDB sin necesidad documentada

@@ -1,0 +1,18 @@
+# Principios Arquitectónicos — Top Trumps Aves de Colombia
+
+principles:
+  - id: P-001
+    name: Simplicidad primero
+    text: Preferir soluciones que reduzcan componentes y dependencias externas.
+  - id: P-002
+    name: API-first
+    text: Todo comportamiento del juego se expone a través del contrato OpenAPI antes de implementar frontend.
+  - id: P-003
+    name: TDD estricto
+    text: Tests unitarios/contractuales antes del código; tests E2E desde Gherkin.
+  - id: P-004
+    name: Datos abiertos
+    text: Las aves y sus atributos se cargan desde fuentes abiertas (Wikipedia / eBird) con atribución.
+  - id: P-005
+    name: Sin estado sensible
+    text: No se almacena PII ni credenciales; el juego es anónimo por defecto.

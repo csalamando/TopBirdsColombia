@@ -1,0 +1,303 @@
+openapi: 3.0.3
+info:
+  title: Top Trumps Aves de Colombia API
+  version: 1.0.0
+  description: API REST para el juego Top Trumps con aves de Colombia.
+
+servers:
+  - url: http://localhost:8000
+    description: Desarrollo local
+  - url: https://api.topbirds-demo.example.com
+    description: Demo
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: healthCheck
+      responses:
+        "200":
+          description: Servicio saludable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /aves:
+    get:
+      summary: Listar aves
+      operationId: listAves
+      responses:
+        "200":
+          description: Lista de aves
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Ave"
+        "500":
+          description: Error interno
+
+  /aves/{aveId}:
+    get:
+      summary: Obtener ave por ID
+      operationId: getAve
+      parameters:
+        - name: aveId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Datos del ave
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ave"
+        "404":
+          description: Ave no encontrada
+
+  /partidas:
+    post:
+      summary: Crear partida
+      operationId: createPartida
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePartidaRequest"
+      responses:
+        "201":
+          description: Partida creada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Partida"
+        "400":
+          description: Solicitud inválida
+
+  /partidas/{partidaId}:
+    get:
+      summary: Obtener estado de partida
+      operationId: getPartida
+      parameters:
+        - name: partidaId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Estado de la partida
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Partida"
+        "404":
+          description: Partida no encontrada
+
+  /partidas/{partidaId}/rondas:
+    post:
+      summary: Jugar una ronda
+      operationId: playRonda
+      parameters:
+        - name: partidaId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlayRondaRequest"
+      responses:
+        "200":
+          description: Resultado de la ronda
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RondaResult"
+        "400":
+          description: Solicitud inválida
+        "404":
+          description: Partida no encontrada
+        "409":
+          description: Partida finalizada
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          example: ok
+
+    Ave:
+      type: object
+      required:
+        - id
+        - nombre_comun
+        - nombre_cientifico
+        - atributos
+      properties:
+        id:
+          type: integer
+        nombre_comun:
+          type: string
+        nombre_cientifico:
+          type: string
+        familia:
+          type: string
+          nullable: true
+        habitat:
+          type: string
+          nullable: true
+        dieta:
+          type: string
+          nullable: true
+        atribucion:
+          type: string
+          nullable: true
+        imagen_url:
+          type: string
+          format: uri
+          nullable: true
+        atributos:
+          $ref: "#/components/schemas/Atributos"
+
+    Atributos:
+      type: object
+      required:
+        - tamano_cm
+        - peso_g
+        - envergadura_cm
+        - velocidad_kmh
+        - esperanza_vida_anos
+        - rareza
+      properties:
+        tamano_cm:
+          type: number
+        peso_g:
+          type: number
+        envergadura_cm:
+          type: number
+        velocidad_kmh:
+          type: number
+        esperanza_vida_anos:
+          type: number
+        rareza:
+          type: integer
+          minimum: 1
+          maximum: 10
+
+    CreatePartidaRequest:
+      type: object
+      required:
+        - modo
+      properties:
+        modo:
+          type: string
+          enum:
+            - ia
+            - hotseat
+        jugador_nombre:
+          type: string
+
+    Partida:
+      type: object
+      required:
+        - id
+        - modo
+        - estado
+        - turno
+        - cartas_jugador
+        - cartas_oponente
+      properties:
+        id:
+          type: string
+        modo:
+          type: string
+          enum:
+            - ia
+            - hotseat
+        estado:
+          type: string
+          enum:
+            - activa
+            - finalizada
+        turno:
+          type: string
+          enum:
+            - jugador
+            - oponente
+        cartas_jugador:
+          type: integer
+        cartas_oponente:
+          type: integer
+        carta_activa:
+          $ref: "#/components/schemas/Ave"
+        ganador:
+          type: string
+          nullable: true
+
+    PlayRondaRequest:
+      type: object
+      required:
+        - atributo
+      properties:
+        atributo:
+          type: string
+          enum:
+            - tamano_cm
+            - peso_g
+            - envergadura_cm
+            - velocidad_kmh
+            - esperanza_vida_anos
+            - rareza
+
+    RondaResult:
+      type: object
+      required:
+        - atributo
+        - valor_jugador
+        - valor_oponente
+        - resultado
+        - cartas_jugador
+        - cartas_oponente
+      properties:
+        atributo:
+          type: string
+        valor_jugador:
+          type: number
+        valor_oponente:
+          type: number
+        resultado:
+          type: string
+          enum:
+            - gana_jugador
+            - gana_oponente
+            - empate
+        carta_jugador:
+          $ref: "#/components/schemas/Ave"
+        carta_oponente:
+          $ref: "#/components/schemas/Ave"
+        cartas_jugador:
+          type: integer
+        cartas_oponente:
+          type: integer
+        reserva:
+          type: integer
+        ganador_partida:
+          type: string
+          nullable: true

@@ -1,0 +1,18 @@
+{
+  "receipt_id": "ARCH-001",
+  "type": "architectural-signoff",
+  "adr_id": "ADR-001",
+  "adr_path": "D:\\AI Projects\\TopBirdsColombia\\spec\\adr\\ADR-001-stack.md",
+  "adr_hash": "197361ab4dd6036926cce6b3f7272f952e639c33a2b68e6d2e84718bb57e6f06",
+  "architect": "Karlo",
+  "role": "software-architect",
+  "signed": true,
+  "timestamp": "2026-09-02T12:14:26.552283+00:00",
+  "artifacts": {
+    "architecture.md": "80521beddd73f1fe6d7129096955f4234533e81687167fc738ea8e96d8cab4f9",
+    "api-contract.yaml": "4e7d346afe85a26954441f55a49ac0eb5d5566eb79cd60c8373d01ff2351e995",
+    "data-model.md": "c2e87884c66c4b59078dcd01ced82616bccc4b9aaa3c2a08c5be89a011e37b58"
+  },
+  "composite_hash": "2c563b958bf826d83a82ed0534ea66c9a22b58e215bca9fec521dd43fd30c0bd",
+  "status": "ACTIVE"
+}

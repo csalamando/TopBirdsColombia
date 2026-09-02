@@ -1,0 +1,11 @@
+{
+  "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\cost-assumptions.yaml",
+  "sha256": "922985f19fa12db0174e2d83df72f78d5a3f763300129d0e6b7117b9b84e7ad7",
+  "gate": "GATE-0",
+  "tipo": "",
+  "rol": "cloud-pricing",
+  "emitido": "2026-09-01T21:26:33",
+  "estado": "vigente",
+  "tokens_src": "estimado",
+  "tokens_out": 324
+}
