@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.models import Game, GameMode, Ave
 from app.schemas import CreatePartidaRequest, Partida, PlayRondaRequest, RondaResult, Error
 from app.dependencies import get_game_repository, get_cards
-import random
+import secrets
 
 router = APIRouter()
 
@@ -65,7 +65,7 @@ def play_ronda(partida_id: str, request: PlayRondaRequest) -> RondaResult:
         raise HTTPException(status_code=409, detail="Partida finalizada")
 
     if game.turno == "oponente" and game.modo == GameMode.IA:
-        atributo = random.choice(
+        atributo = secrets.choice(
             ["tamano_cm", "peso_g", "envergadura_cm", "velocidad_kmh", "esperanza_vida_anos", "rareza"]
         )
     else:

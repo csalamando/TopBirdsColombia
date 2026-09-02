@@ -1,12 +1,9 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\backlog.md",
-  "sha256": "54dc670834c0a43b81142f3b0cd8e874612a8c9941d0664e6d30d062069682d2",
-  "gate": "GATE-0",
-  "tipo": "backlog",
+  "sha256": "3547589c4993c0ad587725f4a9acdb5d0f2532260ed296173d657f8f891318bf",
+  "gate": "GATE-2.5",
+  "tipo": "",
   "rol": "product-owner",
-  "emitido": "2026-09-01T21:21:49",
-  "estado": "vigente",
-  "tokens_src": "estimado",
-  "tokens_out": 699,
-  "attempts": 2
+  "emitido": "2026-09-02T18:23:07",
+  "estado": "vigente"
 }

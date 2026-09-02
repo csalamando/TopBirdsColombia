@@ -29,8 +29,8 @@ Este backlog prioriza los ítems del MVP usando MoSCoW y RICE. La métrica de é
 | S9-FE-02 | Pantallas y flujo de juego (TDD) | EP-03 | Must have | 9 | Pendiente |
 | S10-TW-01 | Integración, contract testing y docs | EP-04 | Should have | 10 | Pendiente |
 | S11-QA-01 | Tests E2E desde Gherkin | EP-01 | Must have | 11 | Pendiente |
-| S12-SE-02 | SAST/SCA/DAST y GATE 2.5 | EP-04 | Must have | 12 | Pendiente |
-| S13-DO-01 | Pipeline CI/CD e infraestructura demo | EP-05 | Should have | 13 | Pendiente |
+| S12-SE-02 | SAST/SCA/DAST y GATE 2.5 | EP-04 | Must have | 12 | Completado |
+| S13-DO-01 | Pipeline CI/CD e infraestructura demo | EP-05 | Should have | 13 | En progreso |
 | S14-DO-02 | Despliegue a producción/demo | EP-05 | Should have | 14 | Pendiente |
 | S15-PA-01 | SLOs, impact report y sprint review | EP-04 | Must have | 15 | Pendiente |
 
