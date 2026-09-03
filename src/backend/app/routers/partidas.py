@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Response, Request
 from app.models import Game, GameMode, Ave
 from app.schemas import CreatePartidaRequest, Partida, PlayRondaRequest, RondaResult, Error
 from app.dependencies import get_game_repository, get_cards
+from app.security import limiter
 import secrets
 
 router = APIRouter()
@@ -28,9 +29,14 @@ def _to_partida_schema(game: Game) -> Partida:
 
 
 @router.post("/partidas", response_model=Partida, status_code=201)
-def create_partida(request: CreatePartidaRequest) -> Partida:
+@limiter.limit("30/minute")
+def create_partida(
+    body: CreatePartidaRequest,
+    response: Response,
+    request: Request,
+) -> Partida:
     cards = get_cards()
-    modo = GameMode.IA if request.modo == "ia" else GameMode.HOTSEAT
+    modo = GameMode.IA if body.modo == "ia" else GameMode.HOTSEAT
     game = Game.create(modo, cards)
     get_game_repository().add(game)
     return _to_partida_schema(game)
@@ -56,7 +62,13 @@ def get_partida(partida_id: str) -> Partida:
         409: {"description": "Partida finalizada", "model": Error},
     },
 )
-def play_ronda(partida_id: str, request: PlayRondaRequest) -> RondaResult:
+@limiter.limit("60/minute")
+def play_ronda(
+    partida_id: str,
+    body: PlayRondaRequest,
+    response: Response,
+    request: Request,
+) -> RondaResult:
     game = get_game_repository().get(partida_id)
     if game is None:
         raise HTTPException(status_code=404, detail="Partida no encontrada")
@@ -69,7 +81,7 @@ def play_ronda(partida_id: str, request: PlayRondaRequest) -> RondaResult:
             ["tamano_cm", "peso_g", "envergadura_cm", "velocidad_kmh", "esperanza_vida_anos", "rareza"]
         )
     else:
-        atributo = request.atributo
+        atributo = body.atributo
 
     try:
         result = game.play_round(atributo)

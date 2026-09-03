@@ -14,11 +14,17 @@ El backend y el frontend en producción incluirán los siguientes headers:
 - `X-Frame-Options: DENY`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 
+**Estado**: Cumplido vía middleware en `src/backend/app/security.py`.
+
 ## SR-04 HTTPS en producción
 Toda comunicación cliente-servidor en producción usará HTTPS. El backend redirigirá HTTP a HTTPS.
 
+**Estado**: Cumplido al desplegar en plataformas que terminan TLS (Render, Railway, GitHub Pages).
+
 ## SR-05 Rate limiting
 El backend implementará rate limiting por IP para endpoints de creación de partidas y rondas, mitigando abuso del demo.
+
+**Estado**: Cumplido vía `slowapi` en `src/backend/app/routers/partidas.py` (`30/min` para crear partidas, `60/min` para rondas).
 
 ## SR-06 Sin endpoints administrativos
 No se expondrán endpoints de administración de datos sin autenticación. El seed de aves se ejecutará como comando offline o en CI.

@@ -41,11 +41,13 @@
 ||| reports/sprint-10-review.md | 4 | frontend-dev | Aprobado | SPRINT-10 | Integración frontend-backend y E2E |
 |||| reports/sprint-11-review.md | 4 | qa-automation | Aprobado | SPRINT-11 | QA E2E formal y GATE 2 |
 |||| qa-report.md | 5 | qa-automation | Completado | GATE 2 | Resumen de pruebas E2E, cobertura y veredicto |
-|||| reports/sprint-12-review.md | 5 | qa-automation | Aprobado | SPRINT-12 | SAST/SCA/DAST y GATE 2.5 |
-|||| security-scan-report.md | 5 | security-engineer | Completado | GATE 2.5 | Hallazgos SAST/SCA/DAST y riesgos aceptados |
+||||| reports/sprint-12-review.md | 5 | qa-automation | Aprobado | SPRINT-12 | SAST/SCA/DAST y GATE 2.5 |
+||||| security-scan-report.md | 5 | security-engineer | Completado | GATE 2.5 | Hallazgos SAST/SCA/DAST y riesgos aceptados |
+||||| reports/sprint-13-review.md | 6 | devops-engineer | Aprobado | SPRINT-13 | Pipeline CI/CD e infraestructura demo |
+||||| security-requirements.md | 2 | security-engineer | Completado | GATE 1 | Requisitos SR-03/SR-04/SR-05 cumplidos |
 
 ## Fase actual
-5 (QA / Seguridad) — Sprint 12 completado: GATE 2.5 aprobado con riesgos aceptados documentados
+6 (Entrega / Operación) — Sprint 13 completado: pipeline CI/CD, Docker, Render y cierre de requisitos de seguridad
 
 ## Riesgo y routing
 - Routing orgánico: **Discovery → Full-pipeline** (nueva iniciativa, objetivo demostrar arnés).
@@ -69,6 +71,9 @@
 - Sprint 10 completado: integración frontend-backend, contract testing con Schemathesis, smoke E2E con Playwright verde, README y guía de API.
 - **Sprint 10 aprobado por usuario el 2026-09-02T18:25:55Z** — se autoriza Sprint 11.
 - **GATE 2 aprobado** — Suite E2E formal: 10 escenarios y 60 steps verdes; backend 45 tests con 94.74 % cobertura; frontend 40 tests y build exitoso.
-- **GATE 2.5 aprobado** — SAST backend sin hallazgos; SAST frontend con 3 advertencias aceptadas; SCA backend con 10 vulnerabilidades aceptadas por incompatibilidad de dependencias; SCA frontend limpio; DAST con Schemathesis verde (6 operaciones, 82/82 checks).
-- Dependencias actualizadas: `fastapi==0.115.0`, `uvicorn[standard]==0.30.6`, `pydantic==2.9.2`, `click==8.3.3`.
-- Próximo paso: **Sprint 13** (pipeline CI/CD e infraestructura demo).
+|- **GATE 2.5 aprobado** — SAST backend sin hallazgos; SAST frontend con 3 advertencias aceptadas; SCA backend con 10 vulnerabilidades aceptadas por incompatibilidad de dependencias; SCA frontend limpio; DAST con Schemathesis verde (6 operaciones, 82/82 checks).
+|- Dependencias actualizadas: `fastapi==0.115.0`, `uvicorn[standard]==0.30.6`, `pydantic==2.9.2`, `click==8.3.3`.
+|- **Sprint 13 completado** — Pipeline CI/CD en GitHub Actions (`ci.yml`), Dockerfile multi-stage verificado localmente, blueprint `infra/render.yaml`, headers de seguridad y rate limiting implementados, `spec/security-requirements.md` actualizado.
+|- Docker local: imagen `topbirds:latest` construye y responde `/health` correctamente.
+|- Pipeline CI cubre: SAST backend/frontend, tests, build, E2E, SCA backend/frontend y DAST.
+|- Próximo paso: **Sprint 14** (despliegue a producción/demo).

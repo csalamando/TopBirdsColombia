@@ -1,0 +1,206 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-lint:
+    name: Backend SAST (Bandit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r src/backend/requirements.txt -r src/backend/requirements-dev.txt
+      - run: python -m bandit -r src/backend/app -f json -o bandit-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bandit-report
+          path: bandit-report.json
+
+  backend-tests:
+    name: Backend tests + cobertura
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest tests --cov=app --cov-report=term-missing --cov-fail-under=70
+
+  frontend-lint:
+    name: Frontend lint (Oxlint + ESLint security)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: src/frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npx eslint .
+
+  frontend-tests:
+    name: Frontend tests (Vitest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: src/frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+
+  frontend-build:
+    name: Frontend build (Vite)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: src/frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: src/frontend/dist
+
+  e2e:
+    name: E2E (Cucumber + Playwright)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: |
+            src/frontend/package-lock.json
+            tests/e2e/package-lock.json
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r src/backend/requirements.txt
+      - run: npm ci --prefix src/frontend
+      - run: npm ci --prefix tests/e2e
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
+      - run: npx --prefix tests/e2e playwright install chromium
+      - name: Start backend
+        run: |
+          cd src/backend
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 &
+          echo $! > /tmp/backend.pid
+          sleep 5
+      - name: Start frontend
+        run: |
+          cd src/frontend
+          npm run dev &
+          echo $! > /tmp/frontend.pid
+          sleep 5
+      - name: Run Cucumber
+        run: |
+          cd tests/e2e
+          npx cucumber-js
+      - name: Stop services
+        if: always()
+        run: |
+          kill $(cat /tmp/backend.pid) || true
+          kill $(cat /tmp/frontend.pid) || true
+
+  sca-backend:
+    name: Backend SCA (pip-audit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r src/backend/requirements.txt -r src/backend/requirements-dev.txt
+      - run: python -m pip_audit --format markdown --desc on -r src/backend/requirements.txt -o pip-audit-report.md
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pip-audit-report
+          path: pip-audit-report.md
+
+  sca-frontend:
+    name: Frontend SCA (npm audit)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [src/frontend, tests/e2e]
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: ${{ matrix.dir }}/package-lock.json
+      - run: npm ci
+      - run: npm audit --audit-level=moderate
+
+  contract-dast:
+    name: DAST con Schemathesis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r src/backend/requirements.txt
+      - name: Start backend
+        run: |
+          cd src/backend
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 &
+          echo $! > /tmp/backend.pid
+          sleep 5
+      - name: Run Schemathesis
+        run: |
+          python -m schemathesis run http://127.0.0.1:8000/openapi.json \
+            --base-url http://127.0.0.1:8000 \
+            --checks all \
+            --hypothesis-max-examples=20 \
+            --experimental=openapi-3.1
+      - name: Stop backend
+        if: always()
+        run: kill $(cat /tmp/backend.pid) || true

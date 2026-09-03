@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app.routers import health, aves, partidas
+from app.security import setup_security
 
 app = FastAPI(title="Top Trumps Aves de Colombia API", version="1.0.0")
 
@@ -14,6 +15,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+setup_security(app)
 
 app.include_router(health.router)
 app.include_router(aves.router)

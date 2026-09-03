@@ -3,6 +3,9 @@ import securityPlugin from "eslint-plugin-security";
 
 export default [
   {
+    ignores: ["dist/**", "coverage/**"],
+  },
+  {
     files: ["src/**/*.ts", "src/**/*.tsx"],
     languageOptions: {
       parser: tseslintParser,

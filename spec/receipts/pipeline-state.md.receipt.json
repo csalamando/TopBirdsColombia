@@ -1,9 +1,9 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\pipeline-state.md",
-  "sha256": "c032ec67549d5be91d897736144318914f2951b4531a727c623ebf20d7ac69eb",
-  "gate": "GATE-2.5",
+  "sha256": "1dd9271b8c88097f94fc73bedae9d0e5e1bb40ab4ec6c1ab40c4437948a466b4",
+  "gate": "SPRINT-13",
   "tipo": "",
   "rol": "orchestrator",
-  "emitido": "2026-09-02T18:23:07",
+  "emitido": "2026-09-02T19:06:51",
   "estado": "vigente"
 }

@@ -67,8 +67,39 @@ cd tests/e2e
 npx playwright test
 ```
 
-## Despliegue de demostración
+## Pipeline CI/CD
 
-1. Construir el frontend: `cd src/frontend && npm run build`
-2. El backend monta automáticamente `src/frontend/dist` en `/` si existe.
-3. Ejecutar el backend y servir la aplicación completa desde `http://localhost:8000`.
+[![CI](https://github.com/csalamando/TopBirdsColombia/actions/workflows/ci.yml/badge.svg)](https://github.com/csalamando/TopBirdsColombia/actions/workflows/ci.yml)
+
+El workflow `.github/workflows/ci.yml` ejecuta en cada push/PR:
+
+- Backend: `bandit`, `pytest` con cobertura ≥ 70 %, `pip-audit`.
+- Frontend: `oxlint`, `eslint-plugin-security`, `npm test`, `npm run build`, `npm audit`.
+- E2E: levanta backend + frontend y corre `npx cucumber-js`.
+- DAST: levanta backend y ejecuta `schemathesis`.
+
+## Docker local
+
+```powershell
+cd "D:\AI Projects\TopBirdsColombia"
+docker build -f src/backend/Dockerfile -t topbirds:latest .
+docker run -p 8000:8000 -e CORS_ORIGINS=http://localhost:8000 topbirds:latest
+```
+
+La aplicación estará en `http://localhost:8000`.
+
+## Despliegue de demostración (Render)
+
+1. Crear un Web Service en [Render](https://render.com) apuntando al repositorio.
+2. Seleccionar "Docker" y usar `src/backend/Dockerfile`.
+3. Configurar variables de entorno:
+   - `PORT=8000`
+   - `DATABASE_URL=/app/data/topbirds.db`
+   - `CORS_ORIGINS=https://<tu-servicio>.onrender.com,http://localhost:8000`
+4. Render ejecuta el health check en `/health`.
+
+Alternativamente, usar el blueprint `infra/render.yaml` desde el dashboard de Render.
+
+## Headers de seguridad y rate limiting
+
+El backend incluye middleware de headers de seguridad (`HSTS`, `CSP`, `X-Frame-Options`, etc.) y rate limiting en los endpoints de creación de partidas (`30/min`) y rondas (`60/min`). Se desactiva automáticamente cuando `TESTING=1`.

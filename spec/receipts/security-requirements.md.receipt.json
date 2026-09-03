@@ -1,11 +1,9 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\security-requirements.md",
-  "sha256": "2f8a74a7b4471f08488ad0073600eb3beb2dd2b263524e7bbc1f48ba8301c045",
+  "sha256": "4892e2b8761b5a0db4b0a286162d3e8378ad4dd4bc35f5a7a0ba7f897e83a828",
   "gate": "GATE-1",
   "tipo": "",
   "rol": "security-engineer",
-  "emitido": "2026-09-02T07:15:40",
-  "estado": "vigente",
-  "tokens_src": "estimado",
-  "tokens_out": 453
+  "emitido": "2026-09-02T19:06:51",
+  "estado": "vigente"
 }
