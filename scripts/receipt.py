@@ -71,7 +71,7 @@ def cmd_emit(a):
                   f"— owner requerido: {owner}. El gate no reconoce esta aprobación."); sys.exit(1)
     if a.tipo:
         checker = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gate_checker.py")
-        r = subprocess.run([sys.executable, checker, a.artefacto, "--tipo", a.tipo], capture_output=True, text=True)
+        r = subprocess.run(["python3", checker, a.artefacto, "--tipo", a.tipo], capture_output=True, text=True)
         print(r.stdout.strip())
         if r.returncode != 0:
             print("Gate no pasado: no se emite recibo."); sys.exit(1)

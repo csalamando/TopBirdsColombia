@@ -6,6 +6,12 @@ Detecta historias sin tests y código sin historia (huérfano). Exit 1 si hay br
 """
 import os, re, argparse, sys
 
+# Windows: la consola cp1252 no codifica ✓/✗; forzar UTF-8 cuando sea posible.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except (AttributeError, OSError):
+    pass
+
 def collect_ids(root, exts):
     ids = set()
     if os.path.isfile(root):

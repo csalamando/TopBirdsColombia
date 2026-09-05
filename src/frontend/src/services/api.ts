@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-01, HU-05
 import type { AttributeKey, Bird, Game, GameMode, RoundResult } from "../types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";

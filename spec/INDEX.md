@@ -15,22 +15,23 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 
 | Artefacto | sha256[:12] | lineas | resumen |
 |---|---|---|---|
+| `CHANGELOG.md` | 7f7e1ac5a708 | 21 | CHANGELOG de spec — Top Trumps Aves de Colombia |
 | `adr/ADR-001-stack.md` | 197361ab4dd6 | 69 | ADR-001: Selección de stack técnico para Top Trumps Aves de Colombia |
 | `api-contract.yaml` | cd616549ef64 | 304 | openapi: 3.0.3 |
 | `architectural-principles.yaml` | 4470fd905987 | 19 | Principios Arquitectónicos — Top Trumps Aves de Colombia |
 | `architecture-proposal.md` | e942faa33dcd | 53 | Propuesta de arquitectura — Top Trumps Aves de Colombia |
 | `architecture.md` | 80521beddd73 | 54 | Arquitectura de software — Top Trumps Aves de Colombia |
-| `authority-matrix.yaml` | 8ef9c76e59d2 | 62 | Matriz de autoridad — Top Trumps Aves de Colombia |
+| `authority-matrix.yaml` | 0d559c0646ac | 67 | Matriz de autoridad — Top Trumps Aves de Colombia |
 | `backlog.md` | 9b842a031f0b | 40 | Backlog — Top Trumps Aves de Colombia |
 | `business-rules.md` | 6c4b4bdf8673 | 47 | Reglas de negocio — Top Trumps Aves de Colombia |
-| `cost-assumptions.yaml` | 922985f19fa1 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
-| `cost-estimation.md` | 0d3071ff7191 | 63 | Estimación de costos — Top Trumps Aves de Colombia |
+| `cost-assumptions.yaml` | 2b31019111f6 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
+| `cost-estimation.md` | 9ad56453aaff | 64 | Estimación de costos — Top Trumps Aves de Colombia |
 | `data-governance.md` | 0c85fe903284 | 43 | Gobierno de datos — Top Trumps Aves de Colombia |
 | `data-model.md` | c2e87884c66c | 86 | Modelo de datos — Top Trumps Aves de Colombia |
 | `design-system.md` | c4f05e8f041f | 60 | Design System — Top Trumps Aves de Colombia |
 | `epics.md` | 2ac87fddfdb1 | 54 | Épicas — Top Trumps Aves de Colombia |
 | `glossary.md` | d2f10ce59bfe | 51 | Glosario — Top Trumps Aves de Colombia |
-| `pipeline-state.md` | 1dd9271b8c88 | 80 | Estado del pipeline SDLC — Top Trumps Aves de Colombia |
+| `pipeline-state.md` | 3da4ff81863b | 82 | Fase actual |
 | `qa-report.md` | d845f334af1e | 105 | QA Report — Sprint 11: E2E formal y GATE 2 |
 | `reports/sprint-10-review.md` | bff01bd5e7c8 | 76 | Sprint 10 — Integración frontend-backend y pruebas E2E |
 | `reports/sprint-11-review.md` | 88ee6d05e471 | 86 | Sprint 11 — QA E2E formal y GATE 2 |
@@ -56,4 +57,4 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `vision.md` | 1886a64466f8 | 40 | Visión de producto — Top Trumps Aves de Colombia |
 
 Memorias: 0 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
-Recibos: 38 en `spec/receipts/` (ver `receipt.py status`).
+Recibos: 40 en `spec/receipts/` (ver `receipt.py status`).

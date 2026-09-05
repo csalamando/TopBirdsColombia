@@ -10,7 +10,7 @@ billing: mensual
 assumptions:
   - El tráfico demo es bajo (<1k usuarios/mes).
   - Se usa GitHub Pages para frontend estático (gratuito).
-  - Backend demo puede correr en contenedor local o en free tier (Render/Railway).
+  - Backend demo corre en Railway (crédito trial $5; luego plan Hobby ~5 USD/mes). Render free tier queda como alternativa documentada.
   - No hay costos de licencia para el stack (open source).
   - No se almacenan datos sensibles ni se requiere WAF avanzado.
   - No se requiere base de datos gestionada (SQLite local/demo).
@@ -37,8 +37,8 @@ scenarios:
 
 unit_prices:
   github_actions_minutes: 0.008 # por minuto (free 2000 min/mes)
-  render_web_service_hobby: 7 # USD/mes
-  railway_starter: 5 # USD/mes
+  render_web_service_hobby: 7 # USD/mes (alternativa documentada)
+  railway_hobby: 5 # USD/mes (plan vigente tras cambio a Railway)
   aws_s3_storage: 0.023 # USD/GB/mes
   aws_cloudfront_bandwidth: 0.085 # USD/GB
   domain: 12 # USD/año

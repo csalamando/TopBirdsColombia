@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-04
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Scoreboard } from "./Scoreboard";

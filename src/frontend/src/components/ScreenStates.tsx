@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-07
 import { Loader2, Bird, AlertCircle, CheckCircle } from "lucide-react";
 import { Button } from "./Button";
 

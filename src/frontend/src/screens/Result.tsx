@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-04
 import { Button } from "../components/Button";
 import { SuccessState } from "../components/ScreenStates";
 import type { Winner } from "../types";

@@ -1,4 +1,5 @@
 Feature: Jugar una ronda
+  # Trazabilidad SDLC: HU-02
 
   Como aficionado a las aves
   quiero seleccionar un atributo de mi carta

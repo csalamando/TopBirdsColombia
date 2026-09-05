@@ -1,4 +1,5 @@
 Feature: Determinar ganador de la partida
+  # Trazabilidad SDLC: HU-04
 
   Como jugador casual
   quiero saber cuándo termina la partida y quién ganó.
