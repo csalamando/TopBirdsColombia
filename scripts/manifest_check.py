@@ -18,9 +18,31 @@ Validaciones cruzadas (exit 1 en --check si fallan):
 """
 import argparse, os, re, sys
 
-SKILLS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
+def _default_skills_dir():
+    """Resuelve el directorio de skills según el layout de ejecución.
+
+    Desde la skill (sdlc-orchestrator/scripts/) las skills viven en ../..;
+    desde la copia versionada del repo (scripts/) viven en ../.agents/skills.
+    """
+    here = os.path.dirname(os.path.abspath(__file__))
+    for cand in (os.path.join(here, "..", ".."),
+                 os.path.join(here, "..", ".agents", "skills")):
+        d = os.path.abspath(cand)
+        if os.path.isfile(os.path.join(d, "sdlc-orchestrator", "SKILL.md")):
+            return d
+    return os.path.abspath(os.path.join(here, "..", ".."))
+
+
+SKILLS_DIR = _default_skills_dir()
 ORCH = os.path.dirname(os.path.abspath(__file__))
-MANIFEST = os.path.join(ORCH, "..", "assets", "harness-manifest.yaml")
+
+
+def _default_manifest():
+    """Manifiesto derivado: vive en assets/ junto a la skill del orquestador."""
+    return os.path.join(SKILLS_DIR, "sdlc-orchestrator", "assets", "harness-manifest.yaml")
+
+
+MANIFEST = _default_manifest()
 MATRIX = os.path.join(ORCH, "..", "assets", "authority-matrix.yaml")
 GATE_CHECKER = os.path.join(ORCH, "gate_checker.py")
 
@@ -96,9 +118,26 @@ def gate_checker_types():
     return set(re.findall(r'^\s*"([a-z0-9-]+)":', m.group(1), re.MULTILINE)) if m else set()
 
 
+def find_matrix():
+    """Localiza la matriz de autoridad: la copia del skill (../assets) o la del proyecto."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        MATRIX,
+        os.path.join(here, "..", "spec", "authority-matrix.yaml"),
+        os.path.join(here, "..", ".agents", "skills", "sdlc-orchestrator",
+                     "assets", "authority-matrix.yaml"),
+    ]
+    for c in candidates:
+        if os.path.isfile(c):
+            return c
+    return candidates[0]
+
+
 def matrix_paths():
-    text = open(MATRIX, encoding="utf-8").read()
-    return [m.group(1).strip() for m in re.finditer(r"-\s*path:\s*(\S+)\s+owner:", text)]
+    text = open(find_matrix(), encoding="utf-8").read()
+    # owner: puede ir en la misma línea que path: o en la siguiente
+    return [m.group(1).strip() for m in re.finditer(
+        r"-\s*path:\s*(\S+)[^\n]*(?:\n\s*owner:|\s+owner:)", text)]
 
 
 def cross_validate(skills):

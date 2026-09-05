@@ -1,4 +1,5 @@
 Feature: Iniciar partida
+  # Trazabilidad SDLC: HU-01
 
   Como jugador casual
   quiero iniciar una partida contra la IA o en hot-seat

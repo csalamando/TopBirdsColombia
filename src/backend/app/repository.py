@@ -1,3 +1,4 @@
+# Trazabilidad SDLC: HU-07
 from __future__ import annotations
 
 import json

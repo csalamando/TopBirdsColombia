@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-04
 import type { Turn } from "../types";
 
 interface ScoreboardProps {

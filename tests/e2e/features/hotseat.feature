@@ -1,4 +1,5 @@
 Feature: Jugar en modo hot-seat
+  # Trazabilidad SDLC: HU-06
 
   Como aficionado a las aves
   quiero jugar contra otra persona en el mismo dispositivo

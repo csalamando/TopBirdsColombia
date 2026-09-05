@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-01, HU-02, HU-06
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "../components/Button";
 import { AttributeButton } from "../components/AttributeButton";

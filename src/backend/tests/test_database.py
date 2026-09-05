@@ -1,3 +1,4 @@
+# Trazabilidad SDLC: HU-07
 import pytest
 from app.database import get_connection, run_migrations
 from app.models import Ave

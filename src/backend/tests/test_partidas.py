@@ -1,3 +1,4 @@
+# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app

@@ -1,4 +1,5 @@
 Feature: Resolver empate con reserva
+  # Trazabilidad SDLC: HU-03
 
   Como jugador casual
   quiero que los empates se resuelvan con una regla clara

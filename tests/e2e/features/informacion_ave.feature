@@ -1,4 +1,5 @@
 Feature: Ver información de un ave
+  # Trazabilidad SDLC: HU-05
 
   Como educador
   quiero ver información detallada de cada ave

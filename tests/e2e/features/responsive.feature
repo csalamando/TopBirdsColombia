@@ -1,4 +1,5 @@
 Feature: Interfaz responsive
+  # Trazabilidad SDLC: HU-08
 
   Como jugador casual
   quiero usar el juego en dispositivos móviles y escritorio.

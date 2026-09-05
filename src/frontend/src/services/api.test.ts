@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-01, HU-05
 import { describe, expect, it } from "vitest";
 import { http, HttpResponse } from "msw";
 import { server } from "../mocks/server";

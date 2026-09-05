@@ -1,3 +1,4 @@
+# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06
 from fastapi import APIRouter, HTTPException, Response, Request
 from app.models import Game, GameMode, Ave
 from app.schemas import CreatePartidaRequest, Partida, PlayRondaRequest, RondaResult, Error

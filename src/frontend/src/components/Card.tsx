@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-02, HU-05
 import type { Bird } from "../types";
 
 interface CardProps {

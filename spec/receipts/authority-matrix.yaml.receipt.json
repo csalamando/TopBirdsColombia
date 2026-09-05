@@ -1,9 +1,9 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\authority-matrix.yaml",
-  "sha256": "8ef9c76e59d24e3d218a6fed8c8469c0db5bd43059137f533ffbf8fc3185e85f",
+  "sha256": "0d559c0646ac22afa38c29d2fbcf59b2392c01e59c6cf77fa1637add2679e371",
   "gate": "GATE-1",
   "tipo": "",
   "rol": "orchestrator",
-  "emitido": "2026-09-02T17:14:45",
+  "emitido": "2026-09-04T22:29:36",
   "estado": "vigente"
 }

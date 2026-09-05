@@ -1,4 +1,5 @@
 Feature: Recuperar de estados de UI
+  # Trazabilidad SDLC: HU-07
 
   Como jugador casual
   quiero ver estados de carga, vacío y error

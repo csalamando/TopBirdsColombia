@@ -8,6 +8,9 @@ artifacts:
   - path: spec/risk-tier.yaml             owner: orchestrator
   - path: spec/dashboard.html             owner: orchestrator
   - path: spec/pipeline-state.md          owner: orchestrator
+  - path: spec/METRICS.md                 owner: orchestrator
+  - path: spec/metrics/                   owner: orchestrator
+  - path: spec/reports/                   owner: orchestrator
 
   # Fase 0 — Discovery
   - path: spec/vision.md                  owner: product-owner
@@ -23,6 +26,7 @@ artifacts:
   - path: spec/business-rules.md          owner: business-analyst
   - path: spec/glossary.md                owner: business-analyst
   - path: spec/roles.md                    owner: business-analyst
+  - path: spec/process-definition.md       owner: business-analyst
 
   # Fase 2 — Diseño
   - path: spec/ux-flows.md                owner: ux-designer
@@ -37,6 +41,7 @@ artifacts:
   - path: spec/tech-debt.md               owner: software-architect
   - path: spec/threat-model.md            owner: security-engineer
   - path: spec/security-requirements.md   owner: security-engineer
+  - path: spec/data-governance.md         owner: data-engineer
   - path: spec/tech-radar.yaml            owner: enterprise-architect
   - path: spec/architectural-principles.yaml owner: enterprise-architect
   - path: spec/exception-log.md            owner: enterprise-architect

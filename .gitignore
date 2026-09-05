@@ -31,3 +31,4 @@ test-results/
 # Generated / harness
 .codeintel/
 .agents/
+spec/memory/.index/

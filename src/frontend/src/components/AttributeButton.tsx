@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-02
 import type { AttributeKey } from "../types";
 
 export function AttributeButton({

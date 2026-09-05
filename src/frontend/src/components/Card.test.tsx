@@ -1,3 +1,4 @@
+// Trazabilidad SDLC: HU-02, HU-05
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Card } from "./Card";
