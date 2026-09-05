@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+﻿# syntax=docker/dockerfile:1
 
 # Top Birds Colombia — imagen de despliegue (CANÓNICA, contexto = raíz del repo).
 # Railway la detecta en la raíz y compila con el builder Docker.
@@ -33,7 +33,7 @@ COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
 
 ENV PYTHONPATH=/app/backend
 ENV DATABASE_URL=/app/data/topbirds.db
-ENV CORS_ORIGINS=https://topbirds-colombia.up.railway.app,http://localhost:8000
+ENV CORS_ORIGINS=https://topbirdscolombia-production.up.railway.app,http://localhost:8000
 ENV PORT=8000
 
 EXPOSE 8000

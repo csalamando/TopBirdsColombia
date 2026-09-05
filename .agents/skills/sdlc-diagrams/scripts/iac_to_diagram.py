@@ -17,7 +17,7 @@ Fuentes soportadas (Python stdlib puro, sin ejecutar Terraform):
                                   datos (SQLite).
 
 Comandos:
-  generate  --tfstate|--arm|--railway <fuente> --out spec/diagrams/despliegue.drawio
+  generate  --tfstate f.json|--arm f.json|--railway f --out spec/diagrams/despliegue.drawio
   check     (mismos args) — exit 1 si el .drawio versionado difiere de lo que
             genera la fuente actual (= drift: alguien cambió el IaC sin pasar
             por la aprobación del diagrama, o el diagrama se editó a mano).
@@ -137,6 +137,30 @@ def parse_railway(path):
     return nodes
 
 
+def parse_railway_ts(path):
+    """→ [(group, rtype, name)] derivado de .railway/railway.ts (DSL IaC).
+
+    Extracción por patrones (sin ejecutar TS): service name, healthcheck,
+    DATABASE_URL y el dockerfile anotado como comentario `// dockerfile: <ruta>`
+    (el DSL de Railway no expone dockerfilePath; es configuración del servicio).
+    """
+    with open(path, encoding="utf-8") as f:
+        src = f.read()
+    nodes = []
+    m = re.search(r'service\("([^"]+)"', src)
+    nodes.append(("railway", "railway_web_service", m.group(1) if m else "web-service"))
+    m = re.search(r"//\s*dockerfile:\s*(\S+)", src)
+    if m:
+        nodes.append(("railway", "dockerfile", m.group(1)))
+    m = re.search(r'healthcheck:\s*"([^"]+)"', src)
+    if m:
+        nodes.append(("railway", "healthcheck", m.group(1)))
+    m = re.search(r'DATABASE_URL:\s*"([^"]+)"', src)
+    if m:
+        nodes.append(("railway-data", "sqlite_volume", os.path.basename(m.group(1))))
+    return nodes
+
+
 def norm_name(s):
     return re.sub(r"[^A-Za-z0-9_\-.]", "_", s)
 
@@ -185,35 +209,10 @@ def build_drawio(nodes, title="Despliegue"):
     return "\n".join(parts) + "\n"
 
 
-def parse_railway_ts(path):
-    """→ [(group, rtype, name)] derivado de .railway/railway.ts (DSL IaC).
-
-    Extracción por patrones (sin ejecutar TS): service name, healthcheck,
-    DATABASE_URL y el dockerfile anotado como comentario `// dockerfile: <ruta>`
-    (el DSL de Railway no expone dockerfilePath; es configuración del servicio).
-    """
-    import re
-    with open(path, encoding="utf-8") as f:
-        src = f.read()
-    nodes = []
-    m = re.search(r'service\("([^"]+)"', src)
-    nodes.append(("railway", "railway_web_service", m.group(1) if m else "web-service"))
-    m = re.search(r"//\s*dockerfile:\s*(\S+)", src)
-    if m:
-        nodes.append(("railway", "dockerfile", m.group(1)))
-    m = re.search(r'healthcheck:\s*"([^"]+)"', src)
-    if m:
-        nodes.append(("railway", "healthcheck", m.group(1)))
-    m = re.search(r'DATABASE_URL:\s*"([^"]+)"', src)
-    if m:
-        nodes.append(("railway-data", "sqlite_volume", os.path.basename(m.group(1))))
-    return nodes
-
-
 def load_nodes(a):
     if a.tfstate:
         return parse_tfstate(a.tfstate)
-    if getattr(a, "railway", None):
+    if a.railway:
         if a.railway.endswith(".ts"):
             return parse_railway_ts(a.railway)
         return parse_railway(a.railway)
@@ -267,7 +266,7 @@ def main():
         src = sp.add_mutually_exclusive_group(required=True)
         src.add_argument("--tfstate", help="terraform.tfstate (JSON)")
         src.add_argument("--arm", help="ARM JSON (Bicep compilado)")
-        src.add_argument("--railway", help="railway.toml (config-as-code Railway)")
+        src.add_argument("--railway", help="railway.toml o .railway/railway.ts (config-as-code Railway)")
         sp.add_argument("--out", default="spec/diagrams/despliegue.drawio")
         sp.add_argument("--title", default="Despliegue")
         sp.set_defaults(f=fn)

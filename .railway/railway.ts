@@ -17,12 +17,11 @@ export default defineRailway(() => {
       PORT: "8000",
       DATABASE_URL: "/app/data/topbirds.db",
       CORS_ORIGINS:
-        "https://topbirds-colombia.up.railway.app,http://localhost:8000",
+        "https://topbirdscolombia-production.up.railway.app,http://localhost:8000",
     },
   });
   return project("incredible-perception", {
     resources: [TopBirdsColombia],
   });
 });
-
 

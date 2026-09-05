@@ -1,6 +1,6 @@
 ﻿# Top Trumps Aves de Colombia
 
-AplicaciÃ³n demo de cartas estilo Top Trumps con aves de Colombia. Construida para demostrar un arnÃ©s de desarrollo de software completo (SDD + TDD + RDD) en 15 sprints.
+Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida para demostrar un arnés de desarrollo de software completo (SDD + TDD + RDD) en 15 sprints.
 
 ## Stack
 
@@ -11,13 +11,13 @@ AplicaciÃ³n demo de cartas estilo Top Trumps con aves de Colombia. Construida 
 ## Estructura
 
 ```
-spec/        # Artefactos del SDLC (visiÃ³n, user-stories, ADRs, recibos, etc.)
+spec/        # Artefactos del SDLC (visión, user-stories, ADRs, recibos, etc.)
 src/backend/ # API FastAPI
 src/frontend/# React SPA
 tests/e2e/   # Pruebas end-to-end con Playwright
 ```
 
-## EjecuciÃ³n local
+## Ejecución local
 
 ### Requisitos
 
@@ -40,7 +40,7 @@ cd src/frontend
 npm run dev
 ```
 
-La aplicaciÃ³n estarÃ¡ en `http://localhost:5173`. El proxy de Vite redirige `/api` al backend (`http://localhost:8000`).
+La aplicación estará en `http://localhost:5173`. El proxy de Vite redirige `/api` al backend (`http://localhost:8000`).
 
 ### Pruebas
 
@@ -73,7 +73,7 @@ npx playwright test
 
 El workflow `.github/workflows/ci.yml` ejecuta en cada push/PR:
 
-- Backend: `bandit`, `pytest` con cobertura â‰¥ 70 %, `pip-audit`.
+- Backend: `bandit`, `pytest` con cobertura ≥ 70 %, `pip-audit`.
 - Frontend: `oxlint`, `eslint-plugin-security`, `npm test`, `npm run build`, `npm audit`.
 - E2E: levanta backend + frontend y corre `npx cucumber-js`.
 - DAST: levanta backend y ejecuta `schemathesis`.
@@ -82,21 +82,21 @@ El workflow `.github/workflows/ci.yml` ejecuta en cada push/PR:
 
 ```powershell
 cd "D:\AI Projects\TopBirdsColombia"
-docker build -t topbirds:latest .
+docker build -f src/backend/Dockerfile -t topbirds:latest .
 docker run -p 8000:8000 -e CORS_ORIGINS=http://localhost:8000 topbirds:latest
 ```
 
-La aplicaciÃ³n estarÃ¡ en `http://localhost:8000`.
+La aplicación estará en `http://localhost:8000`.
 
-## Despliegue de demostraciÃ³n (Railway)
+## Despliegue de demostración (Railway)
 
-El backend se despliega en [Railway](https://railway.com). La infraestructura se gestiona como cÃ³digo en `.railway/railway.ts` (Railway IaC): servicio `TopBirdsColombia`, source GitHub, health check `/health` y variables de entorno. El build usa Docker con `src/backend/Dockerfile` (configuraciÃ³n del servicio; el DSL de IaC no expone `dockerfilePath`).
+El backend se despliega en [Railway](https://railway.com). La infraestructura se gestiona como código en `.railway/railway.ts` (Railway IaC): servicio `TopBirdsColombia`, source GitHub, health check `/health` y variables de entorno. El build usa Docker con `src/backend/Dockerfile` (configuración del servicio; el DSL de IaC no expone `dockerfilePath`).
 
-**Requisitos del CLI** (una vez por mÃ¡quina):
+**Requisitos del CLI** (una vez por máquina):
 
 ```powershell
 npm i -g @railway/cli
-npm install   # instala el SDK `railway` (IaC) en la raÃ­z del repo
+npm install   # instala el SDK `railway` (IaC) en la raíz del repo
 railway login
 ```
 
@@ -110,11 +110,10 @@ railway config apply    # aplica tras confirmar
 
 > Nota Windows: por un bug del SDK (`railway/iac` no encuentra el ejecutable del CLI), exporta antes `$env:_ = "$env:APPDATA\npm\node_modules\@railway\cli\bin\railway.exe"`.
 
-**Despliegue**: con el repo conectado, cada push a `main` dispara el build (Dockerfile). TambiÃ©n manual: `railway up --detach -y`.
+**Despliegue**: con el repo conectado, cada push a `main` dispara el build (Dockerfile). También manual: `railway up --detach -y`.
 
-Variables del servicio (definidas en IaC): `PORT=8000`, `DATABASE_URL=/app/data/topbirds.db`, `CORS_ORIGINS=https://<tu-servicio>.up.railway.app,http://localhost:8000`. Railway asigna el dominio `*.up.railway.app` y ejecuta el health check en `/health`. El frontend (GitHub Pages) debe apuntar a la URL pÃºblica del backend vÃ­a su configuraciÃ³n de build.
+Variables del servicio (definidas en IaC): `PORT=8000`, `DATABASE_URL=/app/data/topbirds.db`, `CORS_ORIGINS=https://<tu-servicio>.up.railway.app,http://localhost:8000`. Railway asigna el dominio `*.up.railway.app` y ejecuta el health check en `/health`. El frontend (GitHub Pages) debe apuntar a la URL pública del backend vía su configuración de build.
 
 ## Headers de seguridad y rate limiting
 
-El backend incluye middleware de headers de seguridad (`HSTS`, `CSP`, `X-Frame-Options`, etc.) y rate limiting en los endpoints de creaciÃ³n de partidas (`30/min`) y rondas (`60/min`). Se desactiva automÃ¡ticamente cuando `TESTING=1`.
-
+El backend incluye middleware de headers de seguridad (`HSTS`, `CSP`, `X-Frame-Options`, etc.) y rate limiting en los endpoints de creación de partidas (`30/min`) y rondas (`60/min`). Se desactiva automáticamente cuando `TESTING=1`.
