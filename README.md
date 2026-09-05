@@ -88,17 +88,19 @@ docker run -p 8000:8000 -e CORS_ORIGINS=http://localhost:8000 topbirds:latest
 
 La aplicación estará en `http://localhost:8000`.
 
-## Despliegue de demostración (Render)
+## Despliegue de demostración (Railway)
 
-1. Crear un Web Service en [Render](https://render.com) apuntando al repositorio.
-2. Seleccionar "Docker" y usar `src/backend/Dockerfile`.
-3. Configurar variables de entorno:
+El backend se despliega en [Railway](https://railway.com) usando el config-as-code `railway.toml` (raíz del repo), que apunta a `src/backend/Dockerfile` y define el health check en `/health`.
+
+1. Crear un proyecto en Railway y conectar el repositorio `csalamando/TopBirdsColombia`.
+2. Railway detecta `railway.toml` automáticamente; el root directory del servicio es la raíz del repo.
+3. Variables de entorno (ya definidas en `railway.toml`, ajustables en el dashboard):
    - `PORT=8000`
    - `DATABASE_URL=/app/data/topbirds.db`
-   - `CORS_ORIGINS=https://<tu-servicio>.onrender.com,http://localhost:8000`
-4. Render ejecuta el health check en `/health`.
+   - `CORS_ORIGINS=https://<tu-servicio>.up.railway.app,http://localhost:8000`
+4. Railway ejecuta el health check en `/health` y asigna el dominio `*.up.railway.app`.
 
-Alternativamente, usar el blueprint `infra/render.yaml` desde el dashboard de Render.
+El frontend (GitHub Pages) debe apuntar a la URL pública del backend vía su configuración de build.
 
 ## Headers de seguridad y rate limiting
 

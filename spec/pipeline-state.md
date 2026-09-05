@@ -76,4 +76,5 @@
 |- **Sprint 13 completado** — Pipeline CI/CD en GitHub Actions (`ci.yml`), Dockerfile multi-stage verificado localmente, blueprint `infra/render.yaml`, headers de seguridad y rate limiting implementados, `spec/security-requirements.md` actualizado.
 |- Docker local: imagen `topbirds:latest` construye y responde `/health` correctamente.
 |- Pipeline CI cubre: SAST backend/frontend, tests, build, E2E, SCA backend/frontend y DAST.
-|- Próximo paso: **Sprint 14** (despliegue a producción/demo).
+- Próximo paso: **Sprint 14** (despliegue a producción/demo).
+- **Cambio de spec (supersedes) 2026-09-05**: plataforma de despliegue backend Render -> Railway. `infra/render.yaml` retirado (queda en historial git); nuevo config-as-code `railway.toml` en raíz (Dockerfile `src/backend/Dockerfile`, health check `/health`, dominio `*.up.railway.app`). Actualizados `README.md`, `spec/cost-estimation.md` (gate GATE-0 re-pasado, recibo re-emitido) y `spec/cost-assumptions.yaml`. Impacto downstream según spec_diff_impact: `diagrams` (sin recibo vigente; diagrama de despliegue se regenera en Sprint 14 desde la nueva fuente antes del GATE 3). Stack ADR-001 sin cambios.

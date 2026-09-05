@@ -1,0 +1,18 @@
+# Top Birds Colombia — despliegue en Railway
+# Reemplaza a infra/render.yaml (supersedes, Sprint 14).
+# Railway lee este archivo desde el root del servicio (root directory = repo).
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "src/backend/Dockerfile"
+
+[deploy]
+startCommand = ""
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[deploy.envVars]
+PORT = "8000"
+DATABASE_URL = "/app/data/topbirds.db"
+CORS_ORIGINS = "https://topbirds-colombia.up.railway.app,http://localhost:8000"
