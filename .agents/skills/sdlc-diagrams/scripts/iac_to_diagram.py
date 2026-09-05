@@ -10,9 +10,11 @@ Fuentes soportadas (Python stdlib puro, sin ejecutar Terraform):
   --tfstate <terraform.tfstate>   Estado real de Terraform (JSON). Refleja lo
                                   REALMENTE desplegado — la verdad post-apply.
   --arm <template.json>           ARM JSON (Bicep compilado: az bicep build).
-  --railway <railway.toml>        Config-as-code de Railway (TOML, stdlib
-                                  tomllib). Deriva el servicio web, su
-                                  Dockerfile y el volumen de datos (SQLite).
+  --railway <f>                   Config de Railway: railway.toml (TOML,
+                                  stdlib tomllib) o .railway/railway.ts (DSL
+                                  IaC, extraido por patrones). Deriva el
+                                  servicio web, su Dockerfile y el volumen de
+                                  datos (SQLite).
 
 Comandos:
   generate  --tfstate|--arm|--railway <fuente> --out spec/diagrams/despliegue.drawio
@@ -183,10 +185,37 @@ def build_drawio(nodes, title="Despliegue"):
     return "\n".join(parts) + "\n"
 
 
+def parse_railway_ts(path):
+    """→ [(group, rtype, name)] derivado de .railway/railway.ts (DSL IaC).
+
+    Extracción por patrones (sin ejecutar TS): service name, healthcheck,
+    DATABASE_URL y el dockerfile anotado como comentario `// dockerfile: <ruta>`
+    (el DSL de Railway no expone dockerfilePath; es configuración del servicio).
+    """
+    import re
+    with open(path, encoding="utf-8") as f:
+        src = f.read()
+    nodes = []
+    m = re.search(r'service\("([^"]+)"', src)
+    nodes.append(("railway", "railway_web_service", m.group(1) if m else "web-service"))
+    m = re.search(r"//\s*dockerfile:\s*(\S+)", src)
+    if m:
+        nodes.append(("railway", "dockerfile", m.group(1)))
+    m = re.search(r'healthcheck:\s*"([^"]+)"', src)
+    if m:
+        nodes.append(("railway", "healthcheck", m.group(1)))
+    m = re.search(r'DATABASE_URL:\s*"([^"]+)"', src)
+    if m:
+        nodes.append(("railway-data", "sqlite_volume", os.path.basename(m.group(1))))
+    return nodes
+
+
 def load_nodes(a):
     if a.tfstate:
         return parse_tfstate(a.tfstate)
     if getattr(a, "railway", None):
+        if a.railway.endswith(".ts"):
+            return parse_railway_ts(a.railway)
         return parse_railway(a.railway)
     return parse_arm(a.arm)
 

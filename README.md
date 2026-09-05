@@ -90,17 +90,29 @@ La aplicación estará en `http://localhost:8000`.
 
 ## Despliegue de demostración (Railway)
 
-El backend se despliega en [Railway](https://railway.com) usando el config-as-code `railway.toml` (raíz del repo), que apunta a `src/backend/Dockerfile` y define el health check en `/health`.
+El backend se despliega en [Railway](https://railway.com). La infraestructura se gestiona como código en `.railway/railway.ts` (Railway IaC): servicio `TopBirdsColombia`, source GitHub, health check `/health` y variables de entorno. El build usa Docker con `src/backend/Dockerfile` (configuración del servicio; el DSL de IaC no expone `dockerfilePath`).
 
-1. Crear un proyecto en Railway y conectar el repositorio `csalamando/TopBirdsColombia`.
-2. Railway detecta `railway.toml` automáticamente; el root directory del servicio es la raíz del repo.
-3. Variables de entorno (ya definidas en `railway.toml`, ajustables en el dashboard):
-   - `PORT=8000`
-   - `DATABASE_URL=/app/data/topbirds.db`
-   - `CORS_ORIGINS=https://<tu-servicio>.up.railway.app,http://localhost:8000`
-4. Railway ejecuta el health check en `/health` y asigna el dominio `*.up.railway.app`.
+**Requisitos del CLI** (una vez por máquina):
 
-El frontend (GitHub Pages) debe apuntar a la URL pública del backend vía su configuración de build.
+```powershell
+npm i -g @railway/cli
+npm install   # instala el SDK `railway` (IaC) en la raíz del repo
+railway login
+```
+
+**Workflow de IaC** (aplicar cambios de `.railway/railway.ts`):
+
+```powershell
+railway link -p <proyecto>
+railway config plan     # previsualiza cambios
+railway config apply    # aplica tras confirmar
+```
+
+> Nota Windows: por un bug del SDK (`railway/iac` no encuentra el ejecutable del CLI), exporta antes `$env:_ = "$env:APPDATA\npm\node_modules\@railway\cli\bin\railway.exe"`.
+
+**Despliegue**: con el repo conectado, cada push a `main` dispara el build (Dockerfile). También manual: `railway up --detach -y`.
+
+Variables del servicio (definidas en IaC): `PORT=8000`, `DATABASE_URL=/app/data/topbirds.db`, `CORS_ORIGINS=https://<tu-servicio>.up.railway.app,http://localhost:8000`. Railway asigna el dominio `*.up.railway.app` y ejecuta el health check en `/health`. El frontend (GitHub Pages) debe apuntar a la URL pública del backend vía su configuración de build.
 
 ## Headers de seguridad y rate limiting
 
