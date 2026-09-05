@@ -1,9 +1,9 @@
 ﻿import { defineRailway, github, project, service } from "railway/iac";
 
 // Top Birds Colombia — servicio backend (FastAPI + SQLite en contenedor Docker).
-// Build: el builder Docker del servicio compila src/backend/Dockerfile
+// Build: el builder Docker del servicio compila el Dockerfile de la raíz
 // (el DSL de IaC no expone dockerfilePath; es configuración del servicio).
-// dockerfile: src/backend/Dockerfile
+// dockerfile: Dockerfile
 
 export const partial = "TopBirdsColombia";
 
@@ -24,4 +24,5 @@ export default defineRailway(() => {
     resources: [TopBirdsColombia],
   });
 });
+
 

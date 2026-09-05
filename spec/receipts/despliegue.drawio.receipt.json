@@ -1,11 +1,11 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\diagrams\\despliegue.drawio",
-  "sha256": "3ccd718a2799c1edb707f976ec529432fb33a7a61e0dbea8ebf8c7cb294e5be8",
+  "sha256": "77f9174bcdb80c14f8f9f43e1188059a68e11fcb8d7f5cc1519c3303bf440e87",
   "gate": "GATE-3",
   "tipo": "",
   "rol": "cloud-engineer",
-  "emitido": "2026-09-04T19:39:32",
+  "emitido": "2026-09-04T19:44:05",
   "estado": "vigente",
   "tokens_src": "estimado",
-  "tokens_out": 495
+  "tokens_out": 492
 }
