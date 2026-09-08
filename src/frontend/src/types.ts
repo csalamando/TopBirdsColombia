@@ -27,6 +27,12 @@ export interface Bird {
   atributos: Attributes;
 }
 
+export interface DeckInfo {
+  id: string;
+  nombre: string;
+  cantidad: number;
+}
+
 export type GameMode = "ia" | "hotseat";
 export type Turn = "jugador" | "oponente";
 export type GameState = "activa" | "finalizada";
@@ -48,6 +54,7 @@ export interface RoundResult {
 export interface Game {
   id: string;
   modo: GameMode;
+  baraja?: string;
   estado: GameState;
   turno: Turn;
   cartas_jugador: number;

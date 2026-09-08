@@ -41,6 +41,52 @@ describe("Home screen", () => {
     await userEvent.click(screen.getByRole("button", { name: /Nueva partida/i }));
     expect(await screen.findByText(/No se pudo crear la partida/i)).toBeInTheDocument();
   });
+
+  it("renders deck selector with Aleatoria default and region counts", async () => {
+    render(<Home onStartGame={() => {}} />);
+    expect(await screen.findByLabelText(/Aleatoria/)).toBeChecked();
+    expect(screen.getByLabelText(/Colombia completa · 52 aves/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Expedición: Amazonía · 24 aves/)).toBeInTheDocument();
+  });
+
+  it("creates a game with the selected deck", async () => {
+    let capturedBody: { baraja?: string } = {};
+    server.use(
+      http.post("/api/partidas", async ({ request }) => {
+        capturedBody = (await request.json()) as { baraja?: string };
+        return HttpResponse.json(
+          {
+            id: "new-game-1",
+            modo: "ia",
+            baraja: capturedBody.baraja ?? "aleatoria",
+            estado: "activa",
+            turno: "jugador",
+            cartas_jugador: 26,
+            cartas_oponente: 26,
+            ganador: null,
+          },
+          { status: 201 }
+        );
+      })
+    );
+    render(<Home onStartGame={() => {}} />);
+    await screen.findByLabelText(/Aleatoria/);
+    await userEvent.click(screen.getByLabelText(/Colombia completa · 52 aves/));
+    await userEvent.click(screen.getByRole("button", { name: /Nueva partida/i }));
+    await waitFor(() => expect(capturedBody.baraja).toBe("completa"));
+  });
+
+  it("shows error state when decks fail to load", async () => {
+    server.use(
+      http.get("/api/barajas", () => {
+        return new HttpResponse(null, { status: 500 });
+      })
+    );
+    render(<Home onStartGame={() => {}} />);
+    expect(
+      await screen.findByText(/No se pudieron cargar las barajas/i)
+    ).toBeInTheDocument();
+  });
 });
 
 describe("Game screen", () => {

@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import type { Bird, Game, RoundResult } from "../types";
+import type { Bird, DeckInfo, Game, RoundResult } from "../types";
 
 const mockBirds: Bird[] = [
   {
@@ -51,9 +51,22 @@ const mockGame: Game = {
   ganador: null,
 };
 
+export const mockDecks: DeckInfo[] = [
+  { id: "completa", nombre: "Colombia completa", cantidad: 52 },
+  { id: "amazonia", nombre: "Expedición: Amazonía", cantidad: 24 },
+  { id: "andina", nombre: "Expedición: Andina", cantidad: 30 },
+  { id: "caribe", nombre: "Expedición: Caribe", cantidad: 22 },
+  { id: "pacifico", nombre: "Expedición: Pacífico", cantidad: 21 },
+  { id: "orinoquia", nombre: "Expedición: Orinoquía", cantidad: 18 },
+];
+
 export const handlers = [
   http.get("/api/aves", () => {
     return HttpResponse.json({ items: mockBirds });
+  }),
+
+  http.get("/api/barajas", () => {
+    return HttpResponse.json({ items: mockDecks });
   }),
 
   http.get("/api/aves/:id", ({ params }) => {
@@ -65,11 +78,16 @@ export const handlers = [
   }),
 
   http.post("/api/partidas", async ({ request }) => {
-    const body = (await request.json()) as { modo: string; jugador_nombre?: string };
+    const body = (await request.json()) as {
+      modo: string;
+      jugador_nombre?: string;
+      baraja?: string;
+    };
     const newGame: Game = {
       ...mockGame,
       id: "new-game-1",
       modo: body.modo === "ia" ? "ia" : "hotseat",
+      baraja: body.baraja ?? "aleatoria",
     };
     return HttpResponse.json(newGame, { status: 201 });
   }),
