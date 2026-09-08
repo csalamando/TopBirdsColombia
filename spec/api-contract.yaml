@@ -210,6 +210,10 @@ components:
         es_dimorfica:
           type: boolean
           default: false
+        estacionalidad:
+          type: string
+          nullable: true
+          description: HU-15; p. ej. "Residente" o "Migratoria Boreal" (badge visitante boreal, temporada nov-feb)
         regiones:
           type: array
           items:
@@ -408,6 +412,14 @@ components:
           type: boolean
           nullable: true
           description: RN-10; resultado de la apuesta (null si no se usó el bono)
+        combo_orden:
+          type: string
+          nullable: true
+          description: RN-12; orden taxonómico de la carta ganadora cuando hay combo (2 victorias consecutivas del mismo ganador con aves del mismo orden)
+        combo_bonus:
+          type: boolean
+          default: false
+          description: RN-12; true si el combo sumó +1 carta del reservorio al ganador
         carta_jugador:
           $ref: "#/components/schemas/Ave"
         carta_oponente:

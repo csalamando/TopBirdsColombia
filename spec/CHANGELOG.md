@@ -2,6 +2,11 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-08 (3) — Mini-delta contrato de aterrizaje HU-15/HU-16
+
+- **Motivo**: al aterrizar la implementación de HU-10..HU-17 se detectaron dos campos faltantes: `Ave.estacionalidad` (nullable; necesario para el badge "visitante boreal" de HU-15/RN-13, temporada nov-feb) y `RondaResult.combo_orden` + `RondaResult.combo_bonus` (necesarios para el combo taxonómico de HU-16/RN-12: +1 carta del reservorio cuando el mismo ganador gana 2 rondas consecutivas con aves del mismo orden).
+- **Cambios**: solo `spec/api-contract.yaml`. Recibo re-emitido (software-architect). Sin impacto en HU-10..HU-14 ni HU-17.
+
 ## 2026-09-08 (2) — Sprint 16/17: dinámicas de juego sobre el dataset enriquecido (supersedes v2)
 
 - **Relación**: `spec/dataset-enrichment.md` v2 → v3 (**supersedes**); deltas en `spec/user-stories.md`, `spec/api-contract.yaml`, `spec/business-rules.md`, `spec/data-governance.md`, `spec/ux/screen-inventory.md`, `spec/backlog.md`. Solicitado y aprobado por el usuario (mapa de dinámicas A-E).
