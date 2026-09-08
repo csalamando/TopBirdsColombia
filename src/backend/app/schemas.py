@@ -15,6 +15,20 @@ class Atributos(BaseModel):
     velocidad_kmh: float
     esperanza_vida_anos: float
     rareza: int = Field(..., ge=1, le=10)
+    altitud_max_msnm: float | None = Field(
+        default=None, description="Atributo oculto (RN-11); solo se compara en la ronda especial"
+    )
+
+
+class VarianteImagen(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    sexo: Literal["macho", "hembra", "indeterminado"]
+    es_principal: bool
+    thumbnail_url: str | None = None
+    fotografo: str | None = None
+    licencia: Literal["cc-by", "cc0", "cc-by-sa"] | None = None
+    url_observacion: str | None = None
 
 
 class Ave(BaseModel):
@@ -23,11 +37,19 @@ class Ave(BaseModel):
     id: int
     nombre_comun: str
     nombre_cientifico: str
+    nombre_ingles: str | None = None
+    orden: str | None = None
     familia: str | None = None
     habitat: str | None = None
     dieta: str | None = None
     atribucion: str | None = None
     imagen_url: str | None = None
+    estado_conservacion_uicn: Literal["LC", "NT", "VU", "EN", "CR"] | None = None
+    endemismo: str | None = None
+    es_dimorfica: bool = False
+    estacionalidad: str | None = None
+    regiones: list[str] = Field(default_factory=list)
+    variantes_imagen: list[VarianteImagen] = Field(default_factory=list)
     atributos: Atributos
 
 
@@ -61,6 +83,7 @@ class Partida(BaseModel):
     cartas_oponente: int
     carta_activa: Ave | None = None
     ganador: Literal["jugador", "oponente", "empate"] | None = None
+    bono_dimorfico_usado: bool = False
 
 
 class PlayRondaRequest(BaseModel):
@@ -71,7 +94,11 @@ class PlayRondaRequest(BaseModel):
         "velocidad_kmh",
         "esperanza_vida_anos",
         "rareza",
+        "altitud_max_msnm",
     ]
+    sexo_oponente: Literal["macho", "hembra"] | None = Field(
+        default=None, description="RN-10; apuesta del bono '¿Macho o hembra?' (solo si aplica)"
+    )
 
 
 class RondaResult(BaseModel):
@@ -85,6 +112,10 @@ class RondaResult(BaseModel):
     cartas_oponente: int
     reserva: int
     ganador_partida: Literal["jugador", "oponente", "empate"] | None = None
+    bono_ofrecido: bool = False
+    bono_acierto: bool | None = None
+    combo_orden: str | None = None
+    combo_bonus: bool = False
 
 
 class Error(BaseModel):

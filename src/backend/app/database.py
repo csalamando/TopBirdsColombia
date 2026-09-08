@@ -23,5 +23,11 @@ def get_connection(db_path: str | None = None) -> sqlite3.Connection:
 def run_migrations(conn: sqlite3.Connection) -> None:
     migrations_dir = Path(__file__).parent / "migrations"
     for sql_file in sorted(migrations_dir.glob("*.sql")):
-        conn.executescript(sql_file.read_text())
+        try:
+            conn.executescript(sql_file.read_text())
+        except sqlite3.OperationalError as exc:
+            # Migraciones con ALTER TABLE deben poder re-ejecutarse (boot por
+            # conexion / archivo existente): ignorar columnas ya agregadas.
+            if "duplicate column name" not in str(exc):
+                raise
     conn.commit()

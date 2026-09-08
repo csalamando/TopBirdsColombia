@@ -1,4 +1,4 @@
-# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06, HU-09
+# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06, HU-09, HU-10..HU-17
 from fastapi import APIRouter, HTTPException, Response, Request
 from app.models import Game, GameMode, Ave
 from app.schemas import (
@@ -33,6 +33,7 @@ def _to_partida_schema(game: Game) -> Partida:
         "cartas_oponente": game.cartas_oponente,
         "carta_activa": carta_activa,
         "ganador": game.ganador,
+        "bono_dimorfico_usado": game.bono_dimorfico_usado,
     }
     return Partida.model_validate(data)
 
@@ -99,8 +100,10 @@ def play_ronda(
         atributo = body.atributo
 
     try:
-        result = game.play_round(atributo)
+        result = game.play_round(atributo, sexo_oponente=body.sexo_oponente)
     except RuntimeError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except ValueError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
 
     return RondaResult.model_validate(result, from_attributes=True)

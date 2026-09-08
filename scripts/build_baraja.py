@@ -1,14 +1,20 @@
-# Trazabilidad SDLC: HU-09, S16-BE-04
+# Trazabilidad SDLC: HU-09, S16-BE-04, S17-DE-01, HU-10..HU-17
 """Construye la baraja del juego (52 cartas) desde el dataset enriquecido.
 
 Fuente: topbirds_dataset/aves_colombia_toptrumps_enriquecido.json (303 especies,
-curadas por el usuario, ver spec/dataset-enrichment.md v2).
+curadas por el usuario, ver spec/dataset-enrichment.md v3).
 
 Criterio de seleccion (determinista):
 1. Siempre incluir las especies amenazadas (UICN VU/EN/CR): ensenanza de conservacion.
 2. Priorizar especies dimorficas (146 disponibles): soportan la mecanica estrella.
 3. Balance por region canonica (max 12 por region) y diversidad de familias (max 6 por familia).
 4. Rellenar hasta 52 relajando topes si es necesario.
+
+Cartas enriquecidas (S17-DE-01 / contrato spec/api-contract.yaml): nombre_ingles,
+orden, estado_conservacion_uicn, endemismo, es_dimorfica, estacionalidad,
+variantes_imagen[] (thumbnail_url solo si el webp existe en
+src/frontend/public/cards/, ver scripts/build_thumbnails.py) y
+atributos.altitud_max_msnm (oculto, RN-11).
 
 Salida: src/backend/app/data/barajas.json
 """
@@ -22,10 +28,13 @@ ROOT = Path(__file__).resolve().parent.parent
 DATASET = ROOT / "topbirds_dataset" / "aves_colombia_toptrumps_enriquecido.json"
 OUTPUT = ROOT / "src" / "backend" / "app" / "data" / "barajas.json"
 
+PUBLIC_CARDS = ROOT / "src" / "frontend" / "public" / "cards"
+
 TARGET = 52
 REGION_CAP = 12
 FAMILY_CAP = 6
 THREATENED = {"VU", "EN", "CR"}
+UICN_VALIDAS = {"LC", "NT", "VU", "EN", "CR"}  # enum del contrato
 REGION_ORDER = ["andina", "caribe", "pacifico", "amazonia", "orinoquia"]
 REGION_LABELS = {
     "andina": "Expedición: Andina",
@@ -72,6 +81,39 @@ def primary_region(species: dict) -> str | None:
         species["distribucion_y_ecologia"]["regiones_colombia"]
     )
     return regions[0] if regions else None
+
+
+def thumbnail_url(variante: dict) -> str | None:
+    """URL del thumbnail servido por el frontend, o null si aun no existe."""
+    archivo = variante.get("archivo_local")
+    if not archivo:
+        return None
+    name = Path(archivo).stem + ".webp"
+    if (PUBLIC_CARDS / name).exists():
+        return f"/cards/{name}"
+    return None
+
+
+def uicn_contrato(species: dict) -> str | None:
+    """UICN dentro del enum del contrato; NE/DD quedan como null."""
+    uicn = species.get("estado_conservacion_uicn")
+    return uicn if uicn in UICN_VALIDAS else None
+
+
+def build_variantes(species: dict) -> list[dict]:
+    variantes = []
+    for v in species.get("variantes_imagen", []):
+        variantes.append(
+            {
+                "sexo": v.get("sexo") or "indeterminado",
+                "es_principal": bool(v.get("es_principal")),
+                "thumbnail_url": thumbnail_url(v),
+                "fotografo": v.get("fotografo"),
+                "licencia": v.get("licencia"),
+                "url_observacion": v.get("url_observacion"),
+            }
+        )
+    return variantes
 
 
 def select_species(pool: list[dict]) -> list[dict]:
@@ -126,19 +168,31 @@ def build() -> dict:
     cartas = []
     for idx, s in enumerate(selected, start=1):
         atributos = s["atributos_juego"]
+        dist = s.get("distribucion_y_ecologia", {})
+        rango = dist.get("rango_altitudinal_msnm") or []
+        altitud_max = float(rango[1]) if len(rango) > 1 and rango[1] is not None else None
+        variantes = build_variantes(s)
+        principal = next((v for v in variantes if v["es_principal"]), None)
         cartas.append(
             {
                 "id": idx,
                 "nombre_comun": s["nombre_comun"],
+                "nombre_ingles": s.get("nombre_ingles"),
                 "nombre_cientifico": s["nombre_cientifico"],
+                "orden": s.get("orden"),
                 "familia": s.get("familia"),
                 "habitat": s.get("habitat"),
                 "dieta": s.get("dieta"),
                 "atribucion": atribucion(s),
-                "imagen_url": None,  # thumbnails: paso pendiente (dataset-enrichment v2)
+                "imagen_url": principal["thumbnail_url"] if principal else None,
+                "estado_conservacion_uicn": uicn_contrato(s),
+                "endemismo": s.get("endemismo"),
+                "es_dimorfica": is_dimorphic(s),
+                "estacionalidad": dist.get("estacionalidad"),
                 "regiones": normalize_regions(
                     s["distribucion_y_ecologia"]["regiones_colombia"]
                 ),
+                "variantes_imagen": variantes,
                 "atributos": {
                     "tamano_cm": float(atributos["tamano_cm"]),
                     "peso_g": float(atributos["peso_g"]),
@@ -146,6 +200,7 @@ def build() -> dict:
                     "velocidad_kmh": float(atributos["velocidad_kmh"]),
                     "esperanza_vida_anos": float(atributos["esperanza_vida_anos"]),
                     "rareza": int(atributos["rareza_indice"]) * 2,  # escala 1-5 -> 1-10
+                    "altitud_max_msnm": altitud_max,  # oculto (RN-11)
                 },
             }
         )
@@ -163,7 +218,7 @@ def build() -> dict:
             {"id": region, "nombre": REGION_LABELS[region], "cartas": ids}
         )
 
-    return {"version": "1.0.0", "cartas": cartas, "barajas": barajas}
+    return {"version": "1.1.0", "cartas": cartas, "barajas": barajas}
 
 
 def main() -> None:

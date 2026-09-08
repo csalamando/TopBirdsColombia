@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import sqlite3
 
-from app.models import Ave, Game
+from app.models import Ave, Game, VarianteImagen
 
 
 def _row_to_ave(row: sqlite3.Row) -> Ave:
@@ -18,6 +18,24 @@ def _row_to_ave(row: sqlite3.Row) -> Ave:
         atribucion=row["atribucion"],
         imagen_url=row["imagen_url"],
         atributos=json.loads(row["atributos"]),
+        nombre_ingles=row["nombre_ingles"],
+        orden=row["orden"],
+        estado_conservacion_uicn=row["estado_conservacion_uicn"],
+        endemismo=row["endemismo"],
+        es_dimorfica=bool(row["es_dimorfica"]),
+        estacionalidad=row["estacionalidad"],
+        regiones=json.loads(row["regiones"] or "[]"),
+        variantes_imagen=[
+            VarianteImagen(
+                sexo=v.get("sexo") or "indeterminado",
+                es_principal=bool(v.get("es_principal")),
+                thumbnail_url=v.get("thumbnail_url"),
+                fotografo=v.get("fotografo"),
+                licencia=v.get("licencia"),
+                url_observacion=v.get("url_observacion"),
+            )
+            for v in json.loads(row["variantes_imagen"] or "[]")
+        ],
     )
 
 
@@ -30,8 +48,10 @@ class AveRepository:
             """
             INSERT OR REPLACE INTO aves (
                 id, nombre_comun, nombre_cientifico, familia, habitat, dieta,
-                atribucion, imagen_url, atributos
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                atribucion, imagen_url, atributos,
+                nombre_ingles, orden, estado_conservacion_uicn, endemismo,
+                es_dimorfica, estacionalidad, regiones, variantes_imagen
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 ave.id,
@@ -43,6 +63,26 @@ class AveRepository:
                 ave.atribucion,
                 ave.imagen_url,
                 json.dumps(ave.atributos),
+                ave.nombre_ingles,
+                ave.orden,
+                ave.estado_conservacion_uicn,
+                ave.endemismo,
+                int(ave.es_dimorfica),
+                ave.estacionalidad,
+                json.dumps(ave.regiones),
+                json.dumps(
+                    [
+                        {
+                            "sexo": v.sexo,
+                            "es_principal": v.es_principal,
+                            "thumbnail_url": v.thumbnail_url,
+                            "fotografo": v.fotografo,
+                            "licencia": v.licencia,
+                            "url_observacion": v.url_observacion,
+                        }
+                        for v in ave.variantes_imagen
+                    ]
+                ),
             ),
         )
         self._conn.commit()

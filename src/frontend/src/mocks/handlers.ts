@@ -18,7 +18,14 @@ const mockBirds: Bird[] = [
       velocidad_kmh: 56,
       esperanza_vida_anos: 50,
       rareza: 4,
+      altitud_max_msnm: 1200,
     },
+    orden: "Psittaciformes",
+    estado_conservacion_uicn: "LC",
+    es_dimorfica: false,
+    estacionalidad: "Residente",
+    regiones: ["amazonia", "orinoquia"],
+    variantes_imagen: [],
   },
   {
     id: 2,
@@ -36,19 +43,28 @@ const mockBirds: Bird[] = [
       velocidad_kmh: 50,
       esperanza_vida_anos: 8,
       rareza: 6,
+      altitud_max_msnm: 2100,
     },
+    orden: "Apodiformes",
+    estado_conservacion_uicn: "LC",
+    es_dimorfica: false,
+    estacionalidad: "Residente",
+    regiones: ["andina"],
+    variantes_imagen: [],
   },
 ];
 
 const mockGame: Game = {
   id: "game-1",
   modo: "ia",
+  baraja: "completa",
   estado: "activa",
   turno: "jugador",
   cartas_jugador: 3,
   cartas_oponente: 3,
   carta_activa: mockBirds[0],
   ganador: null,
+  bono_dimorfico_usado: false,
 };
 
 export const mockDecks: DeckInfo[] = [
@@ -100,7 +116,10 @@ export const handlers = [
   }),
 
   http.post("/api/partidas/:id/rondas", async ({ request }) => {
-    const body = (await request.json()) as { atributo: string };
+    const body = (await request.json()) as {
+      atributo: string;
+      sexo_oponente?: "macho" | "hembra";
+    };
     const result: RoundResult = {
       atributo: body.atributo,
       valor_jugador: 84,
@@ -112,6 +131,10 @@ export const handlers = [
       cartas_oponente: 2,
       reserva: 0,
       ganador_partida: null,
+      bono_ofrecido: Boolean(body.sexo_oponente),
+      bono_acierto: body.sexo_oponente ? true : null,
+      combo_orden: null,
+      combo_bonus: false,
     };
     return HttpResponse.json(result);
   }),

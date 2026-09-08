@@ -6,6 +6,12 @@ Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida pa
 
 - **Selección de baraja al iniciar partida (HU-09)**: el jugador elige entre una baraja temática aleatoria (por defecto, elegida server-side), la colección completa de 52 cartas o una expedición por región (Andina, Caribe, Pacífico, Amazonía, Orinoquía) con el conteo de aves en pantalla.
 - **Baraja curada de 52 aves** generada desde `topbirds_dataset` (iNaturalist Open Data): siempre incluye las 13 especies amenazadas (UICN VU/EN/CR), prioriza las 146 especies con dimorfismo sexual y está balanceada por región; cada carta lleva atribución de fotógrafo y licencia.
+- **Cartas enriquecidas con fotografía (HU-10, HU-12, HU-15)**: thumbnails webp (~200 px) servidos por el frontend con variantes por sexo; las especies dimórficas muestran badge y toggle macho/hembra, las amenazadas (UICN VU/EN/CR) llevan sello de conservación y las migratorias boreales un badge de visitante (temporada nov-feb).
+- **Bono «¿Macho o hembra?» (HU-11, RN-10)**: una vez por partida, en tu turno, puedes apostar el sexo de la carta del oponente; acertar gana la ronda aunque pierdas el atributo.
+- **Ronda de altitud (HU-14, RN-11)**: una vez por partida puedes jugar el atributo oculto `altitud_max_msnm` («¿Quién vive más alto?»).
+- **Combo taxonómico (HU-16, RN-12)**: ganar dos rondas seguidas con aves del mismo orden suma +1 carta del oponente.
+- **Resumen de expedición (HU-13)**: al terminar, la pantalla de resultado lista las aves que viste («Tu expedición por {región}» o «Tu recorrido por Colombia»).
+- **Quiz «Modo Ornitólogo» (HU-17, RN-14)**: modo de práctica con fotos y 4 opciones de identificación (nombre común + científico), puntaje de 5 preguntas y crédito del fotógrafo.
 - Modos de juego contra la IA o hot-seat (dos humanos, mismo dispositivo).
 - API REST con validación de contrato (Schemathesis), rate limiting y headers de seguridad.
 - Portal SDLC auto-generado que publica la spec, recibos SHA-256, métricas y memoria del proyecto (ver siguiente sección).

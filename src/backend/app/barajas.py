@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
-from app.models import Ave
+from app.models import Ave, VarianteImagen
 
 DATA_PATH = Path(__file__).resolve().parent / "data" / "barajas.json"
 MIN_TEMA_TICAS = 10  # barajas regionales elegibles para "aleatoria"
@@ -42,6 +42,24 @@ def load_cartas() -> list[Ave]:
             atribucion=c.get("atribucion"),
             imagen_url=c.get("imagen_url"),
             atributos=c["atributos"],
+            nombre_ingles=c.get("nombre_ingles"),
+            orden=c.get("orden"),
+            estado_conservacion_uicn=c.get("estado_conservacion_uicn"),
+            endemismo=c.get("endemismo"),
+            es_dimorfica=bool(c.get("es_dimorfica")),
+            estacionalidad=c.get("estacionalidad"),
+            regiones=list(c.get("regiones") or []),
+            variantes_imagen=[
+                VarianteImagen(
+                    sexo=v.get("sexo") or "indeterminado",
+                    es_principal=bool(v.get("es_principal")),
+                    thumbnail_url=v.get("thumbnail_url"),
+                    fotografo=v.get("fotografo"),
+                    licencia=v.get("licencia"),
+                    url_observacion=v.get("url_observacion"),
+                )
+                for v in c.get("variantes_imagen") or []
+            ],
         )
         for c in _data()["cartas"]
     ]

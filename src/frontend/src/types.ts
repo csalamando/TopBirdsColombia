@@ -4,7 +4,8 @@ export type AttributeKey =
   | "envergadura_cm"
   | "velocidad_kmh"
   | "esperanza_vida_anos"
-  | "rareza";
+  | "rareza"
+  | "altitud_max_msnm";
 
 export interface Attributes {
   tamano_cm: number;
@@ -13,17 +14,37 @@ export interface Attributes {
   velocidad_kmh: number;
   esperanza_vida_anos: number;
   rareza: number;
+  altitud_max_msnm?: number | null;
+}
+
+export type Sexo = "macho" | "hembra" | "indeterminado";
+
+export interface VarianteImagen {
+  sexo: Sexo;
+  es_principal: boolean;
+  thumbnail_url?: string | null;
+  fotografo?: string | null;
+  licencia?: "cc-by" | "cc0" | "cc-by-sa" | null;
+  url_observacion?: string | null;
 }
 
 export interface Bird {
   id: number;
   nombre_comun: string;
   nombre_cientifico: string;
+  nombre_ingles?: string | null;
+  orden?: string | null;
   familia?: string | null;
   habitat?: string | null;
   dieta?: string | null;
   atribucion?: string | null;
   imagen_url?: string | null;
+  estado_conservacion_uicn?: "LC" | "NT" | "VU" | "EN" | "CR" | null;
+  endemismo?: string | null;
+  es_dimorfica?: boolean;
+  estacionalidad?: string | null;
+  regiones?: string[];
+  variantes_imagen?: VarianteImagen[];
   atributos: Attributes;
 }
 
@@ -49,6 +70,10 @@ export interface RoundResult {
   cartas_oponente: number;
   reserva: number;
   ganador_partida?: Winner | null;
+  bono_ofrecido?: boolean;
+  bono_acierto?: boolean | null;
+  combo_orden?: string | null;
+  combo_bonus?: boolean;
 }
 
 export interface Game {
@@ -61,4 +86,5 @@ export interface Game {
   cartas_oponente: number;
   carta_activa?: Bird | null;
   ganador?: Winner | null;
+  bono_dimorfico_usado?: boolean;
 }

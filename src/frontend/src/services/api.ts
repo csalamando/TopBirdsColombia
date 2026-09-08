@@ -61,12 +61,16 @@ export async function fetchGame(id: string): Promise<Game> {
 
 export async function playRound(
   gameId: string,
-  attribute: AttributeKey
+  attribute: AttributeKey,
+  sexoOponente?: "macho" | "hembra"
 ): Promise<RoundResult> {
   const response = await fetch(`${API_BASE_URL}/partidas/${gameId}/rondas`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ atributo: attribute }),
+    body: JSON.stringify({
+      atributo: attribute,
+      ...(sexoOponente ? { sexo_oponente: sexoOponente } : {}),
+    }),
   });
   if (!response.ok) {
     throw new Error("No se pudo jugar la ronda");

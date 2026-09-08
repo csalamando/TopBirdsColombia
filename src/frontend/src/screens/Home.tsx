@@ -6,6 +6,7 @@ import type { DeckInfo, GameMode } from "../types";
 
 export interface HomeScreenProps {
   onStartGame: (gameId: string, mode: GameMode) => void;
+  onStartQuiz?: () => void;
 }
 
 const modeLabels: Record<GameMode, string> = {
@@ -22,7 +23,7 @@ const optionClass = (selected: boolean) =>
 
 type DecksStatus = "loading" | "error" | "ready";
 
-export function Home({ onStartGame }: HomeScreenProps) {
+export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
   const [mode, setMode] = useState<GameMode>("ia");
   const [baraja, setBaraja] = useState<string>("aleatoria");
   const [decks, setDecks] = useState<DeckInfo[]>([]);
@@ -137,6 +138,14 @@ export function Home({ onStartGame }: HomeScreenProps) {
       <Button onClick={handleStart} disabled={loading} loading={loading}>
         Nueva partida
       </Button>
+
+      {onStartQuiz && (
+        <div className="mt-4">
+          <Button variant="secondary" onClick={onStartQuiz}>
+            Modo Ornitólogo
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

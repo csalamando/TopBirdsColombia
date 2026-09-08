@@ -1,3 +1,6 @@
 # Dependencias de desarrollo / CI para el backend
 bandit==1.8.3
 pip-audit==2.9.0
+
+# Scripts de datos (scripts/build_thumbnails.py)
+Pillow==12.3.0

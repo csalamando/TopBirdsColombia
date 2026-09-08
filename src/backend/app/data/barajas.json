@@ -1,17 +1,33 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "cartas": [
     {
       "id": 1,
       "nombre_comun": "Colibrí pechipunteado",
+      "nombre_ingles": "Speckled Hummingbird",
       "nombre_cientifico": "Adelomyia melanogenys",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Sotobosque denso de bosque andino y de niebla",
       "dieta": "Nectarívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/adelomyia_melanogenys_hembra.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/10761054"
+        }
       ],
       "atributos": {
         "tamano_cm": 9.0,
@@ -19,20 +35,37 @@
         "envergadura_cm": 11.0,
         "velocidad_kmh": 50.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 2800.0
       }
     },
     {
       "id": 2,
       "nombre_comun": "Colibrí cobrizo de páramo",
+      "nombre_ingles": "Shining Sunbeam",
       "nombre_cientifico": "Aglaeactis cupripennis",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Páramos arbustivos y bordes de bosque enano",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/aglaeactis_cupripennis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/aglaeactis_cupripennis_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/242176761"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -40,21 +73,46 @@
         "envergadura_cm": 14.0,
         "velocidad_kmh": 55.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 4200.0
       }
     },
     {
       "id": 3,
       "nombre_comun": "Cometa colivioleta",
+      "nombre_ingles": "Violet-tailed Sylph",
       "nombre_cientifico": "Aglaiocercus coelestis",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bosque pluvial premontano y niebla del Chocó",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/aglaiocercus_coelestis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Casi endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/aglaiocercus_coelestis_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/161545471"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/aglaiocercus_coelestis_hembra.webp",
+          "fotografo": "(c) Luis G. Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/10539399"
+        }
       ],
       "atributos": {
         "tamano_cm": 19.0,
@@ -62,20 +120,45 @@
         "envergadura_cm": 13.0,
         "velocidad_kmh": 52.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 2100.0
       }
     },
     {
       "id": 4,
       "nombre_comun": "Cometa colilargo",
+      "nombre_ingles": "Long-tailed Sylph",
       "nombre_cientifico": "Aglaiocercus kingii",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bosque andino, bosque de niebla y bordes arbustivos",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Esteban Villa Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/aglaiocercus_kingii_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/aglaiocercus_kingii_macho.webp",
+          "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/281413115"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/aglaiocercus_kingii_hembra.webp",
+          "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/281413100"
+        }
       ],
       "atributos": {
         "tamano_cm": 18.0,
@@ -83,21 +166,38 @@
         "envergadura_cm": 13.0,
         "velocidad_kmh": 50.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 3000.0
       }
     },
     {
       "id": 5,
       "nombre_comun": "Pato brasileño",
+      "nombre_ingles": "Brazilian Teal",
       "nombre_cientifico": "Amazonetta brasiliensis",
+      "orden": "Anseriformes",
       "familia": "Anatidae",
       "habitat": "Lagunas, esteros y sabanas inundables de los Llanos",
       "dieta": "Omnívoro/Plantas acuáticas",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/amazonetta_brasiliensis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/amazonetta_brasiliensis_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/258397891"
+        }
       ],
       "atributos": {
         "tamano_cm": 40.0,
@@ -105,20 +205,37 @@
         "envergadura_cm": 62.0,
         "velocidad_kmh": 65.0,
         "esperanza_vida_anos": 9.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 600.0
       }
     },
     {
       "id": 6,
       "nombre_comun": "Cotinga crestirroja",
+      "nombre_ingles": "Red-crested Cotinga",
       "nombre_cientifico": "Ampelion rubrocristatus",
+      "orden": "Passeriformes",
       "familia": "Cotingidae",
       "habitat": "Bosque altoandino, bordes de páramo y arboledas de Polylepis",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ampelion_rubrocristatus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ampelion_rubrocristatus_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/144931394"
+        }
       ],
       "atributos": {
         "tamano_cm": 21.0,
@@ -126,21 +243,38 @@
         "envergadura_cm": 32.0,
         "velocidad_kmh": 38.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 3800.0
       }
     },
     {
       "id": 7,
       "nombre_comun": "Pato de granja / Ánade real doméstico",
+      "nombre_ingles": "Domestic Mallard",
       "nombre_cientifico": "Anas platyrhynchos domesticus",
+      "orden": "Anseriformes",
       "familia": "Anatidae",
       "habitat": "Estanques de granja, lagos urbanos y parques",
       "dieta": "Omnívoro",
       "atribucion": "(c) Cullen Hanks, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/anas_platyrhynchos_domesticus_macho.webp",
+      "estado_conservacion_uicn": null,
+      "endemismo": "Domesticada",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/anas_platyrhynchos_domesticus_macho.webp",
+          "fotografo": "(c) Cullen Hanks, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/67261703"
+        }
       ],
       "atributos": {
         "tamano_cm": 58.0,
@@ -148,21 +282,38 @@
         "envergadura_cm": 90.0,
         "velocidad_kmh": 70.0,
         "esperanza_vida_anos": 10.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 2800.0
       }
     },
     {
       "id": 8,
       "nombre_comun": "Pato mulato (híbrido doméstico)",
+      "nombre_ingles": "Mallard × Muscovy Duck",
       "nombre_cientifico": "Anas platyrhynchos × Cairina moschata",
+      "orden": "Anseriformes",
       "familia": "Anatidae",
       "habitat": "Lagunas urbanas, parques y humedales artificiales",
       "dieta": "Omnívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": null,
+      "endemismo": "Introducida",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/anas_platyrhynchos_×_cairina_moschata_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/236144076"
+        }
       ],
       "atributos": {
         "tamano_cm": 65.0,
@@ -170,20 +321,37 @@
         "envergadura_cm": 95.0,
         "velocidad_kmh": 55.0,
         "esperanza_vida_anos": 10.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 2600.0
       }
     },
     {
       "id": 9,
       "nombre_comun": "Terlaque pechiazul",
+      "nombre_ingles": "Gray-breasted Mountain-Toucan",
       "nombre_cientifico": "Andigena hypoglauca",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Bosque altoandino húmedo y bosque de niebla templado",
       "dieta": "Frugívoro",
       "atribucion": "(c) Ryan F. Mandelbaum, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/andigena_hypoglauca_macho.webp",
+      "estado_conservacion_uicn": "NT",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/andigena_hypoglauca_macho.webp",
+          "fotografo": "(c) Ryan F. Mandelbaum, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/357894491"
+        }
       ],
       "atributos": {
         "tamano_cm": 46.0,
@@ -191,20 +359,45 @@
         "envergadura_cm": 50.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 12.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 3600.0
       }
     },
     {
       "id": 10,
       "nombre_comun": "Terlaque andino piquinegro",
+      "nombre_ingles": "Black-billed Mountain-Toucan",
       "nombre_cientifico": "Andigena nigrirostris",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Bosque de niebla alto y bosque andino montano",
       "dieta": "Frugívoro",
       "atribucion": "(c) Oscar Marín, some rights reserved (CC BY-SA) · iNaturalist (cc-by-sa)",
-      "imagen_url": null,
+      "imagen_url": "/cards/andigena_nigrirostris_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/andigena_nigrirostris_macho.webp",
+          "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/19189537"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/andigena_nigrirostris_hembra.webp",
+          "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/40286578"
+        }
       ],
       "atributos": {
         "tamano_cm": 48.0,
@@ -212,23 +405,48 @@
         "envergadura_cm": 52.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 12.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 3200.0
       }
     },
     {
       "id": 11,
       "nombre_comun": "Pato aguja / Cotúa",
+      "nombre_ingles": "Anhinga",
       "nombre_cientifico": "Anhinga anhinga",
+      "orden": "Suliformes",
       "familia": "Anhingidae",
       "habitat": "Ciénagas, ríos lentos y lagunas de aguas someras",
       "dieta": "Piscívoro subacuático",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/anhinga_anhinga_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "pacifico",
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/anhinga_anhinga_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/258386692"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/anhinga_anhinga_hembra.webp",
+          "fotografo": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/38300849"
+        }
       ],
       "atributos": {
         "tamano_cm": 88.0,
@@ -236,20 +454,37 @@
         "envergadura_cm": 115.0,
         "velocidad_kmh": 48.0,
         "esperanza_vida_anos": 14.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 12,
       "nombre_comun": "Clorospingo de Santa Marta",
+      "nombre_ingles": "Black-cheeked Mountain-Tanager",
       "nombre_cientifico": "Anisognathus melanogenys",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Bosque de niebla y matorrales montanos altos de Santa Marta",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/anisognathus_melanogenys_hembra.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/131402449"
+        }
       ],
       "atributos": {
         "tamano_cm": 18.0,
@@ -257,18 +492,25 @@
         "envergadura_cm": 26.0,
         "velocidad_kmh": 36.0,
         "esperanza_vida_anos": 7.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 3200.0
       }
     },
     {
       "id": 13,
       "nombre_comun": "Mango gorginegro",
+      "nombre_ingles": "Black-throated Mango",
       "nombre_cientifico": "Anthracothorax nigricollis",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Arboledas abiertas, jardines y sabanas arboladas",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/anthracothorax_nigricollis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe",
@@ -276,24 +518,49 @@
         "amazonia",
         "orinoquia"
       ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_macho.webp",
+          "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/40521940"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_hembra.webp",
+          "fotografo": "(c) Catalina Ayala, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/253998190"
+        }
+      ],
       "atributos": {
         "tamano_cm": 12.0,
         "peso_g": 7.2,
         "envergadura_cm": 14.0,
         "velocidad_kmh": 52.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 1500.0
       }
     },
     {
       "id": 14,
       "nombre_comun": "Mango gorginegro (subespecie nominal)",
+      "nombre_ingles": "",
       "nombre_cientifico": "Anthracothorax nigricollis nigricollis",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Arboledas y jardines tropicales en llanuras y valles",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "(c) desertnaturalist, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe",
@@ -301,27 +568,54 @@
         "amazonia",
         "orinoquia"
       ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.webp",
+          "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/345770194"
+        }
+      ],
       "atributos": {
         "tamano_cm": 12.0,
         "peso_g": 7.2,
         "envergadura_cm": 14.0,
         "velocidad_kmh": 52.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 1500.0
       }
     },
     {
       "id": 15,
       "nombre_comun": "Mango pechiverde",
+      "nombre_ingles": "Green-breasted Mango",
       "nombre_cientifico": "Anthracothorax prevostii",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bordes de bosque seco, sabanas arboladas y jardines caribeños",
       "dieta": "Nectarívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/anthracothorax_prevostii_hembra.webp",
+          "fotografo": "(c) Thibaud Aronson, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/10859055"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -329,23 +623,40 @@
         "envergadura_cm": 14.0,
         "velocidad_kmh": 52.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 16,
       "nombre_comun": "Garza mora / Garzón azulado",
+      "nombre_ingles": "Cocoi Heron",
       "nombre_cientifico": "Ardea cocoi",
+      "orden": "Pelecaniformes",
       "familia": "Ardeidae",
       "habitat": "Márgenes de ríos grandes, esteros y ciénagas",
       "dieta": "Piscívoro/Carnívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ardea_cocoi_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "pacifico",
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ardea_cocoi_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/238335667"
+        }
       ],
       "atributos": {
         "tamano_cm": 120.0,
@@ -353,18 +664,25 @@
         "envergadura_cm": 180.0,
         "velocidad_kmh": 48.0,
         "esperanza_vida_anos": 15.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 17,
       "nombre_comun": "Garcita bueyera",
+      "nombre_ingles": "Western Cattle-Egret",
       "nombre_cientifico": "Ardea ibis",
+      "orden": "Pelecaniformes",
       "familia": "Ardeidae",
       "habitat": "Potreros con ganado, humedales y campos de cultivo",
       "dieta": "Insectívoro/Invertebrados",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ardea_ibis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe",
@@ -372,28 +690,63 @@
         "amazonia",
         "orinoquia"
       ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ardea_ibis_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/51281558"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/ardea_ibis_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/9886185"
+        }
+      ],
       "atributos": {
         "tamano_cm": 50.0,
         "peso_g": 350.0,
         "envergadura_cm": 92.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 12.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 2600.0
       }
     },
     {
       "id": 18,
       "nombre_comun": "Gorrión piquinaranja",
+      "nombre_ingles": "Orange-billed Sparrow",
       "nombre_cientifico": "Arremon aurantiirostris",
+      "orden": "Passeriformes",
       "familia": "Passerellidae",
       "habitat": "Suelo y sotobosque de selva húmeda tropical sombría",
       "dieta": "Granívoro/Insectívoro del suelo",
       "atribucion": "(c) Sofía García, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/arremon_aurantiirostris_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe",
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/arremon_aurantiirostris_macho.webp",
+          "fotografo": "(c) Sofía García, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/176235251"
+        }
       ],
       "atributos": {
         "tamano_cm": 15.5,
@@ -401,21 +754,46 @@
         "envergadura_cm": 22.0,
         "velocidad_kmh": 28.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 19,
       "nombre_comun": "Torito dorado amazónico",
+      "nombre_ingles": "Gilded Barbet",
       "nombre_cientifico": "Capito auratus",
+      "orden": "Piciformes",
       "familia": "Capitonidae",
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/capito_auratus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/capito_auratus_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/303554153"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/capito_auratus_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/304060295"
+        }
       ],
       "atributos": {
         "tamano_cm": 19.0,
@@ -423,20 +801,45 @@
         "envergadura_cm": 28.0,
         "velocidad_kmh": 35.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 900.0
       }
     },
     {
       "id": 20,
       "nombre_comun": "Cardenal guajiro / Cardenal bermellón",
+      "nombre_ingles": "Vermilion Cardinal",
       "nombre_cientifico": "Cardinalis phoeniceus",
+      "orden": "Passeriformes",
       "familia": "Cardinalidae",
       "habitat": "Matorrales xerofíticos áridos y espinares costeros",
       "dieta": "Granívoro/Frutos cactáceos",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/cardinalis_phoeniceus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Casi endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/cardinalis_phoeniceus_macho.webp",
+          "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/155166893"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/cardinalis_phoeniceus_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/228527877"
+        }
       ],
       "atributos": {
         "tamano_cm": 19.0,
@@ -444,21 +847,46 @@
         "envergadura_cm": 26.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 7.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 300.0
       }
     },
     {
       "id": 21,
       "nombre_comun": "Carpintero castaño amazónico",
+      "nombre_ingles": "Chestnut Woodpecker",
       "nombre_cientifico": "Celeus elegans",
+      "orden": "Piciformes",
       "familia": "Picidae",
       "habitat": "Selva húmeda tropical de tierra firme y várzea",
       "dieta": "Insectívoro (hormigas y termitas arborícolas)",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/celeus_elegans_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/celeus_elegans_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/9806583"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/celeus_elegans_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/302609852"
+        }
       ],
       "atributos": {
         "tamano_cm": 28.0,
@@ -466,20 +894,45 @@
         "envergadura_cm": 44.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 22,
       "nombre_comun": "Clorocrisa multicolor",
+      "nombre_ingles": "Multicolored Tanager",
       "nombre_cientifico": "Chlorochrysa nitidissima",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Bosque de niebla primario y bosque subandino húmedo",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Derek Spencer, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/chlorochrysa_nitidissima_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "Endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/chlorochrysa_nitidissima_macho.webp",
+          "fotografo": "(c) Derek Spencer, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/261302258"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/chlorochrysa_nitidissima_hembra.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/234409887"
+        }
       ],
       "atributos": {
         "tamano_cm": 13.0,
@@ -487,20 +940,37 @@
         "envergadura_cm": 21.0,
         "velocidad_kmh": 36.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 2200.0
       }
     },
     {
       "id": 23,
       "nombre_comun": "Inca de Perijá",
+      "nombre_ingles": "Perija Starfrontlet",
       "nombre_cientifico": "Coeligena consita",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bosque de niebla alto y páramo de la Serranía del Perijá",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Jackson Frost, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/coeligena_consita_macho.webp",
+      "estado_conservacion_uicn": "EN",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/coeligena_consita_macho.webp",
+          "fotografo": "(c) Jackson Frost, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/263567085"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -508,20 +978,37 @@
         "envergadura_cm": 15.0,
         "velocidad_kmh": 54.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 3400.0
       }
     },
     {
       "id": 24,
       "nombre_comun": "Inca del Paramillo / Colibrí del Sol",
+      "nombre_ingles": "Dusky Starfrontlet",
       "nombre_cientifico": "Coeligena orina",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Páramos y bosques enanos nubosos del Nudo del Paramillo",
       "dieta": "Nectarívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "EN",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/coeligena_orina_hembra.webp",
+          "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/48283336"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -529,20 +1016,45 @@
         "envergadura_cm": 15.0,
         "velocidad_kmh": 54.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 3800.0
       }
     },
     {
       "id": 25,
       "nombre_comun": "Inca coliblanco de Santa Marta",
+      "nombre_ingles": "White-tailed Starfrontlet",
       "nombre_cientifico": "Coeligena phalerata",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bosque nuboso húmedo de la Sierra Nevada",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/coeligena_phalerata_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/coeligena_phalerata_macho.webp",
+          "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/162156075"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/coeligena_phalerata_hembra.webp",
+          "fotografo": "(c) Jorge I. Merchán Mayorga, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/111476226"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -550,20 +1062,45 @@
         "envergadura_cm": 14.0,
         "velocidad_kmh": 52.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 3300.0
       }
     },
     {
       "id": 26,
       "nombre_comun": "Inca negro",
+      "nombre_ingles": "Black Inca",
       "nombre_cientifico": "Coeligena prunellei",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Bosque andino de robles (Quercus humboldtii)",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/coeligena_prunellei_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "Endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/coeligena_prunellei_macho.webp",
+          "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/168462461"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/coeligena_prunellei_hembra.webp",
+          "fotografo": "(c) RJ Baltierra, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/272007750"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -571,20 +1108,37 @@
         "envergadura_cm": 15.0,
         "velocidad_kmh": 54.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 2800.0
       }
     },
     {
       "id": 27,
       "nombre_comun": "Cotinga celeste amazónica",
+      "nombre_ingles": "Spangled Cotinga",
       "nombre_cientifico": "Cotinga cayana",
+      "orden": "Passeriformes",
       "familia": "Cotingidae",
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/cotinga_cayana_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/cotinga_cayana_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/235441422"
+        }
       ],
       "atributos": {
         "tamano_cm": 20.0,
@@ -592,20 +1146,37 @@
         "envergadura_cm": 32.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 600.0
       }
     },
     {
       "id": 28,
       "nombre_comun": "Cotinga gorgimorada amazónica",
+      "nombre_ingles": "Plum-throated Cotinga",
       "nombre_cientifico": "Cotinga maynana",
+      "orden": "Passeriformes",
       "familia": "Cotingidae",
       "habitat": "Dosel de selva húmeda tropical inundable y tierra firme",
       "dieta": "Frugívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/cotinga_maynana_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/cotinga_maynana_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/304331445"
+        }
       ],
       "atributos": {
         "tamano_cm": 19.0,
@@ -613,21 +1184,38 @@
         "envergadura_cm": 32.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 500.0
       }
     },
     {
       "id": 29,
       "nombre_comun": "Paujil piquiazul",
+      "nombre_ingles": "Blue-billed Curassow",
       "nombre_cientifico": "Crax alberti",
+      "orden": "Galliformes",
       "familia": "Cracidae",
       "habitat": "Suelo de bosque húmedo primario tropical no fragmentado",
       "dieta": "Frugívoro/Semillero",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/crax_alberti_macho.webp",
+      "estado_conservacion_uicn": "CR",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/crax_alberti_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/329351448"
+        }
       ],
       "atributos": {
         "tamano_cm": 90.0,
@@ -635,20 +1223,37 @@
         "envergadura_cm": 115.0,
         "velocidad_kmh": 28.0,
         "esperanza_vida_anos": 18.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 30,
       "nombre_comun": "Dacnis ventriamarillo",
+      "nombre_ingles": "Yellow-bellied Dacnis",
       "nombre_cientifico": "Dacnis flaviventer",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Dosel de selva inundable (várzea) y riberas amazónicas",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/dacnis_flaviventer_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/dacnis_flaviventer_macho.webp",
+          "fotografo": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/36788529"
+        }
       ],
       "atributos": {
         "tamano_cm": 11.5,
@@ -656,20 +1261,37 @@
         "envergadura_cm": 17.0,
         "velocidad_kmh": 34.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 600.0
       }
     },
     {
       "id": 31,
       "nombre_comun": "Dacnis turquesa",
+      "nombre_ingles": "Turquoise Dacnis",
       "nombre_cientifico": "Dacnis hartlaubi",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Bosque subandino húmedo y plantaciones de café con sombra",
       "dieta": "Frugívoro/Nectarívoro",
       "atribucion": "(c) Richard Smith Chacon, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/dacnis_hartlaubi_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/dacnis_hartlaubi_macho.webp",
+          "fotografo": "(c) Richard Smith Chacon, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/39906743"
+        }
       ],
       "atributos": {
         "tamano_cm": 11.0,
@@ -677,21 +1299,38 @@
         "envergadura_cm": 17.0,
         "velocidad_kmh": 34.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 2200.0
       }
     },
     {
       "id": 32,
       "nombre_comun": "Hormiguerito gorginegro sureño",
+      "nombre_ingles": "Southern White-fringed Antwren",
       "nombre_cientifico": "Formicivora grisea",
+      "orden": "Passeriformes",
       "familia": "Thamnophilidae",
       "habitat": "Matorrales secos y bosques de galería llaneros",
       "dieta": "Insectívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/formicivora_grisea_hembra.webp",
+          "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/19137101"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -699,20 +1338,45 @@
         "envergadura_cm": 16.0,
         "velocidad_kmh": 28.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 33,
       "nombre_comun": "Hormiguerito gorginegro norteño",
+      "nombre_ingles": "Northern White-fringed Antwren",
       "nombre_cientifico": "Formicivora intermedia",
+      "orden": "Passeriformes",
       "familia": "Thamnophilidae",
       "habitat": "Matorrales áridos y espinares del Caribe",
       "dieta": "Insectívoro",
       "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/formicivora_intermedia_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/formicivora_intermedia_macho.webp",
+          "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/40523265"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/formicivora_intermedia_hembra.webp",
+          "fotografo": "(c) Álvaro Rivas Godin, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/103535774"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -720,21 +1384,46 @@
         "envergadura_cm": 16.0,
         "velocidad_kmh": 28.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 34,
       "nombre_comun": "Saltarín cuellidorado",
+      "nombre_ingles": "Golden-collared Manakin",
       "nombre_cientifico": "Manacus vitellinus",
+      "orden": "Passeriformes",
       "familia": "Pipridae",
       "habitat": "Sotobosque de bosque húmedo tropical del Chocó",
       "dieta": "Frugívoro",
       "atribucion": "(c) Laura Gaudette, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/manacus_vitellinus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/manacus_vitellinus_macho.webp",
+          "fotografo": "(c) Laura Gaudette, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/38491482"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/manacus_vitellinus_hembra.webp",
+          "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/19178298"
+        }
       ],
       "atributos": {
         "tamano_cm": 10.5,
@@ -742,20 +1431,37 @@
         "envergadura_cm": 17.0,
         "velocidad_kmh": 32.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 1000.0
       }
     },
     {
       "id": 35,
       "nombre_comun": "Barbudito del Ruiz",
+      "nombre_ingles": "Buffy Helmetcrest",
       "nombre_cientifico": "Oxypogon stuebelii",
+      "orden": "Apodiformes",
       "familia": "Trochilidae",
       "habitat": "Páramos con frailejones (Espeletia hartwegiana)",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/oxypogon_stuebelii_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/oxypogon_stuebelii_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/62120437"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -763,20 +1469,37 @@
         "envergadura_cm": 13.0,
         "velocidad_kmh": 48.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 4800.0
       }
     },
     {
       "id": 36,
       "nombre_comun": "Pato turrio andino / Pato rufo de la sabana",
+      "nombre_ingles": "",
       "nombre_cientifico": "Oxyura ferruginea andina",
+      "orden": "Anseriformes",
       "familia": "Anatidae",
       "habitat": "Lagunas altoandinas y humedales de la Sabana de Bogotá y Boyacá",
       "dieta": "Buceador (invertebrados bentónicos)",
       "atribucion": "(c) ajott, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/oxyura_ferruginea_andina_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "Endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/oxyura_ferruginea_andina_macho.webp",
+          "fotografo": "(c) ajott, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/103960963"
+        }
       ],
       "atributos": {
         "tamano_cm": 44.0,
@@ -784,21 +1507,46 @@
         "envergadura_cm": 56.0,
         "velocidad_kmh": 65.0,
         "esperanza_vida_anos": 9.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 3800.0
       }
     },
     {
       "id": 37,
       "nombre_comun": "Anambé cinéreo",
+      "nombre_ingles": "Cinereous Becard",
       "nombre_cientifico": "Pachyramphus rufus",
+      "orden": "Passeriformes",
       "familia": "Tityridae",
       "habitat": "Bosque seco, matorrales ribereños y claros arbolados",
       "dieta": "Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/pachyramphus_rufus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/pachyramphus_rufus_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/254237890"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/pachyramphus_rufus_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/326502235"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -806,20 +1554,37 @@
         "envergadura_cm": 22.0,
         "velocidad_kmh": 32.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 38,
       "nombre_comun": "Hormiguero dorsicastaño manchado",
+      "nombre_ingles": "",
       "nombre_cientifico": "Poliocrania exsul maculifer",
+      "orden": "Passeriformes",
       "familia": "Thamnophilidae",
       "habitat": "Sotobosque sombrío de selva húmeda del Chocó",
       "dieta": "Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/poliocrania_exsul_maculifer_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Casi endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/poliocrania_exsul_maculifer_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/9399437"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -827,20 +1592,37 @@
         "envergadura_cm": 20.0,
         "velocidad_kmh": 28.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 900.0
       }
     },
     {
       "id": 39,
       "nombre_comun": "Arasari piquirrayado del Chocó",
+      "nombre_ingles": "Stripe-billed Aracari",
       "nombre_cientifico": "Pteroglossus erythropygius sanguineus",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Dosel y bordes de selva pluvial del Chocó",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Zac Peterson, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Casi endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.webp",
+          "fotografo": "(c) Zac Peterson, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/122586025"
+        }
       ],
       "atributos": {
         "tamano_cm": 40.0,
@@ -848,20 +1630,45 @@
         "envergadura_cm": 52.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 11.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 1000.0
       }
     },
     {
       "id": 40,
       "nombre_comun": "Arasari de Humboldt",
+      "nombre_ingles": "Humboldt's araçari",
       "nombre_cientifico": "Pteroglossus inscriptus humboldti",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Selva húmeda amazónica, várzea e igapó",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/pteroglossus_inscriptus_humboldti_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/304048793"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_hembra.webp",
+          "fotografo": "(c) brettaugust, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/342775011"
+        }
       ],
       "atributos": {
         "tamano_cm": 35.0,
@@ -869,21 +1676,46 @@
         "envergadura_cm": 46.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 10.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 500.0
       }
     },
     {
       "id": 41,
       "nombre_comun": "Chango llanero",
+      "nombre_ingles": "Carib Grackle",
       "nombre_cientifico": "Quiscalus lugubris",
+      "orden": "Passeriformes",
       "familia": "Icteridae",
       "habitat": "Sabanas abiertas, márgenes de humedales y poblados",
       "dieta": "Omnívoro",
       "atribucion": "(c) Nicolas Olejnik, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/quiscalus_lugubris_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/quiscalus_lugubris_macho.webp",
+          "fotografo": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/17435453"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/quiscalus_lugubris_hembra.webp",
+          "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY-SA)",
+          "licencia": "cc-by-sa",
+          "url_observacion": "https://www.inaturalist.org/observations/25298067"
+        }
       ],
       "atributos": {
         "tamano_cm": 25.0,
@@ -891,21 +1723,38 @@
         "envergadura_cm": 36.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 42,
       "nombre_comun": "Tucán pechiblanco amazónico",
+      "nombre_ingles": "White-throated Toucan",
       "nombre_cientifico": "Ramphastos tucanus",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro/Pequeños vertebrados",
       "atribucion": "(c) Eva Li, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ramphastos_tucanus_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ramphastos_tucanus_macho.webp",
+          "fotografo": "(c) Eva Li, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/342455817"
+        }
       ],
       "atributos": {
         "tamano_cm": 58.0,
@@ -913,22 +1762,39 @@
         "envergadura_cm": 125.0,
         "velocidad_kmh": 46.0,
         "esperanza_vida_anos": 20.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 1000.0
       }
     },
     {
       "id": 43,
       "nombre_comun": "Tucán picoacanalado",
+      "nombre_ingles": "Channel-billed Toucan",
       "nombre_cientifico": "Ramphastos vitellinus",
+      "orden": "Piciformes",
       "familia": "Ramphastidae",
       "habitat": "Dosel de selva húmeda tropical de tierras bajas",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ramphastos_vitellinus_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ramphastos_vitellinus_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/352168347"
+        }
       ],
       "atributos": {
         "tamano_cm": 48.0,
@@ -936,21 +1802,46 @@
         "envergadura_cm": 105.0,
         "velocidad_kmh": 42.0,
         "esperanza_vida_anos": 18.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 44,
       "nombre_comun": "Tángara piquiplata amazónica",
+      "nombre_ingles": "Silver-beaked Tanager",
       "nombre_cientifico": "Ramphocelus carbo",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Bordes selváticos, riberas y claros amazónicos",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": null,
+      "imagen_url": "/cards/ramphocelus_carbo_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/ramphocelus_carbo_macho.webp",
+          "fotografo": "no rights reserved",
+          "licencia": "cc0",
+          "url_observacion": "https://www.inaturalist.org/observations/235417619"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/ramphocelus_carbo_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/302444948"
+        }
       ],
       "atributos": {
         "tamano_cm": 17.0,
@@ -958,22 +1849,47 @@
         "envergadura_cm": 26.0,
         "velocidad_kmh": 36.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 45,
       "nombre_comun": "Caracolero común",
+      "nombre_ingles": "Snail Kite",
       "nombre_cientifico": "Rostrhamus sociabilis",
+      "orden": "Accipitriformes",
       "familia": "Accipitridae",
       "habitat": "Ciénagas, humedales y lagunas con caracoles de agua dulce",
       "dieta": "Molusquívoro (Pomacea)",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/rostrhamus_sociabilis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/rostrhamus_sociabilis_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/30568696"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/rostrhamus_sociabilis_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/30938086"
+        }
       ],
       "atributos": {
         "tamano_cm": 45.0,
@@ -981,21 +1897,46 @@
         "envergadura_cm": 115.0,
         "velocidad_kmh": 45.0,
         "esperanza_vida_anos": 12.0,
-        "rareza": 2
+        "rareza": 2,
+        "altitud_max_msnm": 1000.0
       }
     },
     {
       "id": 46,
       "nombre_comun": "Batará crestinegro",
+      "nombre_ingles": "Black-crested Antshrike",
       "nombre_cientifico": "Sakesphorus canadensis",
+      "orden": "Passeriformes",
       "familia": "Thamnophilidae",
       "habitat": "Manglares, matorrales áridos y bosques secos de ribera",
       "dieta": "Insectívoro",
       "atribucion": "(c) Louis Imbeau, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/sakesphorus_canadensis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "caribe",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/sakesphorus_canadensis_macho.webp",
+          "fotografo": "(c) Louis Imbeau, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/147811621"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/sakesphorus_canadensis_hembra.webp",
+          "fotografo": "(c) Louis Imbeau, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/147811622"
+        }
       ],
       "atributos": {
         "tamano_cm": 16.0,
@@ -1003,20 +1944,37 @@
         "envergadura_cm": 22.0,
         "velocidad_kmh": 30.0,
         "esperanza_vida_anos": 6.0,
-        "rareza": 4
+        "rareza": 4,
+        "altitud_max_msnm": 500.0
       }
     },
     {
       "id": 47,
       "nombre_comun": "Tángara coroniblanca",
+      "nombre_ingles": "White-capped Tanager",
       "nombre_cientifico": "Sericossypha albocristata",
+      "orden": "Passeriformes",
       "familia": "Thraupidae",
       "habitat": "Dosel de bosque de niebla primario y bosque altoandino",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "iNaturalist Open Data",
       "imagen_url": null,
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "No endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/sericossypha_albocristata_hembra.webp",
+          "fotografo": "(c) Ariel Gallego, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/149160045"
+        }
       ],
       "atributos": {
         "tamano_cm": 24.0,
@@ -1024,20 +1982,45 @@
         "envergadura_cm": 38.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 3200.0
       }
     },
     {
       "id": 48,
       "nombre_comun": "Reinita cerúlea",
+      "nombre_ingles": "Cerulean Warbler",
       "nombre_cientifico": "Setophaga cerulea",
+      "orden": "Passeriformes",
       "familia": "Parulidae",
       "habitat": "Dosel de bosque andino húmedo y cafetales con sombra",
       "dieta": "Insectívoro",
       "atribucion": "(c) Daniel Hincapie, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/setophaga_cerulea_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Migratoria Boreal",
       "regiones": [
         "andina"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/setophaga_cerulea_macho.webp",
+          "fotografo": "(c) Daniel Hincapie, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/68247298"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/setophaga_cerulea_hembra.webp",
+          "fotografo": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/17626124"
+        }
       ],
       "atributos": {
         "tamano_cm": 12.0,
@@ -1045,20 +2028,37 @@
         "envergadura_cm": 20.0,
         "velocidad_kmh": 38.0,
         "esperanza_vida_anos": 5.0,
-        "rareza": 8
+        "rareza": 8,
+        "altitud_max_msnm": 2000.0
       }
     },
     {
       "id": 49,
       "nombre_comun": "Trogón coliazul del Chocó",
+      "nombre_ingles": "Blue-tailed Trogon",
       "nombre_cientifico": "Trogon comptus",
+      "orden": "Trogoniformes",
       "familia": "Trogonidae",
       "habitat": "Selva pluvial del Chocó y piedemonte pacífico",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/trogon_comptus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "Casi endémica",
+      "es_dimorfica": false,
+      "estacionalidad": "Residente",
       "regiones": [
         "pacifico"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/trogon_comptus_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/35090420"
+        }
       ],
       "atributos": {
         "tamano_cm": 28.0,
@@ -1066,21 +2066,46 @@
         "envergadura_cm": 38.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 1200.0
       }
     },
     {
       "id": 50,
       "nombre_comun": "Trogón coliblanco amazónico",
+      "nombre_ingles": "Green-backed Trogon",
       "nombre_cientifico": "Trogon viridis",
+      "orden": "Trogoniformes",
       "familia": "Trogonidae",
       "habitat": "Interior y dosel de selva húmeda de tierra firme",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Jacob Saucier, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/trogon_viridis_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/trogon_viridis_macho.webp",
+          "fotografo": "(c) Jacob Saucier, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/306568387"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/trogon_viridis_hembra.webp",
+          "fotografo": "(c) Jacob Saucier, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/306570334"
+        }
       ],
       "atributos": {
         "tamano_cm": 29.0,
@@ -1088,21 +2113,46 @@
         "envergadura_cm": 42.0,
         "velocidad_kmh": 40.0,
         "esperanza_vida_anos": 8.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 1000.0
       }
     },
     {
       "id": 51,
       "nombre_comun": "Carpinterito chico amazónico",
+      "nombre_ingles": "Little Woodpecker",
       "nombre_cientifico": "Veniliornis passerinus",
+      "orden": "Piciformes",
       "familia": "Picidae",
       "habitat": "Selva de várzea, bordes de río y arboledas amazónicas",
       "dieta": "Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/veniliornis_passerinus_macho.webp",
+      "estado_conservacion_uicn": "LC",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "amazonia",
         "orinoquia"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/veniliornis_passerinus_macho.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/303554169"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/veniliornis_passerinus_hembra.webp",
+          "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/303554155"
+        }
       ],
       "atributos": {
         "tamano_cm": 14.0,
@@ -1110,21 +2160,46 @@
         "envergadura_cm": 26.0,
         "velocidad_kmh": 36.0,
         "esperanza_vida_anos": 7.0,
-        "rareza": 10
+        "rareza": 10,
+        "altitud_max_msnm": 800.0
       }
     },
     {
       "id": 52,
       "nombre_comun": "Cóndor de los Andes",
+      "nombre_ingles": "Andean Condor",
       "nombre_cientifico": "Vultur gryphus",
+      "orden": "Cathartiformes",
       "familia": "Cathartidae",
       "habitat": "Páramos, riscos y alta montaña andina",
       "dieta": "Carroñero estricto",
       "atribucion": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": null,
+      "imagen_url": "/cards/vultur_gryphus_macho.webp",
+      "estado_conservacion_uicn": "VU",
+      "endemismo": "No endémica",
+      "es_dimorfica": true,
+      "estacionalidad": "Residente",
       "regiones": [
         "andina",
         "caribe"
+      ],
+      "variantes_imagen": [
+        {
+          "sexo": "macho",
+          "es_principal": true,
+          "thumbnail_url": "/cards/vultur_gryphus_macho.webp",
+          "fotografo": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/18386019"
+        },
+        {
+          "sexo": "hembra",
+          "es_principal": false,
+          "thumbnail_url": "/cards/vultur_gryphus_hembra.webp",
+          "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
+          "licencia": "cc-by",
+          "url_observacion": "https://www.inaturalist.org/observations/333145127"
+        }
       ],
       "atributos": {
         "tamano_cm": 125.0,
@@ -1132,7 +2207,8 @@
         "envergadura_cm": 310.0,
         "velocidad_kmh": 90.0,
         "esperanza_vida_anos": 50.0,
-        "rareza": 6
+        "rareza": 6,
+        "altitud_max_msnm": 4800.0
       }
     }
   ],
