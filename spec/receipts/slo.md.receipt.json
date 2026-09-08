@@ -1,0 +1,10 @@
+{
+  "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\slo.md",
+  "sha256": "2bc8154eb876194be5828cb1facc2d9196ea7450ec8b1e0752a6181aa48df232",
+  "gate": "FASE-7",
+  "tipo": "",
+  "rol": "sre",
+  "emitido": "2026-09-08T14:33:19",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
+}
