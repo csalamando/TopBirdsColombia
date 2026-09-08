@@ -1,0 +1,36 @@
+# Gobernanza de spec del arnés SDLC (v2.20): verifica en CI que los artefactos
+# derivados (manifiesto, portal/dashboard) no tengan drift respecto a sus fuentes.
+name: Spec Governance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "spec/**"
+      - "scripts/**"
+      - ".agents/skills/**"
+      - ".github/workflows/ci-spec-governance.yml"
+  pull_request:
+    paths:
+      - "spec/**"
+      - "scripts/**"
+      - ".agents/skills/**"
+
+jobs:
+  spec-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Manifest check (skills vs matriz de autoridad)
+        run: python scripts/manifest_check.py --check
+
+      - name: Dashboard/portal drift check (harness_graph)
+        run: python scripts/harness_graph.py --proyecto . --check
+
+      - name: Estado de recibos
+        run: python scripts/receipt.py status

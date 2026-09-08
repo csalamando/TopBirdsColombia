@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Sprint 8 — Frontend TDD: design system y componentes base</title><style>:root{--bg:#0b1220;--fg:#e2e8f0;--txt:#f1f5f9;--muted:#64748b;--sub:#8ea0b8;--edge:#94a3b8;--panel-bg:#0f172a;--panel-bd:#1e293b;--card-bg:#111c33;--accent:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--tier:#f97316;--shadow:rgba(0,0,0,.35);color-scheme:dark}:root[data-theme=claro]{--bg:#eef2f7;--fg:#1e293b;--txt:#0f172a;--muted:#64748b;--sub:#5b6b80;--edge:#64748b;--panel-bg:#ffffff;--panel-bd:#e2e8f0;--card-bg:#f8fafc;--accent:#2563eb;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;--tier:#ea580c;--shadow:rgba(15,23,42,.12);color-scheme:light}body{background:var(--bg);color:var(--fg);font-family:system-ui,'Segoe UI',sans-serif;margin:0;padding:1.5rem 1.8rem 3rem;line-height:1.55;font-size:15px}h1{font-size:1.35rem;color:var(--txt);margin:.2rem 0 .8rem}h2{font-size:1.08rem;color:var(--txt);margin:1.4rem 0 .6rem}h3{font-size:.92rem;color:var(--sub);margin:1.1rem 0 .4rem}h4{font-size:.85rem;color:var(--sub);margin:1rem 0 .3rem}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{background:var(--card-bg);border:1px solid var(--panel-bd);border-radius:5px;padding:.12em .4em;font-size:.88em;font-family:ui-monospace,'Cascadia Code',Consolas,monospace}pre{background:var(--panel-bg);border:1px solid var(--panel-bd);border-radius:10px;padding:1rem;overflow-x:auto}pre code{background:none;border:none;padding:0}table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.88em;display:block;overflow-x:auto}th,td{border-bottom:1px solid var(--panel-bd);padding:.45em .7em;text-align:left;vertical-align:top}th{color:var(--sub);font-size:.78em;text-transform:uppercase;letter-spacing:.04em}blockquote{border-left:3px solid var(--panel-bd);margin:1em 0;padding:.2em 1em;color:var(--sub)}hr{border:none;border-top:1px solid var(--panel-bd);margin:1.6em 0}img{max-width:100%}li{margin:.2em 0}.pnote{color:var(--muted);font-size:.78rem;margin-bottom:1rem}</style></head><body data-page-id="docs-reports-sprint-8-review"><div class="pnote">Render derivado de spec/ (mdview) — no editar a mano; la fuente es el .md</div><h1>Sprint 8 — Frontend TDD: design system y componentes base</h1>
+<h2>Rol</h2>
+<p><code>sdlc-frontend-dev-tdd</code></p>
+<h2>Objetivo</h2>
+<p>Iniciar el frontend React con Vite, TypeScript y TailwindCSS; implementar el design system con tokens y los componentes base necesarios para el flujo de juego.</p>
+<h2>Entregables</h2>
+<table><tr><th>Entregable</th><th>Ubicación</th><th>Estado</th></tr><tr><td>Proyecto Vite + React + TS</td><td><code>src/frontend/</code></td><td>Completado</td></tr><tr><td>Configuración Tailwind con tokens</td><td><code>tailwind.config.js</code>, <code>src/index.css</code></td><td>Completado</td></tr><tr><td>Configuración Vitest + jsdom</td><td><code>vite.config.ts</code>, <code>src/test/setup.ts</code></td><td>Completado</td></tr><tr><td>Tipos de dominio</td><td><code>src/types.ts</code></td><td>Completado</td></tr><tr><td>Componente Button</td><td><code>src/components/Button.tsx</code> + test</td><td>Completado</td></tr><tr><td>Componente Card</td><td><code>src/components/Card.tsx</code> + test</td><td>Completado</td></tr><tr><td>Componente AttributeButton</td><td><code>src/components/AttributeButton.tsx</code> + test</td><td>Completado</td></tr><tr><td>Componente Scoreboard</td><td><code>src/components/Scoreboard.tsx</code> + test</td><td>Completado</td></tr><tr><td>Componentes de estado Loading/Empty/Error/Success</td><td><code>src/components/ScreenStates.tsx</code> + test</td><td>Completado</td></tr><tr><td>Pantalla demo App.tsx</td><td><code>src/App.tsx</code> + test</td><td>Completado</td></tr></table>
+<h2>Trazabilidad</h2>
+<ul><li><b>HU-02</b> (Seleccionar atributo): <code>AttributeButton</code> con estados selected/disabled.</li><li><b>HU-03</b> (Resolver ronda): <code>Scoreboard</code> muestra cartas restantes y turno activo.</li><li><b>PANT-01 / PANT-02</b> (Inicio / Juego): <code>Card</code>, <code>Button</code>, estados de pantalla.</li><li><b>Design System</b>: colores, tipografías, espaciado y bordes redondeados de <code>spec/tokens.json</code>.</li></ul>
+<h2>Validación</h2>
+<pre><code>cd &#x27;D:\AI Projects\TopBirdsColombia\src\frontend&#x27;
+npm test
+npm run build</code></pre>
+<p>Resultado:</p>
+<ul><li><b>22 tests pasados</b> en Vitest + React Testing Library.</li><li><b>Cobertura: 95.45%</b> (umbral 70% alcanzado).</li><li><code>npm run build</code> exitoso, genera <code>dist/</code> con assets listos para despliegue estático.</li></ul>
+<h2>Notas técnicas</h2>
+<ul><li>Se usó <code>lucide-react</code> para iconografía según el design system.</li><li>Se configuró <code>vitest/config</code> para reconocer la sección <code>test</code> en <code>vite.config.ts</code>.</li><li>Se agregaron types de <code>@testing-library/jest-dom</code> en <code>tsconfig.app.json</code>.</li><li>Los componentes son puros y sin lógica de negocio; reciben props explícitas para facilitar tests.</li></ul>
+<h2>Deuda técnica</h2>
+<ul><li>No se conecta con backend aún (Sprint 10).</li><li>No se implementa routing ni gestión de estado global.</li></ul>
+<h2>Próximo paso</h2>
+<p>Sprint 9 — Frontend TDD: pantallas y flujo de juego.</p><script>
+(function(){
+  var root=document.documentElement;
+  function saved(){try{return localStorage.getItem('dir-tema');}catch(e){return null;}}
+  function apl(t){root.dataset.theme=t||(matchMedia('(prefers-color-scheme: light)').matches?'claro':'oscuro');}
+  apl(saved());
+  window.addEventListener('message',function(e){var d=e.data||{};if(d.portal==='tema'){apl(d.tema);}});
+  var pid=document.body&&document.body.getAttribute('data-page-id');
+  if(pid&&window.parent!==window){
+    try{window.parent.postMessage({portal:'abierto',id:pid},'*');}catch(e){}
+  }
+})();
+</script></body></html>

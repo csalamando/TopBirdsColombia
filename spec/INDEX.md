@@ -16,12 +16,13 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | Artefacto | sha256[:12] | lineas | resumen |
 |---|---|---|---|
 | `CHANGELOG.md` | 7f7e1ac5a708 | 21 | CHANGELOG de spec — Top Trumps Aves de Colombia |
+| `METRICS.md` | d723f7089432 | 48 | METRICS — aporte y disciplina de las skills |
 | `adr/ADR-001-stack.md` | 197361ab4dd6 | 69 | ADR-001: Selección de stack técnico para Top Trumps Aves de Colombia |
 | `api-contract.yaml` | cd616549ef64 | 304 | openapi: 3.0.3 |
 | `architectural-principles.yaml` | 4470fd905987 | 19 | Principios Arquitectónicos — Top Trumps Aves de Colombia |
 | `architecture-proposal.md` | e942faa33dcd | 53 | Propuesta de arquitectura — Top Trumps Aves de Colombia |
 | `architecture.md` | 80521beddd73 | 54 | Arquitectura de software — Top Trumps Aves de Colombia |
-| `authority-matrix.yaml` | 0d559c0646ac | 67 | Matriz de autoridad — Top Trumps Aves de Colombia |
+| `authority-matrix.yaml` | 512c81ecf110 | 67 | Matriz de autoridad — Top Trumps Aves de Colombia |
 | `backlog.md` | 9b842a031f0b | 40 | Backlog — Top Trumps Aves de Colombia |
 | `business-rules.md` | 6c4b4bdf8673 | 47 | Reglas de negocio — Top Trumps Aves de Colombia |
 | `cost-assumptions.yaml` | 2b31019111f6 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
@@ -29,9 +30,11 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `data-governance.md` | 0c85fe903284 | 43 | Gobierno de datos — Top Trumps Aves de Colombia |
 | `data-model.md` | c2e87884c66c | 86 | Modelo de datos — Top Trumps Aves de Colombia |
 | `design-system.md` | c4f05e8f041f | 60 | Design System — Top Trumps Aves de Colombia |
+| `diagrams/despliegue.ir.json` | 08566244892e | 67 | { |
 | `epics.md` | 2ac87fddfdb1 | 54 | Épicas — Top Trumps Aves de Colombia |
 | `glossary.md` | d2f10ce59bfe | 51 | Glosario — Top Trumps Aves de Colombia |
-| `pipeline-state.md` | 3da4ff81863b | 82 | Fase actual |
+| `pipeline-state.md` | 250df7b257c2 | 83 | Fase actual |
+| `portal/registry.json` | 2fd6993ebfc8 | 586 | { |
 | `qa-report.md` | d845f334af1e | 105 | QA Report — Sprint 11: E2E formal y GATE 2 |
 | `reports/sprint-10-review.md` | bff01bd5e7c8 | 76 | Sprint 10 — Integración frontend-backend y pruebas E2E |
 | `reports/sprint-11-review.md` | 88ee6d05e471 | 86 | Sprint 11 — QA E2E formal y GATE 2 |
@@ -42,6 +45,7 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `reports/sprint-7-review.md` | 82b32bcafe69 | 55 | Sprint 7 — Backend TDD: SQLite seed y persistencia de datos |
 | `reports/sprint-8-review.md` | ef7e4538c235 | 59 | Sprint 8 — Frontend TDD: design system y componentes base |
 | `reports/sprint-9-review.md` | 2be81e5df8f6 | 59 | Sprint 9 — Frontend TDD: pantallas y flujo de juego |
+| `reports/sprint-review-14.md` | a5f2b6180e74 | 125 | Sprint Review — Sprint 14 |
 | `roles.md` | 7c5e7bc04b30 | 26 | Catálogo de roles — Top Trumps Aves de Colombia |
 | `security-requirements.md` | 4892e2b8761b | 44 | Requisitos de seguridad — Top Trumps Aves de Colombia |
 | `security-scan-report.md` | b3ebc028f6fb | 167 | Informe de escaneos de seguridad — Sprint 12 |

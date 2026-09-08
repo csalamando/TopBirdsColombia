@@ -4,6 +4,7 @@
   "gate": "SPRINT-8",
   "tipo": "",
   "rol": "frontend-dev",
-  "emitido": "2026-09-02T12:29:00",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:47",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

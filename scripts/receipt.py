@@ -27,9 +27,16 @@ Uso:
 import os, sys, json, hashlib, argparse, datetime, subprocess
 
 def harness_version():
-    """Versión del arnés instalado (frontmatter del orquestador); None si no se puede leer."""
-    md = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "SKILL.md")
-    if not os.path.isfile(md):
+    """Versión del arnés instalado (frontmatter del orquestador); None si no se puede leer.
+
+    Patch local: en la copia raíz (scripts/) el '..' cae en la raíz del proyecto,
+    donde no hay SKILL.md; se agrega fallback al SKILL.md del skill orquestador.
+    """
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates = [os.path.join(here, "..", "SKILL.md"),
+                  os.path.join(here, "..", ".agents", "skills", "sdlc-orchestrator", "SKILL.md")]
+    md = next((c for c in candidates if os.path.isfile(c)), None)
+    if not md:
         return None
     import re as _re
     m = _re.search(r'^harness-version:\s*"?([^"\n]+)"?\s*$',
@@ -102,6 +109,18 @@ def cmd_emit(a):
     p = receipt_path(a.spec_dir, a.artefacto)
     open(p, "w", encoding="utf-8").write(json.dumps(rec, indent=2, ensure_ascii=False))
     print(f"RECIBO EMITIDO ({a.gate}): {a.artefacto}\n  sha256: {rec['sha256'][:16]}...  -> {p}")
+    # v2.16: auto-registro de la activacion en usage.jsonl — el recibo ES evidencia
+    # de que la skill produjo; cierra la brecha de metricas muertas cuando el agente
+    # olvida 'skill_metrics.py use'. skill_metrics report deduplica contra usos manuales.
+    if a.role:
+        GATE_FASE = {"GATE 0": "0", "GATE 1": "3", "GATE 2": "5", "GATE 2.5": "5", "GATE 3": "6"}
+        ev = {"ts": datetime.datetime.now().isoformat(timespec="seconds"), "tipo": "use",
+              "skill": a.role.replace("sdlc-", ""), "fase": GATE_FASE.get(a.gate, "?"),
+              "modo": "", "auto": "receipt"}
+        md = os.path.join(a.spec_dir, "metrics")
+        os.makedirs(md, exist_ok=True)
+        with open(os.path.join(md, "usage.jsonl"), "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(ev, ensure_ascii=False) + "\n")
 
 def cmd_verify(a):
     p = receipt_path(a.spec_dir, a.artefacto)

@@ -4,6 +4,7 @@
   "gate": "GATE-2",
   "tipo": "",
   "rol": "qa-automation",
-  "emitido": "2026-09-02T17:15:01",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:45",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

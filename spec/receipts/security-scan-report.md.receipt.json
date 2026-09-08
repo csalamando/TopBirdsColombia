@@ -4,6 +4,7 @@
   "gate": "GATE-2.5",
   "tipo": "",
   "rol": "security-engineer",
-  "emitido": "2026-09-02T18:23:06",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:46",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

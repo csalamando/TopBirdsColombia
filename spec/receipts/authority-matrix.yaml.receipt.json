@@ -1,9 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\authority-matrix.yaml",
-  "sha256": "0d559c0646ac22afa38c29d2fbcf59b2392c01e59c6cf77fa1637add2679e371",
+  "sha256": "512c81ecf110091dae258b926ed1b8e2624003a4e8b8007ccd1b347eff425ef8",
   "gate": "GATE-1",
   "tipo": "",
   "rol": "orchestrator",
-  "emitido": "2026-09-04T22:29:36",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:44",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

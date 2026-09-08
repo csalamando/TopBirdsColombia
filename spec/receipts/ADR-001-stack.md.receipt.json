@@ -2,10 +2,11 @@
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\adr\\ADR-001-stack.md",
   "sha256": "197361ab4dd6036926cce6b3f7272f952e639c33a2b68e6d2e84718bb57e6f06",
   "gate": "GATE-1",
-  "tipo": "adr",
+  "tipo": "",
   "rol": "software-architect",
-  "emitido": "2026-09-02T07:14:44",
+  "emitido": "2026-09-08T10:02:43",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 791
 }

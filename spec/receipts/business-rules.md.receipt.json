@@ -4,8 +4,9 @@
   "gate": "GATE-1",
   "tipo": "",
   "rol": "business-analyst",
-  "emitido": "2026-09-02T07:07:16",
+  "emitido": "2026-09-08T10:02:44",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 687
 }

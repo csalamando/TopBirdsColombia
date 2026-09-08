@@ -1,0 +1,66 @@
+{
+  "titulo": "Despliegue Railway — Top Birds Colombia",
+  "tema": "oscuro",
+  "kind": "flow",
+  "grupos": {
+    "railway": "Railway (proyecto incredible-perception)",
+    "railway-data": "Datos"
+  },
+  "nodos": [
+    {
+      "id": "dockerfile",
+      "titulo": "Dockerfile",
+      "sub": "build multi-stage (raíz del repo)",
+      "tipo": "job",
+      "grupo": "railway",
+      "ubicacion": "GitHub"
+    },
+    {
+      "id": "healthcheck",
+      "titulo": "GET /health",
+      "sub": "healthcheckTimeout 100s",
+      "tipo": "decision",
+      "grupo": "railway",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "servicio",
+      "titulo": "TopBirdsColombia",
+      "sub": "FastAPI + SQLite (contenedor Docker)",
+      "tipo": "service",
+      "grupo": "railway",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "sqlite",
+      "titulo": "topbirds.db",
+      "sub": "DATABASE_URL=/app/data/topbirds.db",
+      "tipo": "db",
+      "grupo": "railway-data",
+      "ubicacion": "Railway"
+    }
+  ],
+  "aristas": [
+    {"desde": "dockerfile", "hasta": "servicio", "label": "compila la imagen"},
+    {"desde": "servicio", "hasta": "healthcheck", "label": "verifica"},
+    {"desde": "servicio", "hasta": "sqlite", "label": "persiste"}
+  ],
+  "insights": [
+    {
+      "titulo": "IaC fuente de verdad",
+      "bullets": [
+        "El IaC vive en .railway/railway.ts (railway/iac DSL); este IR lo refleja.",
+        "Proyecto Railway: incredible-perception · servicio: TopBirdsColombia.",
+        "El builder Docker del servicio compila el Dockerfile de la raíz."
+      ]
+    },
+    {
+      "titulo": "Configuración del servicio",
+      "bullets": [
+        "Healthcheck: /health con healthcheckTimeout 100s.",
+        "Env: PORT=8000, DATABASE_URL=/app/data/topbirds.db.",
+        "CORS_ORIGINS restringido al dominio de producción y localhost."
+      ]
+    }
+  ]
+}

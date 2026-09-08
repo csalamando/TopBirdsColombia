@@ -34,7 +34,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# Windows: la consola cp1252 no codifica →/✓; forzar UTF-8 cuando sea posible.
+# Windows: la consola cp1252 no codifica flechas/checkmarks; forzar UTF-8.
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except (AttributeError, OSError):

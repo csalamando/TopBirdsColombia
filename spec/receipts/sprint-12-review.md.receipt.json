@@ -4,6 +4,7 @@
   "gate": "SPRINT-12",
   "tipo": "",
   "rol": "qa-automation",
-  "emitido": "2026-09-02T18:23:07",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:46",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

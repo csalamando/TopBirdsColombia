@@ -4,8 +4,9 @@
   "gate": "GATE-0",
   "tipo": "cost-estimation",
   "rol": "cloud-pricing",
-  "emitido": "2026-09-04T19:10:21",
+  "emitido": "2026-09-08T10:02:45",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 669
 }

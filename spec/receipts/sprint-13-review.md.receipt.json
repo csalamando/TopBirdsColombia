@@ -4,6 +4,7 @@
   "gate": "SPRINT-13",
   "tipo": "",
   "rol": "devops-engineer",
-  "emitido": "2026-09-02T19:06:50",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:46",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

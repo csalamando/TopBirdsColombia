@@ -62,5 +62,5 @@ artifacts:
   - path: spec/impact-report.md           owner: product-analyst
 
   # Diagramas
-  - path: spec/diagrams/despliegue.drawio owner: cloud-engineer
+  - path: spec/diagrams/despliegue.ir.json  owner: cloud-engineer
   - path: spec/diagrams/pipeline-cicd.md  owner: devops-engineer

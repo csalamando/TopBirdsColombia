@@ -4,8 +4,9 @@
   "gate": "GATE-0",
   "tipo": "technical-stories",
   "rol": "solution-architect",
-  "emitido": "2026-09-01T21:24:30",
+  "emitido": "2026-09-08T10:02:47",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 731
 }

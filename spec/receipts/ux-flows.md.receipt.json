@@ -4,8 +4,9 @@
   "gate": "GATE-1",
   "tipo": "ux-flows",
   "rol": "ux-designer",
-  "emitido": "2026-09-02T07:12:02",
+  "emitido": "2026-09-08T10:02:48",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 463
 }

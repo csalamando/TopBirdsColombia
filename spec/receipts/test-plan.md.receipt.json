@@ -4,8 +4,9 @@
   "gate": "GATE-1",
   "tipo": "test-plan",
   "rol": "software-architect",
-  "emitido": "2026-09-02T07:14:44",
+  "emitido": "2026-09-08T10:02:47",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 541
 }

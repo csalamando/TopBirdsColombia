@@ -11,3 +11,45 @@
 {"ts": "2026-09-04T19:20:26", "tipo": "use", "skill": "cloud-engineer", "fase": "6", "modo": "full-pipeline"}
 {"ts": "2026-09-04T22:38:03", "tipo": "use", "skill": "orchestrator", "fase": "6", "modo": ""}
 {"ts": "2026-09-04T22:38:03", "tipo": "use", "skill": "cloud-engineer", "fase": "6", "modo": ""}
+{"ts": "2026-09-08T09:58:33", "tipo": "use", "skill": "cloud-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T09:59:34", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T09:59:34", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:43", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:43", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "enterprise-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "solution-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:44", "tipo": "use", "skill": "cloud-pricing", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "cloud-pricing", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "data-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "cloud-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:45", "tipo": "use", "skill": "qa-automation", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "security-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "security-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "frontend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "qa-automation", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "qa-automation", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "devops-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:46", "tipo": "use", "skill": "backend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "backend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "backend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "frontend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "frontend-dev", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "enterprise-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "solution-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:47", "tipo": "use", "skill": "security-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:48", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:48", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:48", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T10:02:48", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}

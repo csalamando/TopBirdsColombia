@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Sprint 13 — Pipeline CI/CD e infraestructura demo</title><style>:root{--bg:#0b1220;--fg:#e2e8f0;--txt:#f1f5f9;--muted:#64748b;--sub:#8ea0b8;--edge:#94a3b8;--panel-bg:#0f172a;--panel-bd:#1e293b;--card-bg:#111c33;--accent:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--tier:#f97316;--shadow:rgba(0,0,0,.35);color-scheme:dark}:root[data-theme=claro]{--bg:#eef2f7;--fg:#1e293b;--txt:#0f172a;--muted:#64748b;--sub:#5b6b80;--edge:#64748b;--panel-bg:#ffffff;--panel-bd:#e2e8f0;--card-bg:#f8fafc;--accent:#2563eb;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;--tier:#ea580c;--shadow:rgba(15,23,42,.12);color-scheme:light}body{background:var(--bg);color:var(--fg);font-family:system-ui,'Segoe UI',sans-serif;margin:0;padding:1.5rem 1.8rem 3rem;line-height:1.55;font-size:15px}h1{font-size:1.35rem;color:var(--txt);margin:.2rem 0 .8rem}h2{font-size:1.08rem;color:var(--txt);margin:1.4rem 0 .6rem}h3{font-size:.92rem;color:var(--sub);margin:1.1rem 0 .4rem}h4{font-size:.85rem;color:var(--sub);margin:1rem 0 .3rem}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{background:var(--card-bg);border:1px solid var(--panel-bd);border-radius:5px;padding:.12em .4em;font-size:.88em;font-family:ui-monospace,'Cascadia Code',Consolas,monospace}pre{background:var(--panel-bg);border:1px solid var(--panel-bd);border-radius:10px;padding:1rem;overflow-x:auto}pre code{background:none;border:none;padding:0}table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.88em;display:block;overflow-x:auto}th,td{border-bottom:1px solid var(--panel-bd);padding:.45em .7em;text-align:left;vertical-align:top}th{color:var(--sub);font-size:.78em;text-transform:uppercase;letter-spacing:.04em}blockquote{border-left:3px solid var(--panel-bd);margin:1em 0;padding:.2em 1em;color:var(--sub)}hr{border:none;border-top:1px solid var(--panel-bd);margin:1.6em 0}img{max-width:100%}li{margin:.2em 0}.pnote{color:var(--muted);font-size:.78rem;margin-bottom:1rem}</style></head><body data-page-id="docs-reports-sprint-13-review"><div class="pnote">Render derivado de spec/ (mdview) — no editar a mano; la fuente es el .md</div><h1>Sprint 13 — Pipeline CI/CD e infraestructura demo</h1>
+<h2>Rol</h2>
+<p><code>sdlc-devops-engineer</code>, <code>sdlc-security-engineer</code>, <code>sdlc-backend-dev-tdd</code>, <code>sdlc-frontend-dev-tdd</code></p>
+<h2>Objetivo</h2>
+<p>Construir la infraestructura de entrega continua y demo de <i>Top Trumps Aves de Colombia</i>: pipeline de GitHub Actions, empaquetado Docker y configuración de despliegue, al tiempo que se cierran los requisitos de seguridad pendientes para exposición pública.</p>
+<h2>Entregables</h2>
+<table><tr><th>Entregable</th><th>Ubicación</th><th>Estado</th></tr><tr><td>Pipeline CI/CD con GitHub Actions</td><td><code>.github/workflows/ci.yml</code></td><td>Completado</td></tr><tr><td>Dockerfile multi-stage backend + frontend</td><td><code>src/backend/Dockerfile</code></td><td>Completado</td></tr><tr><td>Docker ignore file</td><td><code>src/backend/.dockerignore</code></td><td>Completado</td></tr><tr><td>Configuración de despliegue Render</td><td><code>infra/render.yaml</code></td><td>Completado</td></tr><tr><td>Middleware de headers de seguridad</td><td><code>src/backend/app/security.py</code></td><td>Completado</td></tr><tr><td>Rate limiting en endpoints de partida/ronda</td><td><code>src/backend/app/routers/partidas.py</code></td><td>Completado</td></tr><tr><td>Dependencias de seguridad y dev</td><td><code>src/backend/requirements.txt</code>, <code>src/backend/requirements-dev.txt</code></td><td>Completado</td></tr><tr><td>Documentación de CI/CD y Docker</td><td><code>README.md</code></td><td>Completado</td></tr><tr><td>Actualización de requisitos de seguridad</td><td><code>spec/security-requirements.md</code></td><td>Completado</td></tr><tr><td>Informe de Sprint 13</td><td><code>spec/reports/sprint-13-review.md</code></td><td>Completado</td></tr><tr><td>Actualización de pipeline-state y backlog</td><td><code>spec/pipeline-state.md</code>, <code>spec/backlog.md</code></td><td>Completado</td></tr></table>
+<h2>Cambios técnicos principales</h2>
+<ul><li><b>CI/CD</b>: <code>.github/workflows/ci.yml</code> con jobs para backend lint (<code>bandit</code>), backend tests (<code>pytest</code>), frontend lint (<code>oxlint</code> + <code>eslint-plugin-security</code>), frontend tests (<code>vitest</code>), frontend build (<code>vite</code>), E2E (<code>cucumber-js</code>), SCA backend (<code>pip-audit</code>), SCA frontend (<code>npm audit</code>) y DAST (<code>schemathesis</code>).</li><li><b>Docker</b>: Dockerfile multi-stage que construye el frontend con Node 20 y corre el backend con Python 3.11 slim, sirviendo el SPA estático desde <code>/app/frontend/dist</code>.</li><li><b>Infra</b>: <code>infra/render.yaml</code> blueprint para desplegar el contenedor en Render con health check en <code>/health</code>.</li><li><b>Seguridad</b>:</li><li>Middleware <code>SecurityHeadersMiddleware</code> añade <code>HSTS</code>, <code>CSP</code>, <code>X-Frame-Options</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>X-XSS-Protection</code> y <code>Permissions-Policy</code>.</li><li><code>slowapi</code> aplica rate limiting <code>30/min</code> en <code>POST /partidas</code> y <code>60/min</code> en <code>POST /partidas/{id}/rondas</code>.</li><li>Se desactiva automáticamente con <code>TESTING=1</code> para no afectar tests unitarios.</li><li><b>Documentación</b>: <code>README.md</code> actualizado con badge de CI, instrucciones de Docker local y guía de despliegue en Render.</li></ul>
+<h2>Validación</h2>
+<h3>Backend tests</h3>
+<pre><code>&amp; &quot;D:\AI Projects\TopBirdsColombia\.venv\Scripts\python&quot; -m pytest &quot;D:\AI Projects\TopBirdsColombia\src\backend&quot; --cov=app --cov-report=term-missing --cov-fail-under=70</code></pre>
+<ul><li><b>45 tests pasados</b>.</li><li><b>Cobertura: 94.66 %</b>.</li></ul>
+<h3>Frontend tests y build</h3>
+<pre><code>cd &quot;D:\AI Projects\TopBirdsColombia\src\frontend&quot;
+npm test
+npm run build</code></pre>
+<ul><li><b>40 tests pasados</b>.</li><li>Build exitoso (<code>dist/</code> generado).</li></ul>
+<h3>E2E</h3>
+<pre><code>cd &quot;D:\AI Projects\TopBirdsColombia\tests\e2e&quot;
+npx cucumber-js</code></pre>
+<ul><li><b>10 escenarios pasados</b>, <b>60 steps pasados</b>.</li></ul>
+<h3>SAST</h3>
+<pre><code>python -m bandit -r src/backend/app</code></pre>
+<ul><li><code>No issues identified.</code></li></ul>
+<h3>SCA</h3>
+<ul><li><code>pip-audit</code>: 8 vulnerabilidades conocidas aceptadas en <code>pytest</code> y <code>starlette</code> (mismas que en Sprint 12, documentadas en <code>spec/security-scan-report.md</code>).</li><li><code>npm audit</code> en <code>src/frontend</code>: 0 vulnerabilidades.</li><li><code>npm audit</code> en <code>tests/e2e</code>: 0 vulnerabilidades.</li></ul>
+<h3>DAST</h3>
+<pre><code>schemathesis run http://127.0.0.1:8000/openapi.json --base-url http://127.0.0.1:8000 --checks all --hypothesis-max-examples=20 --experimental=openapi-3.1</code></pre>
+<ul><li><b>6 operaciones recopiladas</b>, <b>82/82 checks pasados</b>.</li></ul>
+<h3>Docker local</h3>
+<pre><code>docker build -f src/backend/Dockerfile -t topbirds:latest .
+docker run -d --name topbirds-test -p 8000:8000 -e CORS_ORIGINS=http://localhost:8000 topbirds:latest</code></pre>
+<ul><li>Imagen construida exitosamente.</li><li>Health check <code>GET /health</code> responde <code>{"status":"ok"}</code>.</li></ul>
+<h2>Deuda técnica</h2>
+<ul><li>El deploy real en Render/Railway requiere crear la cuenta y conectar el repositorio; la configuración (<code>infra/render.yaml</code>) está lista.</li><li>El pipeline de GitHub Actions no se puede ejecutar localmente; la primera ejecución remota puede requerir ajustes menores (timings, versiones de Playwright, etc.).</li></ul>
+<h2>Próximo paso</h2>
+<p>Sprint 14 — Despliegue a producción/demo.</p><script>
+(function(){
+  var root=document.documentElement;
+  function saved(){try{return localStorage.getItem('dir-tema');}catch(e){return null;}}
+  function apl(t){root.dataset.theme=t||(matchMedia('(prefers-color-scheme: light)').matches?'claro':'oscuro');}
+  apl(saved());
+  window.addEventListener('message',function(e){var d=e.data||{};if(d.portal==='tema'){apl(d.tema);}});
+  var pid=document.body&&document.body.getAttribute('data-page-id');
+  if(pid&&window.parent!==window){
+    try{window.parent.postMessage({portal:'abierto',id:pid},'*');}catch(e){}
+  }
+})();
+</script></body></html>

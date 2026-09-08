@@ -4,6 +4,7 @@
   "gate": "SPRINT-10",
   "tipo": "",
   "rol": "frontend-dev",
-  "emitido": "2026-09-02T16:24:38",
-  "estado": "vigente"
+  "emitido": "2026-09-08T10:02:46",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
 }

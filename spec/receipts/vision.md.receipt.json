@@ -4,8 +4,9 @@
   "gate": "GATE-0",
   "tipo": "vision",
   "rol": "product-owner",
-  "emitido": "2026-09-01T21:21:49",
+  "emitido": "2026-09-08T10:02:48",
   "estado": "vigente",
+  "harness_version": "2.20.1",
   "tokens_src": "estimado",
   "tokens_out": 592,
   "attempts": 2
