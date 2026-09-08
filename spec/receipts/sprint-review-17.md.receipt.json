@@ -1,0 +1,10 @@
+{
+  "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\reports\\sprint-review-17.md",
+  "sha256": "6354af59aab8dd1d272810717202506c68f88b97933e69971e83c3d97305456a",
+  "gate": "SPRINT-17",
+  "tipo": "sprint-review",
+  "rol": "orchestrator",
+  "emitido": "2026-09-08T18:12:47",
+  "estado": "vigente",
+  "harness_version": "2.20.1"
+}

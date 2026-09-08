@@ -2,6 +2,14 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-08 (4) — Cierre del ciclo Sprint 17 (Fase 8)
+
+- **Motivo**: completada y verificada la implementación de HU-10..HU-17; se archiva el ciclo SDD según Fase 8 del arnés.
+- **Artefactos**: `spec/reports/sprint-review-17.md` (gate sprint-review 8 checks OK, recibo SPRINT-17 por orchestrator), `spec/METRICS.md` regenerado (45 activaciones, 43 recibos, gates al primer intento 100 % salvo product-owner 75 % con 1 rechazo, 0 roles en freestyle), memoria `MEM-20260908-006` (tipo learning, señales del arnés), portal regenerado (45 páginas, dashboard `--check` OK).
+- **Memoria**: 6 pares candidatos FTS resueltos — MEM-002 y MEM-004 `supersedes` MEM-001 (pausa del sprint 16 superada); MEM-003↔001, MEM-003↔002, MEM-004↔003 y MEM-006↔005 `unrelated`. Conflictos: 0, candidatos pendientes: 0. Sesión SES-20260908-181342 cerrada con handoff; `mem.py close-check` verde.
+- **Pendiente Sprint 18**: RN-15 (empate con amenazada, decisión PO), 7 cartas sin thumbnail, accionables de MEM-006 (gate de product-owner, registro de activaciones con `skill_metrics.py use`).
+- **Sin cambios de spec**: cierre administrativo; ningún artefacto con recibo fue modificado.
+
 ## 2026-09-08 (3) — Mini-delta contrato de aterrizaje HU-15/HU-16
 
 - **Motivo**: al aterrizar la implementación de HU-10..HU-17 se detectaron dos campos faltantes: `Ave.estacionalidad` (nullable; necesario para el badge "visitante boreal" de HU-15/RN-13, temporada nov-feb) y `RondaResult.combo_orden` + `RondaResult.combo_bonus` (necesarios para el combo taxonómico de HU-16/RN-12: +1 carta del reservorio cuando el mismo ganador gana 2 rondas consecutivas con aves del mismo orden).

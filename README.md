@@ -16,6 +16,13 @@ Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida pa
 - API REST con validación de contrato (Schemathesis), rate limiting y headers de seguridad.
 - Portal SDLC auto-generado que publica la spec, recibos SHA-256, métricas y memoria del proyecto (ver siguiente sección).
 
+## Resultados del Sprint 17 (cierre del ciclo HU-10..HU-17)
+
+- **Implementación completa con TDD** (orden test→feat verificado): 76 thumbnails webp con crédito de fotógrafo y licencia, `barajas.json` 1.1.0 enriquecido (variantes por sexo, UICN, orden, endemismo, estacionalidad, altitud), backend con RN-10/11/12 (bono «¿Macho o hembra?», ronda de altitud, combo taxonómico) y frontend con las 8 historias implementadas.
+- **Suites verdes**: pytest 94.85 % de cobertura (backend), vitest 59/59 (frontend) y build OK.
+- **Fase 8 cerrada**: sprint review 17 en `spec/reports/sprint-review-17.md` (43 recibos vigentes, gates al primer intento 100 %, 0 roles en freestyle), memorias archivadas sin conflictos ni candidatos pendientes, portal regenerado (45 páginas) con `--check` sin drift.
+- **Pendiente para el Sprint 18**: RN-15 (empate con amenazada, requiere decisión del PO) y 7 cartas sin thumbnail por imágenes fuente ausentes (el frontend muestra placeholder).
+
 ## Stack
 
 - **Backend:** Python 3.11 + FastAPI + Pydantic + SQLite
@@ -39,7 +46,7 @@ docs/        # Documentación adicional e imágenes del portal (docs/images/)
 ### Requisitos
 
 - Python 3.11+ y un entorno virtual en `.venv`
-- Node.js 20+ y npm
+- Node.js 22+ y npm
 
 ### Backend
 
