@@ -33,5 +33,8 @@ test-results/
 
 # Generated / harness
 .codeintel/
-.agents/
+# El arnés (skills) se versiona: el CI de gobernanza lo necesita en el checkout.
+# Otro contenido de .agents (estado local) sigue ignorado.
+.agents/*
+!.agents/skills/
 spec/memory/.index/
