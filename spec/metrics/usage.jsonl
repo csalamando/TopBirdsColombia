@@ -73,3 +73,15 @@
 {"ts": "2026-09-08T15:29:42", "tipo": "use", "skill": "backend-dev", "fase": "4", "modo": ""}
 {"ts": "2026-09-08T15:29:42", "tipo": "use", "skill": "frontend-dev", "fase": "4", "modo": ""}
 {"ts": "2026-09-08T15:30:32", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:39:01", "tipo": "use", "skill": "business-analyst", "fase": "1", "modo": ""}
+{"ts": "2026-09-08T15:39:01", "tipo": "use", "skill": "software-architect", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T15:39:01", "tipo": "use", "skill": "data-engineer", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T15:43:10", "tipo": "use", "skill": "ux-designer", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T15:43:10", "tipo": "use", "skill": "product-owner", "fase": "1", "modo": ""}
+{"ts": "2026-09-08T15:43:19", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:19", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:19", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:19", "tipo": "use", "skill": "data-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:19", "tipo": "use", "skill": "data-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:20", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:43:20", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}

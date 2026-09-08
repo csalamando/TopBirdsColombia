@@ -176,8 +176,14 @@ components:
           type: integer
         nombre_comun:
           type: string
+        nombre_ingles:
+          type: string
+          nullable: true
         nombre_cientifico:
           type: string
+        orden:
+          type: string
+          nullable: true
         familia:
           type: string
           nullable: true
@@ -194,8 +200,55 @@ components:
           type: string
           format: uri
           nullable: true
+        estado_conservacion_uicn:
+          type: string
+          enum: [LC, NT, VU, EN, CR]
+          nullable: true
+        endemismo:
+          type: string
+          nullable: true
+        es_dimorfica:
+          type: boolean
+          default: false
+        regiones:
+          type: array
+          items:
+            type: string
+          description: Regiones canónicas de Colombia (andina, caribe, pacifico, amazonia, orinoquia)
+        variantes_imagen:
+          type: array
+          items:
+            $ref: "#/components/schemas/VarianteImagen"
         atributos:
           $ref: "#/components/schemas/Atributos"
+
+    VarianteImagen:
+      type: object
+      required:
+        - sexo
+        - es_principal
+      properties:
+        sexo:
+          type: string
+          enum: [macho, hembra, indeterminado]
+        es_principal:
+          type: boolean
+        thumbnail_url:
+          type: string
+          format: uri
+          nullable: true
+          description: Thumbnail servido por el frontend; null hasta generar los thumbnails
+        fotografo:
+          type: string
+          nullable: true
+        licencia:
+          type: string
+          enum: [cc-by, cc0, cc-by-sa]
+          nullable: true
+        url_observacion:
+          type: string
+          format: uri
+          nullable: true
 
     Atributos:
       type: object
@@ -221,6 +274,10 @@ components:
           type: integer
           minimum: 1
           maximum: 10
+        altitud_max_msnm:
+          type: number
+          nullable: true
+          description: Atributo oculto (RN-11); solo se compara en la ronda especial
 
     CreatePartidaRequest:
       type: object
@@ -276,6 +333,10 @@ components:
         baraja:
           type: string
           description: Id de la baraja efectivamente usada en la partida
+        bono_dimorfico_usado:
+          type: boolean
+          default: false
+          description: RN-10; true cuando el bono "¿Macho o hembra?" ya se usó
         estado:
           type: string
           enum:
@@ -310,6 +371,12 @@ components:
             - velocidad_kmh
             - esperanza_vida_anos
             - rareza
+            - altitud_max_msnm
+        sexo_oponente:
+          type: string
+          enum: [macho, hembra]
+          nullable: true
+          description: RN-10; apuesta del bono "¿Macho o hembra?" (solo si aplica)
 
     RondaResult:
       type: object
@@ -333,6 +400,14 @@ components:
             - gana_jugador
             - gana_oponente
             - empate
+        bono_ofrecido:
+          type: boolean
+          default: false
+          description: RN-10; true si la ronda admitía el bono de dimorfismo
+        bono_acierto:
+          type: boolean
+          nullable: true
+          description: RN-10; resultado de la apuesta (null si no se usó el bono)
         carta_jugador:
           $ref: "#/components/schemas/Ave"
         carta_oponente:

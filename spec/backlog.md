@@ -36,6 +36,14 @@ Este backlog prioriza los ítems del MVP usando MoSCoW y RICE. La métrica de é
 | S16-BE-04 | Cargar baraja ≥50 aves desde topbirds_dataset (TDD, atribución por carta) | EP-02 | Must have | 16 | Completado |
 | S16-DE-02 | Versionar topbirds_dataset bajo data-governance (decidir imágenes en repo vs storage) | EP-02 | Must have | 16 | Completado |
 | S16-FE-05 | Instrumentación analítica mínima (partida iniciada/ronda/partida completada, sin PII) | EP-04 | Should have | 16 | Pendiente |
+| S17-DE-01 | Generar thumbnails webp (~200px) desde topbirds_dataset a src/frontend/public/cards/ y poblar variantes_imagen[].thumbnail_url | EP-02 | Must have | 17 | Pendiente |
+| S17-BE-01 | Extender cartas con datos enriquecidos (variantes, UICN, endemismo, orden, nombres EN, altitud) y bono dimorfismo en rondas (TDD, HU-10/11/14) | EP-01 | Must have | 17 | Pendiente |
+| S17-FE-01 | Carta con toggle macho/hembra, badge dimórfica, sello UICN y badge visitante boreal (TDD, HU-10/12/15) | EP-01 | Must have | 17 | Pendiente |
+| S17-FE-02 | Detalle de ave enriquecido lado a lado con atribución por foto (TDD, PANT-05) | EP-02 | Must have | 17 | Pendiente |
+| S17-FE-03 | Pantalla resumen "Tu expedición" en resultado (TDD, HU-13) | EP-02 | Should have | 17 | Pendiente |
+| S17-BE-02 | Ronda especial de altitud y combo taxonómico (TDD, RN-11/12, HU-14/16) | EP-01 | Should have | 17 | Pendiente |
+| S17-FE-04 | Modo "Ornitólogo" quiz de identificación con 4 opciones (TDD, HU-17) | EP-02 | Should have | 17 | Pendiente |
+| S17-BA-01 | Decisión PO: regla de empate con ave amenazada (RN-15) y modo temporada boreal (RN-13) | EP-01 | Could have | 17 | Pendiente |
 
 ## Notas
 - El backlog se refinará en cada sprint.

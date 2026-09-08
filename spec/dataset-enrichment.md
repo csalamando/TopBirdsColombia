@@ -1,9 +1,29 @@
 # Propuesta — Enriquecimiento de baraja con topbirds_dataset (Sprint 16)
 
-Estado: **v2 — DATASET ENRIQUECIDO (ejecutado por el usuario), dinámicas aprobadas** | Fecha: 2026-09-08
+Estado: **v3 — DINÁMICAS DE JUEGO MAPEADAS A HU-10..HU-17 CON FASEADO S16/S17** | Fecha: 2026-09-08
 Autores: Data Engineer + Business Analyst (discovery Sprint 16) | Ref: `spec/impact-report.md` (E2 en rojo), items `S16-BE-04` y `S16-DE-02`
 
-## 0. Cambios respecto a v1 (2026-09-08)
+## 0. Cambios respecto a v2 (2026-09-08)
+
+- Se aprueba el mapa completo de dinámicas (dimensión del dataset → mecánica → HU → sprint), incluido el detalle de qué tiene ahora cada carta:
+
+| Dimensión | Datos | Valor lúdico/educativo | HU | Sprint |
+|---|---|---|---|---|
+| 6 atributos Top Trumps | tamaño, peso, envergadura, velocidad, vida, rareza 1-5 saneada | núcleo del juego, confiable | HU-01..04 (hecho) | hecho |
+| Dimorfismo | 146 especies (48%) con foto macho + hembra | mecánica estrella | HU-10, HU-11 | S16 base + S17 regla |
+| Conservación UICN | 279 LC · 7 NT · 10 VU · 2 EN · 1 CR | conciencia de conservación real | HU-12 | S16 informativo, S17 mecánica |
+| Endemismo | 28 endémicas + 20 casi endémicas | orgullo de biodiversidad | detalle de carta | S17 |
+| Geografía | 5 regiones, piso térmico, rango altitudinal [min,max] | barajas temáticas y geografía | HU-09 (hecho), HU-13, HU-14 | S16 un modo, resto S17+ |
+| Estacionalidad | 285 residentes, 16 migratorias boreales | nociones de migración | HU-15 | S16 badge, S17 modo temporada |
+| Taxonomía | 41 familias, 18 órdenes | combos educativos | HU-16 | S17+ |
+| Idiomas | nombre común ES + inglés + científico | modo quiz bilingüe | HU-17 | S17+ |
+
+- Rareza real (dinámica A): la rareza 1-5 saneada ya puntúa alto en amenazadas sin reglas especiales (RN-16).
+- Regla diferida explícita: empate con ave amenazada gana la más amenazada queda en RN-15 (sin HU, requiere decisión PO).
+- Contrato extendido (`spec/api-contract.yaml`): `Ave` enriquecida (nombre_ingles, orden, UICN, endemismo, es_dimorfica, regiones, variantes_imagen), `VarianteImagen`, `altitud_max_msnm` oculto, bono de dimorfismo en rondas.
+- El flujo de selección de baraja (aleatoria por defecto / elegible / completa / por partida) ya está implementado (HU-09); las regiones con <10 cartas quedan excluidas del pool aleatorio.
+
+## 0.1 Cambios respecto a v1 (2026-09-08)
 
 - El **plan de curación (§2.4) queda OBSOLETO — ejecutado**: el usuario curó el dataset completo (`topbirds_dataset/aves_colombia_toptrumps_enriquecido.json`, 303 especies) con atributos de juego completos (tamaño, peso, envergadura, velocidad, esperanza de vida, rareza 1-5), nombre común en español, familia, hábitat, dieta, estado UICN, endemismo y regiones de Colombia.
 - **Mecánica aprobada por el PO**: selección de baraja al iniciar partida (aleatoria temática por defecto / Colombia completa / expedición por región) → implementada como **HU-09** (ver `spec/user-stories.md`).

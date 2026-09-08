@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\dataset-enrichment.md",
-  "sha256": "89b7b2a13e07c24beaa5591181bcf8899e2c61678bad009d2a0e0b098d66c63c",
+  "sha256": "0b9205742948b58f2796d3cb276b4e415ee12b988b3b15d8ba9c2fac13d318bb",
   "gate": "FASE-2",
   "tipo": "",
   "rol": "data-engineer",
-  "emitido": "2026-09-08T15:15:44",
+  "emitido": "2026-09-08T15:43:19",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

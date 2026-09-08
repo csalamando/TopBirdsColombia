@@ -2,6 +2,14 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-08 (2) — Sprint 16/17: dinámicas de juego sobre el dataset enriquecido (supersedes v2)
+
+- **Relación**: `spec/dataset-enrichment.md` v2 → v3 (**supersedes**); deltas en `spec/user-stories.md`, `spec/api-contract.yaml`, `spec/business-rules.md`, `spec/data-governance.md`, `spec/ux/screen-inventory.md`, `spec/backlog.md`. Solicitado y aprobado por el usuario (mapa de dinámicas A-E).
+- **Motivo**: el dataset enriquecido (303 especies) habilita mecánicas de juego y educativas que se especifican ahora para implementar en S16 (restante) y S17: dimorfismo (HU-10/11, RN-10), conservación UICN (HU-12), resumen de expedición (HU-13), ronda de altitud (HU-14, RN-11), visitantes boreales (HU-15, RN-13 diferida), combo taxonómico (HU-16, RN-12) y quiz "Ornitólogo" (HU-17, RN-14). Regla de empate con amenazada queda diferida en RN-15 (sin HU, requiere decisión PO).
+- **Contrato**: `Ave` enriquecida (nombre_ingles, orden, estado_conservacion_uicn, endemismo, es_dimorfica, regiones, variantes_imagen[]), `VarianteImagen`, `altitud_max_msnm` oculto en `Atributos`, bono de dimorfismo en `PlayRondaRequest`/`RondaResult`/`Partida`.
+- **Impacto downstream** (spec_diff_impact): src-backend, src-frontend, test-plan.md, tests-e2e, qa-report.md, docs → re-validar en S17. UX: PANT-01/02/04 actualizadas + PANT-05 (detalle) + PANT-06 (quiz). Backlog: 7 ítems S17 añadidos (S17-DE-01 thumbnails, S17-BE-01/02, S17-FE-01/02/03/04, S17-BA-01).
+- **Gates**: gate_checker OK en user-stories (6 checks) y screen-inventory (9 checks); 7 recibos re-emitidos con rol dueño según authority-matrix (BA, architect, data-engineer, ux-designer, PO).
+
 ## 2026-09-08 — Sprint 16: dataset enriquecido y HU-09 selección de baraja
 
 - **Motivo**: la métrica E2 de `spec/vision.md` (≥50 aves) estaba en rojo (6/50). El usuario curó el dataset completo (`topbirds_dataset/aves_colombia_toptrumps_enriquecido.json`, 303 especies con atributos de juego completos) y aprobó la mecánica de selección de baraja por partida (aleatoria temática por defecto / Colombia completa / expedición por región).

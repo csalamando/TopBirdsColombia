@@ -186,3 +186,193 @@ Dado que el jugador crea una partida con un id de baraja inexistente
 Cuando el servidor valida la solicitud
 Entonces responde 422 con un mensaje de error
 ```
+
+## HU-10 Ver dimorfismo sexual en la carta (mecánica estrella)
+**Épica**: EP-01
+**Rol**: ROL-01 Aficionado a las aves
+
+Como aficionado a las aves, quiero ver la foto del macho y de la hembra en las cartas dimórficas para aprender que en muchas aves ambos sexos se ven distinto.
+
+### Escenario 1: carta dimórfica con badge y toggle
+```gherkin
+Dado que la carta activa es de una especie dimórfica
+Cuando el jugador la ve en pantalla
+Entonces lleva el badge "⚥ dimórfica"
+Y puede alternar entre la foto del macho y de la hembra
+```
+
+### Escenario 2: carta no dimórfica
+```gherkin
+Dado que la carta activa es de una especie sin dimorfismo
+Cuando el jugador la ve en pantalla
+Entonces no aparece el badge ni el toggle de sexo
+Y en el detalle se indica "en esta especie ambos sexos se ven igual"
+```
+
+### Escenario 3: detalle lado a lado
+```gherkin
+Dado que el jugador abre el detalle de una carta dimórfica
+Cuando se muestra la vista ampliada
+Entonces ve macho y hembra lado a lado con la atribución de cada foto
+```
+
+## HU-11 Jugar la ronda bono "¿Macho o hembra?"
+**Épica**: EP-01
+**Rol**: ROL-03 Jugador casual
+
+Como jugador casual, quiero poder arriesgar a adivinar el sexo de la carta oponente para ganar la ronda aunque pierda el atributo, una vez por partida.
+
+### Escenario 1: oponente dimórfico, se ofrece el bono
+```gherkin
+Dado que es el turno del jugador
+Y la carta oponente es de una especie dimórfica
+Y el bono no se ha usado en la partida
+Cuando el jugador selecciona un atributo
+Entonces puede además indicar si cree que la imagen mostrada del oponente es macho o hembra
+```
+
+### Escenario 2: acierto del sexo gana la ronda
+```gherkin
+Dado que el jugador activó el bono y acertó el sexo de la imagen oponente
+Cuando se resuelve la ronda
+Entonces gana la ronda aunque el valor de su atributo sea menor
+Y el bono queda marcado como usado para el resto de la partida
+```
+
+### Escenario 3: fallo o bono ya usado
+```gherkin
+Dado que el jugador falló el sexo o el bono ya fue usado
+Cuando se resuelve la ronda
+Entonces vale el resultado normal del atributo
+Y el bono usado no se vuelve a ofrecer
+```
+
+## HU-12 Ver sello de conservación UICN
+**Épica**: EP-02
+**Rol**: ROL-02 Educador / guía
+
+Como educador, quiero que las aves amenazadas lleven un sello UICN visible y una explicación en el detalle para generar conciencia de conservación real.
+
+### Escenario 1: ave amenazada con sello
+```gherkin
+Dado que una carta es de una especie con estado UICN VU, EN o CR
+Cuando el jugador la ve en pantalla
+Entonces lleva el sello de conservación con su categoría
+Y en el detalle se explica por qué está amenazada
+```
+
+### Escenario 2: ave sin amenaza
+```gherkin
+Dado que una carta es de una especie LC o NT
+Cuando el jugador la ve en pantalla
+Entonces no lleva sello de amenaza
+Y en el detalle se muestra su estado UICN informativo
+```
+
+## HU-13 Ver resumen "Tu expedición" al terminar
+**Épica**: EP-02
+**Rol**: ROL-03 Jugador casual
+
+Como jugador casual, quiero ver al terminar la partida las aves que encontré en mi expedición para reforzar lo aprendido jugando.
+
+### Escenario 1: partida con baraja temática
+```gherkin
+Dado que la partida usó una baraja temática de región
+Cuando la partida finaliza
+Entonces la pantalla de resultado muestra "Tu expedición por {región}"
+Y lista las aves vistas durante la partida con su nombre común
+```
+
+### Escenario 2: partida con baraja completa
+```gherkin
+Dado que la partida usó la baraja completa
+Cuando la partida finaliza
+Entonces la pantalla de resultado muestra "Tu recorrido por Colombia"
+Y lista las aves vistas durante la partida
+```
+
+## HU-14 Jugar la ronda especial "¿Quién vive más alto?"
+**Épica**: EP-01
+**Rol**: ROL-02 Educador / guía
+
+Como educador, quiero una ronda especial que compare la altitud máxima donde vive cada ave para enseñar los pisos térmicos de Colombia sin memorizar términos.
+
+### Escenario 1: ronda de altitud
+```gherkin
+Dado que se activó la ronda especial "¿Quién vive más alto?"
+Cuando se comparan las cartas
+Entonces gana la carta con mayor altitud máxima de su rango (msnm)
+Y se muestra la explicación "esta ave llega hasta X msnm"
+```
+
+### Escenario 2: atributo oculto en juego normal
+```gherkin
+Dado una ronda normal
+Cuando el jugador elige atributo
+Entonces la altitud no aparece entre los atributos seleccionables
+```
+
+## HU-15 Identificar visitantes boreales
+**Épica**: EP-01
+**Rol**: ROL-01 Aficionado a las aves
+
+Como aficionado a las aves, quiero reconocer a las aves migratorias boreales con un badge para entender cuándo visitan Colombia.
+
+### Escenario 1: ave migratoria con badge
+```gherkin
+Dado que la carta es de una especie migratoria boreal
+Cuando el jugador la ve en pantalla
+Entonces lleva el badge "visitante boreal"
+Y en el detalle se indica su temporada de presencia (nov-feb)
+```
+
+### Escenario 2: modo temporada (diferido a S17)
+```gherkin
+Dado que se juega el modo "temporada" (nov-feb)
+Cuando una carta de visitante boreal juega una ronda
+Entonces podría recibir +1 en el atributo elegido
+Y la regla exacta se definirá en la implementación del modo
+```
+
+## HU-16 Ganar bonus por combo taxonómico
+**Épica**: EP-01
+**Rol**: ROL-01 Aficionado a las aves
+
+Como aficionado a las aves, quiero que ganar dos rondas seguidas con aves del mismo orden taxonómico dé un bonus para aprender taxonomía jugando.
+
+### Escenario 1: dos rondas seguidas del mismo orden
+```gherkin
+Dado que el jugador ganó la ronda anterior con un ave de un orden
+Cuando gana la ronda actual con otra ave del mismo orden
+Entonces recibe un bonus de +1 carta extra de la reserva o se indica el combo logrado
+Y se muestra "las dos aves son del orden {orden}"
+```
+
+### Escenario 2: romper la racha
+```gherkin
+Dado que el jugador ganó la ronda anterior
+Cuando pierde o empata la ronda actual
+Entonces la racha de combo se reinicia
+```
+
+## HU-17 Jugar el modo "Ornitólogo" (quiz de identificación)
+**Épica**: EP-02
+**Rol**: ROL-02 Educador / guía
+
+Como educador, quiero un modo quiz donde se muestra la foto de un ave sin nombre y hay que elegir entre cuatro opciones, para entrenar identificación con nombres en español, inglés y científico.
+
+### Escenario 1: pregunta con 4 opciones
+```gherkin
+Dado que el jugador inició el modo "Ornitólogo"
+Cuando se presenta una carta
+Entonces ve la foto sin nombre
+Y cuatro opciones de nombre usando español, inglés o nombre científico
+```
+
+### Escenario 2: respuesta y explicación
+```gherkin
+Dado que el jugador eligió una opción
+Cuando se resuelve la pregunta
+Entonces se indica si acertó
+Y se muestra el nombre correcto con su atribución
+```

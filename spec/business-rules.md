@@ -44,3 +44,38 @@
 ## RN-09 Atribución de datos
 - Toda la información de aves debe incluir una fuente abierta citada (por ejemplo Wikipedia, eBird, Wikidata).
 - La aplicación no reclama propiedad sobre las imágenes ni datos de terceros.
+- Cada imagen (macho y hembra cuando aplica) lleva su propia atribución: fotógrafo, licencia (cc-by / cc0 / cc-by-sa) y enlace a la observación en iNaturalist.
+
+## RN-10 Ronda bono "¿Macho o hembra?" (HU-11)
+- Solo se ofrece cuando la carta oponente es de especie dimórfica.
+- Se puede usar como máximo una vez por partida; tras usarse (acierto o fallo) no se vuelve a ofrecer.
+- El jugador elige sexo de la imagen mostrada del oponente junto con el atributo de la ronda.
+- Si acierta, gana la ronda con prioridad sobre la comparación numérica del atributo; si falla, vale el resultado normal.
+- La IA no usa el bono en el MVP (solo el jugador humano).
+
+## RN-11 Ronda especial de altitud (HU-14)
+- La altitud máxima del rango (`rango_altitudinal_msnm[1]`) es un atributo oculto: no seleccionable en rondas normales.
+- La ronda especial "¿Quién vive más alto?" compara altitud máxima y gana el mayor valor.
+- Frecuencia sugerida: a lo sumo una vez por partida, ofrecida por el sistema (definir en implementación).
+
+## RN-12 Combo taxonómico (HU-16)
+- Ganar dos rondas consecutivas con aves del mismo orden taxonómico otorga un bonus (+1 carta extra tomada de la reserva; si la reserva está vacía, se indica el combo sin bonus material).
+- La racha se reinicia al perder o empatar una ronda.
+- El bonus nunca decide la partida por sí solo: solo acelera la acumulación de cartas.
+
+## RN-13 Modo temporada y visitantes boreales (HU-15)
+- Las especies migratorias boreales llevan badge "visitante boreal" con temporada de presencia (nov-feb).
+- La regla de +1 en modo "temporada" está **diferida a S17**: se activará solo con el modo de juego dedicado.
+
+## RN-14 Modo "Ornitólogo" (HU-17)
+- Modo quiz independiente de la partida: se muestra foto sin nombre y 4 opciones (español / inglés / nombre científico, mezclados).
+- Una ronda del quiz equivale a una pregunta; acierto suma 1 punto.
+- Usa solo aves de la baraja vigente (temática o completa).
+
+## RN-15 Empate con ave amenazada (DIFERIDA — no implementar aún)
+- Propuesta futura: en empate de atributo, gana la carta con peor estado UICN (CR > EN > VU > NT > LC).
+- Estado: aprobada como idea, sin HU asignada; requiere decisión del PO antes de implementar.
+
+## RN-16 Rareza real (HU implícita en datos)
+- La rareza (escala 1-10 en juego, = rareza_indice 1-5 del dataset × 2) ya refleja amenaza: las 13 especies VU/EN/CR puntúan alto sin reglas especiales.
+- No requiere mecánica adicional en S16.

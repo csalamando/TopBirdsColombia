@@ -16,7 +16,21 @@
 <h2>RN-08 Modos de juego</h2>
 <ul><li><b>Modo un jugador</b>: humano contra IA.</li><li><b>Modo hot-seat</b>: dos humanos comparten el mismo dispositivo; el sistema oculta la carta del oponente durante el turno del otro.</li></ul>
 <h2>RN-09 Atribución de datos</h2>
-<ul><li>Toda la información de aves debe incluir una fuente abierta citada (por ejemplo Wikipedia, eBird, Wikidata).</li><li>La aplicación no reclama propiedad sobre las imágenes ni datos de terceros.</li></ul><script>
+<ul><li>Toda la información de aves debe incluir una fuente abierta citada (por ejemplo Wikipedia, eBird, Wikidata).</li><li>La aplicación no reclama propiedad sobre las imágenes ni datos de terceros.</li><li>Cada imagen (macho y hembra cuando aplica) lleva su propia atribución: fotógrafo, licencia (cc-by / cc0 / cc-by-sa) y enlace a la observación en iNaturalist.</li></ul>
+<h2>RN-10 Ronda bono "¿Macho o hembra?" (HU-11)</h2>
+<ul><li>Solo se ofrece cuando la carta oponente es de especie dimórfica.</li><li>Se puede usar como máximo una vez por partida; tras usarse (acierto o fallo) no se vuelve a ofrecer.</li><li>El jugador elige sexo de la imagen mostrada del oponente junto con el atributo de la ronda.</li><li>Si acierta, gana la ronda con prioridad sobre la comparación numérica del atributo; si falla, vale el resultado normal.</li><li>La IA no usa el bono en el MVP (solo el jugador humano).</li></ul>
+<h2>RN-11 Ronda especial de altitud (HU-14)</h2>
+<ul><li>La altitud máxima del rango (<code>rango_altitudinal_msnm[1]</code>) es un atributo oculto: no seleccionable en rondas normales.</li><li>La ronda especial "¿Quién vive más alto?" compara altitud máxima y gana el mayor valor.</li><li>Frecuencia sugerida: a lo sumo una vez por partida, ofrecida por el sistema (definir en implementación).</li></ul>
+<h2>RN-12 Combo taxonómico (HU-16)</h2>
+<ul><li>Ganar dos rondas consecutivas con aves del mismo orden taxonómico otorga un bonus (+1 carta extra tomada de la reserva; si la reserva está vacía, se indica el combo sin bonus material).</li><li>La racha se reinicia al perder o empatar una ronda.</li><li>El bonus nunca decide la partida por sí solo: solo acelera la acumulación de cartas.</li></ul>
+<h2>RN-13 Modo temporada y visitantes boreales (HU-15)</h2>
+<ul><li>Las especies migratorias boreales llevan badge "visitante boreal" con temporada de presencia (nov-feb).</li><li>La regla de +1 en modo "temporada" está <b>diferida a S17</b>: se activará solo con el modo de juego dedicado.</li></ul>
+<h2>RN-14 Modo "Ornitólogo" (HU-17)</h2>
+<ul><li>Modo quiz independiente de la partida: se muestra foto sin nombre y 4 opciones (español / inglés / nombre científico, mezclados).</li><li>Una ronda del quiz equivale a una pregunta; acierto suma 1 punto.</li><li>Usa solo aves de la baraja vigente (temática o completa).</li></ul>
+<h2>RN-15 Empate con ave amenazada (DIFERIDA — no implementar aún)</h2>
+<ul><li>Propuesta futura: en empate de atributo, gana la carta con peor estado UICN (CR &gt; EN &gt; VU &gt; NT &gt; LC).</li><li>Estado: aprobada como idea, sin HU asignada; requiere decisión del PO antes de implementar.</li></ul>
+<h2>RN-16 Rareza real (HU implícita en datos)</h2>
+<ul><li>La rareza (escala 1-10 en juego, = rareza_indice 1-5 del dataset × 2) ya refleja amenaza: las 13 especies VU/EN/CR puntúan alto sin reglas especiales.</li><li>No requiere mecánica adicional en S16.</li></ul><script>
 (function(){
   var root=document.documentElement;
   function saved(){try{return localStorage.getItem('dir-tema');}catch(e){return null;}}

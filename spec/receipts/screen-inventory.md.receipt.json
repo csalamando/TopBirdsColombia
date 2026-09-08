@@ -1,12 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\ux\\screen-inventory.md",
-  "sha256": "83affc1cea154adadb404d9e6973754bbfc32e2f68599d7a3be3460c028ba1f0",
-  "gate": "GATE-1",
-  "tipo": "screen-inventory",
+  "sha256": "fb6ebecd9e34f7278dd298be6180b5a5d206851c03ae9ef2bc87c1a6e0c17b03",
+  "gate": "FASE-2",
+  "tipo": "",
   "rol": "ux-designer",
-  "emitido": "2026-09-08T10:02:46",
+  "emitido": "2026-09-08T15:43:20",
   "estado": "vigente",
-  "harness_version": "2.20.1",
-  "tokens_src": "estimado",
-  "tokens_out": 469
+  "harness_version": "2.20.1"
 }
