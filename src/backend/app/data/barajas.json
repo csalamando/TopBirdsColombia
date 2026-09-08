@@ -1,0 +1,1323 @@
+{
+  "version": "1.0.0",
+  "cartas": [
+    {
+      "id": 1,
+      "nombre_comun": "Colibrí pechipunteado",
+      "nombre_cientifico": "Adelomyia melanogenys",
+      "familia": "Trochilidae",
+      "habitat": "Sotobosque denso de bosque andino y de niebla",
+      "dieta": "Nectarívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 9.0,
+        "peso_g": 4.0,
+        "envergadura_cm": 11.0,
+        "velocidad_kmh": 50.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 2,
+      "nombre_comun": "Colibrí cobrizo de páramo",
+      "nombre_cientifico": "Aglaeactis cupripennis",
+      "familia": "Trochilidae",
+      "habitat": "Páramos arbustivos y bordes de bosque enano",
+      "dieta": "Nectarívoro/Insectívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 7.8,
+        "envergadura_cm": 14.0,
+        "velocidad_kmh": 55.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 3,
+      "nombre_comun": "Cometa colivioleta",
+      "nombre_cientifico": "Aglaiocercus coelestis",
+      "familia": "Trochilidae",
+      "habitat": "Bosque pluvial premontano y niebla del Chocó",
+      "dieta": "Nectarívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 19.0,
+        "peso_g": 5.8,
+        "envergadura_cm": 13.0,
+        "velocidad_kmh": 52.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 4,
+      "nombre_comun": "Cometa colilargo",
+      "nombre_cientifico": "Aglaiocercus kingii",
+      "familia": "Trochilidae",
+      "habitat": "Bosque andino, bosque de niebla y bordes arbustivos",
+      "dieta": "Nectarívoro",
+      "atribucion": "(c) Esteban Villa Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 18.0,
+        "peso_g": 5.5,
+        "envergadura_cm": 13.0,
+        "velocidad_kmh": 50.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 5,
+      "nombre_comun": "Pato brasileño",
+      "nombre_cientifico": "Amazonetta brasiliensis",
+      "familia": "Anatidae",
+      "habitat": "Lagunas, esteros y sabanas inundables de los Llanos",
+      "dieta": "Omnívoro/Plantas acuáticas",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 40.0,
+        "peso_g": 550.0,
+        "envergadura_cm": 62.0,
+        "velocidad_kmh": 65.0,
+        "esperanza_vida_anos": 9.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 6,
+      "nombre_comun": "Cotinga crestirroja",
+      "nombre_cientifico": "Ampelion rubrocristatus",
+      "familia": "Cotingidae",
+      "habitat": "Bosque altoandino, bordes de páramo y arboledas de Polylepis",
+      "dieta": "Frugívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 21.0,
+        "peso_g": 65.0,
+        "envergadura_cm": 32.0,
+        "velocidad_kmh": 38.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 7,
+      "nombre_comun": "Pato de granja / Ánade real doméstico",
+      "nombre_cientifico": "Anas platyrhynchos domesticus",
+      "familia": "Anatidae",
+      "habitat": "Estanques de granja, lagos urbanos y parques",
+      "dieta": "Omnívoro",
+      "atribucion": "(c) Cullen Hanks, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 58.0,
+        "peso_g": 1200.0,
+        "envergadura_cm": 90.0,
+        "velocidad_kmh": 70.0,
+        "esperanza_vida_anos": 10.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 8,
+      "nombre_comun": "Pato mulato (híbrido doméstico)",
+      "nombre_cientifico": "Anas platyrhynchos × Cairina moschata",
+      "familia": "Anatidae",
+      "habitat": "Lagunas urbanas, parques y humedales artificiales",
+      "dieta": "Omnívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 65.0,
+        "peso_g": 2200.0,
+        "envergadura_cm": 95.0,
+        "velocidad_kmh": 55.0,
+        "esperanza_vida_anos": 10.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 9,
+      "nombre_comun": "Terlaque pechiazul",
+      "nombre_cientifico": "Andigena hypoglauca",
+      "familia": "Ramphastidae",
+      "habitat": "Bosque altoandino húmedo y bosque de niebla templado",
+      "dieta": "Frugívoro",
+      "atribucion": "(c) Ryan F. Mandelbaum, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 46.0,
+        "peso_g": 320.0,
+        "envergadura_cm": 50.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 12.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 10,
+      "nombre_comun": "Terlaque andino piquinegro",
+      "nombre_cientifico": "Andigena nigrirostris",
+      "familia": "Ramphastidae",
+      "habitat": "Bosque de niebla alto y bosque andino montano",
+      "dieta": "Frugívoro",
+      "atribucion": "(c) Oscar Marín, some rights reserved (CC BY-SA) · iNaturalist (cc-by-sa)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 48.0,
+        "peso_g": 340.0,
+        "envergadura_cm": 52.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 12.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 11,
+      "nombre_comun": "Pato aguja / Cotúa",
+      "nombre_cientifico": "Anhinga anhinga",
+      "familia": "Anhingidae",
+      "habitat": "Ciénagas, ríos lentos y lagunas de aguas someras",
+      "dieta": "Piscívoro subacuático",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "pacifico",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 88.0,
+        "peso_g": 1300.0,
+        "envergadura_cm": 115.0,
+        "velocidad_kmh": 48.0,
+        "esperanza_vida_anos": 14.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 12,
+      "nombre_comun": "Clorospingo de Santa Marta",
+      "nombre_cientifico": "Anisognathus melanogenys",
+      "familia": "Thraupidae",
+      "habitat": "Bosque de niebla y matorrales montanos altos de Santa Marta",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 18.0,
+        "peso_g": 40.0,
+        "envergadura_cm": 26.0,
+        "velocidad_kmh": 36.0,
+        "esperanza_vida_anos": 7.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 13,
+      "nombre_comun": "Mango gorginegro",
+      "nombre_cientifico": "Anthracothorax nigricollis",
+      "familia": "Trochilidae",
+      "habitat": "Arboledas abiertas, jardines y sabanas arboladas",
+      "dieta": "Nectarívoro/Insectívoro",
+      "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe",
+        "pacifico",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 7.2,
+        "envergadura_cm": 14.0,
+        "velocidad_kmh": 52.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 14,
+      "nombre_comun": "Mango gorginegro (subespecie nominal)",
+      "nombre_cientifico": "Anthracothorax nigricollis nigricollis",
+      "familia": "Trochilidae",
+      "habitat": "Arboledas y jardines tropicales en llanuras y valles",
+      "dieta": "Nectarívoro/Insectívoro",
+      "atribucion": "(c) desertnaturalist, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe",
+        "pacifico",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 7.2,
+        "envergadura_cm": 14.0,
+        "velocidad_kmh": 52.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 15,
+      "nombre_comun": "Mango pechiverde",
+      "nombre_cientifico": "Anthracothorax prevostii",
+      "familia": "Trochilidae",
+      "habitat": "Bordes de bosque seco, sabanas arboladas y jardines caribeños",
+      "dieta": "Nectarívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 6.8,
+        "envergadura_cm": 14.0,
+        "velocidad_kmh": 52.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 16,
+      "nombre_comun": "Garza mora / Garzón azulado",
+      "nombre_cientifico": "Ardea cocoi",
+      "familia": "Ardeidae",
+      "habitat": "Márgenes de ríos grandes, esteros y ciénagas",
+      "dieta": "Piscívoro/Carnívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "pacifico",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 120.0,
+        "peso_g": 2400.0,
+        "envergadura_cm": 180.0,
+        "velocidad_kmh": 48.0,
+        "esperanza_vida_anos": 15.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 17,
+      "nombre_comun": "Garcita bueyera",
+      "nombre_cientifico": "Ardea ibis",
+      "familia": "Ardeidae",
+      "habitat": "Potreros con ganado, humedales y campos de cultivo",
+      "dieta": "Insectívoro/Invertebrados",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe",
+        "pacifico",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 50.0,
+        "peso_g": 350.0,
+        "envergadura_cm": 92.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 12.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 18,
+      "nombre_comun": "Gorrión piquinaranja",
+      "nombre_cientifico": "Arremon aurantiirostris",
+      "familia": "Passerellidae",
+      "habitat": "Suelo y sotobosque de selva húmeda tropical sombría",
+      "dieta": "Granívoro/Insectívoro del suelo",
+      "atribucion": "(c) Sofía García, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe",
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 15.5,
+        "peso_g": 32.0,
+        "envergadura_cm": 22.0,
+        "velocidad_kmh": 28.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 19,
+      "nombre_comun": "Torito dorado amazónico",
+      "nombre_cientifico": "Capito auratus",
+      "familia": "Capitonidae",
+      "habitat": "Dosel de selva húmeda tropical de tierra firme",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 19.0,
+        "peso_g": 68.0,
+        "envergadura_cm": 28.0,
+        "velocidad_kmh": 35.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 20,
+      "nombre_comun": "Cardenal guajiro / Cardenal bermellón",
+      "nombre_cientifico": "Cardinalis phoeniceus",
+      "familia": "Cardinalidae",
+      "habitat": "Matorrales xerofíticos áridos y espinares costeros",
+      "dieta": "Granívoro/Frutos cactáceos",
+      "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 19.0,
+        "peso_g": 30.0,
+        "envergadura_cm": 26.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 7.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 21,
+      "nombre_comun": "Carpintero castaño amazónico",
+      "nombre_cientifico": "Celeus elegans",
+      "familia": "Picidae",
+      "habitat": "Selva húmeda tropical de tierra firme y várzea",
+      "dieta": "Insectívoro (hormigas y termitas arborícolas)",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 28.0,
+        "peso_g": 135.0,
+        "envergadura_cm": 44.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 22,
+      "nombre_comun": "Clorocrisa multicolor",
+      "nombre_cientifico": "Chlorochrysa nitidissima",
+      "familia": "Thraupidae",
+      "habitat": "Bosque de niebla primario y bosque subandino húmedo",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Derek Spencer, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 13.0,
+        "peso_g": 19.0,
+        "envergadura_cm": 21.0,
+        "velocidad_kmh": 36.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 23,
+      "nombre_comun": "Inca de Perijá",
+      "nombre_cientifico": "Coeligena consita",
+      "familia": "Trochilidae",
+      "habitat": "Bosque de niebla alto y páramo de la Serranía del Perijá",
+      "dieta": "Nectarívoro",
+      "atribucion": "(c) Jackson Frost, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 7.2,
+        "envergadura_cm": 15.0,
+        "velocidad_kmh": 54.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 24,
+      "nombre_comun": "Inca del Paramillo / Colibrí del Sol",
+      "nombre_cientifico": "Coeligena orina",
+      "familia": "Trochilidae",
+      "habitat": "Páramos y bosques enanos nubosos del Nudo del Paramillo",
+      "dieta": "Nectarívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 7.2,
+        "envergadura_cm": 15.0,
+        "velocidad_kmh": 54.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 25,
+      "nombre_comun": "Inca coliblanco de Santa Marta",
+      "nombre_cientifico": "Coeligena phalerata",
+      "familia": "Trochilidae",
+      "habitat": "Bosque nuboso húmedo de la Sierra Nevada",
+      "dieta": "Nectarívoro",
+      "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 6.8,
+        "envergadura_cm": 14.0,
+        "velocidad_kmh": 52.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 26,
+      "nombre_comun": "Inca negro",
+      "nombre_cientifico": "Coeligena prunellei",
+      "familia": "Trochilidae",
+      "habitat": "Bosque andino de robles (Quercus humboldtii)",
+      "dieta": "Nectarívoro",
+      "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 7.0,
+        "envergadura_cm": 15.0,
+        "velocidad_kmh": 54.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 27,
+      "nombre_comun": "Cotinga celeste amazónica",
+      "nombre_cientifico": "Cotinga cayana",
+      "familia": "Cotingidae",
+      "habitat": "Dosel de selva húmeda tropical de tierra firme",
+      "dieta": "Frugívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia"
+      ],
+      "atributos": {
+        "tamano_cm": 20.0,
+        "peso_g": 65.0,
+        "envergadura_cm": 32.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 28,
+      "nombre_comun": "Cotinga gorgimorada amazónica",
+      "nombre_cientifico": "Cotinga maynana",
+      "familia": "Cotingidae",
+      "habitat": "Dosel de selva húmeda tropical inundable y tierra firme",
+      "dieta": "Frugívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia"
+      ],
+      "atributos": {
+        "tamano_cm": 19.0,
+        "peso_g": 68.0,
+        "envergadura_cm": 32.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 29,
+      "nombre_comun": "Paujil piquiazul",
+      "nombre_cientifico": "Crax alberti",
+      "familia": "Cracidae",
+      "habitat": "Suelo de bosque húmedo primario tropical no fragmentado",
+      "dieta": "Frugívoro/Semillero",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 90.0,
+        "peso_g": 3500.0,
+        "envergadura_cm": 115.0,
+        "velocidad_kmh": 28.0,
+        "esperanza_vida_anos": 18.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 30,
+      "nombre_comun": "Dacnis ventriamarillo",
+      "nombre_cientifico": "Dacnis flaviventer",
+      "familia": "Thraupidae",
+      "habitat": "Dosel de selva inundable (várzea) y riberas amazónicas",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia"
+      ],
+      "atributos": {
+        "tamano_cm": 11.5,
+        "peso_g": 13.0,
+        "envergadura_cm": 17.0,
+        "velocidad_kmh": 34.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 31,
+      "nombre_comun": "Dacnis turquesa",
+      "nombre_cientifico": "Dacnis hartlaubi",
+      "familia": "Thraupidae",
+      "habitat": "Bosque subandino húmedo y plantaciones de café con sombra",
+      "dieta": "Frugívoro/Nectarívoro",
+      "atribucion": "(c) Richard Smith Chacon, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 11.0,
+        "peso_g": 12.0,
+        "envergadura_cm": 17.0,
+        "velocidad_kmh": 34.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 32,
+      "nombre_comun": "Hormiguerito gorginegro sureño",
+      "nombre_cientifico": "Formicivora grisea",
+      "familia": "Thamnophilidae",
+      "habitat": "Matorrales secos y bosques de galería llaneros",
+      "dieta": "Insectívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 10.0,
+        "envergadura_cm": 16.0,
+        "velocidad_kmh": 28.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 33,
+      "nombre_comun": "Hormiguerito gorginegro norteño",
+      "nombre_cientifico": "Formicivora intermedia",
+      "familia": "Thamnophilidae",
+      "habitat": "Matorrales áridos y espinares del Caribe",
+      "dieta": "Insectívoro",
+      "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 10.0,
+        "envergadura_cm": 16.0,
+        "velocidad_kmh": 28.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 34,
+      "nombre_comun": "Saltarín cuellidorado",
+      "nombre_cientifico": "Manacus vitellinus",
+      "familia": "Pipridae",
+      "habitat": "Sotobosque de bosque húmedo tropical del Chocó",
+      "dieta": "Frugívoro",
+      "atribucion": "(c) Laura Gaudette, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 10.5,
+        "peso_g": 18.0,
+        "envergadura_cm": 17.0,
+        "velocidad_kmh": 32.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 35,
+      "nombre_comun": "Barbudito del Ruiz",
+      "nombre_cientifico": "Oxypogon stuebelii",
+      "familia": "Trochilidae",
+      "habitat": "Páramos con frailejones (Espeletia hartwegiana)",
+      "dieta": "Nectarívoro/Insectívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 4.8,
+        "envergadura_cm": 13.0,
+        "velocidad_kmh": 48.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 36,
+      "nombre_comun": "Pato turrio andino / Pato rufo de la sabana",
+      "nombre_cientifico": "Oxyura ferruginea andina",
+      "familia": "Anatidae",
+      "habitat": "Lagunas altoandinas y humedales de la Sabana de Bogotá y Boyacá",
+      "dieta": "Buceador (invertebrados bentónicos)",
+      "atribucion": "(c) ajott, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 44.0,
+        "peso_g": 620.0,
+        "envergadura_cm": 56.0,
+        "velocidad_kmh": 65.0,
+        "esperanza_vida_anos": 9.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 37,
+      "nombre_comun": "Anambé cinéreo",
+      "nombre_cientifico": "Pachyramphus rufus",
+      "familia": "Tityridae",
+      "habitat": "Bosque seco, matorrales ribereños y claros arbolados",
+      "dieta": "Insectívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 18.0,
+        "envergadura_cm": 22.0,
+        "velocidad_kmh": 32.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 38,
+      "nombre_comun": "Hormiguero dorsicastaño manchado",
+      "nombre_cientifico": "Poliocrania exsul maculifer",
+      "familia": "Thamnophilidae",
+      "habitat": "Sotobosque sombrío de selva húmeda del Chocó",
+      "dieta": "Insectívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 28.0,
+        "envergadura_cm": 20.0,
+        "velocidad_kmh": 28.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 39,
+      "nombre_comun": "Arasari piquirrayado del Chocó",
+      "nombre_cientifico": "Pteroglossus erythropygius sanguineus",
+      "familia": "Ramphastidae",
+      "habitat": "Dosel y bordes de selva pluvial del Chocó",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Zac Peterson, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 40.0,
+        "peso_g": 240.0,
+        "envergadura_cm": 52.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 11.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 40,
+      "nombre_comun": "Arasari de Humboldt",
+      "nombre_cientifico": "Pteroglossus inscriptus humboldti",
+      "familia": "Ramphastidae",
+      "habitat": "Selva húmeda amazónica, várzea e igapó",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia"
+      ],
+      "atributos": {
+        "tamano_cm": 35.0,
+        "peso_g": 160.0,
+        "envergadura_cm": 46.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 10.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 41,
+      "nombre_comun": "Chango llanero",
+      "nombre_cientifico": "Quiscalus lugubris",
+      "familia": "Icteridae",
+      "habitat": "Sabanas abiertas, márgenes de humedales y poblados",
+      "dieta": "Omnívoro",
+      "atribucion": "(c) Nicolas Olejnik, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 25.0,
+        "peso_g": 75.0,
+        "envergadura_cm": 36.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 42,
+      "nombre_comun": "Tucán pechiblanco amazónico",
+      "nombre_cientifico": "Ramphastos tucanus",
+      "familia": "Ramphastidae",
+      "habitat": "Dosel de selva húmeda tropical de tierra firme",
+      "dieta": "Frugívoro/Pequeños vertebrados",
+      "atribucion": "(c) Eva Li, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 58.0,
+        "peso_g": 650.0,
+        "envergadura_cm": 125.0,
+        "velocidad_kmh": 46.0,
+        "esperanza_vida_anos": 20.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 43,
+      "nombre_comun": "Tucán picoacanalado",
+      "nombre_cientifico": "Ramphastos vitellinus",
+      "familia": "Ramphastidae",
+      "habitat": "Dosel de selva húmeda tropical de tierras bajas",
+      "dieta": "Frugívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 48.0,
+        "peso_g": 390.0,
+        "envergadura_cm": 105.0,
+        "velocidad_kmh": 42.0,
+        "esperanza_vida_anos": 18.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 44,
+      "nombre_comun": "Tángara piquiplata amazónica",
+      "nombre_cientifico": "Ramphocelus carbo",
+      "familia": "Thraupidae",
+      "habitat": "Bordes selváticos, riberas y claros amazónicos",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "no rights reserved · iNaturalist (cc0)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 17.0,
+        "peso_g": 32.0,
+        "envergadura_cm": 26.0,
+        "velocidad_kmh": 36.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 45,
+      "nombre_comun": "Caracolero común",
+      "nombre_cientifico": "Rostrhamus sociabilis",
+      "familia": "Accipitridae",
+      "habitat": "Ciénagas, humedales y lagunas con caracoles de agua dulce",
+      "dieta": "Molusquívoro (Pomacea)",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 45.0,
+        "peso_g": 390.0,
+        "envergadura_cm": 115.0,
+        "velocidad_kmh": 45.0,
+        "esperanza_vida_anos": 12.0,
+        "rareza": 2
+      }
+    },
+    {
+      "id": 46,
+      "nombre_comun": "Batará crestinegro",
+      "nombre_cientifico": "Sakesphorus canadensis",
+      "familia": "Thamnophilidae",
+      "habitat": "Manglares, matorrales áridos y bosques secos de ribera",
+      "dieta": "Insectívoro",
+      "atribucion": "(c) Louis Imbeau, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "caribe",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 16.0,
+        "peso_g": 25.0,
+        "envergadura_cm": 22.0,
+        "velocidad_kmh": 30.0,
+        "esperanza_vida_anos": 6.0,
+        "rareza": 4
+      }
+    },
+    {
+      "id": 47,
+      "nombre_comun": "Tángara coroniblanca",
+      "nombre_cientifico": "Sericossypha albocristata",
+      "familia": "Thraupidae",
+      "habitat": "Dosel de bosque de niebla primario y bosque altoandino",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "iNaturalist Open Data",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 24.0,
+        "peso_g": 115.0,
+        "envergadura_cm": 38.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 48,
+      "nombre_comun": "Reinita cerúlea",
+      "nombre_cientifico": "Setophaga cerulea",
+      "familia": "Parulidae",
+      "habitat": "Dosel de bosque andino húmedo y cafetales con sombra",
+      "dieta": "Insectívoro",
+      "atribucion": "(c) Daniel Hincapie, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina"
+      ],
+      "atributos": {
+        "tamano_cm": 12.0,
+        "peso_g": 9.5,
+        "envergadura_cm": 20.0,
+        "velocidad_kmh": 38.0,
+        "esperanza_vida_anos": 5.0,
+        "rareza": 8
+      }
+    },
+    {
+      "id": 49,
+      "nombre_comun": "Trogón coliazul del Chocó",
+      "nombre_cientifico": "Trogon comptus",
+      "familia": "Trogonidae",
+      "habitat": "Selva pluvial del Chocó y piedemonte pacífico",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "pacifico"
+      ],
+      "atributos": {
+        "tamano_cm": 28.0,
+        "peso_g": 85.0,
+        "envergadura_cm": 38.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 50,
+      "nombre_comun": "Trogón coliblanco amazónico",
+      "nombre_cientifico": "Trogon viridis",
+      "familia": "Trogonidae",
+      "habitat": "Interior y dosel de selva húmeda de tierra firme",
+      "dieta": "Frugívoro/Insectívoro",
+      "atribucion": "(c) Jacob Saucier, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 29.0,
+        "peso_g": 90.0,
+        "envergadura_cm": 42.0,
+        "velocidad_kmh": 40.0,
+        "esperanza_vida_anos": 8.0,
+        "rareza": 6
+      }
+    },
+    {
+      "id": 51,
+      "nombre_comun": "Carpinterito chico amazónico",
+      "nombre_cientifico": "Veniliornis passerinus",
+      "familia": "Picidae",
+      "habitat": "Selva de várzea, bordes de río y arboledas amazónicas",
+      "dieta": "Insectívoro",
+      "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "amazonia",
+        "orinoquia"
+      ],
+      "atributos": {
+        "tamano_cm": 14.0,
+        "peso_g": 32.0,
+        "envergadura_cm": 26.0,
+        "velocidad_kmh": 36.0,
+        "esperanza_vida_anos": 7.0,
+        "rareza": 10
+      }
+    },
+    {
+      "id": 52,
+      "nombre_comun": "Cóndor de los Andes",
+      "nombre_cientifico": "Vultur gryphus",
+      "familia": "Cathartidae",
+      "habitat": "Páramos, riscos y alta montaña andina",
+      "dieta": "Carroñero estricto",
+      "atribucion": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY) · iNaturalist (cc-by)",
+      "imagen_url": null,
+      "regiones": [
+        "andina",
+        "caribe"
+      ],
+      "atributos": {
+        "tamano_cm": 125.0,
+        "peso_g": 13000.0,
+        "envergadura_cm": 310.0,
+        "velocidad_kmh": 90.0,
+        "esperanza_vida_anos": 50.0,
+        "rareza": 6
+      }
+    }
+  ],
+  "barajas": [
+    {
+      "id": "completa",
+      "nombre": "Colombia completa",
+      "cartas": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ]
+    },
+    {
+      "id": "andina",
+      "nombre": "Expedición: Andina",
+      "cartas": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        17,
+        18,
+        22,
+        24,
+        26,
+        29,
+        31,
+        35,
+        36,
+        47,
+        48,
+        52
+      ]
+    },
+    {
+      "id": "caribe",
+      "nombre": "Expedición: Caribe",
+      "cartas": [
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        23,
+        25,
+        29,
+        33,
+        34,
+        37,
+        41,
+        43,
+        45,
+        46,
+        52
+      ]
+    },
+    {
+      "id": "pacifico",
+      "nombre": "Expedición: Pacífico",
+      "cartas": [
+        3,
+        11,
+        13,
+        14,
+        16,
+        17,
+        18,
+        34,
+        38,
+        39,
+        49
+      ]
+    },
+    {
+      "id": "amazonia",
+      "nombre": "Expedición: Amazonía",
+      "cartas": [
+        5,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        21,
+        27,
+        28,
+        30,
+        32,
+        40,
+        42,
+        43,
+        44,
+        45,
+        50,
+        51
+      ]
+    },
+    {
+      "id": "orinoquia",
+      "nombre": "Expedición: Orinoquía",
+      "cartas": [
+        5,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        21,
+        32,
+        37,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        50,
+        51
+      ]
+    }
+  ]
+}

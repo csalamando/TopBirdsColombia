@@ -1,8 +1,15 @@
-# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06
+# Trazabilidad SDLC: HU-01, HU-02, HU-03, HU-04, HU-06, HU-09
 from fastapi import APIRouter, HTTPException, Response, Request
 from app.models import Game, GameMode, Ave
-from app.schemas import CreatePartidaRequest, Partida, PlayRondaRequest, RondaResult, Error
-from app.dependencies import get_game_repository, get_cards
+from app.schemas import (
+    CreatePartidaRequest,
+    Error,
+    Partida,
+    PlayRondaRequest,
+    RondaResult,
+)
+from app.dependencies import get_game_repository
+from app.barajas import list_barajas, resolve_baraja
 from app.security import limiter
 import secrets
 
@@ -19,6 +26,7 @@ def _to_partida_schema(game: Game) -> Partida:
     data = {
         "id": game.id,
         "modo": game.modo.value,
+        "baraja": game.baraja,
         "estado": game.estado.value,
         "turno": game.turno,
         "cartas_jugador": game.cartas_jugador,
@@ -29,6 +37,12 @@ def _to_partida_schema(game: Game) -> Partida:
     return Partida.model_validate(data)
 
 
+@router.get("/barajas", response_model=dict)
+@limiter.limit("60/minute")
+def list_barajas_endpoint(response: Response, request: Request) -> dict:
+    return {"items": [b.__dict__ for b in list_barajas()]}
+
+
 @router.post("/partidas", response_model=Partida, status_code=201)
 @limiter.limit("30/minute")
 def create_partida(
@@ -36,9 +50,9 @@ def create_partida(
     response: Response,
     request: Request,
 ) -> Partida:
-    cards = get_cards()
+    baraja_id, cards = resolve_baraja(body.baraja)
     modo = GameMode.IA if body.modo == "ia" else GameMode.HOTSEAT
-    game = Game.create(modo, cards)
+    game = Game.create(modo, cards, baraja=baraja_id)
     get_game_repository().add(game)
     return _to_partida_schema(game)
 

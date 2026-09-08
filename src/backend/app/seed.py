@@ -2,6 +2,12 @@ from app.models import Ave
 
 
 def seed_aves() -> list[Ave]:
+    from app.barajas import load_cartas
+
+    return load_cartas()
+
+
+def _seed_legacy() -> list[Ave]:
     return [
         Ave(
             id=1,

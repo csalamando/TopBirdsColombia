@@ -24,6 +24,9 @@ Thumbs.db
 
 # SQLite / data
 data/
+# Baraja del juego generada desde topbirds_dataset (S16-DE-02: dataset versionado)
+!src/backend/app/data/
+!src/backend/app/data/*.json
 
 # Playwright test artifacts
 test-results/

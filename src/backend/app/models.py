@@ -69,9 +69,10 @@ class Game:
     baraja_oponente: list[Ave] = field(default_factory=list)
     reserva: list[Ave] = field(default_factory=list)
     ganador: str | None = None
+    baraja: str = "completa"
 
     @classmethod
-    def create(cls, modo: GameMode, cards: list[Ave]) -> "Game":
+    def create(cls, modo: GameMode, cards: list[Ave], baraja: str = "completa") -> "Game":
         deck = Deck(cards)
         deck.shuffle()
         player_deck, opponent_deck = deck.deal()
@@ -89,6 +90,7 @@ class Game:
             baraja_oponente=opponent_deck,
             reserva=[],
             ganador=None,
+            baraja=baraja,
         )
 
     def _check_finished(self) -> None:

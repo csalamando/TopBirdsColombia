@@ -61,3 +61,12 @@
 {"ts": "2026-09-08T14:33:19", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T14:48:10", "tipo": "use", "skill": "data-engineer", "fase": "2", "modo": ""}
 {"ts": "2026-09-08T14:48:10", "tipo": "use", "skill": "business-analyst", "fase": "1", "modo": ""}
+{"ts": "2026-09-08T15:15:44", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:15:44", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:15:44", "tipo": "use", "skill": "data-engineer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:15:53", "tipo": "use", "skill": "business-analyst", "fase": "1", "modo": ""}
+{"ts": "2026-09-08T15:15:53", "tipo": "use", "skill": "software-architect", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T15:15:53", "tipo": "use", "skill": "data-engineer", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T15:25:13", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:26:22", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:26:22", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}

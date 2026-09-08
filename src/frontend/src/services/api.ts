@@ -1,5 +1,12 @@
-// Trazabilidad SDLC: HU-01, HU-05
-import type { AttributeKey, Bird, Game, GameMode, RoundResult } from "../types";
+// Trazabilidad SDLC: HU-01, HU-05, HU-09
+import type {
+  AttributeKey,
+  Bird,
+  DeckInfo,
+  Game,
+  GameMode,
+  RoundResult,
+} from "../types";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
 
@@ -20,11 +27,23 @@ export async function fetchBird(id: number): Promise<Bird> {
   return (await response.json()) as Bird;
 }
 
-export async function createGame(mode: GameMode): Promise<Game> {
+export async function fetchDecks(): Promise<DeckInfo[]> {
+  const response = await fetch(`${API_BASE_URL}/barajas`);
+  if (!response.ok) {
+    throw new Error("No se pudieron cargar las barajas");
+  }
+  const data = (await response.json()) as { items: DeckInfo[] };
+  return data.items;
+}
+
+export async function createGame(
+  mode: GameMode,
+  baraja: string
+): Promise<Game> {
   const response = await fetch(`${API_BASE_URL}/partidas`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ modo: mode }),
+    body: JSON.stringify({ modo: mode, baraja }),
   });
   if (!response.ok) {
     throw new Error("No se pudo crear la partida");

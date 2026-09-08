@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import Literal
+
+from app.barajas import list_barajas
 
 
 class HealthStatus(BaseModel):
@@ -32,11 +34,27 @@ class Ave(BaseModel):
 class CreatePartidaRequest(BaseModel):
     modo: Literal["ia", "hotseat"]
     jugador_nombre: str | None = None
+    baraja: str = "aleatoria"
+
+    @field_validator("baraja")
+    @classmethod
+    def _baraja_existe(cls, v: str) -> str:
+        validas = {"aleatoria", "completa"} | {b.id for b in list_barajas()}
+        if v not in validas:
+            raise ValueError(f"Baraja no encontrada: {v}")
+        return v
+
+
+class BarajaInfo(BaseModel):
+    id: str
+    nombre: str
+    cantidad: int
 
 
 class Partida(BaseModel):
     id: str
     modo: Literal["ia", "hotseat"]
+    baraja: str
     estado: Literal["activa", "finalizada"]
     turno: Literal["jugador", "oponente"]
     cartas_jugador: int

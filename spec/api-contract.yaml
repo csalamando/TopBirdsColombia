@@ -100,6 +100,8 @@ paths:
                 $ref: "#/components/schemas/Partida"
         "400":
           description: Solicitud inválida
+        "422":
+          description: Error de validación (p. ej. baraja inexistente)
 
   /partidas/{partidaId}:
     get:

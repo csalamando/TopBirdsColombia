@@ -1,8 +1,8 @@
-// Trazabilidad SDLC: HU-01, HU-05
+// Trazabilidad SDLC: HU-01, HU-05, HU-09
 import { describe, expect, it } from "vitest";
 import { http, HttpResponse } from "msw";
 import { server } from "../mocks/server";
-import { createGame, fetchBirds, fetchGame, playRound } from "./api";
+import { createGame, fetchBirds, fetchDecks, fetchGame, playRound } from "./api";
 
 describe("api services", () => {
   it("fetches birds", async () => {
@@ -21,9 +21,25 @@ describe("api services", () => {
   });
 
   it("creates a game", async () => {
-    const game = await createGame("ia");
+    const game = await createGame("ia", "aleatoria");
     expect(game.id).toBe("new-game-1");
     expect(game.modo).toBe("ia");
+  });
+
+  it("fetches decks", async () => {
+    const decks = await fetchDecks();
+    expect(decks.length).toBeGreaterThan(0);
+    expect(decks[0].id).toBe("completa");
+    expect(decks[0].cantidad).toBe(52);
+  });
+
+  it("throws when decks endpoint fails", async () => {
+    server.use(
+      http.get("/api/barajas", () => {
+        return new HttpResponse(null, { status: 500 });
+      })
+    );
+    await expect(fetchDecks()).rejects.toThrow("No se pudieron cargar las barajas");
   });
 
   it("fetches game state", async () => {
