@@ -2,6 +2,14 @@
 
 Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida para demostrar un arnés de desarrollo de software completo (SDD + TDD + RDD) en 15 sprints.
 
+## Funcionalidades
+
+- **Selección de baraja al iniciar partida (HU-09)**: el jugador elige entre una baraja temática aleatoria (por defecto, elegida server-side), la colección completa de 52 cartas o una expedición por región (Andina, Caribe, Pacífico, Amazonía, Orinoquía) con el conteo de aves en pantalla.
+- **Baraja curada de 52 aves** generada desde `topbirds_dataset` (iNaturalist Open Data): siempre incluye las 13 especies amenazadas (UICN VU/EN/CR), prioriza las 146 especies con dimorfismo sexual y está balanceada por región; cada carta lleva atribución de fotógrafo y licencia.
+- Modos de juego contra la IA o hot-seat (dos humanos, mismo dispositivo).
+- API REST con validación de contrato (Schemathesis), rate limiting y headers de seguridad.
+- Portal SDLC auto-generado que publica la spec, recibos SHA-256, métricas y memoria del proyecto (ver siguiente sección).
+
 ## Stack
 
 - **Backend:** Python 3.11 + FastAPI + Pydantic + SQLite
@@ -11,10 +19,13 @@ Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida pa
 ## Estructura
 
 ```
-spec/        # Artefactos del SDLC (visión, user-stories, ADRs, recibos, etc.)
+spec/        # Artefactos del SDLC (visión, user-stories, ADRs, recibos, portal, etc.)
 src/backend/ # API FastAPI
 src/frontend/# React SPA
 tests/e2e/   # Pruebas end-to-end con Playwright
+topbirds_dataset/ # Dataset enriquecido (JSON versionado; imágenes crudas fuera del repo)
+scripts/     # Utilidades (p. ej. build_baraja.py, genera la baraja del juego)
+docs/        # Documentación adicional e imágenes del portal (docs/images/)
 ```
 
 ## Ejecución local
@@ -65,6 +76,29 @@ End-to-end:
 ```powershell
 cd tests/e2e
 npx playwright test
+```
+
+## El portal del proyecto (SDLC)
+
+El arnés genera un portal estático en `spec/portal/` (entrada: `spec/portal/index.html`, también publicado vía `spec/dashboard.html`) que navega la spec completa: user stories con Gherkin, contrato OpenAPI, ADRs, backlog, métricas del harness y memoria de proyecto. Las imágenes de esta sección viven en `docs/images/` y se capturan automáticamente de las páginas del portal.
+
+| Inicio | Métricas | Arquitectura |
+|---|---|---|
+| ![Portal — inicio](docs/images/portal-inicio.png) | ![Portal — métricas](docs/images/portal-metricas.png) | ![Portal — arquitectura](docs/images/portal-arquitectura.png) |
+
+**Mantenimiento de las imágenes**: cuando la spec cambie, regenera el portal y vuelve a capturar para mantener el README sincronizado:
+
+```powershell
+# 1. Regenerar portal + dashboard (valida drift vs recibos)
+python .agents/skills/sdlc-orchestrator/scripts/harness_graph.py --proyecto .
+python .agents/skills/sdlc-orchestrator/scripts/harness_graph.py --proyecto . --check
+
+# 2. Re-capturar las imágenes (Playwright, usa los browsers ya instalados en tests/e2e)
+cd tests/e2e
+foreach ($p in @("inicio","metricas","arquitectura")) {
+  npx playwright screenshot --viewport-size="1440,900" --wait-for-timeout=1500 `
+    "..\..\spec\portal\paginas\$p.html" "..\..\docs\images\portal-$p.png"
+}
 ```
 
 ## Pipeline CI/CD

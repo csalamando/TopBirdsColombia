@@ -2,6 +2,15 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-08 — Sprint 16: dataset enriquecido y HU-09 selección de baraja
+
+- **Motivo**: la métrica E2 de `spec/vision.md` (≥50 aves) estaba en rojo (6/50). El usuario curó el dataset completo (`topbirds_dataset/aves_colombia_toptrumps_enriquecido.json`, 303 especies con atributos de juego completos) y aprobó la mecánica de selección de baraja por partida (aleatoria temática por defecto / Colombia completa / expedición por región).
+- **Artefactos modificados**: `spec/user-stories.md` (HU-09 con 5 escenarios Gherkin), `spec/api-contract.yaml` (`GET /barajas`, campo `baraja` en `CreatePartidaRequest`/`Partida`, 422 documentado en creación de partida), `spec/dataset-enrichment.md` (v2: plan de curación §2.4 marcado obsoleto-ejecutado, dinámicas aprobadas/diferidas), `spec/backlog.md` (S16-BE-04 y S16-DE-02 → Completado). Recibos SHA-256 re-emitidos (business-analyst, software-architect, data-engineer, product-owner).
+- **Implementación (TDD, orden test→feat verificado)**: `scripts/build_baraja.py` genera `src/backend/app/data/barajas.json` (52 cartas: 13 amenazadas UICN, prioriza 146 dimórficas, tope 12/región, rareza ×2 a escala 1-10, atribución fotógrafo+licencia por carta; barajas: completa 52, andina 24, caribe 22, pacífico 11, amazonía 19, orinoquía 18). Backend: módulo `app/barajas.py`, `GET /barajas`, `POST /partidas` con `baraja`, validación en schema pydantic (422 `HTTPValidationError`, exigido por Schemathesis). Frontend: selector de baraja en Home con estados de carga/error.
+- **Datos**: JSON enriquecido versionado en repo (S16-DE-02); imágenes crudas (147 MB) quedan fuera, thumbnails pendientes. `.gitignore` con excepción para `src/backend/app/data/*.json`.
+- **Impacto downstream**: portal regenerado sin drift; memoria `MEM-20260908-002`. Suites verdes (pytest 95.5 % cov, vitest 45/45, build OK).
+- **Pendiente Sprint 16**: S16-FE-05 (instrumentación analítica), thumbnails de imágenes, mecánicas diferidas sujetas a PO (ronda bono dimorfismo, toggle macho/hembra).
+
 ## 2026-09-05 — Plataforma de despliegue: Render → Railway (supersedes)
 
 - **Relación**: `infra/render.yaml` → `railway.toml` (**supersedes**). Solicitado y aprobado por el usuario.
