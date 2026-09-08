@@ -81,7 +81,33 @@ Y se ofrece un botón para reintentar</code></pre>
 <pre><code>Dado que el jugador abre el juego en un teléfono
 Cuando la pantalla es menor que 768px
 Entonces el layout se adapta a una columna
-Y los botones de atributo son tocables sin zoom</code></pre><script>
+Y los botones de atributo son tocables sin zoom</code></pre>
+<h2>HU-09 Seleccionar baraja al iniciar partida</h2>
+<p><b>Épica</b>: EP-01 <b>Rol</b>: ROL-03 Jugador casual</p>
+<p>Como jugador casual, quiero elegir la baraja con la que se juega la partida (una región temática o la colección completa) para variar la experiencia de juego.</p>
+<h3>Escenario 1: baraja aleatoria por defecto</h3>
+<pre><code>Dado que el jugador está en la pantalla de inicio
+Cuando presiona &quot;Jugar&quot; sin cambiar la selección
+Entonces se crea la partida con una baraja temática elegida al azar por el servidor
+Y la partida indica el id de la baraja usada</code></pre>
+<h3>Escenario 2: elegir Colombia completa</h3>
+<pre><code>Dado que el jugador está en la pantalla de inicio
+Cuando selecciona &quot;Colombia completa&quot;
+Y presiona &quot;Jugar&quot;
+Entonces se crea la partida repartiendo únicamente las 52 cartas de la colección completa</code></pre>
+<h3>Escenario 3: elegir expedición por región</h3>
+<pre><code>Dado que el jugador está en la pantalla de inicio
+Cuando selecciona &quot;Expedición: Amazonía&quot;
+Entonces ve la cantidad de aves de esa baraja junto al nombre
+Y al jugar, la partida reparte solo las cartas de esa región</code></pre>
+<h3>Escenario 4: listar barajas disponibles</h3>
+<pre><code>Dado que el cliente necesita mostrar el selector
+Cuando consulta GET /api/barajas
+Entonces recibe la lista de barajas con id, nombre y cantidad de aves</code></pre>
+<h3>Escenario 5: baraja inválida</h3>
+<pre><code>Dado que el jugador crea una partida con un id de baraja inexistente
+Cuando el servidor valida la solicitud
+Entonces responde 422 con un mensaje de error</code></pre><script>
 (function(){
   var root=document.documentElement;
   function saved(){try{return localStorage.getItem('dir-tema');}catch(e){return null;}}

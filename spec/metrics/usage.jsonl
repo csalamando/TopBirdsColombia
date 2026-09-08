@@ -70,3 +70,6 @@
 {"ts": "2026-09-08T15:25:13", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T15:26:22", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T15:26:22", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T15:29:42", "tipo": "use", "skill": "backend-dev", "fase": "4", "modo": ""}
+{"ts": "2026-09-08T15:29:42", "tipo": "use", "skill": "frontend-dev", "fase": "4", "modo": ""}
+{"ts": "2026-09-08T15:30:32", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}

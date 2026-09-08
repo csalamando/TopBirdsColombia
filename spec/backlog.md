@@ -33,8 +33,8 @@ Este backlog prioriza los ítems del MVP usando MoSCoW y RICE. La métrica de é
 | S13-DO-01 | Pipeline CI/CD e infraestructura demo | EP-05 | Should have | 13 | Completado |
 | S14-DO-02 | Despliegue a producción/demo | EP-05 | Should have | 14 | Completado |
 | S15-PA-01 | SLOs, impact report y sprint review | EP-04 | Must have | 15 | En progreso |
-| S16-BE-04 | Cargar baraja ≥50 aves desde topbirds_dataset (TDD, atribución por carta) | EP-02 | Must have | 16 | Pendiente |
-| S16-DE-02 | Versionar topbirds_dataset bajo data-governance (decidir imágenes en repo vs storage) | EP-02 | Must have | 16 | Pendiente |
+| S16-BE-04 | Cargar baraja ≥50 aves desde topbirds_dataset (TDD, atribución por carta) | EP-02 | Must have | 16 | Completado |
+| S16-DE-02 | Versionar topbirds_dataset bajo data-governance (decidir imágenes en repo vs storage) | EP-02 | Must have | 16 | Completado |
 | S16-FE-05 | Instrumentación analítica mínima (partida iniciada/ronda/partida completada, sin PII) | EP-04 | Should have | 16 | Pendiente |
 
 ## Notas
