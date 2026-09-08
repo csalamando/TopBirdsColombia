@@ -59,3 +59,5 @@
 {"ts": "2026-09-08T14:33:19", "tipo": "use", "skill": "sre", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T14:33:19", "tipo": "use", "skill": "product-analyst", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T14:33:19", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T14:48:10", "tipo": "use", "skill": "data-engineer", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T14:48:10", "tipo": "use", "skill": "business-analyst", "fase": "1", "modo": ""}
