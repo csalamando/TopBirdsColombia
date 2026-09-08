@@ -142,3 +142,47 @@ Cuando la pantalla es menor que 768px
 Entonces el layout se adapta a una columna
 Y los botones de atributo son tocables sin zoom
 ```
+
+## HU-09 Seleccionar baraja al iniciar partida
+**Épica**: EP-01
+**Rol**: ROL-03 Jugador casual
+
+Como jugador casual, quiero elegir la baraja con la que se juega la partida (una región temática o la colección completa) para variar la experiencia de juego.
+
+### Escenario 1: baraja aleatoria por defecto
+```gherkin
+Dado que el jugador está en la pantalla de inicio
+Cuando presiona "Jugar" sin cambiar la selección
+Entonces se crea la partida con una baraja temática elegida al azar por el servidor
+Y la partida indica el id de la baraja usada
+```
+
+### Escenario 2: elegir Colombia completa
+```gherkin
+Dado que el jugador está en la pantalla de inicio
+Cuando selecciona "Colombia completa"
+Y presiona "Jugar"
+Entonces se crea la partida repartiendo únicamente las 52 cartas de la colección completa
+```
+
+### Escenario 3: elegir expedición por región
+```gherkin
+Dado que el jugador está en la pantalla de inicio
+Cuando selecciona "Expedición: Amazonía"
+Entonces ve la cantidad de aves de esa baraja junto al nombre
+Y al jugar, la partida reparte solo las cartas de esa región
+```
+
+### Escenario 4: listar barajas disponibles
+```gherkin
+Dado que el cliente necesita mostrar el selector
+Cuando consulta GET /api/barajas
+Entonces recibe la lista de barajas con id, nombre y cantidad de aves
+```
+
+### Escenario 5: baraja inválida
+```gherkin
+Dado que el jugador crea una partida con un id de baraja inexistente
+Cuando el servidor valida la solicitud
+Entonces responde 422 con un mensaje de error
+```

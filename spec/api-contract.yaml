@@ -62,6 +62,25 @@ paths:
         "404":
           description: Ave no encontrada
 
+  /barajas:
+    get:
+      summary: Listar barajas disponibles
+      operationId: listBarajas
+      responses:
+        "200":
+          description: Lista de barajas con cantidad de aves
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/BarajaInfo"
+        "500":
+          description: Error interno
+
   /partidas:
     post:
       summary: Crear partida
@@ -213,6 +232,27 @@ components:
             - hotseat
         jugador_nombre:
           type: string
+        baraja:
+          type: string
+          description: Id de baraja ("completa" o id de región), "aleatoria" por defecto
+          default: aleatoria
+
+    BarajaInfo:
+      type: object
+      required:
+        - id
+        - nombre
+        - cantidad
+      properties:
+        id:
+          type: string
+          example: amazonia
+        nombre:
+          type: string
+          example: "Expedición: Amazonía"
+        cantidad:
+          type: integer
+          example: 24
 
     Partida:
       type: object
@@ -231,6 +271,9 @@ components:
           enum:
             - ia
             - hotseat
+        baraja:
+          type: string
+          description: Id de la baraja efectivamente usada en la partida
         estado:
           type: string
           enum:

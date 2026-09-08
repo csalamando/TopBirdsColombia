@@ -1,7 +1,15 @@
 # Propuesta — Enriquecimiento de baraja con topbirds_dataset (Sprint 16)
 
-Estado: **PROPUESTA — pendiente de aprobación PO** | Fecha: 2026-09-08
+Estado: **v2 — DATASET ENRIQUECIDO (ejecutado por el usuario), dinámicas aprobadas** | Fecha: 2026-09-08
 Autores: Data Engineer + Business Analyst (discovery Sprint 16) | Ref: `spec/impact-report.md` (E2 en rojo), items `S16-BE-04` y `S16-DE-02`
+
+## 0. Cambios respecto a v1 (2026-09-08)
+
+- El **plan de curación (§2.4) queda OBSOLETO — ejecutado**: el usuario curó el dataset completo (`topbirds_dataset/aves_colombia_toptrumps_enriquecido.json`, 303 especies) con atributos de juego completos (tamaño, peso, envergadura, velocidad, esperanza de vida, rareza 1-5), nombre común en español, familia, hábitat, dieta, estado UICN, endemismo y regiones de Colombia.
+- **Mecánica aprobada por el PO**: selección de baraja al iniciar partida (aleatoria temática por defecto / Colombia completa / expedición por región) → implementada como **HU-09** (ver `spec/user-stories.md`).
+- Mecánicas diferidas (ronda bono dimorfismo, barajas por piso térmico, toggle macho/hembra) quedan como propuestas futuras sujetas a aprobación del PO.
+- Pendiente: thumbnails de imágenes (§2.4 paso 1); las imágenes crudas (147 MB) siguen fuera del repo.
+- Criterio de rareza: `rareza_indice` 1-5 del dataset enriquecido (re-curado por el usuario); el backend lo escala a 1-10 multiplicando ×2 en `scripts/build_baraja.py`.
 
 ## 1. Qué tiene el dataset (inventario real, verificado 2026-09-08)
 
@@ -57,7 +65,9 @@ Especie (1) ──< VarianteImagen (1..2: macho / hembra)
 - Criterio de selección: (1) priorizar las 146 especies dimórficas (soportan la mecánica estrella), (2) cobertura de familias variadas y pisos térmicos, (3) rareza variada (algunas 9-10, muchas comunes), (4) atributos curables con fuente confiable.
 - Resultado estimado: 52 especies × ~1.7 imágenes ≈ 90 imágenes.
 
-### 2.4 Plan de curación (S16-DE-02 + S16-BE-04)
+### 2.4 Plan de curación (S16-DE-02 + S16-BE-04) — OBSOLETO en v2
+
+> Ejecutado por el usuario: dataset completo enriquecido (303 especies, atributos completos). Se conserva como registro histórico de la propuesta.
 
 | Paso | Trabajo | Rol |
 |---|---|---|
