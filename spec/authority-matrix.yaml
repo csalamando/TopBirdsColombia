@@ -64,3 +64,6 @@ artifacts:
   # Diagramas
   - path: spec/diagrams/despliegue.ir.json  owner: cloud-engineer
   - path: spec/diagrams/pipeline-cicd.md  owner: devops-engineer
+  - path: spec/diagrams/contenedores.ir.json  owner: software-architect
+  - path: spec/diagrams/secuencia-ronda.ir.json  owner: software-architect
+  - path: spec/diagrams/flujo-datos.ir.json  owner: software-architect

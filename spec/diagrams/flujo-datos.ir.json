@@ -1,0 +1,79 @@
+{
+  "titulo": "Flujo de datos: dataset → SQLite → API → UI",
+  "tema": "oscuro",
+  "kind": "flow",
+  "bandas": "filas",
+  "grupos": {
+    "origen": "Origen",
+    "preparacion": "Preparación (local)",
+    "servicio": "Servicio (Railway)",
+    "consumo": "Consumo"
+  },
+  "nodos": [
+    {
+      "id": "fuentes",
+      "titulo": "Fuentes abiertas",
+      "sub": "listas de aves de Colombia (taxonomía, atributos)",
+      "tipo": "source",
+      "grupo": "origen",
+      "ubicacion": "cloud"
+    },
+    {
+      "id": "raw",
+      "titulo": "topbirds_dataset/ (raw)",
+      "sub": "JSON enriquecido + imágenes · gitignored (data-governance)",
+      "tipo": "store",
+      "grupo": "preparacion",
+      "ubicacion": "local"
+    },
+    {
+      "id": "seed",
+      "titulo": "seed.py",
+      "sub": "carga idempotente a SQLite (aves, atributos)",
+      "tipo": "transform",
+      "grupo": "preparacion",
+      "ubicacion": "local"
+    },
+    {
+      "id": "sqlite",
+      "titulo": "topbirds.db",
+      "sub": "tablas aves · atributos · partidas · rondas",
+      "tipo": "db",
+      "grupo": "servicio",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "repo",
+      "titulo": "repository.py",
+      "sub": "consultas SQL tipadas vía schemas Pydantic",
+      "tipo": "service",
+      "grupo": "servicio",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "ui",
+      "titulo": "Cartas y dinámicas",
+      "sub": "SPA: carta, barajas, rondas, quiz (HU-10..HU-17)",
+      "tipo": "consumer",
+      "grupo": "consumo",
+      "ubicacion": "GitHub Pages"
+    }
+  ],
+  "aristas": [
+    {"desde": "fuentes", "hasta": "raw", "label": "descarga y enriquecimiento"},
+    {"desde": "raw", "hasta": "seed", "label": "JSON/CSV de entrada"},
+    {"desde": "seed", "hasta": "sqlite", "label": "carga idempotente"},
+    {"desde": "sqlite", "hasta": "repo", "label": "SELECT por baraja/atributo"},
+    {"desde": "repo", "hasta": "ui", "label": "GET /aves · /barajas · /partidas"}
+  ],
+  "insights": [
+    {
+      "titulo": "Gobernanza de datos",
+      "bullets": [
+        "El dataset raw NO se versiona (data-governance.md): solo el .db derivado viaja con el deploy.",
+        "El seed es idempotente: re-correrlo no duplica aves ni atributos.",
+        "Las imágenes se sirven estáticas; la API solo expone metadatos y URLs."
+      ]
+    }
+  ]
+}

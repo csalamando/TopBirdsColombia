@@ -1,0 +1,77 @@
+{
+  "titulo": "Vista de contenedores (C4) — Top Birds Colombia",
+  "tema": "oscuro",
+  "kind": "flow",
+  "grupos": {
+    "cliente": "Jugador",
+    "frontend": "Frontend (GitHub Pages)",
+    "backend": "Backend (Railway)",
+    "datos": "Datos"
+  },
+  "nodos": [
+    {
+      "id": "jugador",
+      "titulo": "Jugador",
+      "sub": "navegador web · hot-seat 2 humanos o vs IA",
+      "tipo": "ui",
+      "grupo": "cliente",
+      "ubicacion": "on-premise"
+    },
+    {
+      "id": "spa",
+      "titulo": "React SPA",
+      "sub": "Vite + TypeScript + Tailwind · MSW en dev",
+      "tipo": "ui",
+      "grupo": "frontend",
+      "ubicacion": "GitHub Pages"
+    },
+    {
+      "id": "api",
+      "titulo": "API FastAPI",
+      "sub": "routers aves/partidas/barajas/health · rate limit + CORS",
+      "tipo": "service",
+      "grupo": "backend",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "sqlite",
+      "titulo": "topbirds.db",
+      "sub": "aves · atributos · partidas · rondas (demo)",
+      "tipo": "db",
+      "grupo": "datos",
+      "ubicacion": "Railway"
+    },
+    {
+      "id": "dataset",
+      "titulo": "Dataset de aves",
+      "sub": "fuentes abiertas enriquecidas (raw, no versionado)",
+      "tipo": "source",
+      "grupo": "datos",
+      "ubicacion": "local"
+    }
+  ],
+  "aristas": [
+    {"desde": "jugador", "hasta": "spa", "label": "interactúa (UI responsive)"},
+    {"desde": "spa", "hasta": "api", "label": "REST + JSON (OpenAPI)"},
+    {"desde": "api", "hasta": "sqlite", "label": "lee y persiste (sqlite3)"},
+    {"desde": "api", "hasta": "dataset", "label": "seed idempotente (CSV/JSON)"}
+  ],
+  "insights": [
+    {
+      "titulo": "Decisión de stack (ADR-001)",
+      "bullets": [
+        "FastAPI + React SPA con contrato OpenAPI como interfaz desacoplada.",
+        "Todo el radar del stack está en ADOPT (FastAPI, React, TS, SQLite, pytest, Vitest, Playwright).",
+        "MSW simula el backend en desarrollo y en los tests unitarios del frontend."
+      ]
+    },
+    {
+      "titulo": "NFR y deuda técnica",
+      "bullets": [
+        "Rendimiento: respuesta API < 200ms p95 en endpoints de juego.",
+        "SQLite es suficiente para la demo (SLO 95%); migrar a Postgres si escala.",
+        "Hot-seat sin autenticación: limitado a un dispositivo."
+      ]
+    }
+  ]
+}

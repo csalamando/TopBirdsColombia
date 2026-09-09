@@ -1,0 +1,30 @@
+{
+  "titulo": "Secuencia: jugar una ronda (HU-02 · empate HU-03)",
+  "tema": "oscuro",
+  "kind": "sequence",
+  "participantes": [
+    {"id": "jugador", "titulo": "Jugador", "tipo": "ui", "ubicacion": "on-premise"},
+    {"id": "spa", "titulo": "React SPA", "tipo": "ui", "ubicacion": "GitHub Pages"},
+    {"id": "api", "titulo": "FastAPI", "tipo": "service", "ubicacion": "Railway"},
+    {"id": "db", "titulo": "SQLite", "tipo": "db", "ubicacion": "Railway"}
+  ],
+  "mensajes": [
+    {"desde": "jugador", "hasta": "spa", "label": "1. elige el atributo de su carta"},
+    {"desde": "spa", "hasta": "api", "label": "2. POST /partidas/{id}/rondas {atributo}"},
+    {"desde": "api", "hasta": "db", "label": "3. lee cartas y estado de la partida"},
+    {"desde": "api", "hasta": "api", "label": "4. compara vs IA · aplica reglas de empate (RN)"},
+    {"desde": "api", "hasta": "db", "label": "5. INSERT ronda + puntajes"},
+    {"desde": "api", "hasta": "spa", "label": "6. 200 RondaResult (ganador, puntajes, empate?)"},
+    {"desde": "spa", "hasta": "jugador", "label": "7. Scoreboard actualizado · desempate si aplica"}
+  ],
+  "insights": [
+    {
+      "titulo": "Contrato real",
+      "bullets": [
+        "Endpoint: POST /partidas/{partida_id}/rondas → RondaResult (201/200).",
+        "Rate limit: 30/min por IP en escritura de partidas/rondas.",
+        "GET /partidas/{id} consulta el estado completo para repintar la UI."
+      ]
+    }
+  ]
+}
