@@ -1,12 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\ux-flows.md",
-  "sha256": "fd2e3dca6c820f2eb6582bb46652e986eb1e69f9d52fec1221258fc4b42cbd1d",
+  "sha256": "0155c46a41dec866c67d001b34353b12bc43881114e8f4c2758e25ac8388b72c",
   "gate": "GATE-1",
-  "tipo": "ux-flows",
+  "tipo": "",
   "rol": "ux-designer",
-  "emitido": "2026-09-08T10:02:48",
+  "emitido": "2026-09-08T20:38:33",
   "estado": "vigente",
-  "harness_version": "2.20.1",
-  "tokens_src": "estimado",
-  "tokens_out": 463
+  "harness_version": "2.20.1"
 }

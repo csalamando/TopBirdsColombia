@@ -38,7 +38,7 @@ When("es el turno del jugador", async function () {
 });
 
 When("es turno del jugador 2", async function () {
-  await this.page.waitForSelector("text=Turno del Jugador 2", { timeout: 10_000 });
+  await this.page.waitForSelector("text=Turno de Jugador 2", { timeout: 10_000 });
 });
 
 When("el jugador 1 juega una ronda perdiendo el turno", async function () {
@@ -81,9 +81,9 @@ When("selecciona el atributo {string}", async function (attributeName) {
 });
 
 Then("se revela el valor del oponente para {string}", async function (attributeName) {
-  await this.page.waitForSelector("text=/Jugador:.*vs.*Oponente:/", { timeout: 10_000 });
-  const comparisonText = await this.page.locator("text=/Jugador:.*vs.*Oponente:/").first().textContent();
-  assert(comparisonText.includes(attributeName) || comparisonText.match(/\d+/), "No se reveló el valor del oponente");
+  await this.page.waitForSelector("[data-testid='round-result'] + p", { timeout: 10_000 });
+  const comparisonText = await this.page.locator("[data-testid='round-result'] + p").first().textContent();
+  assert(comparisonText.includes(" vs ") && comparisonText.match(/\d+/), "No se reveló el valor del oponente");
 });
 
 Then("se muestra el resultado {string} o {string} o {string}", async function (winText, loseText, tieText) {
@@ -95,7 +95,8 @@ Then("se muestra el resultado {string} o {string} o {string}", async function (w
 });
 
 Then("el marcador se actualiza", async function () {
-  const scoreboard = this.page.locator("text=Jugador").first();
+  const scoreboard = this.page.locator("[data-testid='scoreboard']");
+  await scoreboard.waitFor({ state: "visible", timeout: 10_000 });
   assert(await scoreboard.isVisible().catch(() => false), "No se muestra el marcador");
 });
 
@@ -115,12 +116,12 @@ Then("ve nombre común, nombre científico, familia, hábitat, dieta y atribuci�
 });
 
 Then("se oculta la carta del jugador 1", async function () {
-  const card1Text = this.page.locator("text=Carta del Jugador 1").first();
+  const card1Text = this.page.locator("text=Carta de Jugador 1").first();
   assert(!(await card1Text.isVisible().catch(() => false)), "La carta del Jugador 1 sigue visible");
 });
 
 Then("se muestra la carta del jugador 2 para elegir atributo", async function () {
-  await this.page.waitForSelector("text=Carta del Jugador 2", { timeout: 10_000 });
+  await this.page.waitForSelector("text=Carta de Jugador 2", { timeout: 10_000 });
   await this.page.waitForSelector("text=Elige un atributo", { timeout: 10_000 });
 });
 

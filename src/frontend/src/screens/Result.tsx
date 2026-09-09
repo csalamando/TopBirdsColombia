@@ -7,6 +7,8 @@ export interface ResultScreenProps {
   winner: Winner;
   baraja?: string;
   expedition?: Bird[];
+  playerName?: string;
+  opponentName?: string;
   onNewGame: () => void;
   onHome: () => void;
 }
@@ -26,34 +28,50 @@ function expeditionTitle(baraja?: string): string {
   return "Tu recorrido por Colombia";
 }
 
-function resultTitle(winner: Winner): string {
+function resultTitle(winner: Winner, playerName?: string, opponentName?: string): string {
   switch (winner) {
     case "jugador":
-      return "¡Ganaste la partida!";
+      return playerName ? `¡${playerName} ganó la partida!` : "¡Ganaste la partida!";
     case "oponente":
-      return "Perdiste la partida";
+      return opponentName ? `¡${opponentName} ganó la partida!` : "Perdiste la partida";
     case "empate":
-      return "Empate";
+      return "¡Empate!";
   }
 }
 
-function resultDescription(winner: Winner): string {
+function resultDescription(
+  winner: Winner,
+  playerName?: string,
+  opponentName?: string
+): string {
   switch (winner) {
     case "jugador":
-      return "Conquistaste todas las cartas de aves de Colombia.";
+      return playerName
+        ? `${playerName} conquistó todas las cartas de aves de Colombia.`
+        : "Conquistaste todas las cartas de aves de Colombia.";
     case "oponente":
-      return "El oponente se quedó con todas las cartas. ¡Inténtalo de nuevo!";
+      return opponentName
+        ? `${opponentName} se quedó con todas las cartas. ¡Inténtalo de nuevo!`
+        : "El oponente se quedó con todas las cartas. ¡Inténtalo de nuevo!";
     case "empate":
       return "Ambos jugadores terminaron con cartas.";
   }
 }
 
-export function Result({ winner, baraja, expedition = [], onNewGame, onHome }: ResultScreenProps) {
+export function Result({
+  winner,
+  baraja,
+  expedition = [],
+  playerName,
+  opponentName,
+  onNewGame,
+  onHome,
+}: ResultScreenProps) {
   return (
     <div className="max-w-md mx-auto mt-12 p-6 text-center">
       <SuccessState
-        title={resultTitle(winner)}
-        description={resultDescription(winner)}
+        title={resultTitle(winner, playerName, opponentName)}
+        description={resultDescription(winner, playerName, opponentName)}
       />
 
       {expedition.length > 0 && (

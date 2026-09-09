@@ -12,6 +12,8 @@ Garantizar que todas las historias de usuario del MVP se verifiquen con tests au
 - HU-06 Jugar en modo hot-seat
 - HU-07 Recuperar de estado de carga
 - HU-08 Interfaz responsive
+- HU-18 Identificarse con nombre al iniciar la partida
+- HU-19 Presentación visual y copy amigable
 
 ## Tipos de tests
 
@@ -22,7 +24,7 @@ Garantizar que todas las historias de usuario del MVP se verifiquen con tests au
 
 ### Tests unitarios (frontend — Vitest)
 - **Objetivo**: validar componentes y utilidades aisladas.
-- **Áreas**: Card, AttributeButton, Scoreboard, ScreenStates (loading/empty/error/success), hooks de juego.
+- **Áreas**: Card (incl. imagen en proporción 4:3), AttributeButton, Scoreboard (incl. nombres personalizados), ScreenStates (loading/empty/error/success), flujo de nicknames Home → Game → Result (HU-18), panel de resultado con tono según ganador (HU-19).
 - **Herramienta**: Vitest + React Testing Library.
 
 ### Tests de contrato (schemathesis)
@@ -38,7 +40,13 @@ Garantizar que todas las historias de usuario del MVP se verifiquen con tests au
   - Ganar una partida.
   - Estados loading/empty/error.
   - Responsive en móvil.
+  - Hot-seat con nombres por defecto: turno y carta anunciados como "Turno de Jugador 1/2" y "Carta de Jugador 1/2" (HU-18).
 - **Herramienta**: Playwright con features en Gherkin.
+
+### Chequeo de copy (RN-18)
+- **Objetivo**: garantizar que ningún texto visible expone códigos de trazabilidad (HU-, RN-, PANT-).
+- **Áreas**: strings de UI del frontend.
+- **Herramienta**: grep automatizable en CI sobre `src/frontend/src` excluyendo comentarios (`//`, `/* */`).
 
 ## Cobertura
 - Umbral mínimo: 70% de cobertura combinada (backend + frontend), excluyendo código de UI puramente declarativo.

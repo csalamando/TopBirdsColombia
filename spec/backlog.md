@@ -44,6 +44,8 @@ Este backlog prioriza los ítems del MVP usando MoSCoW y RICE. La métrica de é
 | S17-BE-02 | Ronda especial de altitud y combo taxonómico (TDD, RN-11/12, HU-14/16) | EP-01 | Should have | 17 | Pendiente |
 | S17-FE-04 | Modo "Ornitólogo" quiz de identificación con 4 opciones (TDD, HU-17) | EP-02 | Should have | 17 | Pendiente |
 | S17-BA-01 | Decisión PO: regla de empate con ave amenazada (RN-15) y modo temporada boreal (RN-13) | EP-01 | Could have | 17 | Pendiente |
+| S18-UX-01 | Inputs de nombre y trazabilidad visible de jugadores (TDD, HU-18, RN-17) | EP-01 | Must have | 18 | En progreso |
+| S18-UX-02 | Presentación visual: imágenes 4:3, panel de resultado con color, copy sin códigos internos, detalle con foto (TDD, HU-19, RN-18) | EP-03 | Must have | 18 | En progreso |
 
 ## Notas
 - El backlog se refinará en cada sprint.

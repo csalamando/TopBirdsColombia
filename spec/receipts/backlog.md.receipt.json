@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\backlog.md",
-  "sha256": "91f9390d0e78f3ea431bc7ce29ee34cfe43e115acbe6752400c4d5dfa02130e2",
-  "gate": "FASE-1",
+  "sha256": "02dfd6737563b65ebca309c305e4eab47ca674d65daf74c24d36a3bc1fc77722",
+  "gate": "GATE-0",
   "tipo": "",
   "rol": "product-owner",
-  "emitido": "2026-09-08T15:43:20",
+  "emitido": "2026-09-08T20:38:33",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

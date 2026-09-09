@@ -18,6 +18,19 @@ describe("Scoreboard", () => {
     expect(opponentSection).toHaveClass("ring-2");
   });
 
+  it("renders custom player names", () => {
+    render(
+      <Scoreboard
+        playerCards={5}
+        opponentCards={3}
+        playerName="Ana"
+        opponentName="Luis"
+      />
+    );
+    expect(screen.getByText("Ana")).toBeInTheDocument();
+    expect(screen.getByText("Luis")).toBeInTheDocument();
+  });
+
   it("renders loading state", () => {
     render(<Scoreboard playerCards={0} opponentCards={0} loading />);
     expect(screen.getByLabelText("Cargando marcador")).toBeInTheDocument();

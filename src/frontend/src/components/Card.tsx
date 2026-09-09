@@ -26,7 +26,7 @@ export function Card({ bird, loading = false, selected = false, disabled = false
         data-testid="bird-card"
         className="bg-surface rounded-lg shadow p-4 animate-pulse opacity-70 h-64"
       >
-        <div className="h-32 bg-gray-200 rounded-md mb-4" />
+        <div className="aspect-[4/3] bg-gray-200 rounded-md mb-4" />
         <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
         <div className="h-3 bg-gray-200 rounded w-1/2" />
       </div>
@@ -72,7 +72,7 @@ export function Card({ bird, loading = false, selected = false, disabled = false
           {esBoreal && (
             <span
               className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 font-medium"
-              title="Temporada en Colombia: noviembre a febrero (RN-13)"
+              title="Temporada en Colombia: noviembre a febrero"
             >
               ❄ visitante boreal
             </span>
@@ -84,10 +84,10 @@ export function Card({ bird, loading = false, selected = false, disabled = false
         <img
           src={imgSrc}
           alt={bird.nombre_comun}
-          className="w-full h-32 object-cover rounded-md mb-4"
+          className="w-full aspect-[4/3] object-cover object-center rounded-md mb-4"
         />
       ) : (
-        <div className="w-full h-32 bg-primary/10 rounded-md mb-4 flex items-center justify-center text-primary font-serif text-xl">
+        <div className="w-full aspect-[4/3] bg-primary/10 rounded-md mb-4 flex items-center justify-center text-primary font-serif text-xl">
           {bird.nombre_comun.charAt(0)}
         </div>
       )}

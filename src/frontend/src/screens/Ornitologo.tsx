@@ -116,10 +116,10 @@ export function Ornitologo({ onExit }: OrnitologoScreenProps) {
         <img
           src={foto}
           alt={`Ave misteriosa ${index + 1}`}
-          className="w-full h-56 object-cover rounded-lg mb-4"
+          className="w-full aspect-[4/3] object-cover object-center rounded-lg mb-4"
         />
       ) : (
-        <div className="w-full h-56 bg-primary/10 rounded-lg mb-4 flex items-center justify-center text-primary font-serif text-4xl">
+        <div className="w-full aspect-[4/3] bg-primary/10 rounded-lg mb-4 flex items-center justify-center text-primary font-serif text-4xl">
           ?
         </div>
       )}

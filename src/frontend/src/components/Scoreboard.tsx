@@ -6,6 +6,8 @@ interface ScoreboardProps {
   opponentCards: number;
   turn?: Turn;
   loading?: boolean;
+  playerName?: string;
+  opponentName?: string;
 }
 
 export function Scoreboard({
@@ -13,6 +15,8 @@ export function Scoreboard({
   opponentCards,
   turn = "jugador",
   loading = false,
+  playerName = "Jugador",
+  opponentName = "Oponente",
 }: ScoreboardProps) {
   if (loading) {
     return (
@@ -37,14 +41,14 @@ export function Scoreboard({
   }
 
   return (
-    <div className="bg-surface rounded-lg shadow p-4">
+    <div className="bg-surface rounded-lg shadow p-4" data-testid="scoreboard">
       <div className="flex justify-around items-center">
         <div
           className={`text-center p-2 rounded-md ${
             turn === "jugador" ? "ring-2 ring-primary" : ""
           }`}
         >
-          <p className="text-sm text-textSecondary">Jugador</p>
+          <p className="text-sm text-textSecondary">{playerName}</p>
           <p className="text-2xl font-bold text-primary">{playerCards}</p>
         </div>
         <div className="text-textSecondary text-sm">VS</div>
@@ -53,7 +57,7 @@ export function Scoreboard({
             turn === "oponente" ? "ring-2 ring-secondary" : ""
           }`}
         >
-          <p className="text-sm text-textSecondary">Oponente</p>
+          <p className="text-sm text-textSecondary">{opponentName}</p>
           <p className="text-2xl font-bold text-secondary">{opponentCards}</p>
         </div>
       </div>

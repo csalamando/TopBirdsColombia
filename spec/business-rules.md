@@ -79,3 +79,16 @@
 ## RN-16 Rareza real (HU implícita en datos)
 - La rareza (escala 1-10 en juego, = rareza_indice 1-5 del dataset × 2) ya refleja amenaza: las 13 especies VU/EN/CR puntúan alto sin reglas especiales.
 - No requiere mecánica adicional en S16.
+
+## RN-17 Identidad de jugadores (HU-18)
+- Los nombres son opcionales y se ingresan en la pantalla de inicio (PANT-01) antes de crear la partida.
+- Longitud máxima: 20 caracteres. Se recorta el espacio en blanco al inicio y al final; si queda vacío, se usa el valor por defecto.
+- Valores por defecto: modo IA → jugador "Tú", oponente "IA"; modo hot-seat → "Jugador 1" y "Jugador 2".
+- El nombre se envía al backend en `CreatePartidaRequest.jugador_nombre` y `oponente_nombre` (campos ya versionados en `spec/api-contract.yaml`); el backend los registra en la partida.
+- El nombre (o su defecto) se usa en todo texto visible de la partida: marcador, indicador de turno, titular de la carta activa, comparación de valores por ronda, resultado de ronda y título de la pantalla final.
+- La IA no tiene nombre personalizable en el MVP.
+
+## RN-18 Copy de usuario final (HU-19)
+- Ningún texto visible de la UI puede exponer códigos de trazabilidad (HU-xx, RN-xx, PANT-xx) ni jerga interna del proyecto (p. ej. "msnm" sin explicar, IDs de baraja en mensajes de error).
+- La trazabilidad vive exclusivamente en el versionado: comentarios en el código fuente, spec/ y recibos.
+- Los indicadores educativos se expresan en lenguaje natural (p. ej. el badge "visitante boreal" explica "Temporada en Colombia: noviembre a febrero").

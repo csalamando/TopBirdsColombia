@@ -30,7 +30,11 @@
 <h2>RN-15 Empate con ave amenazada (DIFERIDA — no implementar aún)</h2>
 <ul><li>Propuesta futura: en empate de atributo, gana la carta con peor estado UICN (CR &gt; EN &gt; VU &gt; NT &gt; LC).</li><li>Estado: aprobada como idea, sin HU asignada; requiere decisión del PO antes de implementar.</li></ul>
 <h2>RN-16 Rareza real (HU implícita en datos)</h2>
-<ul><li>La rareza (escala 1-10 en juego, = rareza_indice 1-5 del dataset × 2) ya refleja amenaza: las 13 especies VU/EN/CR puntúan alto sin reglas especiales.</li><li>No requiere mecánica adicional en S16.</li></ul><script>
+<ul><li>La rareza (escala 1-10 en juego, = rareza_indice 1-5 del dataset × 2) ya refleja amenaza: las 13 especies VU/EN/CR puntúan alto sin reglas especiales.</li><li>No requiere mecánica adicional en S16.</li></ul>
+<h2>RN-17 Identidad de jugadores (HU-18)</h2>
+<ul><li>Los nombres son opcionales y se ingresan en la pantalla de inicio (PANT-01) antes de crear la partida.</li><li>Longitud máxima: 20 caracteres. Se recorta el espacio en blanco al inicio y al final; si queda vacío, se usa el valor por defecto.</li><li>Valores por defecto: modo IA → jugador "Tú", oponente "IA"; modo hot-seat → "Jugador 1" y "Jugador 2".</li><li>El nombre se envía al backend en <code>CreatePartidaRequest.jugador_nombre</code> y <code>oponente_nombre</code> (campos ya versionados en <code>spec/api-contract.yaml</code>); el backend los registra en la partida.</li><li>El nombre (o su defecto) se usa en todo texto visible de la partida: marcador, indicador de turno, titular de la carta activa, comparación de valores por ronda, resultado de ronda y título de la pantalla final.</li><li>La IA no tiene nombre personalizable en el MVP.</li></ul>
+<h2>RN-18 Copy de usuario final (HU-19)</h2>
+<ul><li>Ningún texto visible de la UI puede exponer códigos de trazabilidad (HU-xx, RN-xx, PANT-xx) ni jerga interna del proyecto (p. ej. "msnm" sin explicar, IDs de baraja en mensajes de error).</li><li>La trazabilidad vive exclusivamente en el versionado: comentarios en el código fuente, spec/ y recibos.</li><li>Los indicadores educativos se expresan en lenguaje natural (p. ej. el badge "visitante boreal" explica "Temporada en Colombia: noviembre a febrero").</li></ul><script>
 (function(){
   var root=document.documentElement;
   function saved(){try{return localStorage.getItem('dir-tema');}catch(e){return null;}}

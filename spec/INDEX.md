@@ -15,28 +15,32 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 
 | Artefacto | sha256[:12] | lineas | resumen |
 |---|---|---|---|
-| `CHANGELOG.md` | 05388c395fb3 | 38 | CHANGELOG de spec — Top Trumps Aves de Colombia |
-| `METRICS.md` | d723f7089432 | 48 | METRICS — aporte y disciplina de las skills |
+| `CHANGELOG.md` | fa2636ddc2d6 | 60 | CHANGELOG de spec — Top Trumps Aves de Colombia |
+| `METRICS.md` | ab8890e2ec75 | 54 | METRICS — aporte y disciplina de las skills |
 | `adr/ADR-001-stack.md` | 197361ab4dd6 | 69 | ADR-001: Selección de stack técnico para Top Trumps Aves de Colombia |
-| `api-contract.yaml` | 70d9ecf9db67 | 424 | openapi: 3.0.3 |
+| `api-contract.yaml` | a7bad09cbe4b | 436 | openapi: 3.0.3 |
 | `architectural-principles.yaml` | 4470fd905987 | 19 | Principios Arquitectónicos — Top Trumps Aves de Colombia |
 | `architecture-proposal.md` | e942faa33dcd | 53 | Propuesta de arquitectura — Top Trumps Aves de Colombia |
 | `architecture.md` | 80521beddd73 | 54 | Arquitectura de software — Top Trumps Aves de Colombia |
-| `authority-matrix.yaml` | 512c81ecf110 | 67 | Matriz de autoridad — Top Trumps Aves de Colombia |
-| `backlog.md` | 91f9390d0e78 | 51 | Backlog — Top Trumps Aves de Colombia |
-| `business-rules.md` | 41aa3986a492 | 82 | Reglas de negocio — Top Trumps Aves de Colombia |
+| `authority-matrix.yaml` | ea249b7b2f7f | 70 | Matriz de autoridad — Top Trumps Aves de Colombia |
+| `backlog.md` | 02dfd6737563 | 53 | Backlog — Top Trumps Aves de Colombia |
+| `business-rules.md` | 94db671633f2 | 95 | Reglas de negocio — Top Trumps Aves de Colombia |
 | `cost-assumptions.yaml` | 2b31019111f6 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
 | `cost-estimation.md` | 9ad56453aaff | 64 | Estimación de costos — Top Trumps Aves de Colombia |
 | `data-governance.md` | fd860315d10b | 48 | Gobierno de datos — Top Trumps Aves de Colombia |
 | `data-model.md` | c2e87884c66c | 86 | Modelo de datos — Top Trumps Aves de Colombia |
 | `dataset-enrichment.md` | 0b9205742948 | 123 | Propuesta — Enriquecimiento de baraja con topbirds_dataset (Sprint 16) |
 | `design-system.md` | c4f05e8f041f | 60 | Design System — Top Trumps Aves de Colombia |
+| `diagrams/contenedores.ir.json` | a50f696a09a6 | 78 | { |
 | `diagrams/despliegue.ir.json` | 08566244892e | 67 | { |
+| `diagrams/flujo-datos.ir.json` | 730dbe587009 | 80 | { |
+| `diagrams/pipeline-cicd.md` | 01351e15dc2a | 57 | Pipeline CI/CD (derivado de .github/workflows/) |
+| `diagrams/secuencia-ronda.ir.json` | ab36d73a84d6 | 31 | { |
 | `epics.md` | 2ac87fddfdb1 | 54 | Épicas — Top Trumps Aves de Colombia |
 | `glossary.md` | d2f10ce59bfe | 51 | Glosario — Top Trumps Aves de Colombia |
 | `impact-report.md` | e0c5c24512a0 | 37 | Impact Report — Sprint 15 (primera medición post-lanzamiento demo) |
 | `pipeline-state.md` | 250df7b257c2 | 83 | Fase actual |
-| `portal/registry.json` | 8943846bdd60 | 625 | { |
+| `portal/registry.json` | d36aa08a9749 | 684 | { |
 | `qa-report.md` | d845f334af1e | 105 | QA Report — Sprint 11: E2E formal y GATE 2 |
 | `reports/sprint-10-review.md` | bff01bd5e7c8 | 76 | Sprint 10 — Integración frontend-backend y pruebas E2E |
 | `reports/sprint-11-review.md` | 88ee6d05e471 | 86 | Sprint 11 — QA E2E formal y GATE 2 |
@@ -48,6 +52,7 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `reports/sprint-8-review.md` | ef7e4538c235 | 59 | Sprint 8 — Frontend TDD: design system y componentes base |
 | `reports/sprint-9-review.md` | 2be81e5df8f6 | 59 | Sprint 9 — Frontend TDD: pantallas y flujo de juego |
 | `reports/sprint-review-14.md` | a5f2b6180e74 | 125 | Sprint Review — Sprint 14 |
+| `reports/sprint-review-17.md` | 6354af59aab8 | 141 | Sprint Review — Sprint 17 |
 | `roles.md` | 7c5e7bc04b30 | 26 | Catálogo de roles — Top Trumps Aves de Colombia |
 | `security-requirements.md` | 4892e2b8761b | 44 | Requisitos de seguridad — Top Trumps Aves de Colombia |
 | `security-scan-report.md` | b3ebc028f6fb | 167 | Informe de escaneos de seguridad — Sprint 12 |
@@ -55,13 +60,13 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `team-roster.yaml` | 263ca7c135ee | 6 | Roster del equipo — Top Trumps Aves de Colombia |
 | `tech-radar.yaml` | 914c6393dc9c | 28 | Tech Radar — Top Trumps Aves de Colombia |
 | `technical-stories.md` | 28273285edd2 | 51 | Historias técnicas — Top Trumps Aves de Colombia |
-| `test-plan.md` | 423b613283b9 | 56 | Plan de pruebas — Top Trumps Aves de Colombia |
+| `test-plan.md` | ea09677585fd | 64 | Plan de pruebas — Top Trumps Aves de Colombia |
 | `threat-model.md` | 88bbaa2526ea | 42 | Threat model — Top Trumps Aves de Colombia |
 | `tokens.json` | 7b47df7b8e19 | 55 | { |
-| `user-stories.md` | d65fa81e9830 | 379 | Historias de usuario — Top Trumps Aves de Colombia |
-| `ux-flows.md` | fd2e3dca6c82 | 43 | Flujos de usuario — Top Trumps Aves de Colombia |
-| `ux/screen-inventory.md` | fb6ebecd9e34 | 55 | Inventario de pantallas — Top Trumps Aves de Colombia |
+| `user-stories.md` | 1b51a711bcb7 | 455 | Historias de usuario — Top Trumps Aves de Colombia |
+| `ux-flows.md` | 0155c46a41de | 46 | Flujos de usuario — Top Trumps Aves de Colombia |
+| `ux/screen-inventory.md` | c320b2f87f9c | 55 | Inventario de pantallas — Top Trumps Aves de Colombia |
 | `vision.md` | 1886a64466f8 | 40 | Visión de producto — Top Trumps Aves de Colombia |
 
-Memorias: 2 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
-Recibos: 43 en `spec/receipts/` (ver `receipt.py status`).
+Memorias: 7 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
+Recibos: 48 en `spec/receipts/` (ver `receipt.py status`).

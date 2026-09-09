@@ -36,14 +36,25 @@ export async function fetchDecks(): Promise<DeckInfo[]> {
   return data.items;
 }
 
+export interface PlayerNames {
+  jugador?: string;
+  oponente?: string;
+}
+
 export async function createGame(
   mode: GameMode,
-  baraja: string
+  baraja: string,
+  nombres?: PlayerNames
 ): Promise<Game> {
   const response = await fetch(`${API_BASE_URL}/partidas`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ modo: mode, baraja }),
+    body: JSON.stringify({
+      modo: mode,
+      baraja,
+      ...(nombres?.jugador ? { jugador_nombre: nombres.jugador } : {}),
+      ...(nombres?.oponente ? { oponente_nombre: nombres.oponente } : {}),
+    }),
   });
   if (!response.ok) {
     throw new Error("No se pudo crear la partida");

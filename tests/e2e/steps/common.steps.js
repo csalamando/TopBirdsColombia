@@ -24,7 +24,7 @@ Then("se crea una partida y se muestra la primera carta con atributos visibles",
 
 Then("se crea una partida hot-seat y se muestra la primera carta", async function () {
   await this.page.waitForSelector("[data-testid='bird-card']", { timeout: 10_000 });
-  const turnText = await this.page.locator("text=Turno del Jugador 1").first();
+  const turnText = await this.page.locator("text=Turno de Jugador 1").first();
   assert(await turnText.isVisible().catch(() => false), "No se muestra el turno del Jugador 1");
 });
 

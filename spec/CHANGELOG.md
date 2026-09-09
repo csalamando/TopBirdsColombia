@@ -2,6 +2,15 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-09 — Sprint 18 (1): identidad de jugadores y presentación visual (HU-18/HU-19, RN-17/RN-18)
+
+- **Relación**: delta de especificación (sin supersedes); añade HU-18, HU-19, RN-17, RN-18. Solicitado y aprobado por el usuario (queja de UI/UX en producción).
+- **Motivo**: el usuario reportó que las imágenes quedaban cortadas, que el copy visible exponía códigos de trazabilidad (RN-10, RN-13), que "Jugador/Oponente" era poco amigable y que los jugadores deberían poder identificarse con nombre al iniciar.
+- **Artefactos modificados**: `spec/user-stories.md` (HU-18 con 4 escenarios Gherkin, HU-19 con 4 escenarios), `spec/business-rules.md` (RN-17 identidad de jugadores, RN-18 copy de usuario final), `spec/backlog.md` (S18-UX-01 y S18-UX-02), `spec/ux-flows.md` (pasos 1, 2 y 4 + reglas de copy), `spec/ux/screen-inventory.md` (PANT-01..06), `spec/test-plan.md` (HU-18/19, áreas de test y chequeo de copy RN-18). Recibos re-emitidos con rol dueño según authority-matrix (BA, PO, ux-designer, software-architect).
+- **Contrato**: sin cambios; `CreatePartidaRequest.jugador_nombre`/`oponente_nombre` ya estaban versionados en `spec/api-contract.yaml` (S16) y el backend ya los registra.
+- **Implementación (TDD)**: ya ejecutada en la misma sesión — `Home` (inputs de nombre, envío al backend), threading `App → Game/Result`, `Scoreboard` con nombres, panel de resultado con banda de color, imágenes `aspect-[4/3]` (carta, quiz y detalle), copy sin RN visibles; vitest 64/64 y build OK; steps e2e actualizados al nuevo formato. E2E completo pendiente de CI (no ejecutable localmente por timeout del hook de arranque).
+- **Nota de proceso**: la implementación se adelantó al delta de spec (freestyle detectado); este changelog regulariza la trazabilidad a posteriori. La memoria `learning` del periodo queda registrada.
+
 ## 2026-09-08 (4) — Cierre del ciclo Sprint 17 (Fase 8)
 
 - **Motivo**: completada y verificada la implementación de HU-10..HU-17; se archiva el ciclo SDD según Fase 8 del arnés.

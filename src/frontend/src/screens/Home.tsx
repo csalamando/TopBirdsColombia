@@ -5,7 +5,11 @@ import { createGame, fetchDecks } from "../services/api";
 import type { DeckInfo, GameMode } from "../types";
 
 export interface HomeScreenProps {
-  onStartGame: (gameId: string, mode: GameMode) => void;
+  onStartGame: (
+    gameId: string,
+    mode: GameMode,
+    nombres?: { jugador?: string; oponente?: string }
+  ) => void;
   onStartQuiz?: () => void;
 }
 
@@ -26,6 +30,8 @@ type DecksStatus = "loading" | "error" | "ready";
 export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
   const [mode, setMode] = useState<GameMode>("ia");
   const [baraja, setBaraja] = useState<string>("aleatoria");
+  const [nombreJugador, setNombreJugador] = useState("");
+  const [nombreOponente, setNombreOponente] = useState("");
   const [decks, setDecks] = useState<DeckInfo[]>([]);
   const [decksStatus, setDecksStatus] = useState<DecksStatus>("loading");
   const [loading, setLoading] = useState(false);
@@ -49,14 +55,16 @@ export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
     setLoading(true);
     setError(null);
     try {
-      const game = await createGame(mode, baraja);
-      onStartGame(game.id, game.modo);
+      const jugador = nombreJugador.trim() || undefined;
+      const oponente = nombreOponente.trim() || undefined;
+      const game = await createGame(mode, baraja, jugador || oponente ? { jugador, oponente } : undefined);
+      onStartGame(game.id, game.modo, jugador || oponente ? { jugador, oponente } : undefined);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error al crear la partida");
     } finally {
       setLoading(false);
     }
-  }, [mode, baraja, onStartGame]);
+  }, [mode, baraja, nombreJugador, nombreOponente, onStartGame]);
 
   if (loading) {
     return <LoadingState message="Creando partida..." />;
@@ -93,6 +101,39 @@ export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
             />
           </label>
         ))}
+      </div>
+
+      <div className="flex flex-col gap-3 w-full max-w-xs mb-8 text-left">
+        <p className="font-semibold text-textSecondary">
+          {mode === "ia" ? "¿Cómo te llamas?" : "¿Cómo se llaman?"}
+        </p>
+        <label className="flex flex-col gap-1 text-sm text-textPrimary">
+          {mode === "ia" ? "Tu nombre" : "Nombre del Jugador 1"}
+          <input
+            type="text"
+            value={nombreJugador}
+            onChange={(e) => setNombreJugador(e.target.value)}
+            placeholder={mode === "ia" ? "Jugador" : "Jugador 1"}
+            maxLength={20}
+            className="px-3 py-2 rounded-md border border-gray-200 bg-surface focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          />
+        </label>
+        {mode === "hotseat" && (
+          <label className="flex flex-col gap-1 text-sm text-textPrimary">
+            Nombre del Jugador 2
+            <input
+              type="text"
+              value={nombreOponente}
+              onChange={(e) => setNombreOponente(e.target.value)}
+              placeholder="Jugador 2"
+              maxLength={20}
+              className="px-3 py-2 rounded-md border border-gray-200 bg-surface focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            />
+          </label>
+        )}
+        <p className="text-xs text-textSecondary">
+          Puedes dejarlo en blanco y usar los nombres por defecto.
+        </p>
       </div>
 
       <div className="flex flex-col gap-3 w-full max-w-xs mb-8">

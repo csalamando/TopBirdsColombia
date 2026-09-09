@@ -89,3 +89,19 @@
 {"ts": "2026-09-08T18:12:47", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T19:27:06", "tipo": "use", "skill": "orchestrator", "fase": "8", "modo": ""}
 {"ts": "2026-09-08T19:29:30", "tipo": "use", "skill": "devops-engineer", "fase": "6", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T19:39:35", "tipo": "use", "skill": "diagrams", "fase": "8", "modo": ""}
+{"ts": "2026-09-08T19:41:52", "tipo": "use", "skill": "orchestrator", "fase": "3", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T19:41:52", "tipo": "use", "skill": "software-architect", "fase": "3", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T19:41:52", "tipo": "use", "skill": "software-architect", "fase": "3", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T19:41:52", "tipo": "use", "skill": "software-architect", "fase": "3", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "business-analyst", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "ux-designer", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:33", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T20:38:44", "tipo": "use", "skill": "business-analyst", "fase": "1", "modo": ""}
+{"ts": "2026-09-08T20:38:44", "tipo": "use", "skill": "product-owner", "fase": "0", "modo": ""}
+{"ts": "2026-09-08T20:38:44", "tipo": "use", "skill": "ux-designer", "fase": "2", "modo": ""}
+{"ts": "2026-09-08T20:38:44", "tipo": "use", "skill": "software-architect", "fase": "3", "modo": ""}
+{"ts": "2026-09-08T20:38:44", "tipo": "use", "skill": "frontend-dev-tdd", "fase": "4", "modo": ""}

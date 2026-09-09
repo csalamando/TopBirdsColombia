@@ -28,7 +28,37 @@ describe("Home screen", () => {
     const onStartGame = vi.fn();
     render(<Home onStartGame={onStartGame} />);
     await userEvent.click(screen.getByRole("button", { name: /Nueva partida/i }));
-    await waitFor(() => expect(onStartGame).toHaveBeenCalledWith("new-game-1", "ia"));
+    await waitFor(() =>
+      expect(onStartGame).toHaveBeenCalledWith("new-game-1", "ia", undefined)
+    );
+  });
+
+  it("pasa el nickname del jugador al iniciar la partida", async () => {
+    let capturedBody: { jugador_nombre?: string } = {};
+    server.use(
+      http.post("/api/partidas", async ({ request }) => {
+        capturedBody = (await request.json()) as { jugador_nombre?: string };
+        return HttpResponse.json({ id: "new-game-1", modo: "ia" }, { status: 201 });
+      })
+    );
+    const onStartGame = vi.fn();
+    render(<Home onStartGame={onStartGame} />);
+    await userEvent.type(screen.getByLabelText(/Tu nombre/), "Karlo");
+    await userEvent.click(screen.getByRole("button", { name: /Nueva partida/i }));
+    await waitFor(() => expect(capturedBody.jugador_nombre).toBe("Karlo"));
+    await waitFor(() =>
+      expect(onStartGame).toHaveBeenCalledWith("new-game-1", "ia", {
+        jugador: "Karlo",
+        oponente: undefined,
+      })
+    );
+  });
+
+  it("pide los dos nombres en modo hotseat", async () => {
+    render(<Home onStartGame={() => {}} />);
+    await userEvent.click(screen.getByLabelText(/Dos jugadores/));
+    expect(screen.getByLabelText(/Nombre del Jugador 1/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Nombre del Jugador 2/)).toBeInTheDocument();
   });
 
   it("shows error when create game fails", async () => {
@@ -104,6 +134,25 @@ describe("Game screen", () => {
     expect(await screen.findByText(/Ganaste la ronda/i)).toBeInTheDocument();
   });
 
+  it("muestra los nombres personalizados en marcador y resultado", async () => {
+    render(
+      <Game
+        gameId="game-1"
+        mode="hotseat"
+        playerName="Ana"
+        opponentName="Luis"
+        onGameEnd={() => {}}
+        onExit={() => {}}
+      />
+    );
+    await screen.findByText("Elige un atributo");
+    expect(screen.getByTestId("scoreboard")).toHaveTextContent("Ana");
+    expect(screen.getByTestId("scoreboard")).toHaveTextContent("Luis");
+    await userEvent.click(screen.getByRole("button", { name: /Tamaño/ }));
+    expect(await screen.findByText(/Ana: 84 vs Luis: 11/)).toBeInTheDocument();
+    expect(screen.getByTestId("round-result")).toHaveTextContent("¡Ana gana la ronda!");
+  });
+
   it("shows attribute selection on opponent turn", async () => {
     server.use(
       http.get("/api/partidas/:id", () => {
@@ -152,6 +201,18 @@ describe("Result screen", () => {
   it("displays opponent defeat", () => {
     render(<Result winner="oponente" onNewGame={() => {}} onHome={() => {}} />);
     expect(screen.getByText("Perdiste la partida")).toBeInTheDocument();
+  });
+
+  it("muestra el nombre del ganador cuando se provee", () => {
+    render(
+      <Result
+        winner="jugador"
+        playerName="Ana"
+        onNewGame={() => {}}
+        onHome={() => {}}
+      />
+    );
+    expect(screen.getByText("¡Ana ganó la partida!")).toBeInTheDocument();
   });
 
   it("calls callbacks", async () => {

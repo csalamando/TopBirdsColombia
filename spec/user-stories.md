@@ -376,3 +376,79 @@ Cuando se resuelve la pregunta
 Entonces se indica si acertó
 Y se muestra el nombre correcto con su atribución
 ```
+
+## HU-18 Identificarse con nombre al iniciar la partida
+**Épica**: EP-01
+**Rol**: ROL-03 Jugador casual
+
+Como jugador casual, quiero ingresar mi nombre (o el de ambos jugadores en hot-seat) antes de iniciar para verme identificado durante la partida en lugar de etiquetas genéricas como "Jugador" u "Oponente".
+
+### Escenario 1: nombre en modo IA
+```gherkin
+Dado que el jugador está en la pantalla de inicio con el modo "Un jugador vs IA" seleccionado
+Cuando escribe "Karlo" en "Tu nombre"
+Y presiona "Nueva partida"
+Entonces el sistema envía jugador_nombre="Karlo" al crear la partida
+Y el marcador y los mensajes de turno muestran "Karlo" en lugar de "Jugador"
+```
+
+### Escenario 2: dos nombres en hot-seat
+```gherkin
+Dado que el jugador selecciona "Dos jugadores (hotseat)"
+Cuando escribe "Ana" en "Nombre del Jugador 1" y "Luis" en "Nombre del Jugador 2"
+Y presiona "Nueva partida"
+Entonces el turno y la carta se anuncian como "Turno de Ana" o "Carta de Luis" según corresponda
+Y el resultado de cada ronda nombra explícitamente a su ganador
+```
+
+### Escenario 3: nombres por defecto cuando se dejan en blanco
+```gherkin
+Dado que el jugador deja los campos de nombre en blanco
+Cuando inicia la partida
+Entonces en modo IA se usa "Tú" contra "IA"
+Y en hot-seat se usan "Jugador 1" y "Jugador 2"
+```
+
+### Escenario 4: nombre en el resultado final
+```gherkin
+Dado que la partida terminó y el jugador tenía nombre
+Cuando se muestra la pantalla de resultado
+Entonces el título nombra al ganador (por ejemplo "¡Ana ganó la partida!")
+```
+
+## HU-19 Presentación visual y copy amigable
+**Épica**: EP-03
+**Rol**: ROL-03 Jugador casual
+
+Como jugador casual, quiero que las imágenes se vean completas, que el resultado de cada ronda se destaque con color y que los textos no muestren códigos internos del proyecto, para una experiencia pulida y profesional.
+
+### Escenario 1: imágenes sin recorte severo
+```gherkin
+Dado que una carta o una pregunta del quiz muestra la foto de un ave
+Cuando se renderiza la imagen
+Entonces se presenta en proporción 4:3 con recorte mínimo centrado
+Y el esqueleto de carga usa la misma proporción para evitar saltos de layout
+```
+
+### Escenario 2: resultado de ronda con color
+```gherkin
+Dado que se resolvió una ronda
+Cuando se muestra el panel de resultado
+Entonces lleva una banda de color: verde si gana el jugador humano, rojo si gana el oponente, ámbar en empate
+Y muestra la comparación con los nombres de los jugadores
+```
+
+### Escenario 3: copy sin códigos internos
+```gherkin
+Dado que el jugador usa la interfaz
+Cuando lee cualquier texto visible (bonos, badges, ayudas, tooltips)
+Entonces no aparecen códigos de trazabilidad (HU-, RN-, PANT-) ni jerga interna
+Y la trazabilidad solo existe en el código fuente y la spec versionada
+```
+
+### Escenario 4: detalle de ave con foto
+```gherkin
+Dado que el jugador abre "Ver detalle" de un ave que tiene foto
+Cuando se muestra el modal de detalle
+Entonces incluye la imagen del ave además de familia, orden, hábitat, dieta, estacionalidad y atribución
+```

@@ -5,10 +5,21 @@ import { Result } from "./screens/Result";
 import { Ornitologo } from "./screens/Ornitologo";
 import type { Bird, GameMode, Winner } from "./types";
 
+interface PlayerNames {
+  jugador?: string;
+  oponente?: string;
+}
+
 type Screen =
   | { name: "home" }
-  | { name: "game"; gameId: string; mode: GameMode }
-  | { name: "result"; winner: Winner; expedition: Bird[]; baraja?: string }
+  | { name: "game"; gameId: string; mode: GameMode; nombres?: PlayerNames }
+  | {
+      name: "result";
+      winner: Winner;
+      expedition: Bird[];
+      baraja?: string;
+      nombres?: PlayerNames;
+    }
   | { name: "quiz" };
 
 function App() {
@@ -29,7 +40,9 @@ function App() {
       </header>
       {screen.name === "home" && (
         <Home
-          onStartGame={(gameId, mode) => setScreen({ name: "game", gameId, mode })}
+          onStartGame={(gameId, mode, nombres) =>
+            setScreen({ name: "game", gameId, mode, nombres })
+          }
           onStartQuiz={() => setScreen({ name: "quiz" })}
         />
       )}
@@ -37,8 +50,16 @@ function App() {
         <Game
           gameId={screen.gameId}
           mode={screen.mode}
+          playerName={screen.nombres?.jugador}
+          opponentName={screen.nombres?.oponente}
           onGameEnd={(winner, expedition, baraja) =>
-            setScreen({ name: "result", winner, expedition, baraja })
+            setScreen({
+              name: "result",
+              winner,
+              expedition,
+              baraja,
+              nombres: screen.nombres,
+            })
           }
           onExit={() => setScreen({ name: "home" })}
         />
@@ -48,6 +69,8 @@ function App() {
           winner={screen.winner}
           baraja={screen.baraja}
           expedition={screen.expedition}
+          playerName={screen.nombres?.jugador}
+          opponentName={screen.nombres?.oponente}
           onNewGame={() => setScreen({ name: "home" })}
           onHome={() => setScreen({ name: "home" })}
         />
