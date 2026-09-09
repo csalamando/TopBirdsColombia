@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\api-contract.yaml",
-  "sha256": "a7bad09cbe4b7db1b2d59d94f58dea52d16107e028a0f809bf7af2a1dc78a694",
-  "gate": "FASE-3",
+  "sha256": "a649d3bdf5137d4df51c4c45c19f9020471b2730fcff74717845997875d02009",
+  "gate": "GATE-1",
   "tipo": "",
   "rol": "software-architect",
-  "emitido": "2026-09-08T15:53:37",
+  "emitido": "2026-09-08T20:58:01",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

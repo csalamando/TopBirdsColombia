@@ -79,6 +79,21 @@ describe("Home screen", () => {
     expect(screen.getByLabelText(/Expedición: Amazonía · 24 aves/)).toBeInTheDocument();
   });
 
+  it("muestra cada baraja como tarjeta con su imagen representativa (HU-09, RN-20)", async () => {
+    render(<Home onStartGame={() => {}} />);
+    await screen.findByLabelText(/Aleatoria/);
+    const srcs = screen
+      .getAllByRole("img")
+      .map((img) => img.getAttribute("src") ?? "");
+    expect(srcs).toContain("/cards/completa-representativa.jpg");
+    expect(srcs).toContain("/cards/amazonia-representativa.jpg");
+    expect(srcs.some((s) => s.endsWith(".webp"))).toBe(false);
+    // la opción "Aleatoria" no tiene imagen: usa placeholder
+    expect(
+      screen.getByLabelText(/Aleatoria/).querySelector("img")
+    ).toBeNull();
+  });
+
   it("creates a game with the selected deck", async () => {
     let capturedBody: { baraja?: string } = {};
     server.use(

@@ -71,6 +71,9 @@ class BarajaInfo(BaseModel):
     id: str
     nombre: str
     cantidad: int
+    imagen_url: str | None = Field(
+        default=None, description="RN-20; primera carta del mazo (orden canónico) con foto"
+    )
 
 
 class Partida(BaseModel):

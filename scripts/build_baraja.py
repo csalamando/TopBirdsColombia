@@ -1,4 +1,4 @@
-# Trazabilidad SDLC: HU-09, S16-BE-04, S17-DE-01, HU-10..HU-17
+# Trazabilidad SDLC: HU-09, S16-BE-04, HU-10..HU-17, HU-20, S18-DE-03
 """Construye la baraja del juego (52 cartas) desde el dataset enriquecido.
 
 Fuente: topbirds_dataset/aves_colombia_toptrumps_enriquecido.json (303 especies,
@@ -10,11 +10,12 @@ Criterio de seleccion (determinista):
 3. Balance por region canonica (max 12 por region) y diversidad de familias (max 6 por familia).
 4. Rellenar hasta 52 relajando topes si es necesario.
 
-Cartas enriquecidas (S17-DE-01 / contrato spec/api-contract.yaml): nombre_ingles,
+Cartas enriquecidas (contrato spec/api-contract.yaml): nombre_ingles,
 orden, estado_conservacion_uicn, endemismo, es_dimorfica, estacionalidad,
-variantes_imagen[] (thumbnail_url solo si el webp existe en
-src/frontend/public/cards/, ver scripts/build_thumbnails.py) y
-atributos.altitud_max_msnm (oculto, RN-11).
+variantes_imagen[] (thumbnail_url apunta al JPG original sin perdida en
+src/frontend/public/cards/, ver scripts/build_card_images.py y RN-19; el campo
+conserva su nombre por compatibilidad de contrato pero su contenido es la
+imagen completa) y atributos.altitud_max_msnm (oculto, RN-11).
 
 Salida: src/backend/app/data/barajas.json
 """
@@ -84,11 +85,14 @@ def primary_region(species: dict) -> str | None:
 
 
 def thumbnail_url(variante: dict) -> str | None:
-    """URL del thumbnail servido por el frontend, o null si aun no existe."""
+    """URL de la imagen original servida por el frontend, o null si no existe.
+
+    RN-19: copia sin perdida del JPG del dataset (supersedes thumbnails webp).
+    """
     archivo = variante.get("archivo_local")
     if not archivo:
         return None
-    name = Path(archivo).stem + ".webp"
+    name = Path(archivo).stem + ".jpg"
     if (PUBLIC_CARDS / name).exists():
         return f"/cards/{name}"
     return None
@@ -218,7 +222,7 @@ def build() -> dict:
             {"id": region, "nombre": REGION_LABELS[region], "cartas": ids}
         )
 
-    return {"version": "1.1.0", "cartas": cartas, "barajas": barajas}
+    return {"version": "1.2.0", "cartas": cartas, "barajas": barajas}
 
 
 def main() -> None:

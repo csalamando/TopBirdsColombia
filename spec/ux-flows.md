@@ -5,11 +5,11 @@
 ### Paso 1: Pantalla de inicio (PANT-01)
 - El jugador abre la aplicación.
 - Estado: loading mientras se cargan las aves.
-- Si los datos están listos: se muestran los modos "Un jugador vs IA" y "Dos jugadores (hotseat)", los campos de nombre ("Tu nombre" en IA; "Nombre del Jugador 1/2" en hot-seat) y el selector de baraja.
+- Si los datos están listos: se muestran los modos "Un jugador vs IA" y "Dos jugadores (hotseat)", los campos de nombre ("Tu nombre" en IA; "Nombre del Jugador 1/2" en hot-seat) y el selector de baraja como tarjetas con la imagen representativa de cada mazo (HU-09 esc. 6, RN-20; "Aleatoria" lleva placeholder).
 - Si no hay datos: estado empty/error con botón de reintentar.
 
 ### Paso 2: Configuración rápida
-- El jugador selecciona modo y baraja, y opcionalmente escribe su nombre (HU-18, RN-17: máx. 20 caracteres; en blanco se usan los defaults "Tú"/"IA" o "Jugador 1"/"Jugador 2").
+- El jugador selecciona modo y baraja (tarjeta con imagen, nombre y conteo de aves), y opcionalmente escribe su nombre (HU-18, RN-17: máx. 20 caracteres; en blanco se usan los defaults "Tú"/"IA" o "Jugador 1"/"Jugador 2").
 - Al presionar "Nueva partida" el sistema crea la partida enviando `jugador_nombre` (y `oponente_nombre` en hot-seat) al backend.
 - Estado: loading breve mientras se prepara la partida.
 - Transición a pantalla de juego (PANT-02).

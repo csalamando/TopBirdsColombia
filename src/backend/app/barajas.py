@@ -1,4 +1,4 @@
-# Trazabilidad SDLC: HU-09
+# Trazabilidad SDLC: HU-09, HU-20, RN-20
 """Acceso a las barajas del juego (data/barajas.json, generado por scripts/build_baraja.py)."""
 from __future__ import annotations
 
@@ -23,6 +23,7 @@ class BarajaInfo:
     id: str
     nombre: str
     cantidad: int
+    imagen_url: str | None = None  # RN-20: primera carta del mazo con foto
 
 
 @lru_cache(maxsize=1)
@@ -65,12 +66,27 @@ def load_cartas() -> list[Ave]:
     ]
 
 
+def _imagen_representativa(baraja: dict, cartas_por_id: dict[int, Ave]) -> str | None:
+    """RN-20: imagen de la primera carta del mazo (orden del JSON) que tenga foto."""
+    for cid in baraja["cartas"]:
+        url = cartas_por_id[cid].imagen_url
+        if url:
+            return url
+    return None
+
+
 def list_barajas() -> list[BarajaInfo]:
     """completa primero, luego las barajas tematicas por region."""
     orden = ["completa", "andina", "caribe", "pacifico", "amazonia", "orinoquia"]
     raw = {b["id"]: b for b in _data()["barajas"]}
+    cartas = _cartas_por_id()
     return [
-        BarajaInfo(id=bid, nombre=raw[bid]["nombre"], cantidad=len(raw[bid]["cartas"]))
+        BarajaInfo(
+            id=bid,
+            nombre=raw[bid]["nombre"],
+            cantidad=len(raw[bid]["cartas"]),
+            imagen_url=_imagen_representativa(raw[bid], cartas),
+        )
         for bid in orden
         if bid in raw
     ]
@@ -85,7 +101,10 @@ def get_baraja(baraja_id: str) -> tuple[BarajaInfo, list[Ave]]:
     for baraja in _data()["barajas"]:
         if baraja["id"] == baraja_id:
             info = BarajaInfo(
-                id=baraja["id"], nombre=baraja["nombre"], cantidad=len(baraja["cartas"])
+                id=baraja["id"],
+                nombre=baraja["nombre"],
+                cantidad=len(baraja["cartas"]),
+                imagen_url=_imagen_representativa(baraja, cartas),
             )
             return info, [cartas[cid] for cid in baraja["cartas"]]
     raise BarajaNoEncontradaError(f"Baraja no encontrada: {baraja_id}")

@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "cartas": [
     {
       "id": 1,
@@ -23,7 +23,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/adelomyia_melanogenys_hembra.webp",
+          "thumbnail_url": "/cards/adelomyia_melanogenys_hembra.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/10761054"
@@ -49,7 +49,7 @@
       "habitat": "Páramos arbustivos y bordes de bosque enano",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/aglaeactis_cupripennis_macho.webp",
+      "imagen_url": "/cards/aglaeactis_cupripennis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -61,7 +61,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/aglaeactis_cupripennis_macho.webp",
+          "thumbnail_url": "/cards/aglaeactis_cupripennis_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/242176761"
@@ -87,7 +87,7 @@
       "habitat": "Bosque pluvial premontano y niebla del Chocó",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/aglaiocercus_coelestis_macho.webp",
+      "imagen_url": "/cards/aglaiocercus_coelestis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Casi endémica",
       "es_dimorfica": true,
@@ -100,7 +100,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/aglaiocercus_coelestis_macho.webp",
+          "thumbnail_url": "/cards/aglaiocercus_coelestis_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/161545471"
@@ -108,7 +108,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/aglaiocercus_coelestis_hembra.webp",
+          "thumbnail_url": "/cards/aglaiocercus_coelestis_hembra.jpg",
           "fotografo": "(c) Luis G. Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/10539399"
@@ -134,7 +134,7 @@
       "habitat": "Bosque andino, bosque de niebla y bordes arbustivos",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Esteban Villa Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/aglaiocercus_kingii_macho.webp",
+      "imagen_url": "/cards/aglaiocercus_kingii_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -146,7 +146,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/aglaiocercus_kingii_macho.webp",
+          "thumbnail_url": "/cards/aglaiocercus_kingii_macho.jpg",
           "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/281413115"
@@ -154,7 +154,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/aglaiocercus_kingii_hembra.webp",
+          "thumbnail_url": "/cards/aglaiocercus_kingii_hembra.jpg",
           "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/281413100"
@@ -180,7 +180,7 @@
       "habitat": "Lagunas, esteros y sabanas inundables de los Llanos",
       "dieta": "Omnívoro/Plantas acuáticas",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/amazonetta_brasiliensis_macho.webp",
+      "imagen_url": "/cards/amazonetta_brasiliensis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -193,7 +193,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/amazonetta_brasiliensis_macho.webp",
+          "thumbnail_url": "/cards/amazonetta_brasiliensis_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/258397891"
@@ -219,7 +219,7 @@
       "habitat": "Bosque altoandino, bordes de páramo y arboledas de Polylepis",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/ampelion_rubrocristatus_macho.webp",
+      "imagen_url": "/cards/ampelion_rubrocristatus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -231,7 +231,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ampelion_rubrocristatus_macho.webp",
+          "thumbnail_url": "/cards/ampelion_rubrocristatus_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/144931394"
@@ -257,7 +257,7 @@
       "habitat": "Estanques de granja, lagos urbanos y parques",
       "dieta": "Omnívoro",
       "atribucion": "(c) Cullen Hanks, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/anas_platyrhynchos_domesticus_macho.webp",
+      "imagen_url": "/cards/anas_platyrhynchos_domesticus_macho.jpg",
       "estado_conservacion_uicn": null,
       "endemismo": "Domesticada",
       "es_dimorfica": false,
@@ -270,7 +270,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/anas_platyrhynchos_domesticus_macho.webp",
+          "thumbnail_url": "/cards/anas_platyrhynchos_domesticus_macho.jpg",
           "fotografo": "(c) Cullen Hanks, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/67261703"
@@ -309,7 +309,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/anas_platyrhynchos_×_cairina_moschata_hembra.webp",
+          "thumbnail_url": "/cards/anas_platyrhynchos_×_cairina_moschata_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/236144076"
@@ -335,7 +335,7 @@
       "habitat": "Bosque altoandino húmedo y bosque de niebla templado",
       "dieta": "Frugívoro",
       "atribucion": "(c) Ryan F. Mandelbaum, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/andigena_hypoglauca_macho.webp",
+      "imagen_url": "/cards/andigena_hypoglauca_macho.jpg",
       "estado_conservacion_uicn": "NT",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -347,7 +347,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/andigena_hypoglauca_macho.webp",
+          "thumbnail_url": "/cards/andigena_hypoglauca_macho.jpg",
           "fotografo": "(c) Ryan F. Mandelbaum, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/357894491"
@@ -373,7 +373,7 @@
       "habitat": "Bosque de niebla alto y bosque andino montano",
       "dieta": "Frugívoro",
       "atribucion": "(c) Oscar Marín, some rights reserved (CC BY-SA) · iNaturalist (cc-by-sa)",
-      "imagen_url": "/cards/andigena_nigrirostris_macho.webp",
+      "imagen_url": "/cards/andigena_nigrirostris_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -385,7 +385,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/andigena_nigrirostris_macho.webp",
+          "thumbnail_url": "/cards/andigena_nigrirostris_macho.jpg",
           "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/19189537"
@@ -393,7 +393,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/andigena_nigrirostris_hembra.webp",
+          "thumbnail_url": "/cards/andigena_nigrirostris_hembra.jpg",
           "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/40286578"
@@ -419,7 +419,7 @@
       "habitat": "Ciénagas, ríos lentos y lagunas de aguas someras",
       "dieta": "Piscívoro subacuático",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/anhinga_anhinga_macho.webp",
+      "imagen_url": "/cards/anhinga_anhinga_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -434,7 +434,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/anhinga_anhinga_macho.webp",
+          "thumbnail_url": "/cards/anhinga_anhinga_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/258386692"
@@ -442,7 +442,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/anhinga_anhinga_hembra.webp",
+          "thumbnail_url": "/cards/anhinga_anhinga_hembra.jpg",
           "fotografo": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/38300849"
@@ -480,7 +480,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/anisognathus_melanogenys_hembra.webp",
+          "thumbnail_url": "/cards/anisognathus_melanogenys_hembra.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/131402449"
@@ -506,7 +506,7 @@
       "habitat": "Arboledas abiertas, jardines y sabanas arboladas",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/anthracothorax_nigricollis_macho.webp",
+      "imagen_url": "/cards/anthracothorax_nigricollis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -522,7 +522,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/anthracothorax_nigricollis_macho.webp",
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_macho.jpg",
           "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/40521940"
@@ -530,7 +530,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/anthracothorax_nigricollis_hembra.webp",
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_hembra.jpg",
           "fotografo": "(c) Catalina Ayala, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/253998190"
@@ -556,7 +556,7 @@
       "habitat": "Arboledas y jardines tropicales en llanuras y valles",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "(c) desertnaturalist, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.webp",
+      "imagen_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -572,7 +572,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.webp",
+          "thumbnail_url": "/cards/anthracothorax_nigricollis_nigricollis_macho.jpg",
           "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/345770194"
@@ -611,7 +611,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/anthracothorax_prevostii_hembra.webp",
+          "thumbnail_url": "/cards/anthracothorax_prevostii_hembra.jpg",
           "fotografo": "(c) Thibaud Aronson, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/10859055"
@@ -637,7 +637,7 @@
       "habitat": "Márgenes de ríos grandes, esteros y ciénagas",
       "dieta": "Piscívoro/Carnívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/ardea_cocoi_macho.webp",
+      "imagen_url": "/cards/ardea_cocoi_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -652,7 +652,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ardea_cocoi_macho.webp",
+          "thumbnail_url": "/cards/ardea_cocoi_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/238335667"
@@ -678,7 +678,7 @@
       "habitat": "Potreros con ganado, humedales y campos de cultivo",
       "dieta": "Insectívoro/Invertebrados",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/ardea_ibis_macho.webp",
+      "imagen_url": "/cards/ardea_ibis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -694,7 +694,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ardea_ibis_macho.webp",
+          "thumbnail_url": "/cards/ardea_ibis_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/51281558"
@@ -702,7 +702,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/ardea_ibis_hembra.webp",
+          "thumbnail_url": "/cards/ardea_ibis_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/9886185"
@@ -728,7 +728,7 @@
       "habitat": "Suelo y sotobosque de selva húmeda tropical sombría",
       "dieta": "Granívoro/Insectívoro del suelo",
       "atribucion": "(c) Sofía García, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/arremon_aurantiirostris_macho.webp",
+      "imagen_url": "/cards/arremon_aurantiirostris_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -742,7 +742,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/arremon_aurantiirostris_macho.webp",
+          "thumbnail_url": "/cards/arremon_aurantiirostris_macho.jpg",
           "fotografo": "(c) Sofía García, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/176235251"
@@ -768,7 +768,7 @@
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/capito_auratus_macho.webp",
+      "imagen_url": "/cards/capito_auratus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -781,7 +781,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/capito_auratus_macho.webp",
+          "thumbnail_url": "/cards/capito_auratus_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/303554153"
@@ -789,7 +789,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/capito_auratus_hembra.webp",
+          "thumbnail_url": "/cards/capito_auratus_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/304060295"
@@ -815,7 +815,7 @@
       "habitat": "Matorrales xerofíticos áridos y espinares costeros",
       "dieta": "Granívoro/Frutos cactáceos",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/cardinalis_phoeniceus_macho.webp",
+      "imagen_url": "/cards/cardinalis_phoeniceus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Casi endémica",
       "es_dimorfica": true,
@@ -827,7 +827,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/cardinalis_phoeniceus_macho.webp",
+          "thumbnail_url": "/cards/cardinalis_phoeniceus_macho.jpg",
           "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/155166893"
@@ -835,7 +835,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/cardinalis_phoeniceus_hembra.webp",
+          "thumbnail_url": "/cards/cardinalis_phoeniceus_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/228527877"
@@ -861,7 +861,7 @@
       "habitat": "Selva húmeda tropical de tierra firme y várzea",
       "dieta": "Insectívoro (hormigas y termitas arborícolas)",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/celeus_elegans_macho.webp",
+      "imagen_url": "/cards/celeus_elegans_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -874,7 +874,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/celeus_elegans_macho.webp",
+          "thumbnail_url": "/cards/celeus_elegans_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/9806583"
@@ -882,7 +882,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/celeus_elegans_hembra.webp",
+          "thumbnail_url": "/cards/celeus_elegans_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/302609852"
@@ -908,7 +908,7 @@
       "habitat": "Bosque de niebla primario y bosque subandino húmedo",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Derek Spencer, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/chlorochrysa_nitidissima_macho.webp",
+      "imagen_url": "/cards/chlorochrysa_nitidissima_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "Endémica",
       "es_dimorfica": true,
@@ -920,7 +920,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/chlorochrysa_nitidissima_macho.webp",
+          "thumbnail_url": "/cards/chlorochrysa_nitidissima_macho.jpg",
           "fotografo": "(c) Derek Spencer, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/261302258"
@@ -928,7 +928,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/chlorochrysa_nitidissima_hembra.webp",
+          "thumbnail_url": "/cards/chlorochrysa_nitidissima_hembra.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/234409887"
@@ -954,7 +954,7 @@
       "habitat": "Bosque de niebla alto y páramo de la Serranía del Perijá",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Jackson Frost, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/coeligena_consita_macho.webp",
+      "imagen_url": "/cards/coeligena_consita_macho.jpg",
       "estado_conservacion_uicn": "EN",
       "endemismo": "Endémica",
       "es_dimorfica": false,
@@ -966,7 +966,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/coeligena_consita_macho.webp",
+          "thumbnail_url": "/cards/coeligena_consita_macho.jpg",
           "fotografo": "(c) Jackson Frost, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/263567085"
@@ -1004,7 +1004,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/coeligena_orina_hembra.webp",
+          "thumbnail_url": "/cards/coeligena_orina_hembra.jpg",
           "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/48283336"
@@ -1030,7 +1030,7 @@
       "habitat": "Bosque nuboso húmedo de la Sierra Nevada",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/coeligena_phalerata_macho.webp",
+      "imagen_url": "/cards/coeligena_phalerata_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Endémica",
       "es_dimorfica": true,
@@ -1042,7 +1042,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/coeligena_phalerata_macho.webp",
+          "thumbnail_url": "/cards/coeligena_phalerata_macho.jpg",
           "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/162156075"
@@ -1050,7 +1050,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/coeligena_phalerata_hembra.webp",
+          "thumbnail_url": "/cards/coeligena_phalerata_hembra.jpg",
           "fotografo": "(c) Jorge I. Merchán Mayorga, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/111476226"
@@ -1076,7 +1076,7 @@
       "habitat": "Bosque andino de robles (Quercus humboldtii)",
       "dieta": "Nectarívoro",
       "atribucion": "(c) Christoph Moning, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/coeligena_prunellei_macho.webp",
+      "imagen_url": "/cards/coeligena_prunellei_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "Endémica",
       "es_dimorfica": true,
@@ -1088,7 +1088,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/coeligena_prunellei_macho.webp",
+          "thumbnail_url": "/cards/coeligena_prunellei_macho.jpg",
           "fotografo": "(c) Christoph Moning, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/168462461"
@@ -1096,7 +1096,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/coeligena_prunellei_hembra.webp",
+          "thumbnail_url": "/cards/coeligena_prunellei_hembra.jpg",
           "fotografo": "(c) RJ Baltierra, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/272007750"
@@ -1122,7 +1122,7 @@
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/cotinga_cayana_macho.webp",
+      "imagen_url": "/cards/cotinga_cayana_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -1134,7 +1134,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/cotinga_cayana_macho.webp",
+          "thumbnail_url": "/cards/cotinga_cayana_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/235441422"
@@ -1160,7 +1160,7 @@
       "habitat": "Dosel de selva húmeda tropical inundable y tierra firme",
       "dieta": "Frugívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/cotinga_maynana_macho.webp",
+      "imagen_url": "/cards/cotinga_maynana_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -1172,7 +1172,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/cotinga_maynana_macho.webp",
+          "thumbnail_url": "/cards/cotinga_maynana_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/304331445"
@@ -1198,7 +1198,7 @@
       "habitat": "Suelo de bosque húmedo primario tropical no fragmentado",
       "dieta": "Frugívoro/Semillero",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/crax_alberti_macho.webp",
+      "imagen_url": "/cards/crax_alberti_macho.jpg",
       "estado_conservacion_uicn": "CR",
       "endemismo": "Endémica",
       "es_dimorfica": false,
@@ -1211,7 +1211,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/crax_alberti_macho.webp",
+          "thumbnail_url": "/cards/crax_alberti_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/329351448"
@@ -1237,7 +1237,7 @@
       "habitat": "Dosel de selva inundable (várzea) y riberas amazónicas",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/dacnis_flaviventer_macho.webp",
+      "imagen_url": "/cards/dacnis_flaviventer_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -1249,7 +1249,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/dacnis_flaviventer_macho.webp",
+          "thumbnail_url": "/cards/dacnis_flaviventer_macho.jpg",
           "fotografo": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/36788529"
@@ -1275,7 +1275,7 @@
       "habitat": "Bosque subandino húmedo y plantaciones de café con sombra",
       "dieta": "Frugívoro/Nectarívoro",
       "atribucion": "(c) Richard Smith Chacon, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/dacnis_hartlaubi_macho.webp",
+      "imagen_url": "/cards/dacnis_hartlaubi_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "Endémica",
       "es_dimorfica": false,
@@ -1287,7 +1287,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/dacnis_hartlaubi_macho.webp",
+          "thumbnail_url": "/cards/dacnis_hartlaubi_macho.jpg",
           "fotografo": "(c) Richard Smith Chacon, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/39906743"
@@ -1326,7 +1326,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/formicivora_grisea_hembra.webp",
+          "thumbnail_url": "/cards/formicivora_grisea_hembra.jpg",
           "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/19137101"
@@ -1352,7 +1352,7 @@
       "habitat": "Matorrales áridos y espinares del Caribe",
       "dieta": "Insectívoro",
       "atribucion": "(c) William Stephens, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/formicivora_intermedia_macho.webp",
+      "imagen_url": "/cards/formicivora_intermedia_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1364,7 +1364,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/formicivora_intermedia_macho.webp",
+          "thumbnail_url": "/cards/formicivora_intermedia_macho.jpg",
           "fotografo": "(c) William Stephens, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/40523265"
@@ -1372,7 +1372,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/formicivora_intermedia_hembra.webp",
+          "thumbnail_url": "/cards/formicivora_intermedia_hembra.jpg",
           "fotografo": "(c) Álvaro Rivas Godin, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/103535774"
@@ -1398,7 +1398,7 @@
       "habitat": "Sotobosque de bosque húmedo tropical del Chocó",
       "dieta": "Frugívoro",
       "atribucion": "(c) Laura Gaudette, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/manacus_vitellinus_macho.webp",
+      "imagen_url": "/cards/manacus_vitellinus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1411,7 +1411,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/manacus_vitellinus_macho.webp",
+          "thumbnail_url": "/cards/manacus_vitellinus_macho.jpg",
           "fotografo": "(c) Laura Gaudette, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/38491482"
@@ -1419,7 +1419,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/manacus_vitellinus_hembra.webp",
+          "thumbnail_url": "/cards/manacus_vitellinus_hembra.jpg",
           "fotografo": "(c) Oscar Marín, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/19178298"
@@ -1445,7 +1445,7 @@
       "habitat": "Páramos con frailejones (Espeletia hartwegiana)",
       "dieta": "Nectarívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/oxypogon_stuebelii_macho.webp",
+      "imagen_url": "/cards/oxypogon_stuebelii_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "Endémica",
       "es_dimorfica": false,
@@ -1457,7 +1457,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/oxypogon_stuebelii_macho.webp",
+          "thumbnail_url": "/cards/oxypogon_stuebelii_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/62120437"
@@ -1483,7 +1483,7 @@
       "habitat": "Lagunas altoandinas y humedales de la Sabana de Bogotá y Boyacá",
       "dieta": "Buceador (invertebrados bentónicos)",
       "atribucion": "(c) ajott, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/oxyura_ferruginea_andina_macho.webp",
+      "imagen_url": "/cards/oxyura_ferruginea_andina_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "Endémica",
       "es_dimorfica": false,
@@ -1495,7 +1495,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/oxyura_ferruginea_andina_macho.webp",
+          "thumbnail_url": "/cards/oxyura_ferruginea_andina_macho.jpg",
           "fotografo": "(c) ajott, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/103960963"
@@ -1521,7 +1521,7 @@
       "habitat": "Bosque seco, matorrales ribereños y claros arbolados",
       "dieta": "Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/pachyramphus_rufus_macho.webp",
+      "imagen_url": "/cards/pachyramphus_rufus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1534,7 +1534,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/pachyramphus_rufus_macho.webp",
+          "thumbnail_url": "/cards/pachyramphus_rufus_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/254237890"
@@ -1542,7 +1542,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/pachyramphus_rufus_hembra.webp",
+          "thumbnail_url": "/cards/pachyramphus_rufus_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/326502235"
@@ -1568,7 +1568,7 @@
       "habitat": "Sotobosque sombrío de selva húmeda del Chocó",
       "dieta": "Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/poliocrania_exsul_maculifer_macho.webp",
+      "imagen_url": "/cards/poliocrania_exsul_maculifer_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Casi endémica",
       "es_dimorfica": false,
@@ -1580,7 +1580,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/poliocrania_exsul_maculifer_macho.webp",
+          "thumbnail_url": "/cards/poliocrania_exsul_maculifer_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/9399437"
@@ -1606,7 +1606,7 @@
       "habitat": "Dosel y bordes de selva pluvial del Chocó",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Zac Peterson, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.webp",
+      "imagen_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Casi endémica",
       "es_dimorfica": false,
@@ -1618,7 +1618,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.webp",
+          "thumbnail_url": "/cards/pteroglossus_erythropygius_sanguineus_macho.jpg",
           "fotografo": "(c) Zac Peterson, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/122586025"
@@ -1644,7 +1644,7 @@
       "habitat": "Selva húmeda amazónica, várzea e igapó",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/pteroglossus_inscriptus_humboldti_macho.webp",
+      "imagen_url": "/cards/pteroglossus_inscriptus_humboldti_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1656,7 +1656,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_macho.webp",
+          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/304048793"
@@ -1664,7 +1664,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_hembra.webp",
+          "thumbnail_url": "/cards/pteroglossus_inscriptus_humboldti_hembra.jpg",
           "fotografo": "(c) brettaugust, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/342775011"
@@ -1690,7 +1690,7 @@
       "habitat": "Sabanas abiertas, márgenes de humedales y poblados",
       "dieta": "Omnívoro",
       "atribucion": "(c) Nicolas Olejnik, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/quiscalus_lugubris_macho.webp",
+      "imagen_url": "/cards/quiscalus_lugubris_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1703,7 +1703,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/quiscalus_lugubris_macho.webp",
+          "thumbnail_url": "/cards/quiscalus_lugubris_macho.jpg",
           "fotografo": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/17435453"
@@ -1711,7 +1711,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/quiscalus_lugubris_hembra.webp",
+          "thumbnail_url": "/cards/quiscalus_lugubris_hembra.jpg",
           "fotografo": "(c) Esteban Villa Restrepo, some rights reserved (CC BY-SA)",
           "licencia": "cc-by-sa",
           "url_observacion": "https://www.inaturalist.org/observations/25298067"
@@ -1737,7 +1737,7 @@
       "habitat": "Dosel de selva húmeda tropical de tierra firme",
       "dieta": "Frugívoro/Pequeños vertebrados",
       "atribucion": "(c) Eva Li, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/ramphastos_tucanus_macho.webp",
+      "imagen_url": "/cards/ramphastos_tucanus_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -1750,7 +1750,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ramphastos_tucanus_macho.webp",
+          "thumbnail_url": "/cards/ramphastos_tucanus_macho.jpg",
           "fotografo": "(c) Eva Li, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/342455817"
@@ -1776,7 +1776,7 @@
       "habitat": "Dosel de selva húmeda tropical de tierras bajas",
       "dieta": "Frugívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/ramphastos_vitellinus_macho.webp",
+      "imagen_url": "/cards/ramphastos_vitellinus_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "No endémica",
       "es_dimorfica": false,
@@ -1790,7 +1790,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ramphastos_vitellinus_macho.webp",
+          "thumbnail_url": "/cards/ramphastos_vitellinus_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/352168347"
@@ -1816,7 +1816,7 @@
       "habitat": "Bordes selváticos, riberas y claros amazónicos",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "no rights reserved · iNaturalist (cc0)",
-      "imagen_url": "/cards/ramphocelus_carbo_macho.webp",
+      "imagen_url": "/cards/ramphocelus_carbo_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1829,7 +1829,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/ramphocelus_carbo_macho.webp",
+          "thumbnail_url": "/cards/ramphocelus_carbo_macho.jpg",
           "fotografo": "no rights reserved",
           "licencia": "cc0",
           "url_observacion": "https://www.inaturalist.org/observations/235417619"
@@ -1837,7 +1837,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/ramphocelus_carbo_hembra.webp",
+          "thumbnail_url": "/cards/ramphocelus_carbo_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/302444948"
@@ -1863,7 +1863,7 @@
       "habitat": "Ciénagas, humedales y lagunas con caracoles de agua dulce",
       "dieta": "Molusquívoro (Pomacea)",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/rostrhamus_sociabilis_macho.webp",
+      "imagen_url": "/cards/rostrhamus_sociabilis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1877,7 +1877,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/rostrhamus_sociabilis_macho.webp",
+          "thumbnail_url": "/cards/rostrhamus_sociabilis_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/30568696"
@@ -1885,7 +1885,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/rostrhamus_sociabilis_hembra.webp",
+          "thumbnail_url": "/cards/rostrhamus_sociabilis_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/30938086"
@@ -1911,7 +1911,7 @@
       "habitat": "Manglares, matorrales áridos y bosques secos de ribera",
       "dieta": "Insectívoro",
       "atribucion": "(c) Louis Imbeau, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/sakesphorus_canadensis_macho.webp",
+      "imagen_url": "/cards/sakesphorus_canadensis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -1924,7 +1924,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/sakesphorus_canadensis_macho.webp",
+          "thumbnail_url": "/cards/sakesphorus_canadensis_macho.jpg",
           "fotografo": "(c) Louis Imbeau, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/147811621"
@@ -1932,7 +1932,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/sakesphorus_canadensis_hembra.webp",
+          "thumbnail_url": "/cards/sakesphorus_canadensis_hembra.jpg",
           "fotografo": "(c) Louis Imbeau, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/147811622"
@@ -1970,7 +1970,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/sericossypha_albocristata_hembra.webp",
+          "thumbnail_url": "/cards/sericossypha_albocristata_hembra.jpg",
           "fotografo": "(c) Ariel Gallego, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/149160045"
@@ -1996,7 +1996,7 @@
       "habitat": "Dosel de bosque andino húmedo y cafetales con sombra",
       "dieta": "Insectívoro",
       "atribucion": "(c) Daniel Hincapie, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/setophaga_cerulea_macho.webp",
+      "imagen_url": "/cards/setophaga_cerulea_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -2008,7 +2008,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/setophaga_cerulea_macho.webp",
+          "thumbnail_url": "/cards/setophaga_cerulea_macho.jpg",
           "fotografo": "(c) Daniel Hincapie, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/68247298"
@@ -2016,7 +2016,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/setophaga_cerulea_hembra.webp",
+          "thumbnail_url": "/cards/setophaga_cerulea_hembra.jpg",
           "fotografo": "(c) Juan Carlos Caicedo Hernández, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/17626124"
@@ -2042,7 +2042,7 @@
       "habitat": "Selva pluvial del Chocó y piedemonte pacífico",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/trogon_comptus_macho.webp",
+      "imagen_url": "/cards/trogon_comptus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "Casi endémica",
       "es_dimorfica": false,
@@ -2054,7 +2054,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/trogon_comptus_macho.webp",
+          "thumbnail_url": "/cards/trogon_comptus_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/35090420"
@@ -2080,7 +2080,7 @@
       "habitat": "Interior y dosel de selva húmeda de tierra firme",
       "dieta": "Frugívoro/Insectívoro",
       "atribucion": "(c) Jacob Saucier, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/trogon_viridis_macho.webp",
+      "imagen_url": "/cards/trogon_viridis_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -2093,7 +2093,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/trogon_viridis_macho.webp",
+          "thumbnail_url": "/cards/trogon_viridis_macho.jpg",
           "fotografo": "(c) Jacob Saucier, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/306568387"
@@ -2101,7 +2101,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/trogon_viridis_hembra.webp",
+          "thumbnail_url": "/cards/trogon_viridis_hembra.jpg",
           "fotografo": "(c) Jacob Saucier, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/306570334"
@@ -2127,7 +2127,7 @@
       "habitat": "Selva de várzea, bordes de río y arboledas amazónicas",
       "dieta": "Insectívoro",
       "atribucion": "(c) Luis G Restrepo, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/veniliornis_passerinus_macho.webp",
+      "imagen_url": "/cards/veniliornis_passerinus_macho.jpg",
       "estado_conservacion_uicn": "LC",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -2140,7 +2140,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/veniliornis_passerinus_macho.webp",
+          "thumbnail_url": "/cards/veniliornis_passerinus_macho.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/303554169"
@@ -2148,7 +2148,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/veniliornis_passerinus_hembra.webp",
+          "thumbnail_url": "/cards/veniliornis_passerinus_hembra.jpg",
           "fotografo": "(c) Luis G Restrepo, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/303554155"
@@ -2174,7 +2174,7 @@
       "habitat": "Páramos, riscos y alta montaña andina",
       "dieta": "Carroñero estricto",
       "atribucion": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY) · iNaturalist (cc-by)",
-      "imagen_url": "/cards/vultur_gryphus_macho.webp",
+      "imagen_url": "/cards/vultur_gryphus_macho.jpg",
       "estado_conservacion_uicn": "VU",
       "endemismo": "No endémica",
       "es_dimorfica": true,
@@ -2187,7 +2187,7 @@
         {
           "sexo": "macho",
           "es_principal": true,
-          "thumbnail_url": "/cards/vultur_gryphus_macho.webp",
+          "thumbnail_url": "/cards/vultur_gryphus_macho.jpg",
           "fotografo": "(c) Sebastian Serna Muñoz, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/18386019"
@@ -2195,7 +2195,7 @@
         {
           "sexo": "hembra",
           "es_principal": false,
-          "thumbnail_url": "/cards/vultur_gryphus_hembra.webp",
+          "thumbnail_url": "/cards/vultur_gryphus_hembra.jpg",
           "fotografo": "(c) desertnaturalist, some rights reserved (CC BY)",
           "licencia": "cc-by",
           "url_observacion": "https://www.inaturalist.org/observations/333145127"

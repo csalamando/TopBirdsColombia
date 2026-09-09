@@ -25,6 +25,34 @@ const optionClass = (selected: boolean) =>
       : "border-gray-200 bg-surface hover:border-primary"
   }`;
 
+const deckCardClass = (selected: boolean) =>
+  `flex flex-col gap-2 p-2 rounded-md border cursor-pointer transition-colors text-left ${
+    selected
+      ? "border-primary bg-primary/10 ring-1 ring-primary"
+      : "border-gray-200 bg-surface hover:border-primary"
+  }`;
+
+// RN-20: la imagen de cada baraja viene del backend; sin imagen se muestra placeholder
+function DeckImage({ src, alt }: { src?: string | null; alt: string }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-24 object-cover object-center rounded"
+      />
+    );
+  }
+  return (
+    <div
+      aria-hidden="true"
+      className="w-full h-24 rounded bg-primary/5 flex items-center justify-center text-3xl"
+    >
+      🐦
+    </div>
+  );
+}
+
 type DecksStatus = "loading" | "error" | "ready";
 
 export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
@@ -136,44 +164,52 @@ export function Home({ onStartGame, onStartQuiz }: HomeScreenProps) {
         </p>
       </div>
 
-      <div className="flex flex-col gap-3 w-full max-w-xs mb-8">
-        <p className="text-left font-semibold text-textSecondary">Baraja</p>
-        <label className={optionClass(baraja === "aleatoria")}>
-          <span className="font-medium">Aleatoria</span>
-          <input
-            type="radio"
-            name="gameDeck"
-            value="aleatoria"
-            checked={baraja === "aleatoria"}
-            onChange={() => setBaraja("aleatoria")}
-            className="accent-primary"
-          />
-        </label>
-        {decksStatus === "loading" && (
-          <p className="text-textSecondary text-sm">Cargando barajas...</p>
-        )}
-        {decksStatus === "error" && (
-          <ErrorState
-            message="No se pudieron cargar las barajas"
-            onRetry={loadDecks}
-          />
-        )}
-        {decksStatus === "ready" &&
-          decks.map((deck) => (
-            <label key={deck.id} className={optionClass(baraja === deck.id)}>
-              <span className="font-medium">
-                {deck.nombre} · {deck.cantidad} aves
-              </span>
-              <input
-                type="radio"
-                name="gameDeck"
-                value={deck.id}
-                checked={baraja === deck.id}
-                onChange={() => setBaraja(deck.id)}
-                className="accent-primary"
+      <div className="w-full max-w-md mb-8">
+        <p className="text-left font-semibold text-textSecondary mb-3">Baraja</p>
+        <div className="grid grid-cols-2 gap-3">
+          <label className={deckCardClass(baraja === "aleatoria")}>
+            <DeckImage src={null} alt="" />
+            <span className="font-medium text-sm">Aleatoria</span>
+            <input
+              type="radio"
+              name="gameDeck"
+              value="aleatoria"
+              checked={baraja === "aleatoria"}
+              onChange={() => setBaraja("aleatoria")}
+              className="accent-primary"
+            />
+          </label>
+          {decksStatus === "loading" && (
+            <p className="col-span-2 text-textSecondary text-sm">
+              Cargando barajas...
+            </p>
+          )}
+          {decksStatus === "error" && (
+            <div className="col-span-2">
+              <ErrorState
+                message="No se pudieron cargar las barajas"
+                onRetry={loadDecks}
               />
-            </label>
-          ))}
+            </div>
+          )}
+          {decksStatus === "ready" &&
+            decks.map((deck) => (
+              <label key={deck.id} className={deckCardClass(baraja === deck.id)}>
+                <DeckImage src={deck.imagen_url} alt={deck.nombre} />
+                <span className="font-medium text-sm">
+                  {deck.nombre} · {deck.cantidad} aves
+                </span>
+                <input
+                  type="radio"
+                  name="gameDeck"
+                  value={deck.id}
+                  checked={baraja === deck.id}
+                  onChange={() => setBaraja(deck.id)}
+                  className="accent-primary"
+                />
+              </label>
+            ))}
+        </div>
       </div>
 
       <Button onClick={handleStart} disabled={loading} loading={loading}>

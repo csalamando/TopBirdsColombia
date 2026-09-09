@@ -52,6 +52,8 @@ export interface DeckInfo {
   id: string;
   nombre: string;
   cantidad: number;
+  // RN-20: imagen representativa (primera carta del mazo con foto); null si no tiene
+  imagen_url?: string | null;
 }
 
 export type GameMode = "ia" | "hotseat";

@@ -2,6 +2,14 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-09 (2) — Sprint 18: calidad original de imágenes y barajas con imagen (HU-20, RN-19/RN-20)
+
+- **Relación**: pipeline de thumbnails webp de S17-DE-01 → imágenes originales sin pérdida (**supersedes**); delta sobre HU-09 (esc. 4 ampliado + esc. 6 nuevo). Solicitado y aprobado por el usuario (queja: las imágenes de las cartas perdieron calidad con las thumbnails y el selector de baraja era solo radio buttons).
+- **Motivo**: la calidad de imagen es vital para el juego; la recompresión webp q80 a 200px era inaceptable. Además, las opciones de baraja deben mostrar una imagen representativa en lugar de una lista de radio buttons.
+- **Artefactos modificados**: `spec/user-stories.md` (HU-09 esc. 4/6, HU-20 nueva con 2 escenarios Gherkin), `spec/business-rules.md` (RN-19 calidad original — supersedes thumbnails; RN-20 imagen representativa de baraja), `spec/backlog.md` (S17-DE-01 → Completado; S18-DE-03 y S18-UX-03 nuevos), `spec/ux-flows.md` (pasos 1 y 2), `spec/ux/screen-inventory.md` (PANT-01, PANT-02), `spec/test-plan.md` (HU-20, áreas backend/frontend), `spec/api-contract.yaml` (`BarajaInfo.imagen_url` nullable; descripción de `VarianteImagen.thumbnail_url` actualizada a imagen original), `spec/data-governance.md` (línea de imágenes: copias sin pérdida versionadas; webp superseded).
+- **Contrato**: `GET /barajas` responde `BarajaInfo` con `imagen_url` (primera carta del mazo con foto, determinista). El nombre del campo `thumbnail_url` se conserva por compatibilidad pero su contenido pasa a ser la imagen completa.
+- **Implementación (TDD, orden test→feat verificado)**: `scripts/build_card_images.py` nuevo (copia sin pérdida de los 76 JPG originales a `src/frontend/public/cards/`, elimina los 76 webp), `build_baraja.py` apunta a `.jpg` y `barajas.json` sube a 1.2.0, backend expone `BarajaInfo.imagen_url` (RN-20, primera carta del mazo con foto), frontend renderiza tarjetas de baraja con imagen representativa ("Aleatoria" con placeholder). Suites verdes: pytest 94.86 % de cobertura, vitest 65/65, build OK. Esta vez el delta de spec se escribió **antes** de implementar (sin freestyle).
+
 ## 2026-09-09 — Sprint 18 (1): identidad de jugadores y presentación visual (HU-18/HU-19, RN-17/RN-18)
 
 - **Relación**: delta de especificación (sin supersedes); añade HU-18, HU-19, RN-17, RN-18. Solicitado y aprobado por el usuario (queja de UI/UX en producción).

@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\test-plan.md",
-  "sha256": "ea09677585fdcdae6813cfd4cb22e573b956e1fedffe57f01e16b939b0e675e1",
-  "gate": "GATE-2",
+  "sha256": "2ec8de824e567125c4a0996a83e92d3333b70c2c7238ccebf4fecf1d9ce5422d",
+  "gate": "GATE-1",
   "tipo": "",
   "rol": "software-architect",
-  "emitido": "2026-09-08T20:38:33",
+  "emitido": "2026-09-08T20:58:01",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

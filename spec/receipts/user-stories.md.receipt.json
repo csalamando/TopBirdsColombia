@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\user-stories.md",
-  "sha256": "1b51a711bcb72e6220ce0262facf4f1d9d2a690af14fc27db1db321caf843e4f",
+  "sha256": "1f4b0a9bb9c24b330939782b2cd52070e6dd4c778021cfaeab107e25ea78ee58",
   "gate": "GATE-1",
   "tipo": "",
   "rol": "business-analyst",
-  "emitido": "2026-09-08T20:38:33",
+  "emitido": "2026-09-08T20:58:01",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

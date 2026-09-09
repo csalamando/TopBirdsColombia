@@ -14,17 +14,18 @@ Garantizar que todas las historias de usuario del MVP se verifiquen con tests au
 - HU-08 Interfaz responsive
 - HU-18 Identificarse con nombre al iniciar la partida
 - HU-19 Presentación visual y copy amigable
+- HU-20 Ver imágenes de las cartas en calidad original
 
 ## Tipos de tests
 
 ### Tests unitarios (backend — pytest)
 - **Objetivo**: validar lógica pura de dominio sin dependencias externas.
-- **Áreas**: reparto de cartas, comparación de atributos, resolución de empates, determinación de ganador, turnos.
+- **Áreas**: reparto de cartas, comparación de atributos, resolución de empates, determinación de ganador, turnos; `GET /barajas` devuelve `imagen_url` representativa por baraja (HU-09 esc. 4/6, RN-20); las cartas referencian imágenes originales sin pérdida (HU-20, RN-19).
 - **Herramienta**: pytest.
 
 ### Tests unitarios (frontend — Vitest)
 - **Objetivo**: validar componentes y utilidades aisladas.
-- **Áreas**: Card (incl. imagen en proporción 4:3), AttributeButton, Scoreboard (incl. nombres personalizados), ScreenStates (loading/empty/error/success), flujo de nicknames Home → Game → Result (HU-18), panel de resultado con tono según ganador (HU-19).
+- **Áreas**: Card (incl. imagen en proporción 4:3), AttributeButton, Scoreboard (incl. nombres personalizados), ScreenStates (loading/empty/error/success), flujo de nicknames Home → Game → Result (HU-18), panel de resultado con tono según ganador (HU-19), tarjetas de baraja con imagen representativa en Home (HU-09 esc. 6) y placeholder en "Aleatoria".
 - **Herramienta**: Vitest + React Testing Library.
 
 ### Tests de contrato (schemathesis)

@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\data-governance.md",
-  "sha256": "fd860315d10bb7ee07ca99390ab0946c025b3b55cf45011882cf794f0e861e95",
-  "gate": "FASE-2",
+  "sha256": "a38981f3625d8e063f8156094152f0323d9376736af3f7160db694163d84d43f",
+  "gate": "GATE-1",
   "tipo": "",
   "rol": "data-engineer",
-  "emitido": "2026-09-08T15:43:19",
+  "emitido": "2026-09-08T20:58:01",
   "estado": "vigente",
   "harness_version": "2.20.1"
 }

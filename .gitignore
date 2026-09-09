@@ -38,3 +38,9 @@ test-results/
 .agents/*
 !.agents/skills/
 spec/memory/.index/
+
+# Dataset raw (S16-DE-02 / RN-19): solo el JSON enriquecido se versiona
+topbirds_dataset/images/
+topbirds_dataset/aves_colombia_cards.json
+topbirds_dataset/aves_colombia_full.json
+topbirds_dataset/*.err

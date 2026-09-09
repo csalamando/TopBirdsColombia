@@ -68,12 +68,22 @@ const mockGame: Game = {
 };
 
 export const mockDecks: DeckInfo[] = [
-  { id: "completa", nombre: "Colombia completa", cantidad: 52 },
-  { id: "amazonia", nombre: "Expedición: Amazonía", cantidad: 24 },
-  { id: "andina", nombre: "Expedición: Andina", cantidad: 30 },
-  { id: "caribe", nombre: "Expedición: Caribe", cantidad: 22 },
-  { id: "pacifico", nombre: "Expedición: Pacífico", cantidad: 21 },
-  { id: "orinoquia", nombre: "Expedición: Orinoquía", cantidad: 18 },
+  {
+    id: "completa",
+    nombre: "Colombia completa",
+    cantidad: 52,
+    imagen_url: "/cards/completa-representativa.jpg",
+  },
+  {
+    id: "amazonia",
+    nombre: "Expedición: Amazonía",
+    cantidad: 24,
+    imagen_url: "/cards/amazonia-representativa.jpg",
+  },
+  { id: "andina", nombre: "Expedición: Andina", cantidad: 30, imagen_url: null },
+  { id: "caribe", nombre: "Expedición: Caribe", cantidad: 22, imagen_url: null },
+  { id: "pacifico", nombre: "Expedición: Pacífico", cantidad: 21, imagen_url: null },
+  { id: "orinoquia", nombre: "Expedición: Orinoquía", cantidad: 18, imagen_url: null },
 ];
 
 export const handlers = [

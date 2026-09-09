@@ -1,8 +1,15 @@
-# Trazabilidad SDLC: HU-09
+# Trazabilidad SDLC: HU-09, HU-20, RN-19, RN-20
+import json
+from pathlib import Path
+
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
-from app.barajas import load_cartas, list_barajas, resolve_baraja
+from app.barajas import load_cartas, get_baraja, list_barajas, resolve_baraja
+
+PUBLIC_CARDS = (
+    Path(__file__).resolve().parents[3] / "src" / "frontend" / "public" / "cards"
+)
 
 REGION_IDS = {"andina", "caribe", "pacifico", "amazonia", "orinoquia"}
 ATRIBUTOS = (
@@ -63,6 +70,55 @@ def test_barajas_endpoint_lists_decks(client):
     for item in items:
         assert item["nombre"]
         assert item["cantidad"] >= 10
+
+
+# --- HU-20 / RN-19: imágenes en calidad original ---
+
+def test_cartas_use_original_jpg_without_lossy_compression():
+    for carta in load_cartas():
+        if carta.imagen_url:
+            assert carta.imagen_url.startswith("/cards/")
+            assert carta.imagen_url.endswith(".jpg")
+            assert not carta.imagen_url.endswith(".webp")
+        for variante in carta.variantes_imagen:
+            if variante.thumbnail_url:
+                assert variante.thumbnail_url.endswith(".jpg")
+                assert not variante.thumbnail_url.endswith(".webp")
+
+
+def test_referenced_card_images_exist_on_disk_without_lossy_artifacts():
+    assert not list(PUBLIC_CARDS.glob("*.webp")), "no deben quedar thumbnails webp (RN-19)"
+    data = json.loads(
+        (Path(__file__).resolve().parents[1] / "app" / "data" / "barajas.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert data["version"] == "1.2.0"
+    for carta in data["cartas"]:
+        urls = [v.get("thumbnail_url") for v in carta["variantes_imagen"]]
+        urls.append(carta["imagen_url"])
+        for url in urls:
+            if url:
+                assert (PUBLIC_CARDS / Path(url).name).is_file(), f"falta {url} en disco"
+
+
+# --- RN-20: imagen representativa de baraja ---
+
+def test_list_barajas_includes_representative_image():
+    for baraja in list_barajas():
+        _, cartas = get_baraja(baraja.id)
+        expected = next((c.imagen_url for c in cartas if c.imagen_url), None)
+        assert baraja.imagen_url == expected
+        if baraja.imagen_url is not None:
+            assert baraja.imagen_url.endswith(".jpg")
+
+
+def test_barajas_endpoint_includes_imagen_url(client):
+    items = client.get("/barajas").json()["items"]
+    for item in items:
+        assert "imagen_url" in item
+        if item["imagen_url"] is not None:
+            assert item["imagen_url"].endswith(".jpg")
 
 
 def test_create_partida_completa_deals_52_cards(client):

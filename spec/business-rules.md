@@ -92,3 +92,14 @@
 - Ningún texto visible de la UI puede exponer códigos de trazabilidad (HU-xx, RN-xx, PANT-xx) ni jerga interna del proyecto (p. ej. "msnm" sin explicar, IDs de baraja en mensajes de error).
 - La trazabilidad vive exclusivamente en el versionado: comentarios en el código fuente, spec/ y recibos.
 - Los indicadores educativos se expresan en lenguaje natural (p. ej. el badge "visitante boreal" explica "Temporada en Colombia: noviembre a febrero").
+
+## RN-19 Calidad de imagen de las cartas (HU-20)
+- Las fotos de las cartas se sirven en la calidad original del dataset: copia sin pérdida del archivo fuente (JPG) publicada en `src/frontend/public/cards/`. Prohibida la recompresión con pérdida adicional (p. ej. thumbnails webp q80).
+- Este enfoque **supersedes** el pipeline de thumbnails de S17-DE-01: la pérdida de calidad era inaceptable para el juego.
+- `Ave.imagen_url` y `variantes_imagen[].thumbnail_url` apuntan al archivo original; el campo se mantiene con el nombre `thumbnail_url` por compatibilidad de contrato, pero su contenido es la imagen completa.
+- Los archivos originales (147 MB) permanecen fuera del repo; solo se versionan las copias sin pérdida de las 52 cartas del juego (~24 MB, aceptable para la imagen Docker).
+
+## RN-20 Imagen representativa de baraja (HU-09)
+- `GET /barajas` devuelve `BarajaInfo.imagen_url`: la imagen de la primera carta del mazo (en orden canónico de barajas.json) que tenga foto. Selección determinista (sin azar).
+- Si ninguna carta del mazo tiene foto, `imagen_url` es null.
+- La opción "Aleatoria" del frontend no tiene imagen asociada: el servidor no la lista; el frontend muestra placeholder.

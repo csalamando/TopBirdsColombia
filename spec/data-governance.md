@@ -12,7 +12,7 @@ No se procesan datos personales ni sensibles.
 - **Secundaria**: fuentes abiertas como Wikipedia, eBird y Wikidata (referencia de curación).
 - **Requisito**: cada registro debe incluir atribución de la fuente (`atribucion`).
 - **Licencias por imagen**: cada variante (macho/hembra) lleva fotógrafo, licencia (`cc-by` 344 / `cc0` 69 / `cc-by-sa` 36) y `url_observacion` a iNaturalist. Las licencias cc-by/cc-by-sa exigen crédito visible y enlace: el detalle del ave lo cumple mostrando crédito + licencia + enlace por foto (SR-09).
-- **Imágenes crudas (147 MB) NO se versionan** en el repo. Se versionan solo los thumbnails comprimidos (webp ~200px, ≈25-30 KB c/u) generados hacia `src/frontend/public/cards/`; el campo `variantes_imagen[].thumbnail_url` queda `null` hasta ese paso.
+- **Imágenes crudas (147 MB) NO se versionan** en el repo. Se versionan solo las copias sin pérdida (JPG original) de las 52 cartas del juego en `src/frontend/public/cards/` (~24 MB en total, RN-19); `scripts/build_card_images.py` las genera desde `topbirds_dataset/images/` y `scripts/build_baraja.py` valida que existan. El pipeline de thumbnails webp con pérdida (S17-DE-01) quedó **superseded** por RN-19: la pérdida de calidad era inaceptable para el juego. `variantes_imagen[].thumbnail_url` apunta al archivo original completo (nombre del campo mantenido por compatibilidad de contrato).
 - **Selección de baraja**: `scripts/build_baraja.py` deriva las 52 cartas del juego desde el dataset enriquecido; regenerar y commitear `src/backend/app/data/barajas.json` ante cambios del dataset.
 
 ## Almacenamiento

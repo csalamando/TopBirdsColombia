@@ -1,15 +1,15 @@
 # Inventario de pantallas — Top Trumps Aves de Colombia
 
 ## PANT-01 Pantalla de inicio
-- **HU relacionadas**: HU-01, HU-07, HU-09, HU-18
+- **HU relacionadas**: HU-01, HU-07, HU-09, HU-18, HU-20
 - **ROL principal**: ROL-03 Jugador casual
 - **Propósito**: Dar la bienvenida y permitir iniciar una partida identificada con nombre.
-- **Interacciones**: modo "Un jugador vs IA" / "Dos jugadores (hotseat)"; inputs de nombre ("Tu nombre" en IA; "Nombre del Jugador 1" y "Nombre del Jugador 2" en hot-seat, HU-18/RN-17, máx. 20 caracteres, opcionales); selector de baraja (Aleatoria por defecto / Colombia completa / Expedición por región con conteo de aves).
+- **Interacciones**: modo "Un jugador vs IA" / "Dos jugadores (hotseat)"; inputs de nombre ("Tu nombre" en IA; "Nombre del Jugador 1" y "Nombre del Jugador 2" en hot-seat, HU-18/RN-17, máx. 20 caracteres, opcionales); selector de baraja como tarjetas con imagen representativa (primera ave del mazo, RN-20), nombre y conteo de aves; la opción "Aleatoria" muestra placeholder sin imagen (HU-09 esc. 6).
 - **Estados**: loading (carga de aves y barajas), empty (sin datos), error (fallo de carga, con reintento), success (datos listos).
 - **Destino**: PANT-02 al iniciar partida.
 
 ## PANT-02 Pantalla de juego
-- **HU relacionadas**: HU-02, HU-05, HU-07, HU-10, HU-11, HU-14, HU-15, HU-16, HU-18, HU-19
+- **HU relacionadas**: HU-02, HU-05, HU-07, HU-10, HU-11, HU-14, HU-15, HU-16, HU-18, HU-19, HU-20
 - **ROL principal**: ROL-01 Aficionado a las aves
 - **Propósito**: Mostrar carta activa, permitir seleccionar atributo y ver información del ave, y presentar las mecánicas especiales, con los jugadores identificados por su nombre (HU-18).
 - **Interacciones**: seleccionar atributo, ver detalle de ave (PANT-05); toggle macho/hembra y badge "⚥ dimórfica" (HU-10); apuesta del bono "¿Macho o hembra?" una vez por partida (HU-11); sello UICN en amenazadas y badge "visitante boreal" (HU-12, HU-15); ronda especial "¿Quién vive más alto?" con explicación (HU-14); indicación de combo taxonómico (HU-16); marcador e indicador de turno con nombres personalizados (HU-18); panel de resultado de ronda con banda de color verde/rojo/ámbar y comparación "{nombre}: X vs {nombre}: Y" (HU-19).

@@ -241,7 +241,7 @@ components:
           type: string
           format: uri
           nullable: true
-          description: Thumbnail servido por el frontend; null hasta generar los thumbnails
+          description: RN-19; imagen de la carta en calidad original (copia sin pérdida del JPG del dataset) servida por el frontend; null si la especie no tiene imagen
         fotografo:
           type: string
           nullable: true
@@ -316,6 +316,11 @@ components:
         cantidad:
           type: integer
           example: 24
+        imagen_url:
+          type: string
+          format: uri
+          nullable: true
+          description: RN-20; imagen representativa = primera carta del mazo (orden canónico) con foto; null si ninguna la tiene
 
     Partida:
       type: object

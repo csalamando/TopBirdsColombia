@@ -177,7 +177,7 @@ Y al jugar, la partida reparte solo las cartas de esa región
 ```gherkin
 Dado que el cliente necesita mostrar el selector
 Cuando consulta GET /api/barajas
-Entonces recibe la lista de barajas con id, nombre y cantidad de aves
+Entonces recibe la lista de barajas con id, nombre, cantidad de aves e imagen_url (RN-20)
 ```
 
 ### Escenario 5: baraja inválida
@@ -185,6 +185,14 @@ Entonces recibe la lista de barajas con id, nombre y cantidad de aves
 Dado que el jugador crea una partida con un id de baraja inexistente
 Cuando el servidor valida la solicitud
 Entonces responde 422 con un mensaje de error
+```
+
+### Escenario 6: barajas como tarjetas con imagen representativa
+```gherkin
+Dado que el jugador está en la pantalla de inicio y las barajas ya cargaron
+Cuando ve el selector de baraja
+Entonces cada baraja se presenta como tarjeta con la imagen representativa de la primera ave del mazo (RN-20), el nombre y el conteo de aves
+Y la opción "Aleatoria" se muestra sin imagen (placeholder)
 ```
 
 ## HU-10 Ver dimorfismo sexual en la carta (mecánica estrella)
@@ -451,4 +459,26 @@ Y la trazabilidad solo existe en el código fuente y la spec versionada
 Dado que el jugador abre "Ver detalle" de un ave que tiene foto
 Cuando se muestra el modal de detalle
 Entonces incluye la imagen del ave además de familia, orden, hábitat, dieta, estacionalidad y atribución
+```
+
+## HU-20 Ver imágenes de las cartas en calidad original
+**Épica**: EP-02
+**Rol**: ROL-01 Aficionado a las aves
+
+Como aficionado a las aves, quiero que las fotos de las cartas se vean en la calidad original del dataset (sin compresión con pérdida adicional), porque la calidad de imagen es esencial para apreciar y comparar las aves.
+
+### Escenario 1: imagen servida en calidad original
+```gherkin
+Dado que una carta tiene foto
+Cuando el cliente la solicita
+Entonces recibe la copia sin pérdida del archivo original del dataset (JPG, RN-19)
+Y el campo imagen_url de la carta apunta a ese archivo original
+```
+
+### Escenario 2: sin recompresión con pérdida
+```gherkin
+Dado que las imágenes originales ya están en src/frontend/public/cards/
+Cuando se genera barajas.json con scripts/build_baraja.py
+Entonces ninguna thumbnail_url apunta a un archivo comprimido con pérdida
+Y no existen archivos .webp en el directorio servido
 ```
