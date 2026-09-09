@@ -2,6 +2,14 @@
 
 Registro de cambios de spec gestionados por el orquestador (relaciones supersedes / conflicts_with).
 
+## 2026-09-09 (3) — Saneamiento del arnés: backlog, pipeline-state y sprint reviews 15/16/18
+
+- **Motivo**: el usuario detectó el portal de métricas desactualizado (pipeline mostrando estado del Sprint 13, backlog con decenas de ítems «Pendiente» ya implementados, historias que aparecían pendientes).
+- **Backlog (product-owner)**: 41 ítems pasan a Completado con evidencia (sprints 1-14 con reviews, S15-PA-01 con impact-report, S17 con sprint review 17, S18 con deploy verificado). Quedan 2 pendientes reales: S16-FE-05 (instrumentación analítica) y S17-BA-01 (RN-15, decisión PO).
+- **Pipeline-state (orchestrator)**: fase actual 6 → 8 (Archivo); filas añadidas para `dataset-enrichment.md`, `impact-report.md` y sprint reviews 15/16/17/18; notas de sesión S14-S18 y registro del saneamiento.
+- **Sprint reviews**: generados retroactivamente `sprint-review-15.md` y `sprint-review-16.md` (nunca archivados) y `sprint-review-18.md` (cierre del sprint actual); los tres con gate sprint-review (8 checks OK) y recibo SPRINT-15/16/18 (orchestrator).
+- **Recibos re-emitidos**: `backlog.md` (product-owner) y `pipeline-state.md` (orchestrator). Sin cambios de comportamiento del producto: saneamiento administrativo.
+
 ## 2026-09-09 (2) — Sprint 18: calidad original de imágenes y barajas con imagen (HU-20, RN-19/RN-20)
 
 - **Relación**: pipeline de thumbnails webp de S17-DE-01 → imágenes originales sin pérdida (**supersedes**); delta sobre HU-09 (esc. 4 ampliado + esc. 6 nuevo). Solicitado y aprobado por el usuario (queja: las imágenes de las cartas perdieron calidad con las thumbnails y el selector de baraja era solo radio buttons).

@@ -43,11 +43,17 @@
 |||| qa-report.md | 5 | qa-automation | Completado | GATE 2 | Resumen de pruebas E2E, cobertura y veredicto |
 ||||| reports/sprint-12-review.md | 5 | qa-automation | Aprobado | SPRINT-12 | SAST/SCA/DAST y GATE 2.5 |
 ||||| security-scan-report.md | 5 | security-engineer | Completado | GATE 2.5 | Hallazgos SAST/SCA/DAST y riesgos aceptados |
-||||| reports/sprint-13-review.md | 6 | devops-engineer | Aprobado | SPRINT-13 | Pipeline CI/CD e infraestructura demo |
-||||| security-requirements.md | 2 | security-engineer | Completado | GATE 1 | Requisitos SR-03/SR-04/SR-05 cumplidos |
+| reports/sprint-13-review.md | 6 | devops-engineer | Aprobado | SPRINT-13 | Pipeline CI/CD e infraestructura demo |
+| security-requirements.md | 2 | security-engineer | Completado | GATE 1 | Requisitos SR-03/SR-04/SR-05 cumplidos |
+| dataset-enrichment.md | 2 | data-engineer | Completado | FASE-2 | v3: curación de 303 especies (S16) |
+| reports/sprint-review-15.md | 8 | orchestrator | Aprobado | SPRINT-15 | Retro-archivado 2026-09-09 (saneamiento) |
+| reports/sprint-review-16.md | 8 | orchestrator | Aprobado | SPRINT-16 | Retro-archivado 2026-09-09 (HU-09 selección de baraja) |
+| reports/sprint-review-17.md | 8 | orchestrator | Aprobado | SPRINT-17 | Cierre del ciclo HU-10..HU-17 |
+| impact-report.md | 7 | product-analyst | Completado | FASE-7 | Recibo vigente |
+| reports/sprint-review-18.md | 8 | orchestrator | Aprobado | SPRINT-18 | UI/UX (HU-18/19) + calidad de imagen (HU-20) |
 
 ## Fase actual
-6 (Entrega / Operación) — Sprint 13 completado: pipeline CI/CD, Docker, Render y cierre de requisitos de seguridad
+8 (Archivo) — equivalente a la macro-fase 6 del arnés (Release & Operación, cubre las fases finas 6-8; el portal `harness_graph` expresa fase_actual en macro-fases). Sprint 18 completado y verificado en producción (UI/UX HU-18/19, imágenes originales HU-20, barajas con imagen RN-20). Backlog: 49/51 ítems completados. Pendientes reales: S16-FE-05 (instrumentación analítica) y S17-BA-01 (RN-15, requiere decisión del PO). Último saneamiento 2026-09-09: backlog y pipeline-state alineados con la realidad, sprint reviews 15/16/18 emitidos; conteo de sprints del portal corregido a 14 (reviews 5-13 narrativos + 14-18 snapshots).
 
 ## Riesgo y routing
 - Routing orgánico: **Discovery → Full-pipeline** (nueva iniciativa, objetivo demostrar arnés).
@@ -76,7 +82,13 @@
 |- **Sprint 13 completado** — Pipeline CI/CD en GitHub Actions (`ci.yml`), Dockerfile multi-stage verificado localmente, blueprint `infra/render.yaml`, headers de seguridad y rate limiting implementados, `spec/security-requirements.md` actualizado.
 |- Docker local: imagen `topbirds:latest` construye y responde `/health` correctamente.
 |- Pipeline CI cubre: SAST backend/frontend, tests, build, E2E, SCA backend/frontend y DAST.
-- Próximo paso: **Sprint 14** (despliegue a producción/demo).
+- **Sprint 14 completado** — despliegue en producción (GATE 3 verificado 2026-09-05, rollback probado).
+- **Sprint 15 completado** — SLOs (`spec/slo.md`), impact report y cierre operativo (retro-archivado 2026-09-09).
+- **Sprint 16 completado** — dataset enriquecido curado por el usuario (303 especies), HU-09 selección de baraja, `barajas.json` 1.1.0, métrica E2 ≥50 aves en verde (retro-archivado 2026-09-09).
+- **Sprint 17 completado** — HU-10..HU-17: dimorfismo, bono macho/hembra, UICN, expedición, altitud, boreales, combo, quiz Ornitólogo; cierre Fase 8 con sprint review 17.
+- **Sprint 18 completado** — HU-18/19 (identidad de jugadores, presentación visual y copy) y HU-20/RN-19/20 (imágenes originales sin pérdida, barajas con imagen representativa); deploy Railway verificado en producción.
+- **Saneamiento 2026-09-09** — backlog alineado (49/51 Completado), pipeline-state actualizado a Fase 8, sprint reviews 15/16/18 generados y recibidos; portal regenerado (fix del arnés: el conteo de sprints ahora incluye la convención narrativa `sprint-N-review.md` — 14 cierres archivados, antes 5).
+- Próximo paso: **decisión PO** sobre RN-15 (empate con amenazada) y, si se desea, S16-FE-05 (instrumentación analítica).
 - **Cambio de spec (supersedes) 2026-09-05**: plataforma de despliegue backend Render -> Railway. `infra/render.yaml` retirado (queda en historial git); nuevo config-as-code `railway.toml` en raíz (Dockerfile `src/backend/Dockerfile`, health check `/health`, dominio `*.up.railway.app`). Actualizados `README.md`, `spec/cost-estimation.md` (gate GATE-0 re-pasado, recibo re-emitido) y `spec/cost-assumptions.yaml`. Impacto downstream según spec_diff_impact: `diagrams`. Stack ADR-001 sin cambios.
 |- **Sprint 14 (preparación) 2026-09-05**: diagrama de despliegue aceptado con recibo GATE-3 (`spec/receipts/despliegue.drawio.receipt.json`, rol cloud-engineer, aprobación del usuario). **Migración a Railway IaC**: `railway.toml` deprecado por Railway (Railpack lo ignoró → deploys fallidos); migrado a `.railway/railway.ts` + SDK `railway` en `package.json`; config aplicada al proyecto `incredible-perception` (env vars + health check) vía `railway config apply`. Diagrama regenerado desde `.railway/railway.ts`, recibo GATE-3 re-emitido. **GATE 3 VERIFICADO 2026-09-05**: staging validado en https://topbirdscolombia-production.up.railway.app (/health 200, /aves 200, POST /partidas 201, GET / 200; builds 14a0cfbb y 6d7f7888 SUCCESS); rollback probado (redeploy f44f8a55 SUCCESS, servicio saludable); diagrama derivado con recibo GATE-3 vigente. Criteria cumplidos; pendiente aprobación formal del usuario + sprint review (Fase 8).
 |- **Migración arnés 2.15.2 → 2.20.1 (2026-09-08)**: `.drawio` retirado como formato (ADR-003); el diagrama de despliegue migra a IR — `spec/diagrams/despliegue.ir.json` es la fuente de verdad, `despliegue.html` la vista derivada (`diagram_ir.py check` sin drift) — con recibo GATE-3 re-emitido sobre el IR (recibo del drawio retirado; queda en historial git). Nuevo portal del arnés en `spec/portal/` (menú lateral, buscador Ctrl+K, temas claro/oscuro); `dashboard.html` pasa a ser redirección al portal. Los recibos ahora registran `harness_version` y auto-registran activaciones en `spec/metrics/usage.jsonl`.
