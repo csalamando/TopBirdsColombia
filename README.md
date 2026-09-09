@@ -1,17 +1,19 @@
 ﻿# Top Trumps Aves de Colombia
 
-Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida para demostrar un arnés de desarrollo de software completo (SDD + TDD + RDD) en 15 sprints.
+Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida para demostrar un arnés de desarrollo de software completo (SDD + TDD + RDD) en 18 sprints.
 
 ## Funcionalidades
 
-- **Selección de baraja al iniciar partida (HU-09)**: el jugador elige entre una baraja temática aleatoria (por defecto, elegida server-side), la colección completa de 52 cartas o una expedición por región (Andina, Caribe, Pacífico, Amazonía, Orinoquía) con el conteo de aves en pantalla.
+- **Selección de baraja al iniciar partida (HU-09, RN-20)**: el jugador elige entre una baraja temática aleatoria (por defecto, elegida server-side), la colección completa de 52 cartas o una expedición por región (Andina, Caribe, Pacífico, Amazonía, Orinoquía). Cada opción se presenta como tarjeta con la imagen representativa de la primera ave del mazo, el nombre y el conteo de aves; «Aleatoria» usa placeholder.
 - **Baraja curada de 52 aves** generada desde `topbirds_dataset` (iNaturalist Open Data): siempre incluye las 13 especies amenazadas (UICN VU/EN/CR), prioriza las 146 especies con dimorfismo sexual y está balanceada por región; cada carta lleva atribución de fotógrafo y licencia.
-- **Cartas enriquecidas con fotografía (HU-10, HU-12, HU-15)**: thumbnails webp (~200 px) servidos por el frontend con variantes por sexo; las especies dimórficas muestran badge y toggle macho/hembra, las amenazadas (UICN VU/EN/CR) llevan sello de conservación y las migratorias boreales un badge de visitante (temporada nov-feb).
+- **Fotografía en calidad original (HU-20, RN-19)**: las cartas se sirven con los JPG originales del dataset, copiados sin pérdida (`scripts/build_card_images.py`); los thumbnails webp con pérdida quedaron eliminados. Las variantes por sexo se conservan: las especies dimórficas muestran badge y toggle macho/hembra, las amenazadas (UICN VU/EN/CR) llevan sello de conservación y las migratorias boreales un badge de visitante (temporada nov-feb).
 - **Bono «¿Macho o hembra?» (HU-11, RN-10)**: una vez por partida, en tu turno, puedes apostar el sexo de la carta del oponente; acertar gana la ronda aunque pierdas el atributo.
 - **Ronda de altitud (HU-14, RN-11)**: una vez por partida puedes jugar el atributo oculto `altitud_max_msnm` («¿Quién vive más alto?»).
 - **Combo taxonómico (HU-16, RN-12)**: ganar dos rondas seguidas con aves del mismo orden suma +1 carta del oponente.
 - **Resumen de expedición (HU-13)**: al terminar, la pantalla de resultado lista las aves que viste («Tu expedición por {región}» o «Tu recorrido por Colombia»).
 - **Quiz «Modo Ornitólogo» (HU-17, RN-14)**: modo de práctica con fotos y 4 opciones de identificación (nombre común + científico), puntaje de 5 preguntas y crédito del fotógrafo.
+- **Identidad de jugadores (HU-18, RN-17)**: nombres opcionales al iniciar (máx. 20 caracteres; «Tu nombre» en modo IA, «Jugador 1/2» en hot-seat), visibles en marcador, indicador de turno, comparación de rondas y pantalla final («¡Ana ganó la partida!»). En blanco se usan los valores por defecto «Tú/IA» o «Jugador 1/2».
+- **Presentación visual y copy amigable (HU-19, RN-18)**: imágenes en proporción 4:3 sin recorte severo, panel de resultado de ronda con banda de color (verde/rojo/ámbar) y modal de detalle con foto, taxonomía y estacionalidad; ningún texto visible expone códigos de trazabilidad del proyecto.
 - Modos de juego contra la IA o hot-seat (dos humanos, mismo dispositivo).
 - API REST con validación de contrato (Schemathesis), rate limiting y headers de seguridad.
 - Portal SDLC auto-generado que publica la spec, recibos SHA-256, métricas y memoria del proyecto (ver siguiente sección).
@@ -21,7 +23,16 @@ Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida pa
 - **Implementación completa con TDD** (orden test→feat verificado): 76 thumbnails webp con crédito de fotógrafo y licencia, `barajas.json` 1.1.0 enriquecido (variantes por sexo, UICN, orden, endemismo, estacionalidad, altitud), backend con RN-10/11/12 (bono «¿Macho o hembra?», ronda de altitud, combo taxonómico) y frontend con las 8 historias implementadas.
 - **Suites verdes**: pytest 94.85 % de cobertura (backend), vitest 59/59 (frontend) y build OK.
 - **Fase 8 cerrada**: sprint review 17 en `spec/reports/sprint-review-17.md` (43 recibos vigentes, gates al primer intento 100 %, 0 roles en freestyle), memorias archivadas sin conflictos ni candidatos pendientes, portal regenerado (45 páginas) con `--check` sin drift.
-- **Pendiente para el Sprint 18**: RN-15 (empate con amenazada, requiere decisión del PO) y 7 cartas sin thumbnail por imágenes fuente ausentes (el frontend muestra placeholder).
+- **Pendiente heredado**: RN-15 (empate con amenazada, requiere decisión del PO). Las cartas sin imagen fuente muestran placeholder (ya sin dependencia de thumbnails webp, ver Sprint 18).
+
+## Resultados del Sprint 18 (identidad de jugadores, presentación visual y calidad de imagen)
+
+- **Identidad de jugadores (HU-18/RN-17)**: inputs de nombre en el Home (uno en modo IA, dos en hot-seat) con envío al backend (`jugador_nombre`/`oponente_nombre`) y threading completo hasta `Game`, `Scoreboard` y `Result`; vitest 64/64 y deploy verificado en producción.
+- **Presentación visual y copy (HU-19/RN-18)**: imágenes 4:3 con recorte centrado en carta, quiz y detalle; panel de resultado con banda de color según ganador; modal de detalle con foto, orden y estacionalidad; copy sin códigos internos (0 coincidencias `RN-\d+` en el bundle de producción).
+- **Calidad original de imagen (HU-20/RN-19, supersedes S17-DE-01)**: se eliminaron los 76 thumbnails webp con pérdida y se sirven los 76 JPG originales del dataset (~24 MB versionados en `src/frontend/public/cards/`); `barajas.json` sube a 1.2.0 apuntando a `.jpg`.
+- **Barajas con imagen representativa (HU-09 esc. 6/RN-20)**: `GET /barajas` expone `BarajaInfo.imagen_url` (primera carta del mazo con foto, determinista) y el selector del Home se renderiza como tarjetas con imagen; «Aleatoria» usa placeholder.
+- **Suites verdes**: pytest 94.86 % de cobertura (backend), vitest 65/65 (frontend) y build OK. TDD en orden test→feat; delta de spec (HU-20, RN-19/20) escrito antes del código, 8 recibos re-emitidos (49/49 vigentes).
+- **Deploy**: commit en `main` con auto-deploy en Railway; verificado en producción (`/api/barajas` con `imagen_url`, `/cards/*.jpg` en calidad original, bundle nuevo en vivo).
 
 ## Stack
 
