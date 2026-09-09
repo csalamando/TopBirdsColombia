@@ -292,12 +292,15 @@ def recent_sessions(spec_dir, limit=4):
         done = _re.search(r"\*\*Trabajo realizado\*\*:\s*(.+)", text)
         nxt = _re.search(r"\*\*Proximos pasos\*\*:\s*(.+)", text)
         res = _re.search(r"\*\*Resumen\*\*:\s*(.+)", text)
-        found.append((os.path.getmtime(p), {
+        # Orden por id de archivo (los ids llevan marca de tiempo, p. ej.
+        # SES-20260908-181342), no por mtime: en un checkout limpio todos los
+        # mtime son iguales y el orden de listdir depende del filesystem (CI).
+        found.append({
             "id": f[:-3],
             "done": (done.group(1).strip() if done else (res.group(1).strip() if res else "-"))[:180],
             "next": (nxt.group(1).strip() if nxt else "-")[:180],
-        }))
-    return [s for _, s in sorted(found, key=lambda x: x[0], reverse=True)[:limit]]
+        })
+    return sorted(found, key=lambda s: s["id"], reverse=True)[:limit]
 
 
 def recent_learnings(spec_dir, limit=4):
@@ -320,7 +323,9 @@ def recent_learnings(spec_dir, limit=4):
         for line in head.splitlines():
             if line.startswith("# "):
                 title = line[2:].strip(); break
-        found.append((os.path.getmtime(p), title or f[:-3]))
+        # Mismo criterio que recent_sessions: orden por nombre de archivo
+        # (MEM-YYYYMMDD-NNN-...), estable entre working tree y checkout limpio.
+        found.append((f[:-3], title or f[:-3]))
     return [t for _, t in sorted(found, reverse=True)[:limit]]
 
 
@@ -1504,6 +1509,14 @@ def main_proyecto(a):
         if prev != state_json:
             print("DRIFT: spec/dashboard.html falta o quedó atrás del estado de "
                   "receipts/ + spec/ (regenerar: harness_graph.py --proyecto .)")
+            if prev:
+                try:
+                    prev_state = json.loads(prev)
+                    for k in sorted(set(prev_state) | set(state)):
+                        if prev_state.get(k) != state.get(k):
+                            print(f"  campo distinto: {k}")
+                except (ValueError, TypeError):
+                    pass
             sys.exit(1)
         print("DASHBOARD CHECK OK: spec/dashboard.html al día con el proyecto.")
         sys.exit(0)
