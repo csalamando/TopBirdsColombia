@@ -29,6 +29,38 @@ def collect_ids(root, exts):
                 ids.update(re.findall(r"HU-\d+", text, re.IGNORECASE))
     return {i.upper() for i in ids}
 
+# Convención de NOMBRE de archivo de test: vitest/jest (*.test.*, *.spec.*),
+# pytest (test_*.py), go (_test.go). `test.`/`spec.` deben ir tras un punto o
+# al inicio del nombre ("contest.py" o "prospect.ts" no son tests).
+TEST_NAME_PAT = re.compile(r"(?:\.|^)(?:test|spec)\.[^.]+$|^test_.*\.py$|_test\.go$")
+
+# Directorios que nunca se recorren al buscar evidencia de test en src/.
+_PRUNE_DIRS = ("node_modules", ".git", "dist", "build", "__pycache__", ".next")
+
+def collect_test_ids(root, exts):
+    """Ids HU en ARCHIVOS DE TEST identificados por nombre (*.test.*, test_*.py).
+
+    A diferencia de collect_ids (cualquier archivo con la extensión dada), solo
+    cuenta archivos que siguen la convención de test: permite usar directorios
+    de fuente (src/) como evidencia de test sin contar código de aplicación.
+    """
+    ids = set()
+    if not os.path.isdir(root):
+        return ids
+    for dirpath, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if d not in _PRUNE_DIRS]
+        for f in files:
+            if not any(f.endswith(e) for e in exts):
+                continue
+            if not TEST_NAME_PAT.search(f):
+                continue
+            try:
+                text = open(os.path.join(dirpath, f), encoding="utf-8", errors="ignore").read()
+            except OSError:
+                continue
+            ids.update(re.findall(r"HU-\d+", text, re.IGNORECASE))
+    return {i.upper() for i in ids}
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--spec-dir", default="spec/")
@@ -37,6 +69,9 @@ def main():
     a = ap.parse_args()
     stories = collect_ids(os.path.join(a.spec_dir, "user-stories.md") if os.path.isfile(os.path.join(a.spec_dir, "user-stories.md")) else a.spec_dir, [".md"])
     tests = collect_ids(a.tests_dir, [".py", ".ts", ".tsx", ".js", ".java", ".cs", ".feature"])
+    # Tests unitarios junto al código (src/**/*.test.*, src/**/test_*.py):
+    # misma evidencia que usa el dashboard (derive_project de harness_graph).
+    tests |= collect_test_ids(a.src_dir, [".py", ".ts", ".tsx", ".js", ".java", ".cs", ".feature"])
     code  = collect_ids(a.src_dir, [".py", ".ts", ".tsx", ".js", ".java", ".cs"])
     print("| Historia | Gherkin (spec) | Test | Código |")
     print("|---|---|---|---|")

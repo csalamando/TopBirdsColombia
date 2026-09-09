@@ -87,3 +87,5 @@
 {"ts": "2026-09-08T15:43:20", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T15:53:37", "tipo": "use", "skill": "software-architect", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T18:12:47", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-08T19:27:06", "tipo": "use", "skill": "orchestrator", "fase": "8", "modo": ""}
+{"ts": "2026-09-08T19:29:30", "tipo": "use", "skill": "devops-engineer", "fase": "6", "modo": "", "auto": "receipt"}

@@ -1,4 +1,4 @@
-// Trazabilidad SDLC: HU-08
+// Trazabilidad SDLC: HU-08, HU-09
 import { describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";

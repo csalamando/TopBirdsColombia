@@ -244,10 +244,14 @@ def parse_reviews(spec_dir):
     """Serie histórica desde los snapshots sprint-review-NN.md (fuente canónica)."""
     import glob, re
     out = []
-    for p in sorted(glob.glob(os.path.join(spec_dir, "reports", "sprint-review-*.md"))):
-        m = re.search(r"sprint-review-(\d+)", p)
+    # Dos esquemas de nombre conviven: sprint-NN-review.md (v1) y
+    # sprint-review-NN.md (v2); el glob debe cubrir ambos o los sprints
+    # antiguos desaparecen del contador.
+    for p in glob.glob(os.path.join(spec_dir, "reports", "sprint*review*.md")):
+        m = re.search(r"sprint-(\d+)-review|sprint-review-(\d+)", p)
         if not m:
             continue
+        num = int(m.group(1) or m.group(2))
         try:
             text = open(p, encoding="utf-8", errors="replace").read()
         except OSError:
@@ -265,13 +269,13 @@ def parse_reviews(spec_dir):
             mins = _span_minutes(row.group(2).strip())
             if mins is not None:
                 lead[row.group(1)] = mins
-        out.append({"sprint": int(m.group(1)),
+        out.append({"sprint": num,
                     "fecha": fecha.group(1) if fecha else None,
                     "artefactos": int(kpi("Artefactos aprobados") or 0),
                     "gates_1er": int(float(kpi("Gates al primer intento") or 0)),
                     "rehechos": int(r.group(1)) if r else 0,
                     "lead": lead})
-    return out
+    return sorted(out, key=lambda r: r["sprint"])
 
 
 def recent_sessions(spec_dir, limit=4):
@@ -371,6 +375,10 @@ def parse_radar(spec_dir):
     for i, h in enumerate(heads):
         end = heads[i + 1].start() if i + 1 < len(heads) else len(text)
         found = re.findall(r'-\s*technology:\s*"?([^"\n]+)"?', text[h.end():end])
+        if not found:
+            # Formato simple (lista de strings: '- Python (backend)'), sin la
+            # clave technology: que espera el formato canónico del arnés.
+            found = re.findall(r'^\s*-\s+(.+)$', text[h.end():end], re.M)
         counts[h.group(1)] = len(found)
         techs[h.group(1)] = [t.strip() for t in found]
     for q in ("ADOPT", "TRIAL", "ASSESS", "HOLD"):
@@ -519,9 +527,10 @@ def derive_project(project_dir):
     """Modelo del dashboard: todo derivado de receipts/ + spec/ + sprint reviews."""
     import skill_metrics
     try:
-        from traceability_matrix import collect_ids
+        from traceability_matrix import collect_ids, collect_test_ids
     except ImportError:
         collect_ids = None
+        collect_test_ids = None
     spec_dir = os.path.join(project_dir, "spec")
     recs = skill_metrics.load_receipts(spec_dir)
     vigentes = [r for r in recs if r.get("estado") == "vigente"]
@@ -628,6 +637,12 @@ def derive_project(project_dir):
         # código: solo dirs de fuente (excluye e2e/tests y node_modules por construcción)
         for d in ("src", "backend/src", "frontend/src", "app", "lib", "poc/src"):
             code |= collect_ids(os.path.join(root, d), code_exts)
+        # Evidencia de test que vive junto al código (src/**/*.test.*,
+        # src/backend/tests/test_*.py): sin esto, las HU con solo tests
+        # unitarios (sin e2e) quedan como "sin test" en el contador.
+        if collect_test_ids:
+            for d in ("src", "backend", "frontend", "app", "lib", "poc/src"):
+                tests |= collect_test_ids(os.path.join(root, d), test_exts)
         if stories:
             hu = {"total": len(stories), "cerradas": len(stories & tests & code)}
 
@@ -1413,6 +1428,24 @@ def emit_portal(model, spec_dir):
         pid = portal_lib.register(spec_dir, origen="harness_graph", kind="diagrama",
                                   ruta="../diagrams/" + name, titulo=titulo,
                                   grupo="diagramas")
+        diags.append((pid, titulo))
+
+    # Diagramas derivados en Markdown (p. ej. pipeline-cicd.md): mdview los
+    # renderiza como página de docs; aquí se enlazan como tarjeta más para
+    # que aparezcan junto a los diagramas vivos IR.
+    import re as _re
+    import mdview
+    for p in sorted(_g.glob(os.path.join(spec_dir, "diagrams", "*.md"))):
+        name = os.path.basename(p)
+        titulo = os.path.splitext(name)[0]
+        try:
+            head = open(p, encoding="utf-8", errors="replace").read(400)
+            hm = _re.search(r"^#\s+(.+)$", head, _re.M)
+            if hm:
+                titulo = hm.group(1).strip()
+        except OSError:
+            pass
+        pid = portal_lib.slug("paginas/docs/" + mdview.doc_name("diagrams/" + name))
         diags.append((pid, titulo))
 
     if diags:
