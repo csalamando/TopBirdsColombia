@@ -580,7 +580,15 @@ def derive_project(project_dir):
         b = a.rsplit("/", 1)[-1] if a else "?"
         if art:
             s = spec_dir.replace("\\", "/").rstrip("/") + "/"
-            rel = a[len(s):] if a.startswith(s) else b
+            if a.startswith(s):
+                rel = a[len(s):]
+            elif "/spec/" in a:
+                # Recibo emitido en otra máquina/check-out (ruta absoluta que
+                # no coincide con este spec_dir): la parte tras "/spec/" es la
+                # ruta relativa estable, independiente del entorno (CI).
+                rel = a.split("/spec/", 1)[1]
+            else:
+                rel = b
             # Los .md se enlazan a su pagina del portal (ruta hash del shell);
             # el resto (json, yaml...) va al archivo tal cual en otra pestaña.
             if rel.lower().endswith(".md"):

@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # tdd_commits usa git log HEAD~60..HEAD (checkout default = shallow)
 
       - uses: actions/setup-python@v5
         with:
