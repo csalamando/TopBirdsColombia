@@ -123,7 +123,7 @@ skills:
   - name: sdlc-software-architect
     role: software-architect
     phases: [2, 3]
-    owns: [spec/architecture.md, spec/api-contract.yaml, spec/data-model.md, spec/adr/, spec/test-plan.md, spec/tech-debt.md]
+    owns: [spec/architecture.md, spec/api-contract.yaml, spec/data-model.md, spec/adr/, spec/test-plan.md, spec/tech-debt.md, spec/diagrams/contenedores.ir.json, spec/diagrams/secuencia-ronda.ir.json, spec/diagrams/flujo-datos.ir.json]
     gates: [architecture, api-contract, test-plan, adr]
     optional-deps: []
     scripts: []
