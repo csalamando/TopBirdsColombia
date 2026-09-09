@@ -1546,7 +1546,12 @@ def main_proyecto(a):
                 try:
                     prev_state = json.loads(prev)
                     for k in sorted(set(prev_state) | set(state)):
-                        if prev_state.get(k) != state.get(k):
+                        # Comparacion canonica: json.loads convierte las claves
+                        # int a str, un '!=' directo reportaria campos iguales
+                        # (p. ej. gate_status) como distintos.
+                        a = json.dumps(prev_state.get(k), ensure_ascii=False, sort_keys=True)
+                        b = json.dumps(state.get(k), ensure_ascii=False, sort_keys=True)
+                        if a != b:
                             print(f"  campo distinto: {k}")
                 except (ValueError, TypeError):
                     pass
