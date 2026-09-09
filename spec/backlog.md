@@ -48,6 +48,7 @@ Este backlog prioriza los ítems del MVP usando MoSCoW y RICE. La métrica de é
 | S18-UX-02 | Presentación visual: imágenes 4:3, panel de resultado con color, copy sin códigos internos, detalle con foto (TDD, HU-19, RN-18) | EP-03 | Must have | 18 | Completado |
 | S18-DE-03 | Restaurar imágenes de las cartas en calidad original del dataset (copia sin pérdida JPG, supersedes thumbnails webp de S17-DE-01, TDD, HU-20, RN-19) | EP-02 | Must have | 18 | Completado |
 | S18-UX-03 | Selector de baraja con tarjetas e imagen representativa por baraja (TDD, HU-09 esc. 6, RN-20) | EP-03 | Must have | 18 | Completado |
+| S19-AR-01 | Revisar fix propuesto al arnés (harness-sdlc, NO aplicado): `sprint_review_sprints()` en `harness_graph.py` — contar ambas convenciones de sprint review (`sprint-N-review.md` narrativos S5-S13 + `sprint-review-NN.md` snapshots) para `contadores.sprints` y `loops_count 4->4`, sin tocar `parse_reviews` (tendencias). Incluye cobertura nueva en `tests/self_test.py` (139 checks OK). Efecto: portal pasa de 5 a 14 "Sprints completados". Diff: working tree de harness-sdlc (sin commit). NOTA: el portal vigente (commit 2bc8b3b) se generó con el patch aplicado; regenerar con arnés 2.20.1 pristino revierte el contador a 5 hasta integrar y versionar el fix (p. ej. v2.20.2). Ver MEM-20260908-009 | EP-04 | Should have | 19 | Pendiente |
 
 ## Notas
 - El backlog se refinará en cada sprint.

@@ -23,7 +23,7 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `architecture-proposal.md` | e942faa33dcd | 53 | Propuesta de arquitectura — Top Trumps Aves de Colombia |
 | `architecture.md` | 80521beddd73 | 54 | Arquitectura de software — Top Trumps Aves de Colombia |
 | `authority-matrix.yaml` | ea249b7b2f7f | 70 | Matriz de autoridad — Top Trumps Aves de Colombia |
-| `backlog.md` | 7dc7ba0aaa8e | 55 | Backlog — Top Trumps Aves de Colombia |
+| `backlog.md` | b300838e9d29 | 56 | Backlog — Top Trumps Aves de Colombia |
 | `business-rules.md` | 930e252159df | 106 | Reglas de negocio — Top Trumps Aves de Colombia |
 | `cost-assumptions.yaml` | 2b31019111f6 | 45 | Supuestos de costos — Top Trumps Aves de Colombia |
 | `cost-estimation.md` | 9ad56453aaff | 64 | Estimación de costos — Top Trumps Aves de Colombia |
@@ -40,7 +40,7 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `glossary.md` | d2f10ce59bfe | 51 | Glosario — Top Trumps Aves de Colombia |
 | `impact-report.md` | e0c5c24512a0 | 37 | Impact Report — Sprint 15 (primera medición post-lanzamiento demo) |
 | `pipeline-state.md` | 331a46447b7d | 95 | ﻿# Estado del pipeline SDLC — Top Trumps Aves de Colombia |
-| `portal/registry.json` | c5050acd570a | 723 | { |
+| `portal/registry.json` | 1540edc5da4e | 723 | { |
 | `qa-report.md` | d845f334af1e | 105 | QA Report — Sprint 11: E2E formal y GATE 2 |
 | `reports/sprint-10-review.md` | bff01bd5e7c8 | 76 | Sprint 10 — Integración frontend-backend y pruebas E2E |
 | `reports/sprint-11-review.md` | 88ee6d05e471 | 86 | Sprint 11 — QA E2E formal y GATE 2 |
@@ -71,5 +71,5 @@ Como leer este repo (para cualquier agente, con o sin el arnes instalado):
 | `ux/screen-inventory.md` | 633d1d5aa7dc | 55 | Inventario de pantallas — Top Trumps Aves de Colombia |
 | `vision.md` | 1886a64466f8 | 40 | Visión de producto — Top Trumps Aves de Colombia |
 
-Memorias: 8 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
+Memorias: 9 en `spec/memory/entries/` (buscar con `mem.py search --brief`).
 Recibos: 51 en `spec/receipts/` (ver `receipt.py status`).
