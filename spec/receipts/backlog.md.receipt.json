@@ -1,10 +1,14 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\backlog.md",
-  "sha256": "b300838e9d29aaf5b97931e8b50b051e677734de9ad3fd41e8c456a4578bf90d",
-  "gate": "GATE-1",
-  "tipo": "",
+  "sha256": "60fbf6fc56b2150c6547574350ba60168119978636f0ec32019beafa4ee5d37e",
+  "gate": "GATE 1",
+  "tipo": "backlog",
   "rol": "product-owner",
-  "emitido": "2026-09-08T22:30:54",
+  "emitido": "2026-09-09T21:04:50",
   "estado": "vigente",
-  "harness_version": "2.20.1"
+  "approved_by": "Carlos Salamando",
+  "deps": {
+    "vision.md": "1886a64466f803cf162ad02b5e677d07335921523c3448fa01ecdcec7678b4f5",
+    "epics.md": "2ac87fddfdb19f49bfcbb2a7a58da907da4c65de5de1fe045e1483e29f237dfe"
+  }
 }
