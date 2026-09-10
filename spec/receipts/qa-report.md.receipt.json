@@ -1,10 +1,11 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\qa-report.md",
-  "sha256": "d845f334af1eb90cd41de53bd612e231b9d1d61cd3a32dff0b70aed3411e1fdb",
-  "gate": "GATE-2",
-  "tipo": "",
+  "sha256": "66f99e7ff08fad72c5016fafb067ec37559ddf4dc4a7208f31747f0c6c8645ea",
+  "gate": "GATE 2",
+  "tipo": "qa-report",
   "rol": "qa-automation",
-  "emitido": "2026-09-08T10:02:45",
+  "emitido": "2026-09-09T20:25:43",
   "estado": "vigente",
-  "harness_version": "2.20.1"
+  "harness_version": "2.22.0",
+  "approved_by": "Carlos Salamando"
 }

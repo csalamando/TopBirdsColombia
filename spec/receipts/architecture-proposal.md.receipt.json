@@ -1,12 +1,15 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\architecture-proposal.md",
-  "sha256": "e942faa33dcd5ecf8d2222c2134e772ec66e93706fc618df54e32f3f3800a8ed",
-  "gate": "GATE-0",
+  "sha256": "41bdbcf30eb63b18ed837cf1918f30822074e63335904f0e5413f71f6af59b4f",
+  "gate": "GATE 0",
   "tipo": "architecture-proposal",
   "rol": "solution-architect",
-  "emitido": "2026-09-08T10:02:44",
+  "emitido": "2026-09-09T20:24:58",
   "estado": "vigente",
-  "harness_version": "2.20.1",
-  "tokens_src": "estimado",
-  "tokens_out": 620
+  "harness_version": "2.22.0",
+  "approved_by": "Carlos Salamando",
+  "deps": {
+    "vision.md": "1886a64466f803cf162ad02b5e677d07335921523c3448fa01ecdcec7678b4f5",
+    "backlog.md": "b300838e9d29aaf5b97931e8b50b051e677734de9ad3fd41e8c456a4578bf90d"
+  }
 }

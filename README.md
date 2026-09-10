@@ -6,7 +6,7 @@ Aplicación demo de cartas estilo Top Trumps con aves de Colombia. Construida pa
 
 - **Selección de baraja al iniciar partida (HU-09, RN-20)**: el jugador elige entre una baraja temática aleatoria (por defecto, elegida server-side), la colección completa de 52 cartas o una expedición por región (Andina, Caribe, Pacífico, Amazonía, Orinoquía). Cada opción se presenta como tarjeta con la imagen representativa de la primera ave del mazo, el nombre y el conteo de aves; «Aleatoria» usa placeholder.
 - **Baraja curada de 52 aves** generada desde `topbirds_dataset` (iNaturalist Open Data): siempre incluye las 13 especies amenazadas (UICN VU/EN/CR), prioriza las 146 especies con dimorfismo sexual y está balanceada por región; cada carta lleva atribución de fotógrafo y licencia.
-- **Fotografía en calidad original (HU-20, RN-19)**: las cartas se sirven con los JPG originales del dataset, copiados sin pérdida (`scripts/build_card_images.py`); los thumbnails webp con pérdida quedaron eliminados. Las variantes por sexo se conservan: las especies dimórficas muestran badge y toggle macho/hembra, las amenazadas (UICN VU/EN/CR) llevan sello de conservación y las migratorias boreales un badge de visitante (temporada nov-feb).
+- **Fotografía en calidad original (HU-20, RN-19)**: las cartas se sirven con los JPG originales del dataset, copiados sin pérdida (`tools/build_card_images.py`); los thumbnails webp con pérdida quedaron eliminados. Las variantes por sexo se conservan: las especies dimórficas muestran badge y toggle macho/hembra, las amenazadas (UICN VU/EN/CR) llevan sello de conservación y las migratorias boreales un badge de visitante (temporada nov-feb).
 - **Bono «¿Macho o hembra?» (HU-11, RN-10)**: una vez por partida, en tu turno, puedes apostar el sexo de la carta del oponente; acertar gana la ronda aunque pierdas el atributo.
 - **Ronda de altitud (HU-14, RN-11)**: una vez por partida puedes jugar el atributo oculto `altitud_max_msnm` («¿Quién vive más alto?»).
 - **Combo taxonómico (HU-16, RN-12)**: ganar dos rondas seguidas con aves del mismo orden suma +1 carta del oponente.
@@ -48,7 +48,8 @@ src/backend/ # API FastAPI
 src/frontend/# React SPA
 tests/e2e/   # Pruebas end-to-end con Playwright
 topbirds_dataset/ # Dataset enriquecido (JSON versionado; imágenes crudas fuera del repo)
-scripts/     # Utilidades (p. ej. build_baraja.py, genera la baraja del juego)
+scripts/     # Scripts del arnés vendorados (verificados con harness_doctor --check-vendored)
+tools/       # Utilidades de dominio (p. ej. build_baraja.py, genera la baraja del juego)
 docs/        # Documentación adicional e imágenes del portal (docs/images/)
 ```
 

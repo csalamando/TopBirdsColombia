@@ -76,6 +76,10 @@ npm test
 
 ## Defectos encontrados y resueltos
 
+Bugs detectados durante la ejecución E2E: 5 (todos resueltos y verificados en la misma sprint). Bugs abiertos al cierre: 0.
+
+Regresión: la suite E2E (10/10 escenarios) y las suites unitarias (backend 94.74 % cobertura, frontend 40/40) quedaron verdes tras cada corrección, cubriendo los 5 defectos como pruebas de regresión permanentes.
+
 | Defecto | Causa raíz | Solución |
 |---|---|---|
 | Escenarios de empate/ganar partida no deterministas | Resultados aleatorios del backend | Mock de respuestas de `/api/partidas/*/rondas` para forzar empate y victoria. |

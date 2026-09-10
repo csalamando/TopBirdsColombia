@@ -21,22 +21,50 @@ Uso:
       Exit 0 si el recibo existe y el hash coincide. Exit 1 si falta o esta invalidado.
   python3 receipt.py status [--spec-dir spec/]
       Lista recibos y su vigencia.
-  python3 receipt.py revoke <artefacto>
-      Revoca manualmente (p. ej. ante change-request).
+  python3 receipt.py revoke <artefacto> --reason "<causa>" [--relation supersedes|conflicts_with]
+      Revoca manualmente (p. ej. ante change-request). La razón es OBLIGATORIA
+      (ADR-004, v2.21): queda en la memoria de auditoría spec/audit/events.jsonl.
+
+ADR-004 (v2.21): emit/invalidado/revocado anexan un hecho append-only con cadena
+de hash a la memoria de auditoría (audit_log.py). Los .receipt.json son el estado
+operativo derivado; la verdad histórica es el log.
 """
 import os, sys, json, hashlib, argparse, datetime, subprocess
 
-def harness_version():
-    """Versión del arnés instalado (frontmatter del orquestador); None si no se puede leer.
+# ADR-004 (v2.21): toda emision/invalidacion/revocacion deja un hecho en la
+# memoria de auditoria (spec/audit/events.jsonl, append-only con cadena de hash).
+try:
+    from audit_log import append_event, gate_valido, gate_es_humano
+except ImportError:
+    append_event = None
+    gate_valido = gate_es_humano = None
 
-    Patch local: en la copia raíz (scripts/) el '..' cae en la raíz del proyecto,
-    donde no hay SKILL.md; se agrega fallback al SKILL.md del skill orquestador.
-    """
-    here = os.path.dirname(os.path.abspath(__file__))
-    candidates = [os.path.join(here, "..", "SKILL.md"),
-                  os.path.join(here, "..", ".agents", "skills", "sdlc-orchestrator", "SKILL.md")]
-    md = next((c for c in candidates if os.path.isfile(c)), None)
-    if not md:
+def _audit(spec_dir, evento, **fields):
+    """Best-effort visible: si el log no esta disponible/inicializado, se advierte
+    (nunca silencioso). El drift de scripts vendored queda expuesto aqui hasta
+    que harness_doctor --check-vendored lo vuelva bloqueante."""
+    if append_event is None:
+        print("  ⚠ audit_log.py no encontrado junto a receipt.py — el hecho NO queda "
+              "en la memoria de auditoria (scripts del arnes incompletos o desactualizados).")
+        return
+    try:
+        append_event(spec_dir, evento, **fields)
+    except RuntimeError as e:
+        print(f"  ⚠ hecho '{evento}' no registrado en auditoria: {e}")
+
+def _rel(spec_dir, artefacto):
+    """Ruta relativa al proyecto con '/' — portable y sin filtrar rutas locales
+    (leccion v2.20.1). El recibo historico conserva la absoluta; el evento usa esta."""
+    root = os.path.dirname(os.path.abspath(spec_dir))
+    try:
+        return os.path.relpath(os.path.abspath(artefacto), root).replace(os.sep, "/")
+    except ValueError:
+        return os.path.basename(artefacto)
+
+def harness_version():
+    """Versión del arnés instalado (frontmatter del orquestador); None si no se puede leer."""
+    md = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "SKILL.md")
+    if not os.path.isfile(md):
         return None
     import re as _re
     m = _re.search(r'^harness-version:\s*"?([^"\n]+)"?\s*$',
@@ -60,9 +88,54 @@ def sha256(path):
             h.update(chunk)
     return h.hexdigest()
 
+def deps_of(spec_dir, artefacto):
+    """N2 (v2.22): dependencias upstream del artefacto según el grafo canónico
+    (spec_diff_impact.DEPENDS_ON), con su hash al momento de emitir.
+    Un cambio en cualquiera invalida derivadamente este recibo."""
+    try:
+        from spec_diff_impact import DEPENDS_ON
+    except ImportError:
+        return {}
+    base = os.path.basename(artefacto)
+    deps = {}
+    for up in DEPENDS_ON.get(base, []):
+        p = os.path.join(spec_dir, up)
+        if os.path.isfile(p):
+            deps[up] = sha256(p)
+    return deps
+
+
+def deps_mismatch(spec_dir, rec):
+    """Nombre de la primera dependencia que cambió desde la emisión, o None."""
+    for dep, old_h in (rec.get("deps") or {}).items():
+        p = os.path.join(spec_dir, dep)
+        if not os.path.isfile(p) or sha256(p) != old_h:
+            return dep
+    return None
+
+
 def cmd_emit(a):
     if not os.path.isfile(a.artefacto):
         print(f"FALLO: no existe {a.artefacto}"); sys.exit(1)
+    # Catalogo de gates (v2.21, N3): nada de gates inventados; los gates humanos
+    # (0/1/3 y cierres SPRINT-*) exigen aprobador registrado — la aprobacion
+    # humana deja de ser narracion.
+    if gate_valido is not None:
+        gn = gate_valido(a.gate)
+        if gn is None:
+            print(f"FALLO: gate '{a.gate}' no esta en el catalogo del arnes "
+                  f"(GATE 0/1/2/2.5/3, SPRINT-N, FASE-N). Un recibo solo puede "
+                  f"emitirse para un gate reconocido."); sys.exit(1)
+        if gn != a.gate:
+            print(f"  (gate normalizado: '{a.gate}' -> '{gn}')")
+            a.gate = gn
+        if gate_es_humano(gn) and not a.approved_by:
+            print(f"FALLO: {gn} es un gate HUMANO — exige --approved-by <identidad> "
+                  f"del aprobador. El agente no puede auto-aprobarse."); sys.exit(1)
+    else:
+        print("  ⚠ audit_log.py no encontrado junto a receipt.py — emitiendo SIN "
+              "validar el catalogo de gates ni registrar auditoria (scripts "
+              "incompletos o desactualizados).")
     # Autoridad: si la matriz cubre el artefacto, el rol emisor debe ser el owner
     try:
         from authority_check import owner_of, load_matrix
@@ -98,6 +171,11 @@ def cmd_emit(a):
     hv = harness_version()
     if hv:
         rec["harness_version"] = hv
+    if a.approved_by:
+        rec["approved_by"] = a.approved_by
+    deps = deps_of(a.spec_dir, a.artefacto)
+    if deps:
+        rec["deps"] = deps
     if a.tokens_src:
         rec["tokens_src"] = a.tokens_src
         if t_in:
@@ -107,20 +185,43 @@ def cmd_emit(a):
     if a.attempts and int(a.attempts) > 1:
         rec["attempts"] = int(a.attempts)
     p = receipt_path(a.spec_dir, a.artefacto)
+    prev_estado = None
+    if os.path.isfile(p):
+        try:
+            prev_estado = json.load(open(p, encoding="utf-8")).get("estado")
+        except (json.JSONDecodeError, OSError):
+            pass
     open(p, "w", encoding="utf-8").write(json.dumps(rec, indent=2, ensure_ascii=False))
     print(f"RECIBO EMITIDO ({a.gate}): {a.artefacto}\n  sha256: {rec['sha256'][:16]}...  -> {p}")
+    # ADR-004: hecho en la memoria de auditoria. Si habia un recibo previo no
+    # vigente, esta emision es una RE-emision (retrabajo) — queda explícito.
+    _audit(a.spec_dir, "emit", artefacto=_rel(a.spec_dir, a.artefacto), gate=a.gate,
+           rol=a.role or "", sha256=rec["sha256"], approved_by=a.approved_by or "",
+           attempts=str(a.attempts) if a.attempts and int(a.attempts) > 1 else "",
+           nota="re-emision (recibo previo no vigente)" if prev_estado in ("invalidado", "revocado") else "")
     # v2.16: auto-registro de la activacion en usage.jsonl — el recibo ES evidencia
     # de que la skill produjo; cierra la brecha de metricas muertas cuando el agente
     # olvida 'skill_metrics.py use'. skill_metrics report deduplica contra usos manuales.
+    # v2.21 (ADR-004): la activacion TAMBIEN queda como evento 'use' en la memoria de
+    # auditoria, con la fase derivada del catalogo unico gate_fase (adios fase '?').
     if a.role:
-        GATE_FASE = {"GATE 0": "0", "GATE 1": "3", "GATE 2": "5", "GATE 2.5": "5", "GATE 3": "6"}
+        try:
+            from audit_log import gate_fase as _gate_fase
+        except ImportError:
+            _gate_fase = None
+        if _gate_fase:
+            fase = _gate_fase(a.gate)
+        else:
+            GATE_FASE = {"GATE 0": "0", "GATE 1": "3", "GATE 2": "5", "GATE 2.5": "5", "GATE 3": "6"}
+            fase = GATE_FASE.get(a.gate, "?")
+        skill = a.role.replace("sdlc-", "")
         ev = {"ts": datetime.datetime.now().isoformat(timespec="seconds"), "tipo": "use",
-              "skill": a.role.replace("sdlc-", ""), "fase": GATE_FASE.get(a.gate, "?"),
-              "modo": "", "auto": "receipt"}
+              "skill": skill, "fase": fase, "modo": "", "auto": "receipt"}
         md = os.path.join(a.spec_dir, "metrics")
         os.makedirs(md, exist_ok=True)
         with open(os.path.join(md, "usage.jsonl"), "a", encoding="utf-8") as fh:
             fh.write(json.dumps(ev, ensure_ascii=False) + "\n")
+        _audit(a.spec_dir, "use", skill=skill, fase=fase, auto="receipt")
 
 def cmd_verify(a):
     p = receipt_path(a.spec_dir, a.artefacto)
@@ -136,8 +237,25 @@ def cmd_verify(a):
         rec["estado"] = "invalidado"
         rec["invalidado"] = datetime.datetime.now().isoformat(timespec="seconds")
         open(p, "w", encoding="utf-8").write(json.dumps(rec, indent=2, ensure_ascii=False))
+        _audit(a.spec_dir, "invalidado", artefacto=_rel(a.spec_dir, a.artefacto),
+               gate=rec.get("gate", ""), rol=rec.get("rol", ""),
+               sha256_anterior=rec["sha256"], sha256_nuevo=actual)
         print(f"RECIBO INVALIDADO: el contenido de {a.artefacto} cambio desde la aprobacion ({rec['gate']}).")
         print("  El gate debe volver a ejecutarse y emitirse un recibo nuevo.")
+        sys.exit(1)
+    # N2: invalidación derivada — una dependencia upstream cambió desde la emisión
+    dep = deps_mismatch(a.spec_dir, rec)
+    if dep:
+        rec["estado"] = "invalidado"
+        rec["invalidado"] = datetime.datetime.now().isoformat(timespec="seconds")
+        open(p, "w", encoding="utf-8").write(json.dumps(rec, indent=2, ensure_ascii=False))
+        _audit(a.spec_dir, "invalidado", artefacto=_rel(a.spec_dir, a.artefacto),
+               gate=rec.get("gate", ""), rol=rec.get("rol", ""),
+               sha256=rec["sha256"],
+               nota=f"invalidación derivada: cambió la dependencia '{dep}'")
+        print(f"RECIBO INVALIDADO DERIVADAMENTE: '{dep}' (dependencia de {a.artefacto}) "
+              f"cambió desde la aprobación ({rec['gate']}).")
+        print("  Re-validar el gate y re-emitir — el upstream ya no es el aprobado.")
         sys.exit(1)
     # Autoridad: el rol emisor registrado debe seguir siendo el owner según la matriz vigente
     try:
@@ -158,15 +276,37 @@ def cmd_status(a):
         print("Sin recibos emitidos."); return
     print("| Artefacto | Gate | Rol | Estado | Hash coincide |")
     print("|---|---|---|---|---|")
+    problemas = []
     for f in sorted(files):
         rec = json.load(open(os.path.join(d, f), encoding="utf-8"))
         art = rec["artefacto"]
         match = "-"
         if os.path.isfile(art):
             match = "si" if sha256(art) == rec["sha256"] else "NO (invalidado)"
+        else:
+            problemas.append(f"{os.path.basename(art)}: artefacto no existe")
+        if rec["estado"] != "vigente":
+            problemas.append(f"{os.path.basename(art)}: estado {rec['estado']}")
+        if match.startswith("NO"):
+            problemas.append(f"{os.path.basename(art)}: hash no coincide (invalidado sin re-emitir)")
+        dep = deps_mismatch(a.spec_dir, rec)
+        if rec["estado"] == "vigente" and dep:
+            problemas.append(f"{os.path.basename(art)}: dependencia '{dep}' cambió "
+                             "(invalidación derivada pendiente)")
         print(f"| {os.path.basename(art)} | {rec['gate']} | {rec.get('rol', '-')} | {rec['estado']} | {match} |")
+    # v2.21 (N3): --strict convierte el estado en veredicto ejecutable para CI
+    if getattr(a, "strict", False):
+        if problemas:
+            print(f"\nSTRICT: {len(problemas)} problema(s) — los gates no estan en verde:")
+            for p_ in problemas:
+                print(f"  - {p_}")
+            sys.exit(1)
+        print("\nSTRICT: todos los recibos vigentes y coincidentes.")
 
 def cmd_revoke(a):
+    if not a.reason:
+        print("FALLO: revocar exige --reason (ADR-004: una revocación sin causa "
+              "declarada no es auditoría, es ruido)."); sys.exit(1)
     p = receipt_path(a.spec_dir, a.artefacto)
     if not os.path.isfile(p):
         print(f"Sin recibo que revocar para {a.artefacto}"); sys.exit(1)
@@ -174,7 +314,11 @@ def cmd_revoke(a):
     rec["estado"] = "revocado"
     rec["revocado"] = datetime.datetime.now().isoformat(timespec="seconds")
     open(p, "w", encoding="utf-8").write(json.dumps(rec, indent=2, ensure_ascii=False))
-    print(f"RECIBO REVOCADO: {a.artefacto}")
+    _audit(a.spec_dir, "revocado", artefacto=_rel(a.spec_dir, a.artefacto),
+           gate=rec.get("gate", ""), rol=rec.get("rol", ""), reason=a.reason,
+           relation=a.relation or "", approved_by=a.approved_by or "",
+           sha256_anterior=rec.get("sha256", ""))
+    print(f"RECIBO REVOCADO: {a.artefacto} — razón registrada en la memoria de auditoría.")
 
 def main():
     ap = argparse.ArgumentParser()
@@ -184,9 +328,14 @@ def main():
     p.add_argument("--tokens-in", type=int, default=0); p.add_argument("--tokens-out", type=int, default=0)
     p.add_argument("--tokens-src", choices=["reportado", "estimado"], default="")
     p.add_argument("--attempts", type=int, default=1)
+    p.add_argument("--approved-by", default="", help="identidad del aprobador humano (gates humanos)")
     p = sub.add_parser("verify"); p.add_argument("artefacto")
-    sub.add_parser("status")
+    p = sub.add_parser("status"); p.add_argument("--strict", action="store_true",
+        help="exit 1 si hay recibos no vigentes, artefactos faltantes o hashes que no coinciden (CI)")
     p = sub.add_parser("revoke"); p.add_argument("artefacto")
+    p.add_argument("--reason", required=True, help="causa de la revocación (obligatoria, ADR-004)")
+    p.add_argument("--relation", choices=["supersedes", "conflicts_with"], default="")
+    p.add_argument("--approved-by", default="")
     a = ap.parse_args()
     {"emit": cmd_emit, "verify": cmd_verify, "status": cmd_status, "revoke": cmd_revoke}[a.cmd](a)
 

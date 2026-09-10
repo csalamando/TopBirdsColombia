@@ -1,0 +1,24 @@
+{
+  "titulo": "Opción B — Django + HTMX + templates",
+  "tema": "oscuro",
+  "kind": "flow",
+  "grupos": {
+    "cliente": "Jugador",
+    "app": "Aplicación monolítica",
+    "datos": "Datos"
+  },
+  "nodos": [
+    {"id": "jugador", "titulo": "Jugador", "sub": "navegador web", "tipo": "ui", "grupo": "cliente", "ubicacion": "on-premise"},
+    {"id": "django", "titulo": "Django monolito", "sub": "templates + HTMX · vistas server-side", "tipo": "service", "grupo": "app", "ubicacion": "Railway"},
+    {"id": "sqlite", "titulo": "SQLite", "sub": "aves · partidas (demo)", "tipo": "db", "grupo": "datos", "ubicacion": "Railway"},
+    {"id": "dataset", "titulo": "Dataset de aves", "sub": "fuentes abiertas (seed)", "tipo": "source", "grupo": "datos", "ubicacion": "local"}
+  ],
+  "aristas": [
+    {"desde": "jugador", "hasta": "django", "label": "HTTP + HTML parcial (HTMX)"},
+    {"desde": "django", "hasta": "sqlite", "label": "ORM Django"},
+    {"desde": "django", "hasta": "dataset", "label": "seed idempotente"}
+  ],
+  "insights": [
+    {"titulo": "Sin API-first", "bullets": ["El contrato OpenAPI deja de ser la interfaz: pierde la demostración de gobierno de contratos."]}
+  ]
+}

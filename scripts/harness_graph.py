@@ -244,14 +244,10 @@ def parse_reviews(spec_dir):
     """Serie histórica desde los snapshots sprint-review-NN.md (fuente canónica)."""
     import glob, re
     out = []
-    # Dos esquemas de nombre conviven: sprint-NN-review.md (v1) y
-    # sprint-review-NN.md (v2); el glob debe cubrir ambos o los sprints
-    # antiguos desaparecen del contador.
-    for p in glob.glob(os.path.join(spec_dir, "reports", "sprint*review*.md")):
-        m = re.search(r"sprint-(\d+)-review|sprint-review-(\d+)", p)
+    for p in sorted(glob.glob(os.path.join(spec_dir, "reports", "sprint-review-*.md"))):
+        m = re.search(r"sprint-review-(\d+)", p)
         if not m:
             continue
-        num = int(m.group(1) or m.group(2))
         try:
             text = open(p, encoding="utf-8", errors="replace").read()
         except OSError:
@@ -269,13 +265,13 @@ def parse_reviews(spec_dir):
             mins = _span_minutes(row.group(2).strip())
             if mins is not None:
                 lead[row.group(1)] = mins
-        out.append({"sprint": num,
+        out.append({"sprint": int(m.group(1)),
                     "fecha": fecha.group(1) if fecha else None,
                     "artefactos": int(kpi("Artefactos aprobados") or 0),
                     "gates_1er": int(float(kpi("Gates al primer intento") or 0)),
                     "rehechos": int(r.group(1)) if r else 0,
                     "lead": lead})
-    return sorted(out, key=lambda r: r["sprint"])
+    return out
 
 
 def recent_sessions(spec_dir, limit=4):
@@ -296,15 +292,12 @@ def recent_sessions(spec_dir, limit=4):
         done = _re.search(r"\*\*Trabajo realizado\*\*:\s*(.+)", text)
         nxt = _re.search(r"\*\*Proximos pasos\*\*:\s*(.+)", text)
         res = _re.search(r"\*\*Resumen\*\*:\s*(.+)", text)
-        # Orden por id de archivo (los ids llevan marca de tiempo, p. ej.
-        # SES-20260908-181342), no por mtime: en un checkout limpio todos los
-        # mtime son iguales y el orden de listdir depende del filesystem (CI).
-        found.append({
+        found.append((os.path.getmtime(p), {
             "id": f[:-3],
             "done": (done.group(1).strip() if done else (res.group(1).strip() if res else "-"))[:180],
             "next": (nxt.group(1).strip() if nxt else "-")[:180],
-        })
-    return sorted(found, key=lambda s: s["id"], reverse=True)[:limit]
+        }))
+    return [s for _, s in sorted(found, key=lambda x: x[0], reverse=True)[:limit]]
 
 
 def recent_learnings(spec_dir, limit=4):
@@ -327,9 +320,7 @@ def recent_learnings(spec_dir, limit=4):
         for line in head.splitlines():
             if line.startswith("# "):
                 title = line[2:].strip(); break
-        # Mismo criterio que recent_sessions: orden por nombre de archivo
-        # (MEM-YYYYMMDD-NNN-...), estable entre working tree y checkout limpio.
-        found.append((f[:-3], title or f[:-3]))
+        found.append((os.path.getmtime(p), title or f[:-3]))
     return [t for _, t in sorted(found, reverse=True)[:limit]]
 
 
@@ -375,10 +366,6 @@ def parse_radar(spec_dir):
     for i, h in enumerate(heads):
         end = heads[i + 1].start() if i + 1 < len(heads) else len(text)
         found = re.findall(r'-\s*technology:\s*"?([^"\n]+)"?', text[h.end():end])
-        if not found:
-            # Formato simple (lista de strings: '- Python (backend)'), sin la
-            # clave technology: que espera el formato canónico del arnés.
-            found = re.findall(r'^\s*-\s+(.+)$', text[h.end():end], re.M)
         counts[h.group(1)] = len(found)
         techs[h.group(1)] = [t.strip() for t in found]
     for q in ("ADOPT", "TRIAL", "ASSESS", "HOLD"):
@@ -527,10 +514,9 @@ def derive_project(project_dir):
     """Modelo del dashboard: todo derivado de receipts/ + spec/ + sprint reviews."""
     import skill_metrics
     try:
-        from traceability_matrix import collect_ids, collect_test_ids
+        from traceability_matrix import collect_ids
     except ImportError:
         collect_ids = None
-        collect_test_ids = None
     spec_dir = os.path.join(project_dir, "spec")
     recs = skill_metrics.load_receipts(spec_dir)
     vigentes = [r for r in recs if r.get("estado") == "vigente"]
@@ -594,15 +580,7 @@ def derive_project(project_dir):
         b = a.rsplit("/", 1)[-1] if a else "?"
         if art:
             s = spec_dir.replace("\\", "/").rstrip("/") + "/"
-            if a.startswith(s):
-                rel = a[len(s):]
-            elif "/spec/" in a:
-                # Recibo emitido en otra máquina/check-out (ruta absoluta que
-                # no coincide con este spec_dir): la parte tras "/spec/" es la
-                # ruta relativa estable, independiente del entorno (CI).
-                rel = a.split("/spec/", 1)[1]
-            else:
-                rel = b
+            rel = a[len(s):] if a.startswith(s) else b
             # Los .md se enlazan a su pagina del portal (ruta hash del shell);
             # el resto (json, yaml...) va al archivo tal cual en otra pestaña.
             if rel.lower().endswith(".md"):
@@ -637,12 +615,6 @@ def derive_project(project_dir):
         # código: solo dirs de fuente (excluye e2e/tests y node_modules por construcción)
         for d in ("src", "backend/src", "frontend/src", "app", "lib", "poc/src"):
             code |= collect_ids(os.path.join(root, d), code_exts)
-        # Evidencia de test que vive junto al código (src/**/*.test.*,
-        # src/backend/tests/test_*.py): sin esto, las HU con solo tests
-        # unitarios (sin e2e) quedan como "sin test" en el contador.
-        if collect_test_ids:
-            for d in ("src", "backend", "frontend", "app", "lib", "poc/src"):
-                tests |= collect_test_ids(os.path.join(root, d), test_exts)
         if stories:
             hu = {"total": len(stories), "cerradas": len(stories & tests & code)}
 
@@ -1430,24 +1402,6 @@ def emit_portal(model, spec_dir):
                                   grupo="diagramas")
         diags.append((pid, titulo))
 
-    # Diagramas derivados en Markdown (p. ej. pipeline-cicd.md): mdview los
-    # renderiza como página de docs; aquí se enlazan como tarjeta más para
-    # que aparezcan junto a los diagramas vivos IR.
-    import re as _re
-    import mdview
-    for p in sorted(_g.glob(os.path.join(spec_dir, "diagrams", "*.md"))):
-        name = os.path.basename(p)
-        titulo = os.path.splitext(name)[0]
-        try:
-            head = open(p, encoding="utf-8", errors="replace").read(400)
-            hm = _re.search(r"^#\s+(.+)$", head, _re.M)
-            if hm:
-                titulo = hm.group(1).strip()
-        except OSError:
-            pass
-        pid = portal_lib.slug("paginas/docs/" + mdview.doc_name("diagrams/" + name))
-        diags.append((pid, titulo))
-
     if diags:
         diag_cards = ('<div class="diag-cards">'
                       + "".join(f'<a class="dcard" href="../index.html#/id/{esc(pid)}" target="_top">'
@@ -1542,19 +1496,6 @@ def main_proyecto(a):
         if prev != state_json:
             print("DRIFT: spec/dashboard.html falta o quedó atrás del estado de "
                   "receipts/ + spec/ (regenerar: harness_graph.py --proyecto .)")
-            if prev:
-                try:
-                    prev_state = json.loads(prev)
-                    for k in sorted(set(prev_state) | set(state)):
-                        # Comparacion canonica: json.loads convierte las claves
-                        # int a str, un '!=' directo reportaria campos iguales
-                        # (p. ej. gate_status) como distintos.
-                        a = json.dumps(prev_state.get(k), ensure_ascii=False, sort_keys=True)
-                        b = json.dumps(state.get(k), ensure_ascii=False, sort_keys=True)
-                        if a != b:
-                            print(f"  campo distinto: {k}")
-                except (ValueError, TypeError):
-                    pass
             sys.exit(1)
         print("DASHBOARD CHECK OK: spec/dashboard.html al día con el proyecto.")
         sys.exit(0)

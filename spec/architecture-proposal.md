@@ -4,6 +4,9 @@
 La iniciativa busca construir una aplicación web tipo Top Trumps con aves de Colombia para demostrar el arnés SDLC. El sistema debe ser jugable en navegador, barato de operar, fácil de desplegar en demo y mantener TDD estricto.
 
 ## Opción A: FastAPI + React SPA
+
+Diagrama vivo: [diagrams/contenedores.ir.json](diagrams/contenedores.ir.json).
+
 - **Backend**: Python + FastAPI + Pydantic + SQLite.
 - **Frontend**: React + TypeScript + Vite + TailwindCSS.
 - **Tests**: pytest, Vitest, Playwright + Cucumber.
@@ -13,6 +16,9 @@ La iniciativa busca construir una aplicación web tipo Top Trumps con aves de Co
 - **Contras**: dos repositorios de build, más dependencias.
 
 ## Opción B: Django + HTMX + templates
+
+Diagrama vivo: [diagrams/opcion-b-django-htmx.ir.json](diagrams/opcion-b-django-htmx.ir.json).
+
 - **Backend**: Python + Django + templates server-side.
 - **Frontend**: HTMX + Alpine.js + TailwindCSS.
 - **Tests**: pytest, Playwright.
@@ -22,6 +28,9 @@ La iniciativa busca construir una aplicación web tipo Top Trumps con aves de Co
 - **Contras**: menos separación frontend/backend, contrato API menos explícito para demostrar API-first.
 
 ## Opción C: Next.js full-stack (Vercel)
+
+Diagrama vivo: [diagrams/opcion-c-nextjs.ir.json](diagrams/opcion-c-nextjs.ir.json).
+
 - **Full-stack**: Next.js + TypeScript + Prisma + SQLite/Postgres.
 - **Tests**: Vitest, Playwright.
 - **CI/CD**: Vercel + GitHub Actions.

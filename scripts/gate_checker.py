@@ -24,7 +24,7 @@ CHECKS = {
     "user-stories": [r"HU-\d+", r"[Ee]scenario", r"[Dd]ado", r"[Cc]uando", r"[Ee]ntonces", r"épica"],
     "ux-flows": ["loading", "empty", "error", "success"],
     "design-system": ["color", "tipografía|tipografia|typography", "espaciado|spacing", "componentes"],
-    "architecture": [r"mermaid", r"requisitos no funcionales|NFR", r"componentes"],
+    "architecture": [r"requisitos no funcionales|NFR", r"componentes"],
     "api-contract": ["openapi:", "paths:", "components:"],
     "test-plan": [r"HU-\d+", r"unit|unitario", r"E2E", r"cobertura"],
     "threat-model": [r"S.*T.*R.*I.*D.*E|Spoofing", r"Mitigación|mitigacion", r"Riesgo|riesgo"],
@@ -241,7 +241,137 @@ def check_screens_refs(inventory_path, stories_path):
     return [f"HU citada en {inventory_path} sin definir en user-stories: {', '.join(unknown)}"] if unknown else []
 
 
+def _find_diagram_ir():
+    """Importa diagram_ir: primero de la skill hermana sdlc-diagrams (instalación
+    completa), luego del mismo directorio (vendoring plano en el proyecto)."""
+    import importlib.util
+    here = os.path.dirname(os.path.abspath(__file__))
+    for p in (os.path.join(here, "..", "..", "sdlc-diagrams", "scripts", "diagram_ir.py"),
+              os.path.join(here, "diagram_ir.py")):
+        if os.path.isfile(p):
+            spec = importlib.util.spec_from_file_location("diagram_ir", p)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            return mod
+    return None
+
+
+def _resolve_ir(ref, artefacto):
+    """Resuelve una referencia `diagrams/x.ir.json`: primero como ruta de spec/
+    del proyecto, luego relativa al propio artefacto (plantillas del arnés)."""
+    ref = ref.replace("\\", "/").lstrip("/")
+    cand = resolve_spec_path("spec/" + ref, artefacto) if not ref.startswith("spec/") \
+        else resolve_spec_path(ref, artefacto)
+    if cand:
+        return cand
+    rel = ref[len("spec/"):] if ref.startswith("spec/") else ref
+    local = os.path.join(os.path.dirname(os.path.abspath(artefacto)), rel)
+    return local if os.path.exists(local) else None
+
+
+def check_architecture_diagrams(artefacto):
+    """N6 (v2.21): la arquitectura exige diagramas IR vivos, no texto libre.
+
+    - Al menos un IR referenciado (`diagrams/*.ir.json`).
+    - Cada IR referenciado existe y pasa `diagram_ir.validate`.
+    - Si el proyecto ya gobierna con recibos (existe spec/receipts), cada IR
+      debe tener recibo VIGENTE con hash coincidente — un diagrama editado
+      sin re-aprobar bloquea el gate.
+    """
+    import hashlib, json
+    text = open(artefacto, encoding="utf-8").read()
+    refs = sorted(set(m.replace("\\", "/") for m in
+                      re.findall(r"(?:spec/)?diagrams/[\w.\-]+\.ir\.json", text)))
+    if not refs:
+        return ["Sin diagrama IR referenciado — la arquitectura exige al menos un "
+                "diagrama vivo `diagrams/<nombre>.ir.json` (skill sdlc-diagrams); "
+                "un bloque mermaid suelto ya no cumple el gate"]
+    failures = []
+    mod = _find_diagram_ir()
+    receipts = resolve_spec_path("spec/receipts", artefacto)
+    for ref in refs:
+        path = _resolve_ir(ref, artefacto)
+        if not path:
+            failures.append(f"IR referenciado no existe: {ref}")
+            continue
+        if mod is None:
+            failures.append("diagram_ir.py no encontrado junto a las skills — "
+                            "no se puede validar " + ref)
+        else:
+            try:
+                errs = mod.validate_ir(mod.load_ir(path))
+            except Exception as e:
+                errs = [f"no se pudo leer/validar: {e}"]
+            if errs:
+                failures.append(f"{ref} no pasa diagram_ir validate: {'; '.join(errs[:3])}")
+        if receipts:
+            base = os.path.basename(path)
+            rp = os.path.join(receipts, f"{base}.receipt.json")
+            if not os.path.isfile(rp):
+                failures.append(f"{ref} sin recibo — emitir con receipt.py antes de "
+                                "aprobar la arquitectura")
+                continue
+            try:
+                rec = json.load(open(rp, encoding="utf-8"))
+            except json.JSONDecodeError:
+                failures.append(f"recibo de {ref} corrupto — re-emitir")
+                continue
+            if rec.get("estado") != "vigente":
+                failures.append(f"recibo de {ref} en estado '{rec.get('estado')}' — re-emitir")
+            elif rec.get("sha256") != hashlib.sha256(open(path, "rb").read()).hexdigest():
+                failures.append(f"{ref} cambió tras su recibo (hash no coincide) — "
+                                "el diagrama fue editado sin re-aprobar")
+    return failures
+
+
+def check_proposal_diagrams(artefacto):
+    """N6 (v2.21): cada opción de la propuesta exige su diagrama IR referenciado."""
+    text = open(artefacto, encoding="utf-8").read()
+    failures = []
+    for m in re.finditer(r"(#{2,4}\s*\**[Oo]pci[oó]n\s+([A-Z])\b.*?)(?=\n#{2,4}\s|\Z)",
+                         text, re.DOTALL):
+        body, letra = m.group(1), m.group(2)
+        if not re.search(r"(?:spec/)?diagrams/[\w.\-]+\.ir\.json", body):
+            failures.append(f"Opción {letra} sin diagrama IR referenciado — cada opción "
+                            "de la propuesta exige su `diagrams/*.ir.json` "
+                            "(comparar sin ver no es comparar)")
+    return failures
+
+
+def check_contract_compat(artefacto):
+    """N10 (v2.21): si el contrato tiene versión previa en git y cambió, la
+    compatibilidad debe pasar — un breaking change sin bump mayor bloquea el gate.
+    Sin versión previa (primer commit del contrato) no hay nada que comparar."""
+    try:
+        import contract_diff as cd
+    except ImportError:
+        return ["contract_diff.py no encontrado junto a gate_checker.py"]
+    old_text = cd.git_show_head(artefacto)
+    if old_text is None:
+        return []
+    new_text = open(artefacto, encoding="utf-8").read()
+    if old_text == new_text:
+        return []
+    try:
+        old, new = cd.load_spec(old_text, "contrato anterior"), cd.load_spec(new_text)
+    except SystemExit:
+        return ["No se pudo verificar la compatibilidad del contrato "
+                "(PyYAML ausente o YAML inválido) — correr contract_diff.py a mano"]
+    breaking, _ = cd.diff_specs(old, new)
+    if not breaking:
+        return []
+    mo, mn = cd.major_of(old), cd.major_of(new)
+    if mo is not None and mn is not None and mn > mo:
+        return []
+    return [f"Contrato con {len(breaking)} breaking change(s) y versión mayor sin "
+            f"subir ({mo or '?'} → {mn or '?'}): {breaking[0]}"
+            + (" …" if len(breaking) > 1 else "")
+            + " — declarar el bump en info.version o revertir (contract_diff.py)"]
+
+
 def main():
+
+
     ap = argparse.ArgumentParser()
     ap.add_argument("artefacto")
     ap.add_argument("--tipo", required=True, choices=sorted(CHECKS))
@@ -271,6 +401,12 @@ def main():
         semantic += check_screens_refs(a.artefacto, resolve_spec_path("spec/user-stories.md", a.artefacto))
     if a.tipo == "sprint-review":
         semantic += check_sprint_learning(a.artefacto)
+    if a.tipo == "architecture":
+        semantic += check_architecture_diagrams(a.artefacto)
+    if a.tipo == "architecture-proposal":
+        semantic += check_proposal_diagrams(a.artefacto)
+    if a.tipo == "api-contract":
+        semantic += check_contract_compat(a.artefacto)
     if missing or semantic:
         print(f"GATE NO PASADO ({a.tipo}):")
         for m in missing: print(f"  - patrón no encontrado: {m}")

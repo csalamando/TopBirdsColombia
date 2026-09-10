@@ -5,6 +5,8 @@ Aplicación web desacoplada en frontend y backend, con contrato OpenAPI como int
 
 ## Componentes (C4 Container)
 
+Diagrama vivo: [diagrams/contenedores.ir.json](diagrams/contenedores.ir.json) (interactivo: `diagrams/contenedores.html`). Vista de datos: [diagrams/flujo-datos.ir.json](diagrams/flujo-datos.ir.json). Resolución de ronda: [diagrams/secuencia-ronda.ir.json](diagrams/secuencia-ronda.ir.json).
+
 ```mermaid
 graph LR
     U[Usuario / Navegador] --> FE[Frontend React SPA]
@@ -39,6 +41,8 @@ graph LR
 - **Usabilidad**: responsive, estados loading/empty/error explícitos.
 
 ## Diagrama de despliegue (demo)
+
+Diagrama vivo: [diagrams/despliegue.ir.json](diagrams/despliegue.ir.json) (interactivo: `diagrams/despliegue.html`).
 
 ```mermaid
 graph LR

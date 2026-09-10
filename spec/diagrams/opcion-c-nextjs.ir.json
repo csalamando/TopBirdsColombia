@@ -1,0 +1,24 @@
+{
+  "titulo": "Opción C — Next.js full-stack (Vercel)",
+  "tema": "oscuro",
+  "kind": "flow",
+  "grupos": {
+    "cliente": "Jugador",
+    "app": "Aplicación full-stack",
+    "datos": "Datos"
+  },
+  "nodos": [
+    {"id": "jugador", "titulo": "Jugador", "sub": "navegador web", "tipo": "ui", "grupo": "cliente", "ubicacion": "on-premise"},
+    {"id": "next", "titulo": "Next.js (SSR + Route Handlers)", "sub": "React Server Components + API routes", "tipo": "service", "grupo": "app", "ubicacion": "Vercel"},
+    {"id": "db", "titulo": "Postgres gestionada", "sub": "Vercel Postgres / Neon (demo)", "tipo": "db", "grupo": "datos", "ubicacion": "Vercel"},
+    {"id": "dataset", "titulo": "Dataset de aves", "sub": "fuentes abiertas (seed)", "tipo": "source", "grupo": "datos", "ubicacion": "local"}
+  ],
+  "aristas": [
+    {"desde": "jugador", "hasta": "next", "label": "SSR + fetch a route handlers"},
+    {"desde": "next", "hasta": "db", "label": "SQL (driver serverless)"},
+    {"desde": "dataset", "hasta": "db", "label": "seed idempotente"}
+  ],
+  "insights": [
+    {"titulo": "Acopla al PaaS", "bullets": ["Despliegue y datos quedan atados a Vercel; menos control sobre el pipeline demo y mayor costo de salida."]}
+  ]
+}

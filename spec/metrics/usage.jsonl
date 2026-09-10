@@ -129,3 +129,8 @@
 {"ts": "2026-09-08T21:39:47", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T22:07:31", "tipo": "use", "skill": "orchestrator", "fase": "?", "modo": "", "auto": "receipt"}
 {"ts": "2026-09-08T22:30:54", "tipo": "use", "skill": "product-owner", "fase": "?", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-09T20:24:58", "tipo": "use", "skill": "solution-architect", "fase": "0", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-09T20:24:58", "tipo": "use", "skill": "software-architect", "fase": "3", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-09T20:25:43", "tipo": "use", "skill": "solution-architect", "fase": "0", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-09T20:25:43", "tipo": "use", "skill": "solution-architect", "fase": "0", "modo": "", "auto": "receipt"}
+{"ts": "2026-09-09T20:25:43", "tipo": "use", "skill": "qa-automation", "fase": "5", "modo": "", "auto": "receipt"}
