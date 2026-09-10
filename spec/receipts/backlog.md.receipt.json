@@ -1,10 +1,10 @@
 {
   "artefacto": "D:\\AI Projects\\TopBirdsColombia\\spec\\backlog.md",
-  "sha256": "60fbf6fc56b2150c6547574350ba60168119978636f0ec32019beafa4ee5d37e",
+  "sha256": "3573a50def87f3914ae6e90844604689d22374e61618944a5892be4b90b06c38",
   "gate": "GATE 1",
   "tipo": "backlog",
   "rol": "product-owner",
-  "emitido": "2026-09-09T21:04:50",
+  "emitido": "2026-09-09T21:19:29",
   "estado": "vigente",
   "approved_by": "Carlos Salamando",
   "deps": {
